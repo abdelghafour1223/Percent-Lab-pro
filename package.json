@@ -1,0 +1,51 @@
+{
+  "name": "percentlab",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "postbuild": "next-sitemap",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest",
+    "test:e2e": "playwright test",
+    "generate:pseo": "tsx lib/scripts/generate-pseo-pages.ts"
+  },
+  "dependencies": {
+    "next": "^15.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zod": "^3.23.8",
+    "framer-motion": "^11.5.4",
+    "next-themes": "^0.3.0",
+    "lucide-react": "^0.441.0",
+    "@radix-ui/react-accordion": "^1.2.1",
+    "@radix-ui/react-dropdown-menu": "^2.1.2",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-tabs": "^1.1.1",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.5.3",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.6.3",
+    "tailwindcss": "^3.4.13",
+    "postcss": "^8.4.47",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.12.0",
+    "eslint-config-next": "^15.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
+    "next-sitemap": "^4.2.3",
+    "@playwright/test": "^1.48.0",
+    "jest": "^29.7.0",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/jest-dom": "^6.5.0",
+    "tsx": "^4.19.1"
+  }
+}
