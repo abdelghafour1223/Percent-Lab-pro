@@ -1,16 +1,17 @@
 #!/usr/bin/env ts-node
 
 /**
- * Generate sitemap.xml from data/calculators.ts manifest
- * This script reads the calculator data and creates a sitemap with proper lastmod dates
+ * Generate sitemap.xml from data/calculators.ts and data/blog.ts manifests
+ * This script reads the calculator and blog data and creates a sitemap with proper lastmod dates
  *
- * Usage: npm run generate-sitemap
+ * Usage: npm run generate:sitemap
  * Or: npx ts-node scripts/generate-sitemap.ts
  */
 
 import fs from 'fs';
 import path from 'path';
 import { CATEGORIES } from '../data/calculators';
+import { BLOG_CATEGORIES } from '../data/blog';
 
 const SITE_URL = process.env.SITE_URL || 'https://percentlab.app';
 
@@ -28,6 +29,7 @@ const staticPages: StaticPage[] = [
   { url: '/faq', changefreq: 'monthly', priority: 0.8 },
   { url: '/privacy-policy', changefreq: 'yearly', priority: 0.5 },
   { url: '/terms-of-use', changefreq: 'yearly', priority: 0.5 },
+  { url: '/blog', changefreq: 'weekly', priority: 0.9 },
 ];
 
 // Helper function to format date as YYYY-MM-DD
@@ -53,7 +55,7 @@ function generateSitemap(): string {
     xml += '  </url>\n';
   });
 
-  // Add category pages
+  // Add calculator category pages
   CATEGORIES.forEach(category => {
     xml += '  <url>\n';
     xml += `    <loc>${SITE_URL}/calculators/${category.id}</loc>\n`;
@@ -72,6 +74,15 @@ function generateSitemap(): string {
     });
   });
 
+  // Add blog category pages
+  BLOG_CATEGORIES.forEach(blogCategory => {
+    xml += '  <url>\n';
+    xml += `    <loc>${SITE_URL}/blog/${blogCategory.slug}</loc>\n`;
+    xml += '    <changefreq>weekly</changefreq>\n';
+    xml += '    <priority>0.8</priority>\n';
+    xml += '  </url>\n';
+  });
+
   xml += '</urlset>';
   return xml;
 }
@@ -79,7 +90,7 @@ function generateSitemap(): string {
 // Main execution
 function main() {
   try {
-    console.log('📄 Generating sitemap from data/calculators.ts...');
+    console.log('📄 Generating sitemap from data manifests...');
 
     // Generate sitemap XML
     const sitemapXml = generateSitemap();
@@ -89,7 +100,7 @@ function main() {
     fs.writeFileSync(outputPath, sitemapXml, 'utf8');
 
     const totalCalculators = CATEGORIES.reduce((acc, cat) => acc + cat.calculators.length, 0);
-    const totalUrls = staticPages.length + CATEGORIES.length + totalCalculators;
+    const totalUrls = staticPages.length + CATEGORIES.length + totalCalculators + BLOG_CATEGORIES.length;
 
     console.log('✅ Sitemap generated successfully!');
     console.log(`📍 Location: ${outputPath}`);
@@ -97,12 +108,18 @@ function main() {
     console.log('');
     console.log('Breakdown:');
     console.log(`  - Static pages: ${staticPages.length}`);
-    console.log(`  - Category pages: ${CATEGORIES.length}`);
+    console.log(`  - Calculator category pages: ${CATEGORIES.length}`);
     console.log(`  - Calculator pages: ${totalCalculators}`);
+    console.log(`  - Blog category pages: ${BLOG_CATEGORIES.length}`);
     console.log('');
-    console.log('Category breakdown:');
+    console.log('Calculator breakdown:');
     CATEGORIES.forEach(category => {
       console.log(`  - ${category.title}: ${category.calculators.length} calculator(s)`);
+    });
+    console.log('');
+    console.log('Blog categories:');
+    BLOG_CATEGORIES.forEach(category => {
+      console.log(`  - ${category.title}`);
     });
   } catch (error) {
     console.error('❌ Error generating sitemap:', error);
