@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ComparisonChart } from '@/components/percentage-chart';
-import { AdPlaceholder } from '@/components/adsense';
 import { explainPercentOf } from '@/lib/calculator';
 import { parseSlug, getRelatedCalculations, generatePSEOPages, formatSlug } from '@/lib/pseo';
 import { formatNumber } from '@/lib/utils';
@@ -39,18 +38,28 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `What is ${percent}% of ${number}? = ${formatNumber(result, 2)} | PercentLab`,
-    description: `Calculate ${percent}% of ${number}. The answer is ${formatNumber(result, 2)}. Learn the formula, see step-by-step calculations, and explore real-world examples.`,
+    description: `Calculate ${percent}% of ${number}. The answer is ${formatNumber(result, 2)}. Learn the formula, see step-by-step calculations, and explore real-world examples with our percentage calculator.`,
+    alternates: {
+      canonical: `https://percentlab.app/${slug}`,
+    },
     keywords: [
       `${percent} percent of ${number}`,
       `${percent}% of ${number}`,
       `calculate ${percent} percent`,
       'percentage calculator',
-      'percent of',
+      'percent of number',
+      'step-by-step calculation',
     ],
     openGraph: {
       title: `What is ${percent}% of ${number}? Answer: ${formatNumber(result, 2)}`,
       description: `Calculate ${percent}% of ${number} with detailed explanations and examples. Free percentage calculator.`,
       type: 'article',
+      url: `https://percentlab.app/${slug}`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `What is ${percent}% of ${number}? Answer: ${formatNumber(result, 2)}`,
+      description: `Calculate ${percent}% of ${number} with step-by-step explanations.`,
     },
   };
 }
@@ -155,8 +164,10 @@ export default async function PSEOPage({ params }: PageProps) {
           </CardContent>
         </Card>
 
-        {/* AdSense */}
-        <AdPlaceholder />
+        {/* Ad Slot */}
+        <div className="ad-slot my-8 min-h-[100px] flex items-center justify-center bg-muted/30 rounded-lg border border-dashed border-muted-foreground/20">
+          <span className="text-xs text-muted-foreground">Advertisement</span>
+        </div>
 
         {/* Real-Life Examples */}
         <Card className="mb-8">
