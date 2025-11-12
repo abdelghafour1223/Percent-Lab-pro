@@ -12,7 +12,8 @@ export function Header() {
   const pathname = usePathname();
 
   const navItems = [
-    { href: '/', label: 'Calculator' },
+    { href: '/', label: 'Home' },
+    { href: '/#categories', label: 'Calculators' },
     { href: '/faq', label: 'FAQ' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
@@ -63,7 +64,8 @@ function MobileNav() {
   const pathname = usePathname();
 
   const navItems = [
-    { href: '/', label: 'Calculator' },
+    { href: '/', label: 'Home' },
+    { href: '/#categories', label: 'Calculators' },
     { href: '/faq', label: 'FAQ' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },

@@ -10,7 +10,8 @@
     "lint": "next lint",
     "test": "jest",
     "test:e2e": "playwright test",
-    "generate:pseo": "tsx lib/scripts/generate-pseo-pages.ts"
+    "generate:pseo": "tsx lib/scripts/generate-pseo-pages.ts",
+    "generate:sitemap": "tsx scripts/generate-sitemap.ts"
   },
   "dependencies": {
     "next": "^15.0.3",
