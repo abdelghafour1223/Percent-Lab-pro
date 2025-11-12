@@ -15,16 +15,26 @@ export function Footer() {
           </div>
 
           <div className="col-span-1">
-            <h4 className="text-sm font-semibold mb-3">Tools</h4>
+            <h4 className="text-sm font-semibold mb-3">Calculators</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/" className="text-muted-foreground hover:text-primary transition-colors">
-                  Percentage Calculator
+                <Link href="/calculators/basic-percent" className="text-muted-foreground hover:text-primary transition-colors">
+                  Basic Percentages
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-muted-foreground hover:text-primary transition-colors">
-                  FAQ
+                <Link href="/calculators/finance" className="text-muted-foreground hover:text-primary transition-colors">
+                  Financial
+                </Link>
+              </li>
+              <li>
+                <Link href="/calculators/education" className="text-muted-foreground hover:text-primary transition-colors">
+                  Education
+                </Link>
+              </li>
+              <li>
+                <Link href="/calculators/daily" className="text-muted-foreground hover:text-primary transition-colors">
+                  Daily Use
                 </Link>
               </li>
             </ul>
@@ -36,6 +46,11 @@ export function Footer() {
               <li>
                 <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">
                   About
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-muted-foreground hover:text-primary transition-colors">
+                  FAQ
                 </Link>
               </li>
               <li>
