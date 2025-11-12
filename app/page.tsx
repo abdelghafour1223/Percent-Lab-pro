@@ -52,30 +52,30 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }}
       />
 
-      <div className="container px-4 md:px-6 py-8 md:py-12 max-w-7xl mx-auto">
+      <div className="container px-4 md:px-6 py-6 md:py-8 lg:py-12 max-w-7xl mx-auto">
         {/* Hero Section */}
-        <section className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
+        <section className="text-center mb-12 md:mb-16">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 px-2">
             Percentage Calculators for Every Need
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 md:mb-8 px-4 leading-relaxed">
             Choose from our collection of specialized percentage calculators. Get instant results with detailed step-by-step explanations and real-world examples.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button asChild size="lg">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4 sm:px-0">
+            <Button asChild size="lg" className="min-h-[48px] text-base font-semibold">
               <Link href="#categories">
                 Browse Categories <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg" className="min-h-[48px] text-base font-semibold">
               <Link href="/about">Learn More</Link>
             </Button>
           </div>
         </section>
 
         {/* Features */}
-        <section className="mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <section className="mb-12 md:mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
             <Card>
               <CardContent className="pt-6">
                 <div className="flex flex-col items-center text-center space-y-3">
@@ -121,9 +121,9 @@ export default function HomePage() {
         </section>
 
         {/* Categories Overview */}
-        <section id="categories" className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-8">Calculator Categories</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <section id="categories" className="mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 md:mb-8 px-4">Calculator Categories</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
             {CATEGORIES.map((category) => {
               const IconComponent = iconMap[category.icon as keyof typeof iconMap] || Calculator;
               return (
@@ -133,16 +133,16 @@ export default function HomePage() {
                       <div className="p-2 bg-primary/10 rounded-lg">
                         <IconComponent className="h-5 w-5 text-primary" />
                       </div>
-                      <CardTitle className="text-lg">{category.title}</CardTitle>
+                      <CardTitle className="text-base sm:text-lg">{category.title}</CardTitle>
                     </div>
-                    <CardDescription>{category.description}</CardDescription>
+                    <CardDescription className="text-sm leading-relaxed">{category.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-3">
                       <div className="text-sm text-muted-foreground">
                         <strong>{category.calculators.length}</strong> calculator{category.calculators.length !== 1 ? 's' : ''} available
                       </div>
-                      <Button asChild className="w-full">
+                      <Button asChild className="w-full min-h-[44px] text-base sm:text-sm font-semibold">
                         <Link href={`/calculators/${category.id}`}>
                           View Calculators <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
@@ -161,9 +161,9 @@ export default function HomePage() {
         </section>
 
         {/* Featured Calculators */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-8">Featured Calculators</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <section className="mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 md:mb-8 px-4">Featured Calculators</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
             {featuredCalculators.map((calculator) => {
               const category = CATEGORIES.find(cat =>
                 cat.calculators.some(calc => calc.slug === calculator.slug)
@@ -171,17 +171,17 @@ export default function HomePage() {
               return (
                 <Card key={calculator.slug} className="hover:shadow-lg transition-shadow">
                   <CardHeader>
-                    <CardTitle>{calculator.title}</CardTitle>
-                    <CardDescription>{calculator.description}</CardDescription>
+                    <CardTitle className="text-lg sm:text-xl">{calculator.title}</CardTitle>
+                    <CardDescription className="text-sm leading-relaxed">{calculator.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
                       <div className="bg-muted/50 p-3 rounded-lg">
-                        <div className="text-sm font-mono text-muted-foreground">
+                        <div className="text-xs sm:text-sm font-mono text-muted-foreground break-words">
                           {calculator.formula}
                         </div>
                       </div>
-                      <Button asChild className="w-full">
+                      <Button asChild className="w-full min-h-[44px] text-base sm:text-sm font-semibold">
                         <Link href={`/calculators/${category?.id}/${calculator.slug}`}>
                           Use Calculator <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
@@ -200,17 +200,17 @@ export default function HomePage() {
         </div>
 
         {/* Blog CTA */}
-        <section className="mb-16">
+        <section className="mb-12 md:mb-16">
           <Card className="bg-primary/5 border-primary/20">
-            <CardContent className="pt-6">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <CardContent className="pt-6 pb-6">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-5 md:gap-6 px-2 md:px-0">
                 <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-2xl font-bold mb-2">Learn More About Percentages</h3>
-                  <p className="text-muted-foreground">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-2">Learn More About Percentages</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                     Explore our comprehensive guides, tutorials, and articles to master percentage calculations for real-world applications.
                   </p>
                 </div>
-                <Button asChild size="lg" variant="default">
+                <Button asChild size="lg" variant="default" className="min-h-[48px] text-base font-semibold w-full md:w-auto md:shrink-0">
                   <Link href="/blog">
                     Read Our Blog <BookOpen className="ml-2 h-4 w-4" />
                   </Link>
@@ -221,14 +221,14 @@ export default function HomePage() {
         </section>
 
         {/* Why Choose PercentLab */}
-        <section className="mb-16 max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-8">Why Choose PercentLab?</h2>
-          <div className="prose prose-gray dark:prose-invert max-w-none">
-            <p className="text-lg text-muted-foreground text-center mb-8">
+        <section className="mb-12 md:mb-16 max-w-4xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 md:mb-8 px-4">Why Choose PercentLab?</h2>
+          <div className="prose prose-gray dark:prose-invert max-w-none px-4">
+            <p className="text-base sm:text-lg text-muted-foreground text-center mb-6 md:mb-8 leading-relaxed">
               PercentLab is your comprehensive suite of percentage calculators, designed to handle every calculation scenario you encounter in daily life, work, or study.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 not-prose">
               <Card>
                 <CardContent className="pt-6">
                   <h3 className="font-semibold mb-3">For Students</h3>
