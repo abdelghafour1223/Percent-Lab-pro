@@ -14,6 +14,7 @@ export function Header() {
   const navItems = [
     { href: '/', label: 'Home' },
     { href: '/#categories', label: 'Calculators' },
+    { href: '/blog', label: 'Blog' },
     { href: '/faq', label: 'FAQ' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
@@ -66,6 +67,7 @@ function MobileNav() {
   const navItems = [
     { href: '/', label: 'Home' },
     { href: '/#categories', label: 'Calculators' },
+    { href: '/blog', label: 'Blog' },
     { href: '/faq', label: 'FAQ' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },

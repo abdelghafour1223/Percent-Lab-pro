@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import {
   Accordion,
   AccordionContent,
@@ -225,6 +226,27 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
             </div>
           </section>
         )}
+
+        {/* Learning Hub CTA */}
+        <section className="mb-12 max-w-4xl mx-auto">
+          <Card className="bg-primary/5 border-primary/20">
+            <CardContent className="pt-6 pb-6">
+              <div className="text-center">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2">
+                  Want to improve your percentage skills?
+                </h3>
+                <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
+                  Visit our Learning Hub for tutorials and in-depth guides on percentage calculations.
+                </p>
+                <Button asChild size="lg" className="min-h-[48px] text-base font-semibold">
+                  <Link href="/blog">
+                    Visit Learning Hub <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
 
         {/* Last Updated */}
         <div className="text-center text-sm text-muted-foreground">

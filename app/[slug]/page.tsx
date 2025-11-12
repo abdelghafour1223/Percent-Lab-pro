@@ -243,6 +243,50 @@ export default async function PSEOPage({ params }: PageProps) {
           </Card>
         )}
 
+        {/* Suggested Guides */}
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle>Suggested Guides (Coming Soon)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <Link
+                href="/blog/percentage-basics"
+                className="flex flex-col p-4 rounded-lg border hover:bg-accent transition-colors group"
+              >
+                <h4 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                  Percentage Basics
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Master fundamental percentage calculations
+                </p>
+              </Link>
+              <Link
+                href="/blog/finance"
+                className="flex flex-col p-4 rounded-lg border hover:bg-accent transition-colors group"
+              >
+                <h4 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                  Finance & Money
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Learn financial percentage applications
+                </p>
+              </Link>
+              <Link
+                href="/blog/education"
+                className="flex flex-col p-4 rounded-lg border hover:bg-accent transition-colors group"
+              >
+                <h4 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                  Education & Grades
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Understand grade calculations
+                </p>
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* CTA */}
         <Card>
           <CardContent className="pt-6 text-center">
