@@ -1,12 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Calculator as CalculatorType } from '@/data/calculators';
 import { Copy, Check } from 'lucide-react';
+import { ROIChart } from '@/components/charts/roi-chart';
+import { DiscountChart } from '@/components/charts/discount-chart';
 
 interface CalculatorFormProps {
   calculator: CalculatorType;
@@ -203,8 +205,10 @@ export function CalculatorForm({ calculator, categoryId }: CalculatorFormProps) 
     }
 
     return fields.map(field => (
-      <div key={field.name} className="space-y-2">
-        <Label htmlFor={field.name}>{field.label}</Label>
+      <div key={field.name} className="space-y-2.5 md:space-y-2">
+        <Label htmlFor={field.name} className="text-base md:text-sm font-medium">
+          {field.label}
+        </Label>
         <Input
           id={field.name}
           type="number"
@@ -212,28 +216,32 @@ export function CalculatorForm({ calculator, categoryId }: CalculatorFormProps) 
           placeholder={field.placeholder}
           value={inputs[field.name] || ''}
           onChange={(e) => handleInputChange(field.name, e.target.value)}
-          className={errors[field.name] ? 'border-destructive' : ''}
+          className={`min-h-[48px] md:min-h-[40px] text-base ${errors[field.name] ? 'border-destructive' : ''}`}
         />
         {errors[field.name] && (
-          <p className="text-sm text-destructive">{errors[field.name]}</p>
+          <p className="text-sm md:text-xs text-destructive font-medium">{errors[field.name]}</p>
         )}
       </div>
     ));
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-4xl mx-auto space-y-6 md:space-y-8">
       {/* Input Form */}
       <Card>
         <CardHeader>
-          <CardTitle>Calculate</CardTitle>
+          <CardTitle className="text-xl md:text-2xl">Calculate</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {renderFormFields()}
             </div>
-            <Button onClick={calculateResult} className="w-full" size="lg">
+            <Button
+              onClick={calculateResult}
+              className="w-full min-h-[48px] md:min-h-[44px] text-base md:text-sm font-semibold"
+              size="lg"
+            >
               Calculate
             </Button>
           </div>
@@ -245,13 +253,13 @@ export function CalculatorForm({ calculator, categoryId }: CalculatorFormProps) 
         <>
           <Card className="border-primary/50">
             <CardHeader>
-              <CardTitle className="flex items-center justify-between">
-                Result
+              <CardTitle className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xl md:text-2xl">
+                <span>Result</span>
                 <Button
                   variant="outline"
-                  size="sm"
+                  size="default"
                   onClick={handleCopy}
-                  className="gap-2"
+                  className="gap-2 min-h-[44px] w-full sm:w-auto text-base sm:text-sm"
                 >
                   {copied ? (
                     <>
@@ -266,12 +274,12 @@ export function CalculatorForm({ calculator, categoryId }: CalculatorFormProps) 
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-center">
-                <div className="text-6xl md:text-7xl font-bold text-primary mb-4">
+              <div className="text-center px-2 md:px-0">
+                <div className="text-5xl sm:text-6xl md:text-7xl font-bold text-primary mb-4 break-words">
                   {result.result.toFixed(2)}
                   {calculator.slug === 'roi' || calculator.slug === 'grade-percentage' ? '%' : ''}
                 </div>
-                <div className="text-sm text-muted-foreground font-mono">
+                <div className="text-sm md:text-base text-muted-foreground font-mono break-words px-2">
                   {result.formula}
                 </div>
               </div>
@@ -281,32 +289,49 @@ export function CalculatorForm({ calculator, categoryId }: CalculatorFormProps) 
           {/* Step-by-Step Explanation */}
           <Card>
             <CardHeader>
-              <CardTitle>Step-by-Step Explanation</CardTitle>
+              <CardTitle className="text-xl md:text-2xl">Step-by-Step Explanation</CardTitle>
             </CardHeader>
             <CardContent>
-              <ol className="space-y-3">
+              <ol className="space-y-4 md:space-y-3">
                 {result.steps.map((step, index) => (
-                  <li key={index} className="flex gap-3">
-                    <span className="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-sm font-semibold">
+                  <li key={index} className="flex gap-3 md:gap-4">
+                    <span className="flex-shrink-0 flex items-center justify-center w-7 h-7 md:w-6 md:h-6 rounded-full bg-primary/10 text-primary text-sm font-semibold mt-0.5">
                       {index + 1}
                     </span>
-                    <span className="text-muted-foreground pt-0.5">{step}</span>
+                    <span className="text-muted-foreground text-base md:text-sm leading-relaxed">{step}</span>
                   </li>
                 ))}
               </ol>
             </CardContent>
           </Card>
 
-          {/* Visualization (placeholder for Chart.js) */}
+          {/* Visualization with Chart.js */}
           {calculator.hasChart && (
             <Card>
               <CardHeader>
-                <CardTitle>Visualization</CardTitle>
+                <CardTitle className="text-xl md:text-2xl">Visualization</CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="bg-muted/30 rounded-lg p-8 text-center text-muted-foreground">
-                  Chart visualization coming soon (Chart.js integration)
-                </div>
+              <CardContent className="p-4 md:p-6">
+                <Suspense fallback={
+                  <div className="bg-muted/30 rounded-lg p-8 text-center text-muted-foreground">
+                    Loading chart...
+                  </div>
+                }>
+                  {calculator.slug === 'roi' && inputs.initialInvestment && inputs.finalValue && (
+                    <ROIChart
+                      initialInvestment={Number(inputs.initialInvestment)}
+                      finalValue={Number(inputs.finalValue)}
+                      roi={result.result}
+                    />
+                  )}
+                  {calculator.slug === 'discount' && inputs.originalPrice && inputs.discountPercent && (
+                    <DiscountChart
+                      originalPrice={Number(inputs.originalPrice)}
+                      discountPercent={Number(inputs.discountPercent)}
+                      finalPrice={result.result}
+                    />
+                  )}
+                </Suspense>
               </CardContent>
             </Card>
           )}
