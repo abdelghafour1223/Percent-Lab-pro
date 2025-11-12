@@ -105,26 +105,36 @@ function MobileNav() {
       </Button>
 
       {open && (
-        <div className="fixed inset-0 top-16 z-50 bg-background/95 backdrop-blur md:hidden">
-          <nav className="flex flex-col space-y-4 p-6">
-            {navItems.map((item) => {
-              const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className={cn(
-                    "text-lg font-medium transition-colors hover:text-primary",
-                    isActive && "text-primary font-bold"
-                  )}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
-        </div>
+        <>
+          {/* Backdrop overlay */}
+          <div
+            className="fixed inset-0 top-16 z-40 bg-black/50 backdrop-blur-sm md:hidden"
+            onClick={() => setOpen(false)}
+            aria-hidden="true"
+          />
+
+          {/* Mobile menu */}
+          <div className="fixed inset-x-0 top-16 z-50 bg-background border-b shadow-lg md:hidden">
+            <nav className="flex flex-col space-y-1 p-4 max-h-[calc(100vh-4rem)] overflow-y-auto">
+              {navItems.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className={cn(
+                      "text-base font-medium transition-colors hover:text-primary px-4 py-3 rounded-lg hover:bg-muted/50",
+                      isActive ? "text-primary font-bold bg-primary/10" : "text-foreground"
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+        </>
       )}
     </>
   );
