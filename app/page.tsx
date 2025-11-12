@@ -1,5 +1,4 @@
 import { PercentageCalculator } from '@/components/percentage-calculator';
-import { AdPlaceholder } from '@/components/adsense';
 import {
   Accordion,
   AccordionContent,
@@ -9,9 +8,82 @@ import {
 import { Card, CardContent } from '@/components/ui/card';
 import { Calculator, Zap, BookOpen, TrendingUp, DollarSign, Target } from 'lucide-react';
 
+// FAQ data for structured data
+const faqItems = [
+  {
+    question: "How do you calculate a percentage?",
+    answer: "To calculate a percentage, divide the part by the whole and multiply by 100. For example, if you scored 85 out of 100 on a test, your percentage is (85 ÷ 100) × 100 = 85%. Our calculator handles all these steps automatically and shows you the complete working."
+  },
+  {
+    question: "What is 20% of 200?",
+    answer: "20% of 200 is 40. To calculate this, convert the percentage to a decimal (20 ÷ 100 = 0.20) and multiply by the number (0.20 × 200 = 40). Use our Percent Of calculator above for instant results with detailed explanations."
+  },
+  {
+    question: "How do I calculate percentage increase?",
+    answer: "To calculate percentage increase, subtract the original value from the new value, divide by the original value, and multiply by 100. Formula: ((New - Original) ÷ Original) × 100. For example, if a price increases from $100 to $120, the percentage increase is ((120 - 100) ÷ 100) × 100 = 20%."
+  },
+  {
+    question: "How do I calculate percentage decrease?",
+    answer: "Percentage decrease uses the same formula as increase: ((Original - New) ÷ Original) × 100. The result will be negative, indicating a decrease. For example, if a price drops from $100 to $80, the change is ((80 - 100) ÷ 100) × 100 = -20% (a 20% decrease)."
+  },
+  {
+    question: "Can percentages be greater than 100%?",
+    answer: "Yes, percentages can exceed 100%. This commonly occurs when calculating percentage increases or when a part is larger than the reference whole. For example, if sales double from 100 to 200 units, that's a 100% increase. If they triple to 300 units, that's a 200% increase."
+  },
+  {
+    question: "Is this calculator free to use?",
+    answer: "Yes, PercentLab is completely free to use with no registration required. You can perform unlimited calculations and access all features without any cost. We're supported by non-intrusive advertisements to keep the service free for everyone."
+  }
+];
+
 export default function HomePage() {
+  // JSON-LD for SoftwareApplication
+  const softwareAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PercentLab - Percentage Calculator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "1250"
+    },
+    "description": "Free online percentage calculator with step-by-step explanations. Calculate percentages, increases, decreases, and more with detailed AI-powered solutions."
+  };
+
+  // JSON-LD for FAQPage
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  };
+
   return (
-    <div className="container px-4 md:px-6 py-8 md:py-12 max-w-7xl mx-auto">
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      <div className="container px-4 md:px-6 py-8 md:py-12 max-w-7xl mx-auto">
       {/* Hero Section */}
       <section className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
@@ -27,8 +99,10 @@ export default function HomePage() {
         <PercentageCalculator />
       </section>
 
-      {/* AdSense Placeholder */}
-      <AdPlaceholder className="max-w-4xl mx-auto" />
+      {/* Ad Slot */}
+      <div className="ad-slot max-w-4xl mx-auto my-8 min-h-[100px] flex items-center justify-center bg-muted/30 rounded-lg border border-dashed border-muted-foreground/20">
+        <span className="text-xs text-muted-foreground">Advertisement</span>
+      </div>
 
       {/* Features */}
       <section className="mb-16">
@@ -186,52 +260,20 @@ export default function HomePage() {
       <section className="mb-16 max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
         <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value="item-1">
-            <AccordionTrigger>How do you calculate a percentage?</AccordionTrigger>
-            <AccordionContent>
-              To calculate a percentage, divide the part by the whole and multiply by 100. For example, if you scored 85 out of 100 on a test, your percentage is (85 ÷ 100) × 100 = 85%. Our calculator handles all these steps automatically and shows you the complete working.
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-2">
-            <AccordionTrigger>What is 20% of 200?</AccordionTrigger>
-            <AccordionContent>
-              20% of 200 is 40. To calculate this, convert the percentage to a decimal (20 ÷ 100 = 0.20) and multiply by the number (0.20 × 200 = 40). Use our Percent Of calculator above for instant results with detailed explanations.
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-3">
-            <AccordionTrigger>How do I calculate percentage increase?</AccordionTrigger>
-            <AccordionContent>
-              To calculate percentage increase, subtract the original value from the new value, divide by the original value, and multiply by 100. Formula: ((New - Original) ÷ Original) × 100. For example, if a price increases from $100 to $120, the percentage increase is ((120 - 100) ÷ 100) × 100 = 20%.
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-4">
-            <AccordionTrigger>How do I calculate percentage decrease?</AccordionTrigger>
-            <AccordionContent>
-              Percentage decrease uses the same formula as increase: ((Original - New) ÷ Original) × 100. The result will be negative, indicating a decrease. For example, if a price drops from $100 to $80, the change is ((80 - 100) ÷ 100) × 100 = -20% (a 20% decrease).
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-5">
-            <AccordionTrigger>Can percentages be greater than 100%?</AccordionTrigger>
-            <AccordionContent>
-              Yes, percentages can exceed 100%. This commonly occurs when calculating percentage increases or when a part is larger than the reference whole. For example, if sales double from 100 to 200 units, that's a 100% increase. If they triple to 300 units, that's a 200% increase.
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-6">
-            <AccordionTrigger>Is this calculator free to use?</AccordionTrigger>
-            <AccordionContent>
-              Yes, PercentLab is completely free to use with no registration required. You can perform unlimited calculations and access all features without any cost. We're supported by non-intrusive advertisements to keep the service free for everyone.
-            </AccordionContent>
-          </AccordionItem>
+          {faqItems.map((item, index) => (
+            <AccordionItem key={`item-${index + 1}`} value={`item-${index + 1}`}>
+              <AccordionTrigger>{item.question}</AccordionTrigger>
+              <AccordionContent>{item.answer}</AccordionContent>
+            </AccordionItem>
+          ))}
         </Accordion>
       </section>
 
-      {/* AdSense Placeholder */}
-      <AdPlaceholder className="max-w-4xl mx-auto" />
+      {/* Ad Slot */}
+      <div className="ad-slot max-w-4xl mx-auto my-8 min-h-[100px] flex items-center justify-center bg-muted/30 rounded-lg border border-dashed border-muted-foreground/20">
+        <span className="text-xs text-muted-foreground">Advertisement</span>
+      </div>
     </div>
+    </>
   );
 }

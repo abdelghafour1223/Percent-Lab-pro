@@ -7,20 +7,25 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://percentlab.app'),
+  alternates: {
+    canonical: 'https://percentlab.app',
+  },
   title: {
     default: 'PercentLab - Free Online Percentage Calculator with Step-by-Step Solutions',
     template: '%s | PercentLab',
   },
   description:
-    'Free percentage calculator with detailed explanations. Calculate percentages, increases, decreases, and more. Fast, accurate, and easy to use with real-life examples.',
+    'Free online percentage calculator. Calculate percent of number, percentage increase, percentage decrease, and more with step-by-step explanations and real-life examples.',
   keywords: [
     'percentage calculator',
     'percent calculator',
+    'percent of number',
     'percentage increase',
     'percentage decrease',
     'calculate percentage',
     'percent of',
     'percentage change',
+    'step-by-step calculation',
     'online calculator',
   ],
   authors: [{ name: 'PercentLab' }],

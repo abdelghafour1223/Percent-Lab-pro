@@ -12,28 +12,69 @@ export function generatePSEOPages(): PSEOPage[] {
   const commonNumbers = [10, 20, 25, 30, 40, 50, 60, 75, 80, 90, 100, 150, 200, 250, 300, 400, 500, 1000];
   const commonPercentages = [5, 10, 15, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 100];
 
-  // Generate top combinations for initial launch (~20 pages)
+  // Generate top combinations for initial launch (~50 pages)
   const priorityCombinations = [
-    { percent: 10, number: 200 },
-    { percent: 20, number: 200 },
-    { percent: 20, number: 150 },
-    { percent: 25, number: 100 },
-    { percent: 30, number: 100 },
-    { percent: 50, number: 100 },
+    // High-traffic combinations with 100
+    { percent: 5, number: 100 },
     { percent: 10, number: 100 },
     { percent: 15, number: 100 },
     { percent: 20, number: 100 },
-    { percent: 10, number: 50 },
-    { percent: 20, number: 50 },
-    { percent: 25, number: 200 },
-    { percent: 30, number: 200 },
-    { percent: 50, number: 200 },
-    { percent: 10, number: 1000 },
-    { percent: 20, number: 1000 },
-    { percent: 5, number: 100 },
+    { percent: 25, number: 100 },
+    { percent: 30, number: 100 },
+    { percent: 40, number: 100 },
+    { percent: 50, number: 100 },
+    { percent: 60, number: 100 },
+    { percent: 70, number: 100 },
     { percent: 75, number: 100 },
     { percent: 80, number: 100 },
     { percent: 90, number: 100 },
+    { percent: 100, number: 100 },
+
+    // Popular with 200
+    { percent: 10, number: 200 },
+    { percent: 20, number: 200 },
+    { percent: 25, number: 200 },
+    { percent: 30, number: 200 },
+    { percent: 50, number: 200 },
+    { percent: 75, number: 200 },
+
+    // Common with 50
+    { percent: 10, number: 50 },
+    { percent: 20, number: 50 },
+    { percent: 25, number: 50 },
+    { percent: 30, number: 50 },
+    { percent: 50, number: 50 },
+    { percent: 75, number: 50 },
+
+    // Popular with 150
+    { percent: 10, number: 150 },
+    { percent: 20, number: 150 },
+    { percent: 25, number: 150 },
+    { percent: 50, number: 150 },
+
+    // Large numbers with common percentages
+    { percent: 5, number: 1000 },
+    { percent: 10, number: 1000 },
+    { percent: 15, number: 1000 },
+    { percent: 20, number: 1000 },
+    { percent: 25, number: 1000 },
+    { percent: 50, number: 1000 },
+
+    // Other common combinations
+    { percent: 10, number: 500 },
+    { percent: 20, number: 500 },
+    { percent: 25, number: 500 },
+    { percent: 15, number: 200 },
+    { percent: 40, number: 200 },
+    { percent: 10, number: 250 },
+    { percent: 20, number: 250 },
+    { percent: 25, number: 250 },
+    { percent: 10, number: 300 },
+    { percent: 20, number: 300 },
+    { percent: 25, number: 300 },
+    { percent: 50, number: 300 },
+    { percent: 10, number: 400 },
+    { percent: 20, number: 400 },
   ];
 
   for (const combo of priorityCombinations) {
