@@ -16,7 +16,7 @@ export function DiscountChart({ originalPrice, discountPercent, finalPrice }: Di
   const savingsPercent = discountPercent;
 
   const data = {
-    labels: ['Original Price', 'You Save', 'Final Price'],
+    labels: ['Original\nPrice', 'You\nSave', 'Final\nPrice'],
     datasets: [
       {
         label: 'Amount ($)',
@@ -32,14 +32,22 @@ export function DiscountChart({ originalPrice, discountPercent, finalPrice }: Di
           'rgba(59, 130, 246, 1)',
         ],
         borderWidth: 2,
+        borderRadius: 8,
       },
     ],
   };
 
   const options = {
     responsive: true,
-    maintainAspectRatio: true,
-    aspectRatio: 2,
+    maintainAspectRatio: false,
+    layout: {
+      padding: {
+        top: 20,
+        bottom: 20,
+        left: 10,
+        right: 10,
+      },
+    },
     plugins: {
       legend: {
         display: false,
@@ -51,12 +59,24 @@ export function DiscountChart({ originalPrice, discountPercent, finalPrice }: Di
           currency: 'USD',
         }).format(discountAmount)})`,
         font: {
-          size: 16,
+          size: 18,
           weight: 'bold' as const,
         },
         color: 'rgba(34, 197, 94, 1)',
+        padding: {
+          top: 10,
+          bottom: 20,
+        },
       },
       tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        padding: 12,
+        titleFont: {
+          size: 14,
+        },
+        bodyFont: {
+          size: 13,
+        },
         callbacks: {
           label: function(context: any) {
             let label = context.dataset.label || '';
@@ -78,10 +98,32 @@ export function DiscountChart({ originalPrice, discountPercent, finalPrice }: Di
       },
     },
     scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+        ticks: {
+          font: {
+            size: 11,
+          },
+          maxRotation: 0,
+          minRotation: 0,
+          autoSkip: false,
+        },
+      },
       y: {
         beginAtZero: true,
+        grid: {
+          color: 'rgba(0, 0, 0, 0.05)',
+        },
         ticks: {
+          font: {
+            size: 12,
+          },
           callback: function(value: any) {
+            if (value >= 1000) {
+              return '$' + (value / 1000).toFixed(1) + 'k';
+            }
             return '$' + value.toLocaleString();
           },
         },
@@ -90,7 +132,7 @@ export function DiscountChart({ originalPrice, discountPercent, finalPrice }: Di
   };
 
   return (
-    <div className="w-full h-full min-h-[300px] flex items-center justify-center p-4">
+    <div className="w-full" style={{ height: '400px', minHeight: '350px' }}>
       <Bar data={data} options={options} />
     </div>
   );
