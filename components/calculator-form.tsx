@@ -54,7 +54,8 @@ export function CalculatorForm({ calculator, categoryId }: CalculatorFormProps) 
       const value = inputs[key];
       if (value === '' || value === undefined) {
         newErrors[key] = 'This field is required';
-      } else if (isNaN(Number(value))) {
+      } else if (key !== 'grades' && key !== 'curveType' && isNaN(Number(value))) {
+        // Skip number validation for string fields
         newErrors[key] = 'Please enter a valid number';
       }
     });
@@ -67,9 +68,14 @@ export function CalculatorForm({ calculator, categoryId }: CalculatorFormProps) 
     if (!validateInputs()) return;
 
     const values = Object.entries(inputs).reduce((acc, [key, value]) => {
-      acc[key] = Number(value);
+      // Keep certain fields as strings (grades for class-average, curveType for grading-curve)
+      if (key === 'grades' || key === 'curveType') {
+        acc[key] = value as any;
+      } else {
+        acc[key] = Number(value);
+      }
       return acc;
-    }, {} as Record<string, number>);
+    }, {} as Record<string, any>);
 
     let calculationResult: CalculationResult;
 
@@ -118,6 +124,82 @@ export function CalculatorForm({ calculator, categoryId }: CalculatorFormProps) 
         break;
       case 'ratio-calculator':
         calculationResult = calculateRatio(values.valueA, values.valueB);
+        break;
+      // New Basic Percentage Calculators
+      case 'reverse-percentage':
+        calculationResult = calculateReversePercentage(values.finalValue, values.percentage, values.isIncrease === 1);
+        break;
+      case 'percentage-of-total':
+        calculationResult = calculatePercentageOfTotal(values.value, values.total);
+        break;
+      case 'fraction-to-percent':
+        calculationResult = calculateFractionToPercent(values.numerator, values.denominator);
+        break;
+      case 'percent-to-decimal':
+        calculationResult = calculatePercentToDecimal(values.percentage);
+        break;
+      case 'decimal-to-percent':
+        calculationResult = calculateDecimalToPercent(values.decimal);
+        break;
+      case 'percentage-calculator':
+        calculationResult = calculatePercentOf(values.percentage, values.number);
+        break;
+      // New Financial Calculators
+      case 'compound-interest':
+        calculationResult = calculateCompoundInterest(values.principal, values.rate, values.years, values.compounds);
+        break;
+      case 'loan-interest':
+        calculationResult = calculateLoanInterest(values.loanAmount, values.interestRate, values.loanTerm);
+        break;
+      case 'mortgage-calculator':
+        calculationResult = calculateMortgage(values.homePrice, values.downPayment, values.interestRate, values.loanTerm);
+        break;
+      case 'investment-return':
+        calculationResult = calculateInvestmentReturn(values.initialInvestment, values.finalValue, values.dividends || 0);
+        break;
+      case 'markup-percentage':
+        calculationResult = calculateMarkup(values.cost, values.sellingPrice);
+        break;
+      case 'commission-calculator':
+        calculationResult = calculateCommission(values.salesAmount, values.commissionRate);
+        break;
+      // New Education Calculators
+      case 'weighted-grade':
+        calculationResult = calculateWeightedGrade(values);
+        break;
+      case 'final-grade':
+        calculationResult = calculateFinalGrade(values.currentGrade, values.targetGrade, values.finalWeight);
+        break;
+      case 'grade-needed':
+        calculationResult = calculateGradeNeeded(values.currentAverage, values.targetAverage, values.assignmentsCompleted);
+        break;
+      case 'semester-gpa':
+        calculationResult = calculateSemesterGPA(values);
+        break;
+      case 'class-average':
+        calculationResult = calculateClassAverage(values.grades);
+        break;
+      case 'grading-curve':
+        calculationResult = calculateGradingCurve(values.originalGrade, values.curveType || 'square-root');
+        break;
+      // New Daily Use Calculators
+      case 'currency-converter':
+        calculationResult = calculateCurrencyPercentage(values.oldRate, values.newRate, values.amount || 1000);
+        break;
+      case 'compound-growth':
+        calculationResult = calculateCompoundGrowth(values.startingValue, values.endingValue, values.years);
+        break;
+      case 'loan-payment':
+        calculationResult = calculateDebtToIncome(values.monthlyIncome, values.loanPayment);
+        break;
+      case 'budget-percentage':
+        calculationResult = calculateBudgetPercentage(values.income, values.expense);
+        break;
+      case 'calorie-percentage':
+        calculationResult = calculateCaloriePercentage(values.totalCalories, values.macroCalories);
+        break;
+      case 'time-percentage':
+        calculationResult = calculateTimePercentage(values.totalTime, values.timeSpent);
         break;
       default:
         calculationResult = {
@@ -445,6 +527,423 @@ export function CalculatorForm({ calculator, categoryId }: CalculatorFormProps) 
     return 'F';
   };
 
+  // New Basic Percentage Calculation Functions
+  const calculateReversePercentage = (finalValue: number, percentage: number, isIncrease: boolean): CalculationResult => {
+    const multiplier = isIncrease ? (1 + percentage / 100) : (1 - percentage / 100);
+    if (multiplier === 0) {
+      return { result: 0, formula: 'Cannot divide by zero', steps: ['Invalid percentage for decrease'] };
+    }
+    const originalValue = finalValue / multiplier;
+    return {
+      result: originalValue,
+      formula: `${finalValue} ÷ ${multiplier.toFixed(4)} = ${originalValue.toFixed(2)}`,
+      steps: [
+        `Final value: $${finalValue}`,
+        `Percentage ${isIncrease ? 'increase' : 'decrease'}: ${percentage}%`,
+        `Multiplier: ${isIncrease ? '1 +' : '1 -'} ${percentage / 100} = ${multiplier.toFixed(4)}`,
+        `Original value = ${finalValue} ÷ ${multiplier.toFixed(4)} = $${originalValue.toFixed(2)}`
+      ]
+    };
+  };
+
+  const calculatePercentageOfTotal = (value: number, total: number): CalculationResult => {
+    if (total === 0) {
+      return { result: 0, formula: 'Cannot divide by zero', steps: ['Total cannot be zero'] };
+    }
+    const percentage = (value / total) * 100;
+    return {
+      result: percentage,
+      formula: `(${value} ÷ ${total}) × 100 = ${percentage.toFixed(2)}%`,
+      steps: [
+        `Value: ${value}`,
+        `Total: ${total}`,
+        `Percentage = (${value} ÷ ${total}) × 100`,
+        `Result: ${percentage.toFixed(2)}% of total`
+      ]
+    };
+  };
+
+  const calculateFractionToPercent = (numerator: number, denominator: number): CalculationResult => {
+    if (denominator === 0) {
+      return { result: 0, formula: 'Cannot divide by zero', steps: ['Denominator cannot be zero'] };
+    }
+    const decimal = numerator / denominator;
+    const percentage = decimal * 100;
+    return {
+      result: percentage,
+      formula: `(${numerator} ÷ ${denominator}) × 100 = ${percentage.toFixed(2)}%`,
+      steps: [
+        `Fraction: ${numerator}/${denominator}`,
+        `Divide: ${numerator} ÷ ${denominator} = ${decimal.toFixed(4)}`,
+        `Convert to percentage: ${decimal.toFixed(4)} × 100 = ${percentage.toFixed(2)}%`
+      ]
+    };
+  };
+
+  const calculatePercentToDecimal = (percentage: number): CalculationResult => {
+    const decimal = percentage / 100;
+    return {
+      result: decimal,
+      formula: `${percentage}% ÷ 100 = ${decimal.toFixed(4)}`,
+      steps: [
+        `Percentage: ${percentage}%`,
+        `Divide by 100: ${percentage} ÷ 100 = ${decimal.toFixed(4)}`,
+        `Result: ${decimal.toFixed(4)}`
+      ]
+    };
+  };
+
+  const calculateDecimalToPercent = (decimal: number): CalculationResult => {
+    const percentage = decimal * 100;
+    return {
+      result: percentage,
+      formula: `${decimal} × 100 = ${percentage.toFixed(2)}%`,
+      steps: [
+        `Decimal: ${decimal}`,
+        `Multiply by 100: ${decimal} × 100 = ${percentage.toFixed(2)}`,
+        `Result: ${percentage.toFixed(2)}%`
+      ]
+    };
+  };
+
+  // New Financial Calculation Functions
+  const calculateCompoundInterest = (principal: number, rate: number, years: number, compounds: number): CalculationResult => {
+    const r = rate / 100;
+    const amount = principal * Math.pow(1 + r / compounds, compounds * years);
+    const interest = amount - principal;
+    return {
+      result: amount,
+      formula: `A = ${principal}(1 + ${r.toFixed(4)}/${compounds})^(${compounds}×${years}) = $${amount.toFixed(2)}`,
+      steps: [
+        `Principal: $${principal}`,
+        `Annual rate: ${rate}%`,
+        `Years: ${years}`,
+        `Compounds per year: ${compounds}`,
+        `Final amount = ${principal} × (1 + ${(r / compounds).toFixed(6)})^${compounds * years}`,
+        `Final amount: $${amount.toFixed(2)}`,
+        `Interest earned: $${interest.toFixed(2)}`
+      ]
+    };
+  };
+
+  const calculateLoanInterest = (loanAmount: number, interestRate: number, loanTerm: number): CalculationResult => {
+    const monthlyRate = interestRate / 100 / 12;
+    const numPayments = loanTerm * 12;
+    const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+    const totalPaid = monthlyPayment * numPayments;
+    const totalInterest = totalPaid - loanAmount;
+    return {
+      result: monthlyPayment,
+      formula: `Monthly Payment: $${monthlyPayment.toFixed(2)}`,
+      steps: [
+        `Loan amount: $${loanAmount}`,
+        `Annual rate: ${interestRate}%`,
+        `Loan term: ${loanTerm} years`,
+        `Monthly payment: $${monthlyPayment.toFixed(2)}`,
+        `Total paid: $${totalPaid.toFixed(2)}`,
+        `Total interest: $${totalInterest.toFixed(2)}`
+      ]
+    };
+  };
+
+  const calculateMortgage = (homePrice: number, downPayment: number, interestRate: number, loanTerm: number): CalculationResult => {
+    const loanAmount = homePrice - downPayment;
+    const monthlyRate = interestRate / 100 / 12;
+    const numPayments = loanTerm * 12;
+    const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+    const totalPaid = monthlyPayment * numPayments;
+    const totalInterest = totalPaid - loanAmount;
+    return {
+      result: monthlyPayment,
+      formula: `Monthly Payment: $${monthlyPayment.toFixed(2)}`,
+      steps: [
+        `Home price: $${homePrice.toLocaleString()}`,
+        `Down payment: $${downPayment.toLocaleString()}`,
+        `Loan amount: $${loanAmount.toLocaleString()}`,
+        `Interest rate: ${interestRate}%`,
+        `Loan term: ${loanTerm} years`,
+        `Monthly payment: $${monthlyPayment.toFixed(2)}`,
+        `Total interest: $${totalInterest.toLocaleString()}`
+      ]
+    };
+  };
+
+  const calculateInvestmentReturn = (initialInvestment: number, finalValue: number, dividends: number): CalculationResult => {
+    const totalReturn = ((finalValue - initialInvestment + dividends) / initialInvestment) * 100;
+    return {
+      result: totalReturn,
+      formula: `((${finalValue} - ${initialInvestment} + ${dividends}) ÷ ${initialInvestment}) × 100 = ${totalReturn.toFixed(2)}%`,
+      steps: [
+        `Initial investment: $${initialInvestment}`,
+        `Final value: $${finalValue}`,
+        `Dividends: $${dividends}`,
+        `Total gain: $${(finalValue - initialInvestment + dividends).toFixed(2)}`,
+        `Total return: ${totalReturn.toFixed(2)}%`
+      ]
+    };
+  };
+
+  const calculateMarkup = (cost: number, sellingPrice: number): CalculationResult => {
+    if (cost === 0) {
+      return { result: 0, formula: 'Cannot divide by zero', steps: ['Cost cannot be zero'] };
+    }
+    const profit = sellingPrice - cost;
+    const markup = (profit / cost) * 100;
+    const profitMargin = (profit / sellingPrice) * 100;
+    return {
+      result: markup,
+      formula: `((${sellingPrice} - ${cost}) ÷ ${cost}) × 100 = ${markup.toFixed(2)}%`,
+      steps: [
+        `Cost: $${cost}`,
+        `Selling price: $${sellingPrice}`,
+        `Profit: $${profit.toFixed(2)}`,
+        `Markup: ${markup.toFixed(2)}%`,
+        `Profit margin: ${profitMargin.toFixed(2)}%`
+      ]
+    };
+  };
+
+  const calculateCommission = (salesAmount: number, commissionRate: number): CalculationResult => {
+    const commission = salesAmount * (commissionRate / 100);
+    const netProfit = salesAmount - commission;
+    return {
+      result: commission,
+      formula: `${salesAmount} × ${commissionRate}% = $${commission.toFixed(2)}`,
+      steps: [
+        `Sales amount: $${salesAmount}`,
+        `Commission rate: ${commissionRate}%`,
+        `Commission: $${commission.toFixed(2)}`,
+        `Net after commission: $${netProfit.toFixed(2)}`
+      ]
+    };
+  };
+
+  // New Education Calculation Functions
+  const calculateWeightedGrade = (values: Record<string, number>): CalculationResult => {
+    const homework = values.homework || 0;
+    const homeworkWeight = values.homeworkWeight || 30;
+    const tests = values.tests || 0;
+    const testsWeight = values.testsWeight || 40;
+    const final = values.final || 0;
+    const finalWeight = values.finalWeight || 30;
+
+    const weightedGrade = (homework * homeworkWeight + tests * testsWeight + final * finalWeight) / (homeworkWeight + testsWeight + finalWeight);
+    return {
+      result: weightedGrade,
+      formula: `Weighted Grade = ${weightedGrade.toFixed(2)}%`,
+      steps: [
+        `Homework: ${homework}% (weight: ${homeworkWeight}%)`,
+        `Tests: ${tests}% (weight: ${testsWeight}%)`,
+        `Final: ${final}% (weight: ${finalWeight}%)`,
+        `Weighted grade = (${homework}×${homeworkWeight} + ${tests}×${testsWeight} + ${final}×${finalWeight}) ÷ 100`,
+        `Result: ${weightedGrade.toFixed(2)}%`
+      ]
+    };
+  };
+
+  const calculateFinalGrade = (currentGrade: number, targetGrade: number, finalWeight: number): CalculationResult => {
+    const requiredFinal = (targetGrade - currentGrade * (1 - finalWeight / 100)) / (finalWeight / 100);
+    return {
+      result: requiredFinal,
+      formula: `Required Final = (${targetGrade} - ${currentGrade} × ${1 - finalWeight / 100}) ÷ ${finalWeight / 100} = ${requiredFinal.toFixed(2)}%`,
+      steps: [
+        `Current grade: ${currentGrade}%`,
+        `Target grade: ${targetGrade}%`,
+        `Final exam weight: ${finalWeight}%`,
+        `Required score on final: ${requiredFinal.toFixed(2)}%`,
+        requiredFinal > 100 ? 'Note: This target is not achievable without extra credit' : `You need ${requiredFinal.toFixed(2)}% on the final exam`
+      ]
+    };
+  };
+
+  const calculateGradeNeeded = (currentAverage: number, targetAverage: number, assignmentsCompleted: number): CalculationResult => {
+    const gradeNeeded = targetAverage * (assignmentsCompleted + 1) - currentAverage * assignmentsCompleted;
+    return {
+      result: gradeNeeded,
+      formula: `Grade Needed = ${targetAverage} × ${assignmentsCompleted + 1} - ${currentAverage} × ${assignmentsCompleted} = ${gradeNeeded.toFixed(2)}%`,
+      steps: [
+        `Current average: ${currentAverage}%`,
+        `Target average: ${targetAverage}%`,
+        `Assignments completed: ${assignmentsCompleted}`,
+        `Grade needed on next assignment: ${gradeNeeded.toFixed(2)}%`,
+        gradeNeeded > 100 ? 'Note: This score may not be achievable' : `You need ${gradeNeeded.toFixed(2)}% on your next assignment`
+      ]
+    };
+  };
+
+  const calculateSemesterGPA = (values: Record<string, number>): CalculationResult => {
+    const gradePoints = values.gradePoints || 0;
+    const creditHours = values.creditHours || 0;
+    const gpa = gradePoints;
+    return {
+      result: gpa,
+      formula: `GPA = ${gpa.toFixed(2)}`,
+      steps: [
+        `Grade points: ${gradePoints}`,
+        `Credit hours: ${creditHours}`,
+        `Semester GPA: ${gpa.toFixed(2)}`
+      ]
+    };
+  };
+
+  const calculateClassAverage = (gradesStr: string): CalculationResult => {
+    const grades = gradesStr.toString().split(',').map(g => parseFloat(g.trim())).filter(g => !isNaN(g));
+    if (grades.length === 0) {
+      return { result: 0, formula: 'No valid grades', steps: ['Please enter comma-separated grades'] };
+    }
+    const sum = grades.reduce((a, b) => a + b, 0);
+    const average = sum / grades.length;
+    const sortedGrades = [...grades].sort((a, b) => a - b);
+    const median = sortedGrades.length % 2 === 0
+      ? (sortedGrades[sortedGrades.length / 2 - 1] + sortedGrades[sortedGrades.length / 2]) / 2
+      : sortedGrades[Math.floor(sortedGrades.length / 2)];
+
+    return {
+      result: average,
+      formula: `Average = ${sum.toFixed(2)} ÷ ${grades.length} = ${average.toFixed(2)}%`,
+      steps: [
+        `Grades: ${grades.join(', ')}`,
+        `Number of students: ${grades.length}`,
+        `Total: ${sum.toFixed(2)}`,
+        `Average (mean): ${average.toFixed(2)}%`,
+        `Median: ${median.toFixed(2)}%`,
+        `Highest: ${Math.max(...grades).toFixed(2)}%`,
+        `Lowest: ${Math.min(...grades).toFixed(2)}%`
+      ]
+    };
+  };
+
+  const calculateGradingCurve = (originalGrade: number, curveType: string): CalculationResult => {
+    let curvedGrade = originalGrade;
+    let explanation = '';
+
+    if (curveType === 'square-root') {
+      curvedGrade = Math.sqrt(originalGrade * 100);
+      explanation = `√(${originalGrade} × 100) = √${originalGrade * 100} = ${curvedGrade.toFixed(2)}%`;
+    } else if (curveType === 'flat') {
+      const boost = 10;
+      curvedGrade = originalGrade + boost;
+      explanation = `${originalGrade} + ${boost} points = ${curvedGrade.toFixed(2)}%`;
+    }
+
+    return {
+      result: curvedGrade,
+      formula: explanation,
+      steps: [
+        `Original grade: ${originalGrade}%`,
+        `Curve type: ${curveType}`,
+        `Curved grade: ${curvedGrade.toFixed(2)}%`,
+        `Improvement: +${(curvedGrade - originalGrade).toFixed(2)} points`
+      ]
+    };
+  };
+
+  // New Daily Use Calculation Functions
+  const calculateCurrencyPercentage = (oldRate: number, newRate: number, amount: number): CalculationResult => {
+    if (oldRate === 0) {
+      return { result: 0, formula: 'Cannot divide by zero', steps: ['Old rate cannot be zero'] };
+    }
+    const changePercent = ((newRate - oldRate) / oldRate) * 100;
+    const converted = amount * newRate;
+    return {
+      result: changePercent,
+      formula: `((${newRate} - ${oldRate}) ÷ ${oldRate}) × 100 = ${changePercent.toFixed(2)}%`,
+      steps: [
+        `Old exchange rate: ${oldRate}`,
+        `New exchange rate: ${newRate}`,
+        `Percentage change: ${changePercent.toFixed(2)}%`,
+        `$${amount} converts to ${converted.toFixed(2)} units`
+      ]
+    };
+  };
+
+  const calculateCompoundGrowth = (startingValue: number, endingValue: number, years: number): CalculationResult => {
+    if (startingValue === 0 || years === 0) {
+      return { result: 0, formula: 'Invalid input', steps: ['Starting value and years must be greater than zero'] };
+    }
+    const cagr = (Math.pow(endingValue / startingValue, 1 / years) - 1) * 100;
+    return {
+      result: cagr,
+      formula: `CAGR = ((${endingValue} ÷ ${startingValue})^(1/${years}) - 1) × 100 = ${cagr.toFixed(2)}%`,
+      steps: [
+        `Starting value: $${startingValue}`,
+        `Ending value: $${endingValue}`,
+        `Years: ${years}`,
+        `Growth ratio: ${(endingValue / startingValue).toFixed(4)}`,
+        `CAGR: ${cagr.toFixed(2)}%`
+      ]
+    };
+  };
+
+  const calculateDebtToIncome = (monthlyIncome: number, loanPayment: number): CalculationResult => {
+    if (monthlyIncome === 0) {
+      return { result: 0, formula: 'Cannot divide by zero', steps: ['Monthly income cannot be zero'] };
+    }
+    const dti = (loanPayment / monthlyIncome) * 100;
+    return {
+      result: dti,
+      formula: `(${loanPayment} ÷ ${monthlyIncome}) × 100 = ${dti.toFixed(2)}%`,
+      steps: [
+        `Monthly income: $${monthlyIncome}`,
+        `Loan payment: $${loanPayment}`,
+        `Debt-to-income ratio: ${dti.toFixed(2)}%`,
+        dti < 36 ? 'Excellent DTI ratio!' : dti < 43 ? 'Acceptable DTI ratio' : 'High DTI ratio - consider reducing debt'
+      ]
+    };
+  };
+
+  const calculateBudgetPercentage = (income: number, expense: number): CalculationResult => {
+    if (income === 0) {
+      return { result: 0, formula: 'Cannot divide by zero', steps: ['Income cannot be zero'] };
+    }
+    const percentage = (expense / income) * 100;
+    return {
+      result: percentage,
+      formula: `(${expense} ÷ ${income}) × 100 = ${percentage.toFixed(2)}%`,
+      steps: [
+        `Total income: $${income}`,
+        `Expense: $${expense}`,
+        `Percentage of budget: ${percentage.toFixed(2)}%`,
+        `Remaining budget: $${(income - expense).toFixed(2)} (${(100 - percentage).toFixed(2)}%)`
+      ]
+    };
+  };
+
+  const calculateCaloriePercentage = (totalCalories: number, macroCalories: number): CalculationResult => {
+    if (totalCalories === 0) {
+      return { result: 0, formula: 'Cannot divide by zero', steps: ['Total calories cannot be zero'] };
+    }
+    const percentage = (macroCalories / totalCalories) * 100;
+    return {
+      result: percentage,
+      formula: `(${macroCalories} ÷ ${totalCalories}) × 100 = ${percentage.toFixed(2)}%`,
+      steps: [
+        `Total calories: ${totalCalories}`,
+        `Macro calories: ${macroCalories}`,
+        `Percentage: ${percentage.toFixed(2)}%`
+      ]
+    };
+  };
+
+  const calculateTimePercentage = (totalTime: number, timeSpent: number): CalculationResult => {
+    if (totalTime === 0) {
+      return { result: 0, formula: 'Cannot divide by zero', steps: ['Total time cannot be zero'] };
+    }
+    const percentElapsed = (timeSpent / totalTime) * 100;
+    const percentRemaining = 100 - percentElapsed;
+    return {
+      result: percentElapsed,
+      formula: `(${timeSpent} ÷ ${totalTime}) × 100 = ${percentElapsed.toFixed(2)}%`,
+      steps: [
+        `Total time: ${totalTime} hours`,
+        `Time spent: ${timeSpent} hours`,
+        `Percent elapsed: ${percentElapsed.toFixed(2)}%`,
+        `Percent remaining: ${percentRemaining.toFixed(2)}%`,
+        `Time remaining: ${(totalTime - timeSpent).toFixed(2)} hours`
+      ]
+    };
+  };
+
   const renderFormFields = () => {
     const fields: { name: string; label: string; placeholder: string }[] = [];
 
@@ -540,6 +1039,166 @@ export function CalculatorForm({ calculator, categoryId }: CalculatorFormProps) 
           { name: 'valueB', label: 'Value B', placeholder: 'e.g., 6' }
         );
         break;
+      // New Basic Percentage Calculators
+      case 'reverse-percentage':
+        fields.push(
+          { name: 'finalValue', label: 'Final Value', placeholder: 'e.g., 120' },
+          { name: 'percentage', label: 'Percentage (%)', placeholder: 'e.g., 20' },
+          { name: 'isIncrease', label: 'Is Increase? (1=Yes, 0=No)', placeholder: '1 or 0' }
+        );
+        break;
+      case 'percentage-of-total':
+        fields.push(
+          { name: 'value', label: 'Value', placeholder: 'e.g., 30' },
+          { name: 'total', label: 'Total', placeholder: 'e.g., 100' }
+        );
+        break;
+      case 'fraction-to-percent':
+        fields.push(
+          { name: 'numerator', label: 'Numerator', placeholder: 'e.g., 3' },
+          { name: 'denominator', label: 'Denominator', placeholder: 'e.g., 4' }
+        );
+        break;
+      case 'percent-to-decimal':
+        fields.push(
+          { name: 'percentage', label: 'Percentage (%)', placeholder: 'e.g., 75' }
+        );
+        break;
+      case 'decimal-to-percent':
+        fields.push(
+          { name: 'decimal', label: 'Decimal', placeholder: 'e.g., 0.85' }
+        );
+        break;
+      case 'percentage-calculator':
+        fields.push(
+          { name: 'percentage', label: 'Percentage (%)', placeholder: 'e.g., 50' },
+          { name: 'number', label: 'Number', placeholder: 'e.g., 100' }
+        );
+        break;
+      // New Financial Calculators
+      case 'compound-interest':
+        fields.push(
+          { name: 'principal', label: 'Principal ($)', placeholder: 'e.g., 10000' },
+          { name: 'rate', label: 'Annual Interest Rate (%)', placeholder: 'e.g., 5' },
+          { name: 'years', label: 'Years', placeholder: 'e.g., 10' },
+          { name: 'compounds', label: 'Compounds per Year', placeholder: 'e.g., 12' }
+        );
+        break;
+      case 'loan-interest':
+        fields.push(
+          { name: 'loanAmount', label: 'Loan Amount ($)', placeholder: 'e.g., 20000' },
+          { name: 'interestRate', label: 'Annual Interest Rate (%)', placeholder: 'e.g., 6' },
+          { name: 'loanTerm', label: 'Loan Term (Years)', placeholder: 'e.g., 5' }
+        );
+        break;
+      case 'mortgage-calculator':
+        fields.push(
+          { name: 'homePrice', label: 'Home Price ($)', placeholder: 'e.g., 300000' },
+          { name: 'downPayment', label: 'Down Payment ($)', placeholder: 'e.g., 60000' },
+          { name: 'interestRate', label: 'Annual Interest Rate (%)', placeholder: 'e.g., 4.5' },
+          { name: 'loanTerm', label: 'Loan Term (Years)', placeholder: 'e.g., 30' }
+        );
+        break;
+      case 'investment-return':
+        fields.push(
+          { name: 'initialInvestment', label: 'Initial Investment ($)', placeholder: 'e.g., 10000' },
+          { name: 'finalValue', label: 'Final Value ($)', placeholder: 'e.g., 12500' },
+          { name: 'dividends', label: 'Dividends ($)', placeholder: 'e.g., 500' }
+        );
+        break;
+      case 'markup-percentage':
+        fields.push(
+          { name: 'cost', label: 'Cost ($)', placeholder: 'e.g., 50' },
+          { name: 'sellingPrice', label: 'Selling Price ($)', placeholder: 'e.g., 75' }
+        );
+        break;
+      case 'commission-calculator':
+        fields.push(
+          { name: 'salesAmount', label: 'Sales Amount ($)', placeholder: 'e.g., 50000' },
+          { name: 'commissionRate', label: 'Commission Rate (%)', placeholder: 'e.g., 5' }
+        );
+        break;
+      // New Education Calculators
+      case 'weighted-grade':
+        fields.push(
+          { name: 'homework', label: 'Homework Grade (%)', placeholder: 'e.g., 85' },
+          { name: 'homeworkWeight', label: 'Homework Weight (%)', placeholder: 'e.g., 30' },
+          { name: 'tests', label: 'Tests Grade (%)', placeholder: 'e.g., 78' },
+          { name: 'testsWeight', label: 'Tests Weight (%)', placeholder: 'e.g., 40' },
+          { name: 'final', label: 'Final Grade (%)', placeholder: 'e.g., 92' },
+          { name: 'finalWeight', label: 'Final Weight (%)', placeholder: 'e.g., 30' }
+        );
+        break;
+      case 'final-grade':
+        fields.push(
+          { name: 'currentGrade', label: 'Current Grade (%)', placeholder: 'e.g., 85' },
+          { name: 'targetGrade', label: 'Target Grade (%)', placeholder: 'e.g., 90' },
+          { name: 'finalWeight', label: 'Final Exam Weight (%)', placeholder: 'e.g., 30' }
+        );
+        break;
+      case 'grade-needed':
+        fields.push(
+          { name: 'currentAverage', label: 'Current Average (%)', placeholder: 'e.g., 82' },
+          { name: 'targetAverage', label: 'Target Average (%)', placeholder: 'e.g., 85' },
+          { name: 'assignmentsCompleted', label: 'Assignments Completed', placeholder: 'e.g., 5' }
+        );
+        break;
+      case 'semester-gpa':
+        fields.push(
+          { name: 'gradePoints', label: 'Grade Points (4.0 Scale)', placeholder: 'e.g., 3.5' },
+          { name: 'creditHours', label: 'Credit Hours', placeholder: 'e.g., 15' }
+        );
+        break;
+      case 'class-average':
+        fields.push(
+          { name: 'grades', label: 'Student Grades (comma-separated)', placeholder: 'e.g., 85, 90, 78, 92, 88' }
+        );
+        break;
+      case 'grading-curve':
+        fields.push(
+          { name: 'originalGrade', label: 'Original Grade (%)', placeholder: 'e.g., 64' },
+          { name: 'curveType', label: 'Curve Type (square-root or flat)', placeholder: 'square-root' }
+        );
+        break;
+      // New Daily Use Calculators
+      case 'currency-converter':
+        fields.push(
+          { name: 'oldRate', label: 'Old Exchange Rate', placeholder: 'e.g., 1.20' },
+          { name: 'newRate', label: 'New Exchange Rate', placeholder: 'e.g., 1.25' },
+          { name: 'amount', label: 'Amount to Convert', placeholder: 'e.g., 1000' }
+        );
+        break;
+      case 'compound-growth':
+        fields.push(
+          { name: 'startingValue', label: 'Starting Value ($)', placeholder: 'e.g., 10000' },
+          { name: 'endingValue', label: 'Ending Value ($)', placeholder: 'e.g., 15000' },
+          { name: 'years', label: 'Years', placeholder: 'e.g., 5' }
+        );
+        break;
+      case 'loan-payment':
+        fields.push(
+          { name: 'monthlyIncome', label: 'Monthly Income ($)', placeholder: 'e.g., 5000' },
+          { name: 'loanPayment', label: 'Loan Payment ($)', placeholder: 'e.g., 1200' }
+        );
+        break;
+      case 'budget-percentage':
+        fields.push(
+          { name: 'income', label: 'Total Income ($)', placeholder: 'e.g., 5000' },
+          { name: 'expense', label: 'Expense ($)', placeholder: 'e.g., 1500' }
+        );
+        break;
+      case 'calorie-percentage':
+        fields.push(
+          { name: 'totalCalories', label: 'Total Daily Calories', placeholder: 'e.g., 2000' },
+          { name: 'macroCalories', label: 'Macro Calories', placeholder: 'e.g., 600' }
+        );
+        break;
+      case 'time-percentage':
+        fields.push(
+          { name: 'totalTime', label: 'Total Time (hours)', placeholder: 'e.g., 8' },
+          { name: 'timeSpent', label: 'Time Spent (hours)', placeholder: 'e.g., 3' }
+        );
+        break;
     }
 
     return fields.map(field => (
@@ -549,8 +1208,8 @@ export function CalculatorForm({ calculator, categoryId }: CalculatorFormProps) 
         </Label>
         <Input
           id={field.name}
-          type="number"
-          step="any"
+          type={field.name === 'grades' || field.name === 'curveType' ? 'text' : 'number'}
+          step={field.name === 'grades' || field.name === 'curveType' ? undefined : 'any'}
           placeholder={field.placeholder}
           value={inputs[field.name] || ''}
           onChange={(e) => handleInputChange(field.name, e.target.value)}

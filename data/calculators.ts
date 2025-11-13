@@ -201,15 +201,195 @@ export const CATEGORIES: Category[] = [
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
       },
+      {
+        slug: 'reverse-percentage',
+        title: 'Reverse Percentage Calculator',
+        description: 'Find the original value before a percentage increase or decrease. Perfect for finding pre-discount prices and original amounts.',
+        formula: 'Original Value = Final Value / (1 + Percentage/100) or Final Value / (1 - Percentage/100)',
+        example: {
+          finalValue: 120,
+          percentage: 20,
+          originalValue: 100,
+        },
+        seo: {
+          title: 'Reverse Percentage Calculator - Find Original Value | PercentLab',
+          description: 'Free reverse percentage calculator. Find the original value before a percentage increase or decrease. Calculate pre-discount prices and original amounts instantly.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate reverse percentage?',
+            a: 'For an increase: divide the final value by (1 + percentage/100). For a decrease: divide by (1 - percentage/100). Example: If $120 is after a 20% increase, original = 120 / 1.20 = $100.',
+          },
+          {
+            q: 'What was the original price before a 25% discount?',
+            a: 'Divide the sale price by (1 - 0.25). If sale price is $75: $75 / 0.75 = $100 original price.',
+          },
+          {
+            q: 'How do I find the value before tax was added?',
+            a: 'Divide the total by (1 + tax rate). For $108 with 8% tax: $108 / 1.08 = $100 before tax.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'percentage-of-total',
+        title: 'Percentage of Total Calculator',
+        description: 'Calculate what percentage each value represents of the total. Perfect for budget breakdowns and data analysis.',
+        formula: 'Percentage = (Individual Value / Total) × 100',
+        example: {
+          value1: 30,
+          value2: 70,
+          total: 100,
+          percent1: 30,
+          percent2: 70,
+        },
+        seo: {
+          title: 'Percentage of Total Calculator - Calculate % Distribution | PercentLab',
+          description: 'Free percentage of total calculator. Find what percentage each value represents of the whole. Perfect for budget analysis and data distribution.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate percentage of total?',
+            a: 'Divide each value by the total, then multiply by 100. For example, if you spent $300 out of $1000: (300 / 1000) × 100 = 30% of your budget.',
+          },
+          {
+            q: 'How do I find what percent of total sales each product represents?',
+            a: 'Divide each product\'s sales by total sales, then multiply by 100. If Product A sold $5000 out of $20000 total: (5000 / 20000) × 100 = 25%.',
+          },
+          {
+            q: 'Do all percentages of total add up to 100%?',
+            a: 'Yes, when you calculate the percentage each part represents of the total, they should sum to 100% (allowing for rounding).',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'fraction-to-percent',
+        title: 'Fraction to Percent Calculator',
+        description: 'Convert fractions to percentages instantly. Enter numerator and denominator to get the percentage equivalent.',
+        formula: 'Percentage = (Numerator / Denominator) × 100',
+        example: {
+          numerator: 3,
+          denominator: 4,
+          percentage: 75,
+        },
+        seo: {
+          title: 'Fraction to Percent Calculator - Convert Fractions | PercentLab',
+          description: 'Free fraction to percent calculator. Convert any fraction to percentage instantly. Enter numerator and denominator for quick conversion.',
+        },
+        faq: [
+          {
+            q: 'How do I convert a fraction to percent?',
+            a: 'Divide the numerator by the denominator, then multiply by 100. For example, 3/4 = 0.75 × 100 = 75%.',
+          },
+          {
+            q: 'What is 1/2 as a percentage?',
+            a: '1/2 = 0.5 × 100 = 50%',
+          },
+          {
+            q: 'How do I convert mixed fractions to percent?',
+            a: 'First convert the mixed fraction to an improper fraction, then divide and multiply by 100. For example, 1 1/4 = 5/4 = 1.25 × 100 = 125%.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'percent-to-decimal',
+        title: 'Percent to Decimal Calculator',
+        description: 'Convert percentages to decimals instantly. Essential for mathematical calculations and programming.',
+        formula: 'Decimal = Percentage / 100',
+        example: {
+          percentage: 75,
+          decimal: 0.75,
+        },
+        seo: {
+          title: 'Percent to Decimal Calculator - Quick Conversion | PercentLab',
+          description: 'Free percent to decimal calculator. Convert any percentage to decimal form instantly. Perfect for math, programming, and calculations.',
+        },
+        faq: [
+          {
+            q: 'How do I convert percent to decimal?',
+            a: 'Divide the percentage by 100. For example, 75% = 75 / 100 = 0.75.',
+          },
+          {
+            q: 'What is 25% as a decimal?',
+            a: '25% = 25 / 100 = 0.25',
+          },
+          {
+            q: 'Why do we divide by 100 to convert percent to decimal?',
+            a: 'Because "percent" means "per hundred". So 75% literally means 75 per 100, which equals 0.75 in decimal form.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'decimal-to-percent',
+        title: 'Decimal to Percent Calculator',
+        description: 'Convert decimals to percentages instantly. Enter any decimal to get the percentage equivalent.',
+        formula: 'Percentage = Decimal × 100',
+        example: {
+          decimal: 0.85,
+          percentage: 85,
+        },
+        seo: {
+          title: 'Decimal to Percent Calculator - Quick Conversion | PercentLab',
+          description: 'Free decimal to percent calculator. Convert any decimal to percentage form instantly. Perfect for statistics and data analysis.',
+        },
+        faq: [
+          {
+            q: 'How do I convert decimal to percent?',
+            a: 'Multiply the decimal by 100. For example, 0.85 × 100 = 85%.',
+          },
+          {
+            q: 'What is 0.5 as a percentage?',
+            a: '0.5 × 100 = 50%',
+          },
+          {
+            q: 'Can decimals greater than 1 be converted to percent?',
+            a: 'Yes! Decimals greater than 1 convert to percentages over 100%. For example, 1.5 × 100 = 150%.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'percentage-calculator',
+        title: 'General Percentage Calculator',
+        description: 'All-in-one percentage calculator. Calculate any percentage operation including increase, decrease, difference, and more.',
+        formula: 'Multiple formulas depending on calculation type',
+        example: {
+          operation: 'calculate',
+          value1: 50,
+          value2: 100,
+          result: 50,
+        },
+        seo: {
+          title: 'Percentage Calculator - All-in-One % Tool | PercentLab',
+          description: 'Free comprehensive percentage calculator. Perform any percentage calculation with our all-in-one tool. Increase, decrease, difference, and more.',
+        },
+        faq: [
+          {
+            q: 'What percentage calculations can this handle?',
+            a: 'This calculator handles all basic percentage operations: finding X% of Y, percentage increase/decrease, percentage difference, reverse percentages, and converting between fractions, decimals, and percentages.',
+          },
+          {
+            q: 'How is this different from other percentage calculators?',
+            a: 'This is an all-in-one tool that combines multiple percentage calculators in one interface. Choose your operation and get instant results.',
+          },
+          {
+            q: 'Which percentage formula should I use?',
+            a: 'It depends on your need: Use "X% of Y" for basic percentage calculations, "percentage increase/decrease" for changes over time, "percentage difference" for comparing two values, and "reverse percentage" to find original values.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
     ],
-    comingSoon: [
-      'reverse-percentage',
-      'percentage-of-total',
-      'fraction-to-percent',
-      'percent-to-decimal',
-      'decimal-to-percent',
-      'percentage-calculator'
-    ],
+    comingSoon: [],
   },
   {
     id: 'finance',
@@ -351,15 +531,236 @@ export const CATEGORIES: Category[] = [
         hasChart: true,
         schemaType: 'HowTo',
       },
+      {
+        slug: 'compound-interest',
+        title: 'Compound Interest Calculator',
+        description: 'Calculate compound interest with different compounding frequencies. See how your investment grows over time with detailed breakdown.',
+        formula: 'A = P(1 + r/n)^(nt) where A=final amount, P=principal, r=rate, n=compounds per year, t=years',
+        example: {
+          principal: 10000,
+          rate: 5,
+          years: 10,
+          compounds: 12,
+          finalAmount: 16470.09,
+          interest: 6470.09,
+        },
+        seo: {
+          title: 'Compound Interest Calculator - Investment Growth Calculator | PercentLab',
+          description: 'Free compound interest calculator. Calculate investment growth with different compounding frequencies. See detailed breakdown of compound interest over time.',
+        },
+        faq: [
+          {
+            q: 'How does compound interest work?',
+            a: 'Compound interest is interest calculated on the initial principal plus all accumulated interest from previous periods. It grows faster than simple interest because you earn "interest on interest".',
+          },
+          {
+            q: 'What is the difference between annual and monthly compounding?',
+            a: 'Monthly compounding calculates interest 12 times per year, while annual compounding calculates once per year. More frequent compounding results in higher returns. For example, $10,000 at 5% for 10 years: monthly = $16,470, annual = $16,289.',
+          },
+          {
+            q: 'How do I calculate compound interest?',
+            a: 'Use the formula A = P(1 + r/n)^(nt). For $10,000 at 5% annually for 10 years: A = 10,000(1 + 0.05/1)^(1×10) = $16,289. Interest earned = $16,289 - $10,000 = $6,289.',
+          },
+          {
+            q: 'What compounding frequency is best?',
+            a: 'More frequent compounding yields higher returns. From best to worst: daily, monthly, quarterly, semi-annually, annually. However, the difference between daily and monthly is usually minimal.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        hasChart: true,
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'loan-interest',
+        title: 'Loan Interest Calculator',
+        description: 'Calculate total loan interest, monthly payments, and payoff schedule. Perfect for personal loans, auto loans, and student loans.',
+        formula: 'Monthly Payment = P[r(1+r)^n]/[(1+r)^n-1] where P=principal, r=monthly rate, n=number of payments',
+        example: {
+          loanAmount: 20000,
+          interestRate: 6,
+          loanTerm: 5,
+          monthlyPayment: 386.66,
+          totalInterest: 3199.60,
+          totalPaid: 23199.60,
+        },
+        seo: {
+          title: 'Loan Interest Calculator - Calculate Monthly Payments | PercentLab',
+          description: 'Free loan interest calculator. Calculate monthly payments, total interest, and payoff schedule for any loan. Perfect for personal, auto, and student loans.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate loan interest?',
+            a: 'For monthly payments, use the amortization formula: M = P[r(1+r)^n]/[(1+r)^n-1]. Total interest = (Monthly Payment × Number of Months) - Loan Amount. For a $20,000 loan at 6% for 5 years: monthly payment = $386.66, total interest = $3,199.60.',
+          },
+          {
+            q: 'What is the difference between APR and interest rate?',
+            a: 'Interest rate is the cost of borrowing the principal. APR (Annual Percentage Rate) includes the interest rate plus other fees and costs. APR is always equal to or higher than the interest rate.',
+          },
+          {
+            q: 'How can I reduce the total interest on my loan?',
+            a: 'Make extra payments toward principal, refinance to a lower rate, choose a shorter loan term, or make bi-weekly instead of monthly payments. Even small extra payments can save thousands in interest.',
+          },
+          {
+            q: 'What is loan amortization?',
+            a: 'Amortization is the process of paying off a loan through regular payments. Early payments are mostly interest, later payments are mostly principal. An amortization schedule shows the breakdown for each payment.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        hasChart: true,
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'mortgage-calculator',
+        title: 'Mortgage Calculator',
+        description: 'Calculate monthly mortgage payments, total interest, and amortization schedule. Includes property tax and insurance estimates.',
+        formula: 'M = P[r(1+r)^n]/[(1+r)^n-1] + Property Tax/12 + Insurance/12',
+        example: {
+          homePrice: 300000,
+          downPayment: 60000,
+          loanAmount: 240000,
+          interestRate: 4.5,
+          loanTerm: 30,
+          monthlyPayment: 1216.04,
+          totalInterest: 197774.40,
+        },
+        seo: {
+          title: 'Mortgage Calculator - Calculate Monthly Payments & Interest | PercentLab',
+          description: 'Free mortgage calculator. Calculate monthly payments, total interest, and amortization schedule. Includes property tax and insurance for accurate home loan estimates.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate my monthly mortgage payment?',
+            a: 'Use the formula M = P[r(1+r)^n]/[(1+r)^n-1] where P=loan amount, r=monthly interest rate, n=total payments. For a $240,000 loan at 4.5% for 30 years: monthly payment = $1,216.04. Add property tax and insurance for total monthly cost.',
+          },
+          {
+            q: 'How much should my down payment be?',
+            a: 'Conventional wisdom suggests 20% to avoid PMI (Private Mortgage Insurance). However, many loans allow 3-10% down. A larger down payment reduces loan amount, monthly payments, and total interest paid.',
+          },
+          {
+            q: 'What is included in my monthly mortgage payment?',
+            a: 'PITI: Principal (loan paydown), Interest (cost of borrowing), Taxes (property tax), Insurance (homeowners insurance and possibly PMI). Some lenders also include HOA fees in the monthly payment.',
+          },
+          {
+            q: 'Should I choose a 15-year or 30-year mortgage?',
+            a: '15-year mortgages have higher monthly payments but lower interest rates and less total interest paid. 30-year mortgages have lower monthly payments but more total interest. Choose based on your budget and financial goals.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        hasChart: true,
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'investment-return',
+        title: 'Investment Return Calculator',
+        description: 'Calculate investment returns including capital gains, dividends, and total return percentage. Track portfolio performance over time.',
+        formula: 'Total Return % = ((Final Value - Initial Investment + Dividends) / Initial Investment) × 100',
+        example: {
+          initialInvestment: 10000,
+          finalValue: 12500,
+          dividends: 500,
+          totalReturn: 30,
+          annualizedReturn: 8.45,
+        },
+        seo: {
+          title: 'Investment Return Calculator - Calculate Portfolio Returns | PercentLab',
+          description: 'Free investment return calculator. Calculate total return, annualized returns, and ROI for your portfolio. Track investment performance with dividends and capital gains.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate investment return?',
+            a: 'Total Return % = ((Final Value - Initial Investment + Dividends) / Initial Investment) × 100. For $10,000 growing to $12,500 with $500 in dividends: ((12,500 - 10,000 + 500) / 10,000) × 100 = 30% total return.',
+          },
+          {
+            q: 'What is the difference between total return and annualized return?',
+            a: 'Total return is the cumulative gain over the entire period. Annualized return is the average yearly return, useful for comparing investments of different durations. A 30% total return over 3 years is approximately 9.14% annualized.',
+          },
+          {
+            q: 'Should I include dividends in my return calculation?',
+            a: 'Yes, always include dividends for accurate total return. Dividends can represent a significant portion of returns, especially for income-focused investments. Excluding them understates your true performance.',
+          },
+          {
+            q: 'What is a good investment return?',
+            a: 'Historical stock market average is 10% annually. 7-8% after inflation is solid long-term. "Good" depends on asset class, risk level, and time period. Compare against relevant benchmarks like S&P 500.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        hasChart: true,
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'markup-percentage',
+        title: 'Markup Percentage Calculator',
+        description: 'Calculate markup percentage and selling price from cost. Essential for retail pricing, product pricing, and profit planning.',
+        formula: 'Markup % = ((Selling Price - Cost) / Cost) × 100',
+        example: {
+          cost: 50,
+          sellingPrice: 75,
+          markup: 50,
+          profitMargin: 33.33,
+        },
+        seo: {
+          title: 'Markup Percentage Calculator - Calculate Retail Markup | PercentLab',
+          description: 'Free markup percentage calculator. Calculate markup from cost to selling price. Essential for retail pricing, product pricing, and profit planning.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate markup percentage?',
+            a: 'Markup % = ((Selling Price - Cost) / Cost) × 100. For an item costing $50 sold for $75: ((75 - 50) / 50) × 100 = 50% markup.',
+          },
+          {
+            q: 'What is the difference between markup and profit margin?',
+            a: 'Markup is based on cost: (Profit / Cost) × 100. Profit margin is based on selling price: (Profit / Selling Price) × 100. A 50% markup equals a 33.33% profit margin. Same profit, different calculation base.',
+          },
+          {
+            q: 'What is a typical retail markup?',
+            a: 'Retail markup varies by industry. Grocery stores: 10-15%, clothing: 100-200%, jewelry: 200-300%, restaurants: 200-400%. Higher markup doesn\'t always mean higher profit due to overhead costs and sales volume.',
+          },
+          {
+            q: 'How do I calculate selling price from markup?',
+            a: 'Selling Price = Cost × (1 + Markup%). For a $50 item with 50% markup: $50 × 1.50 = $75 selling price.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'commission-calculator',
+        title: 'Commission Calculator',
+        description: 'Calculate sales commission based on percentage rate. Perfect for salespeople, real estate agents, and commission-based earnings.',
+        formula: 'Commission = Sales Amount × (Commission Rate / 100)',
+        example: {
+          salesAmount: 50000,
+          commissionRate: 5,
+          commission: 2500,
+          netProfit: 47500,
+        },
+        seo: {
+          title: 'Commission Calculator - Calculate Sales Commission | PercentLab',
+          description: 'Free commission calculator. Calculate sales commission based on percentage rate. Perfect for salespeople, real estate agents, and commission earnings.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate sales commission?',
+            a: 'Commission = Sales Amount × (Commission Rate / 100). For a $50,000 sale with 5% commission: $50,000 × 0.05 = $2,500 commission.',
+          },
+          {
+            q: 'What is a typical commission rate?',
+            a: 'Commission rates vary by industry. Real estate: 5-6% (split between agents), car sales: 20-25% of gross profit, insurance: 5-15%, retail: 1-5%, software sales: 10-20%. High-value, complex sales typically earn higher rates.',
+          },
+          {
+            q: 'How do tiered commission structures work?',
+            a: 'Tiered commissions increase as you hit sales targets. Example: 3% on first $50k, 5% on $50k-$100k, 7% above $100k. This incentivizes higher sales performance with increasing rewards.',
+          },
+          {
+            q: 'Is commission calculated before or after expenses?',
+            a: 'It depends on the agreement. Most retail commissions are on gross sales. Business-to-business may use gross profit (after direct costs). Always clarify the commission base in your contract.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
     ],
-    comingSoon: [
-      'compound-interest',
-      'loan-interest',
-      'mortgage-calculator',
-      'investment-return',
-      'markup-percentage',
-      'commission-calculator'
-    ],
+    comingSoon: [],
   },
   {
     id: 'education',
@@ -466,15 +867,222 @@ export const CATEGORIES: Category[] = [
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
       },
+      {
+        slug: 'weighted-grade',
+        title: 'Weighted Grade Calculator',
+        description: 'Calculate weighted course grades with different category weights. Perfect for classes with homework, tests, and final exam percentages.',
+        formula: 'Weighted Grade = Σ(Grade × Weight) / Σ(Weight)',
+        example: {
+          homework: 85,
+          tests: 78,
+          final: 92,
+          weightedGrade: 84.5,
+        },
+        seo: {
+          title: 'Weighted Grade Calculator - Calculate Course Grade with Weights | PercentLab',
+          description: 'Free weighted grade calculator. Calculate course grades with different category weights. Enter homework, tests, and exam grades with their weights for accurate grade calculation.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate a weighted grade?',
+            a: 'Multiply each grade by its weight, sum these products, then divide by the total weight. For example: Homework 85% (30%), Tests 78% (40%), Final 92% (30%): (85×0.30 + 78×0.40 + 92×0.30) = 84.5%.',
+          },
+          {
+            q: 'What if my weights don\'t add up to 100%?',
+            a: 'The calculator normalizes weights automatically. If you enter 30, 40, 20 (total 90%), it calculates proportionally. However, for accuracy, ensure your weights total 100%.',
+          },
+          {
+            q: 'How much does my final exam affect my grade?',
+            a: 'If your final is weighted 30%, it affects 30% of your total grade. To calculate impact: (Desired Grade - Current Weighted Grade) / Final Weight. Example: To get 90% with current 85% and final weighted 30%, you need (90 - 85×0.70) / 0.30 = 101.7% on the final.',
+          },
+          {
+            q: 'What are typical course weight distributions?',
+            a: 'Common distributions: Homework/Participation 20-30%, Tests/Quizzes 40-50%, Final Exam 20-30%, Projects 10-20%. Weights vary by course level and instructor.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'final-grade',
+        title: 'Final Grade Calculator',
+        description: 'Calculate what you need on your final exam to achieve a desired course grade. Enter current grade, final weight, and target grade.',
+        formula: 'Required Final = (Target Grade - Current Grade × (1 - Final Weight)) / Final Weight',
+        example: {
+          currentGrade: 85,
+          targetGrade: 90,
+          finalWeight: 30,
+          requiredFinal: 101.67,
+        },
+        seo: {
+          title: 'Final Grade Calculator - What Do I Need on Final Exam | PercentLab',
+          description: 'Free final grade calculator. Calculate what score you need on your final exam to achieve your target course grade. Enter current grade and final weight for instant results.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate what I need on my final exam?',
+            a: 'Formula: Required Final = (Target Grade - Current Grade × (1 - Final Weight)) / Final Weight. Example: Current 85%, want 90%, final worth 30%: (90 - 85 × 0.70) / 0.30 = 101.67%. You\'d need 101.67% (not possible without extra credit).',
+          },
+          {
+            q: 'What if the required score is over 100%?',
+            a: 'If the calculator shows over 100%, your target grade is mathematically impossible without extra credit. Consider a lower target grade or check with your professor about extra credit opportunities.',
+          },
+          {
+            q: 'How does final exam weight affect what I need?',
+            a: 'Higher final weight means it has more impact. With a 50% final, you can change your grade dramatically. With only 20%, the final has less impact on your overall grade.',
+          },
+          {
+            q: 'Can I still get an A if I failed the midterm?',
+            a: 'It depends on the weight distribution. Use the calculator: if you got 60% on a midterm worth 30% and want an A (90%), with a final worth 40% and other work at 90%, you\'d need: (90 - 60×0.30 - 90×0.30) / 0.40 = 90% on the final. Challenging but possible!',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'grade-needed',
+        title: 'Grade Needed Calculator',
+        description: 'Calculate the minimum grade needed on your next assignment to maintain or achieve a desired average.',
+        formula: 'Grade Needed = (Target Average × Total Assignments) - Current Total Points',
+        example: {
+          currentAverage: 82,
+          targetAverage: 85,
+          assignmentsCompleted: 5,
+          gradeNeeded: 97,
+        },
+        seo: {
+          title: 'Grade Needed Calculator - Minimum Score to Reach Goal | PercentLab',
+          description: 'Free grade needed calculator. Find the minimum grade needed on your next assignment to achieve your target average. Perfect for tracking academic goals.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate the grade I need on my next assignment?',
+            a: 'Formula: Grade Needed = (Target Average × Total Assignments) - Sum of Current Grades. Example: Current grades 80, 85, 80, 85, 80 (avg 82%), want 85% average after 6 assignments: (85 × 6) - 410 = 100. You need 100% on the next assignment.',
+          },
+          {
+            q: 'What if all assignments aren\'t worth the same points?',
+            a: 'This calculator assumes equal-weight assignments. For different point values, use the weighted grade calculator instead, or convert each assignment to a percentage first.',
+          },
+          {
+            q: 'Can I use this to plan for multiple future assignments?',
+            a: 'Yes, but it shows the average needed across remaining assignments. If you have 3 assignments left and need an average of 90% on them, you could get 85%, 90%, 95% (avg 90%).',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'semester-gpa',
+        title: 'Semester GPA Calculator',
+        description: 'Calculate your semester GPA and cumulative GPA. Enter course grades and credit hours for accurate GPA calculation on the 4.0 scale.',
+        formula: 'GPA = Σ(Grade Points × Credit Hours) / Σ(Credit Hours)',
+        example: {
+          course1: 'A',
+          credits1: 3,
+          course2: 'B',
+          credits2: 4,
+          semesterGPA: 3.43,
+        },
+        seo: {
+          title: 'Semester GPA Calculator - Calculate Term & Cumulative GPA | PercentLab',
+          description: 'Free semester GPA calculator. Calculate term GPA and cumulative GPA on the 4.0 scale. Enter course grades and credit hours for accurate academic tracking.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate my semester GPA?',
+            a: 'Multiply each course grade (4.0 scale) by credit hours, sum these values, divide by total credits. Example: A (4.0) in 3-credit course + B (3.0) in 4-credit course: (4.0×3 + 3.0×4) / 7 = 24/7 = 3.43 GPA.',
+          },
+          {
+            q: 'How do I calculate cumulative GPA?',
+            a: 'Add your new semester grade points to previous cumulative grade points, then divide by total cumulative credits. Example: Previous 3.5 GPA × 30 credits = 105 points. Add new semester 3.8 × 15 credits = 57 points. New cumulative: 162 / 45 = 3.6 GPA.',
+          },
+          {
+            q: 'Do all credit hours count equally?',
+            a: 'Yes, credit hours weight each course. A 4-credit A (16 grade points) affects GPA more than a 1-credit A (4 grade points). This is why labs and seminars have less impact than lecture courses.',
+          },
+          {
+            q: 'What GPA do I need to raise my cumulative GPA?',
+            a: 'It depends on your current GPA and credits. To raise a 3.0 cumulative GPA (60 credits) to 3.2: you need (3.2 × 75) - (3.0 × 60) = 60 grade points in the next 15 credits = 4.0 GPA (straight A\'s).',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'class-average',
+        title: 'Class Average Calculator',
+        description: 'Calculate class average, median, and grade distribution. Perfect for teachers and students tracking class performance.',
+        formula: 'Average = Σ(All Grades) / Number of Students',
+        example: {
+          grades: '85, 90, 78, 92, 88',
+          average: 86.6,
+          median: 88,
+          highest: 92,
+          lowest: 78,
+        },
+        seo: {
+          title: 'Class Average Calculator - Calculate Mean, Median & Distribution | PercentLab',
+          description: 'Free class average calculator. Calculate class mean, median, and grade distribution. Perfect for teachers and students analyzing class performance.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate the class average?',
+            a: 'Add all student grades and divide by the number of students. Example: Grades 85, 90, 78, 92, 88: (85+90+78+92+88) / 5 = 433 / 5 = 86.6% average.',
+          },
+          {
+            q: 'What is the difference between mean and median?',
+            a: 'Mean is the average (sum / count). Median is the middle value when sorted. For 78, 85, 88, 90, 92: mean = 86.6%, median = 88%. Median is less affected by outliers.',
+          },
+          {
+            q: 'How do I calculate grade distribution?',
+            a: 'Count how many students fall in each grade range. Example: 90-100% (A): 2 students, 80-89% (B): 2 students, 70-79% (C): 1 student. This shows A: 40%, B: 40%, C: 20% distribution.',
+          },
+          {
+            q: 'Should I curve the grades?',
+            a: 'Consider curving if the class average is significantly below your target (e.g., average 70% when you expect 80%). Common methods: add points to everyone, scale percentages, or adjust grade boundaries. Always discuss with department policy.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'grading-curve',
+        title: 'Grading Curve Calculator',
+        description: 'Apply grading curves including flat scaling, square root curve, and bell curve. Adjust class grades to desired average.',
+        formula: 'Curved Grade = √(Original Grade × 100) or other curve formulas',
+        example: {
+          originalGrade: 64,
+          curveType: 'square-root',
+          curvedGrade: 80,
+          improvement: 16,
+        },
+        seo: {
+          title: 'Grading Curve Calculator - Curve Test Scores & Grades | PercentLab',
+          description: 'Free grading curve calculator. Apply various curve methods including square root curve, flat scaling, and bell curve. Adjust grades to achieve desired class average.',
+        },
+        faq: [
+          {
+            q: 'How does a square root curve work?',
+            a: 'Square root curve: √(Original × 100). This helps lower scores more than higher ones. Example: 64% becomes √(64 × 100) = √6400 = 80%. A 49% becomes √4900 = 70%. It\'s generous to struggling students.',
+          },
+          {
+            q: 'What is a flat curve?',
+            a: 'A flat curve adds the same points to everyone. If the highest score was 85/100, add 15 points to all students. Fair but doesn\'t change the relative distribution. Student with 70 becomes 85, student with 40 becomes 55.',
+          },
+          {
+            q: 'How do I calculate the curve amount needed?',
+            a: 'Determine your target average (e.g., 75%) and actual average (e.g., 65%). For flat curve: add the difference (10 points). For scaling: multiply all grades by (Target / Actual) = 75/65 = 1.154.',
+          },
+          {
+            q: 'Is curving grades fair?',
+            a: 'It depends on perspective. Pros: compensates for unexpectedly difficult tests, maintains consistent standards. Cons: can reward poor performance, may demotivate high achievers. Most fair when the test difficulty was misjudged.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
     ],
-    comingSoon: [
-      'weighted-grade',
-      'final-grade',
-      'grade-needed',
-      'semester-gpa',
-      'class-average',
-      'grading-curve'
-    ],
+    comingSoon: [],
   },
   {
     id: 'daily',
@@ -588,15 +1196,228 @@ export const CATEGORIES: Category[] = [
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
       },
+      {
+        slug: 'currency-converter',
+        title: 'Currency Percentage Calculator',
+        description: 'Calculate percentage changes in currency exchange rates and conversion fees. Track forex gains and losses as percentages.',
+        formula: 'Exchange Rate Change % = ((New Rate - Old Rate) / Old Rate) × 100',
+        example: {
+          oldRate: 1.20,
+          newRate: 1.25,
+          changePercent: 4.17,
+          amount: 1000,
+          converted: 1250,
+        },
+        seo: {
+          title: 'Currency Percentage Calculator - Exchange Rate Changes | PercentLab',
+          description: 'Free currency percentage calculator. Calculate exchange rate changes, conversion fees, and forex gains/losses as percentages. Track currency fluctuations.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate percentage change in exchange rates?',
+            a: 'Formula: ((New Rate - Old Rate) / Old Rate) × 100. Example: EUR/USD goes from 1.20 to 1.25: ((1.25 - 1.20) / 1.20) × 100 = 4.17% increase. Positive = strengthening, negative = weakening.',
+          },
+          {
+            q: 'How much do currency conversion fees cost?',
+            a: 'Conversion fees typically range from 1-3% for credit cards, 0.5-1% for currency exchange services, and 0.1-0.5% for online platforms. For $1,000 with 2% fee: fee = $1,000 × 0.02 = $20.',
+          },
+          {
+            q: 'How do I calculate total cost including conversion fee?',
+            a: 'Multiply the amount by (1 + fee percentage). For $1,000 with 2.5% fee: $1,000 × 1.025 = $1,025 total cost. The actual fee is $25.',
+          },
+          {
+            q: 'What is the best way to minimize conversion fees?',
+            a: 'Use services with low percentage fees (0.1-0.5% vs 2-3%), convert larger amounts less frequently to spread fixed fees, use no-foreign-transaction-fee credit cards, or try peer-to-peer currency platforms.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'compound-growth',
+        title: 'Compound Growth Calculator',
+        description: 'Calculate compound annual growth rate (CAGR) and compound growth over time. Track business growth, investments, and population changes.',
+        formula: 'CAGR = ((Ending Value / Beginning Value)^(1/Years)) - 1',
+        example: {
+          startingValue: 10000,
+          endingValue: 15000,
+          years: 5,
+          cagr: 8.45,
+        },
+        seo: {
+          title: 'Compound Growth Calculator - CAGR & Growth Rate | PercentLab',
+          description: 'Free compound growth calculator. Calculate CAGR (Compound Annual Growth Rate) and track growth over time. Perfect for business metrics and investment analysis.',
+        },
+        faq: [
+          {
+            q: 'What is CAGR and how do I calculate it?',
+            a: 'CAGR (Compound Annual Growth Rate) is the mean annual growth rate over multiple years. Formula: ((Ending / Beginning)^(1/Years)) - 1. Example: $10,000 to $15,000 in 5 years: ((15000/10000)^(1/5)) - 1 = 1.0845 - 1 = 8.45% CAGR.',
+          },
+          {
+            q: 'What is the difference between CAGR and average growth rate?',
+            a: 'CAGR accounts for compounding (growth on growth), while simple average doesn\'t. If you grow 50% then -10%, simple average = 20%, but CAGR considers the actual path. CAGR is more accurate for multi-year analysis.',
+          },
+          {
+            q: 'How do I use CAGR to predict future growth?',
+            a: 'Multiply current value by (1 + CAGR)^Years. With 8.45% CAGR, $15,000 growing for 3 more years: $15,000 × (1.0845)^3 = $19,127. This assumes growth continues at the same rate.',
+          },
+          {
+            q: 'What is a good CAGR?',
+            a: 'It depends on context. Stock market: 7-10% is typical, tech startups: 20-40% is good, mature businesses: 3-5% is common. Compare against industry benchmarks and historical performance.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'loan-payment',
+        title: 'Loan Payment Percentage Calculator',
+        description: 'Calculate what percentage of income goes to loan payments. Determine debt-to-income ratio for financial planning.',
+        formula: 'Debt-to-Income Ratio = (Total Monthly Debt Payments / Gross Monthly Income) × 100',
+        example: {
+          monthlyIncome: 5000,
+          loanPayment: 1200,
+          debtToIncome: 24,
+        },
+        seo: {
+          title: 'Loan Payment Percentage Calculator - Debt-to-Income Ratio | PercentLab',
+          description: 'Free loan payment percentage calculator. Calculate debt-to-income ratio and see what percentage of income goes to debt. Essential for loan applications and budgeting.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate my debt-to-income ratio?',
+            a: 'Divide total monthly debt payments by gross monthly income, multiply by 100. Example: $1,200 debt payments with $5,000 income: (1200 / 5000) × 100 = 24% DTI ratio.',
+          },
+          {
+            q: 'What is a good debt-to-income ratio?',
+            a: 'Lenders prefer: Under 36% is ideal, 36-43% is acceptable for mortgages, above 43% makes approval difficult. 28% or less for housing costs alone is considered healthy. Lower is always better for financial flexibility.',
+          },
+          {
+            q: 'What counts as debt in DTI calculation?',
+            a: 'Include: mortgage/rent, car loans, student loans, credit card minimum payments, personal loans. Exclude: utilities, groceries, insurance (unless it\'s financed), subscriptions. Use minimum payments, not full balances.',
+          },
+          {
+            q: 'How can I improve my debt-to-income ratio?',
+            a: 'Increase income (raises, side work), pay off debts (reduces payments), avoid new debt, refinance to lower monthly payments. Paying off smallest debts first shows quick improvement in DTI.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'budget-percentage',
+        title: 'Budget Percentage Calculator',
+        description: 'Calculate what percentage of budget goes to each expense category. Follow the 50/30/20 rule and track spending distribution.',
+        formula: 'Category Percentage = (Category Spending / Total Budget) × 100',
+        example: {
+          income: 5000,
+          housing: 1500,
+          food: 600,
+          housingPercent: 30,
+          foodPercent: 12,
+        },
+        seo: {
+          title: 'Budget Percentage Calculator - 50/30/20 Rule & Expense Distribution | PercentLab',
+          description: 'Free budget percentage calculator. Calculate what percentage of income goes to each expense. Apply the 50/30/20 budgeting rule and track spending.',
+        },
+        faq: [
+          {
+            q: 'What is the 50/30/20 budgeting rule?',
+            a: '50% for needs (housing, food, utilities, transportation), 30% for wants (entertainment, dining out, hobbies), 20% for savings and debt repayment. For $5,000 income: $2,500 needs, $1,500 wants, $1,000 savings.',
+          },
+          {
+            q: 'How do I calculate what percentage of my budget goes to housing?',
+            a: 'Divide housing costs by total income, multiply by 100. For $1,500 rent with $5,000 income: (1500 / 5000) × 100 = 30%. Financial experts recommend keeping housing under 28-30% of gross income.',
+          },
+          {
+            q: 'What are recommended budget percentages for each category?',
+            a: 'Housing: 25-30%, Food: 10-15%, Transportation: 10-15%, Savings: 20%, Debt: under 15%, Entertainment: 5-10%, Clothing: 3-5%, Healthcare: 5-10%. Adjust based on location and personal circumstances.',
+          },
+          {
+            q: 'How do I track my budget percentages?',
+            a: 'Track expenses for 1-3 months, categorize spending, calculate percentages. Compare to recommended ranges. Adjust high categories by moving money to aligned goals (reduce dining out 5%, increase savings 5%).',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'calorie-percentage',
+        title: 'Calorie Percentage Calculator',
+        description: 'Calculate macronutrient percentages (protein, carbs, fats) in your diet. Track calorie distribution for nutrition goals.',
+        formula: 'Macro % = (Calories from Macro / Total Calories) × 100',
+        example: {
+          totalCalories: 2000,
+          proteinCalories: 600,
+          carbCalories: 900,
+          fatCalories: 500,
+          proteinPercent: 30,
+          carbPercent: 45,
+          fatPercent: 25,
+        },
+        seo: {
+          title: 'Calorie Percentage Calculator - Macronutrient Distribution | PercentLab',
+          description: 'Free calorie percentage calculator. Calculate macro percentages (protein, carbs, fats) in your diet. Track nutrition and meet fitness goals.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate macronutrient percentages?',
+            a: 'Convert grams to calories (protein: 4 cal/g, carbs: 4 cal/g, fat: 9 cal/g), then divide by total calories and multiply by 100. Example: 150g protein = 600 cal, out of 2000 total: (600/2000) × 100 = 30%.',
+          },
+          {
+            q: 'What are ideal macronutrient percentages?',
+            a: 'Balanced diet: 45-65% carbs, 20-35% fat, 10-35% protein. For weight loss: 40% carbs, 30% protein, 30% fat. For muscle gain: 40% carbs, 35% protein, 25% fat. Adjust based on activity level and goals.',
+          },
+          {
+            q: 'How many grams of protein do I need?',
+            a: 'For 30% protein in a 2000 calorie diet: 2000 × 0.30 = 600 calories from protein. Divide by 4 cal/g = 150g protein. General recommendations: 0.8-1g per lb bodyweight for active people, 1.2-1.6g for muscle building.',
+          },
+          {
+            q: 'Why are macronutrient percentages important?',
+            a: 'Different macros support different goals: protein builds muscle and aids recovery, carbs fuel workouts and brain function, fats support hormones and absorption. Tracking percentages ensures balanced nutrition for your specific goals.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'time-percentage',
+        title: 'Time Percentage Calculator',
+        description: 'Calculate what percentage of time has elapsed or remains. Track project progress, time allocation, and productivity.',
+        formula: 'Time Elapsed % = (Time Spent / Total Time) × 100',
+        example: {
+          totalTime: 8,
+          timeSpent: 3,
+          percentElapsed: 37.5,
+          percentRemaining: 62.5,
+        },
+        seo: {
+          title: 'Time Percentage Calculator - Track Time Elapsed & Remaining | PercentLab',
+          description: 'Free time percentage calculator. Calculate percentage of time elapsed or remaining. Perfect for project tracking, productivity, and time management.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate what percentage of time has passed?',
+            a: 'Divide time spent by total time, multiply by 100. Example: 3 hours into an 8-hour workday: (3 / 8) × 100 = 37.5% elapsed, 62.5% remaining. For dates: use days between dates.',
+          },
+          {
+            q: 'How do I calculate time allocation percentages?',
+            a: 'Track time on each activity, divide by total time. Working 8 hours: 4 hours on project A = 50%, 2 hours on meetings = 25%, 2 hours on emails = 25%. Helps identify time drains.',
+          },
+          {
+            q: 'What is the 80/20 rule for time management?',
+            a: 'The Pareto Principle: 80% of results come from 20% of efforts. Identify your highest-value 20% activities and allocate more time to them. Example: 20% of clients generate 80% of revenue.',
+          },
+          {
+            q: 'How can I use time percentages for productivity?',
+            a: 'Set target time allocations (40% deep work, 20% meetings, 20% communication, 20% admin), track actual time spent, compare to targets. Adjust schedule to align with goals. Review weekly.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
     ],
-    comingSoon: [
-      'currency-converter',
-      'compound-growth',
-      'loan-payment',
-      'budget-percentage',
-      'calorie-percentage',
-      'time-percentage'
-    ],
+    comingSoon: [],
   },
 ];
 
