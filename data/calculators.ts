@@ -202,7 +202,14 @@ export const CATEGORIES: Category[] = [
         schemaType: 'HowTo',
       },
     ],
-    comingSoon: ['reverse-percentage', 'percentage-calculator'],
+    comingSoon: [
+      'reverse-percentage',
+      'percentage-of-total',
+      'fraction-to-percent',
+      'percent-to-decimal',
+      'decimal-to-percent',
+      'percentage-calculator'
+    ],
   },
   {
     id: 'finance',
@@ -345,7 +352,14 @@ export const CATEGORIES: Category[] = [
         schemaType: 'HowTo',
       },
     ],
-    comingSoon: ['compound-interest', 'loan-interest', 'mortgage-calculator'],
+    comingSoon: [
+      'compound-interest',
+      'loan-interest',
+      'mortgage-calculator',
+      'investment-return',
+      'markup-percentage',
+      'commission-calculator'
+    ],
   },
   {
     id: 'education',
@@ -453,7 +467,14 @@ export const CATEGORIES: Category[] = [
         schemaType: 'HowTo',
       },
     ],
-    comingSoon: ['weighted-grade', 'final-grade', 'grade-needed'],
+    comingSoon: [
+      'weighted-grade',
+      'final-grade',
+      'grade-needed',
+      'semester-gpa',
+      'class-average',
+      'grading-curve'
+    ],
   },
   {
     id: 'daily',
@@ -568,7 +589,14 @@ export const CATEGORIES: Category[] = [
         schemaType: 'HowTo',
       },
     ],
-    comingSoon: ['markup-calculator', 'commission-calculator', 'compound-growth'],
+    comingSoon: [
+      'currency-converter',
+      'compound-growth',
+      'loan-payment',
+      'budget-percentage',
+      'calorie-percentage',
+      'time-percentage'
+    ],
   },
 ];
 
