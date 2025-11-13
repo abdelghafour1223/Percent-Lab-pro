@@ -67,8 +67,142 @@ export const CATEGORIES: Category[] = [
         lastUpdated: '2025-11-12',
         schemaType: 'HowTo',
       },
+      {
+        slug: 'percentage-increase',
+        title: 'Percentage Increase Calculator',
+        description: 'Calculate the percentage increase between two numbers. Perfect for salary raises, price increases, and growth rates.',
+        formula: 'percentage increase = ((new value - original value) / original value) × 100',
+        example: {
+          originalValue: 100,
+          newValue: 125,
+          increase: 25,
+          increaseAmount: 25,
+        },
+        seo: {
+          title: 'Percentage Increase Calculator - Calculate % Increase | PercentLab',
+          description: 'Free percentage increase calculator. Calculate the percent increase between two values with step-by-step explanation. Find salary raises, price increases, and growth rates.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate percentage increase?',
+            a: 'To calculate percentage increase, subtract the original value from the new value, divide by the original value, then multiply by 100. Formula: ((New - Original) / Original) × 100.',
+          },
+          {
+            q: 'What is the percentage increase from 100 to 125?',
+            a: 'The percentage increase from 100 to 125 is 25%. Calculation: ((125 - 100) / 100) × 100 = (25 / 100) × 100 = 25%.',
+          },
+          {
+            q: 'How do I calculate a salary increase percentage?',
+            a: 'Subtract your old salary from your new salary, divide by your old salary, then multiply by 100. For example, if you went from $50,000 to $55,000: ((55,000 - 50,000) / 50,000) × 100 = 10% increase.',
+          },
+          {
+            q: 'Can percentage increase be more than 100%?',
+            a: 'Yes, if the new value is more than double the original value. For example, going from 50 to 150 is a 200% increase: ((150 - 50) / 50) × 100 = 200%.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'percentage-decrease',
+        title: 'Percentage Decrease Calculator',
+        description: 'Calculate the percentage decrease between two numbers. Ideal for weight loss tracking, price drops, and decline rates.',
+        formula: 'percentage decrease = ((original value - new value) / original value) × 100',
+        example: {
+          originalValue: 200,
+          newValue: 150,
+          decrease: 25,
+          decreaseAmount: 50,
+        },
+        seo: {
+          title: 'Percentage Decrease Calculator - Calculate % Reduction | PercentLab',
+          description: 'Free percentage decrease calculator. Calculate the percent decrease between two values with detailed steps. Perfect for discounts, weight loss, and decline rates.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate percentage decrease?',
+            a: 'To calculate percentage decrease, subtract the new value from the original value, divide by the original value, then multiply by 100. Formula: ((Original - New) / Original) × 100.',
+          },
+          {
+            q: 'What is the percentage decrease from 200 to 150?',
+            a: 'The percentage decrease from 200 to 150 is 25%. Calculation: ((200 - 150) / 200) × 100 = (50 / 200) × 100 = 25%.',
+          },
+          {
+            q: 'How do I calculate weight loss percentage?',
+            a: 'Subtract your current weight from your starting weight, divide by your starting weight, then multiply by 100. For example, from 200 lbs to 180 lbs: ((200 - 180) / 200) × 100 = 10% weight loss.',
+          },
+          {
+            q: 'Is percentage decrease always positive?',
+            a: 'Yes, percentage decrease is expressed as a positive number even though it represents a reduction. Going from 100 to 80 is a 20% decrease, not -20%.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'percentage-difference',
+        title: 'Percentage Difference Calculator',
+        description: 'Calculate the absolute percentage difference between two values. Great for comparing prices, temperatures, and scores.',
+        formula: 'percentage difference = |V1 - V2| / ((V1 + V2) / 2) × 100',
+        example: {
+          value1: 100,
+          value2: 120,
+          difference: 18.18,
+        },
+        seo: {
+          title: 'Percentage Difference Calculator - Compare Two Values | PercentLab',
+          description: 'Free percentage difference calculator. Find the absolute percent difference between two numbers with step-by-step explanation. Compare prices, scores, and more.',
+        },
+        faq: [
+          {
+            q: 'How is percentage difference calculated?',
+            a: 'Percentage difference is calculated by finding the absolute difference between two values, dividing by their average, then multiplying by 100. Formula: |V1 - V2| / ((V1 + V2) / 2) × 100.',
+          },
+          {
+            q: 'What is the difference between percentage difference and percentage change?',
+            a: 'Percentage difference treats both values equally and is symmetric (comparing 100 to 120 gives the same result as 120 to 100). Percentage change assumes one value is the "original" and the other is "new".',
+          },
+          {
+            q: 'When should I use percentage difference?',
+            a: 'Use percentage difference when comparing two values where neither is clearly the "starting point", such as comparing prices from two different stores, temperatures in two cities, or test scores from two students.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'what-percent',
+        title: 'What Percent Calculator',
+        description: 'Find what percent one number is of another. Perfect for calculating test scores, completion rates, and proportions.',
+        formula: 'percentage = (part / total) × 100',
+        example: {
+          part: 25,
+          total: 200,
+          percentage: 12.5,
+        },
+        seo: {
+          title: 'What Percent Calculator - X is What % of Y | PercentLab',
+          description: 'Free what percent calculator. Find out what percentage one number is of another with step-by-step explanation. Calculate test scores, completion rates, and more.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate what percent one number is of another?',
+            a: 'Divide the part by the total, then multiply by 100. For example, to find what percent 25 is of 200: (25 / 200) × 100 = 0.125 × 100 = 12.5%.',
+          },
+          {
+            q: 'What percent is 30 out of 150?',
+            a: '30 out of 150 is 20%. Calculation: (30 / 150) × 100 = 0.2 × 100 = 20%.',
+          },
+          {
+            q: 'How do I calculate my test score as a percentage?',
+            a: 'Divide the points you earned by the total points possible, then multiply by 100. For example, if you got 85 out of 100 points: (85 / 100) × 100 = 85%.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
     ],
-    comingSoon: ['what-percent', 'increase-decrease', 'percentage-change', 'reverse-percentage'],
+    comingSoon: ['reverse-percentage', 'percentage-calculator'],
   },
   {
     id: 'finance',
@@ -108,8 +242,110 @@ export const CATEGORIES: Category[] = [
         hasChart: true,
         schemaType: 'HowTo',
       },
+      {
+        slug: 'profit-margin',
+        title: 'Profit Margin Calculator',
+        description: 'Calculate profit margin percentage, profit amount, and markup percentage for your business.',
+        formula: 'Profit Margin % = (Profit / Revenue) × 100',
+        example: {
+          revenue: 1000,
+          cost: 600,
+          profit: 400,
+          profitMargin: 40,
+          markup: 66.67,
+        },
+        seo: {
+          title: 'Profit Margin Calculator - Calculate Profit % & Markup | PercentLab',
+          description: 'Free profit margin calculator. Calculate profit margin percentage, profit amount, and markup percentage instantly. Perfect for businesses and entrepreneurs.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate profit margin percentage?',
+            a: 'Profit margin % = (Profit / Revenue) × 100. First, calculate profit by subtracting cost from revenue. For example, if revenue is $1,000 and cost is $600: Profit = $400, so (400 / 1000) × 100 = 40% profit margin.',
+          },
+          {
+            q: 'What is the difference between profit margin and markup?',
+            a: 'Profit margin is profit divided by revenue (selling price). Markup is profit divided by cost (what you paid). A 50% profit margin equals a 100% markup. They represent different perspectives on the same profit.',
+          },
+          {
+            q: 'What is a good profit margin percentage?',
+            a: 'A "good" profit margin varies by industry. Retail typically sees 5-10%, restaurants 3-5%, software companies 20-40%. Generally, 10% is considered average, 20% is good, and 25%+ is excellent.',
+          },
+          {
+            q: 'How do I increase my profit margin?',
+            a: 'Increase profit margin by either raising prices (increasing revenue) or reducing costs. Focus on high-margin products, negotiate better supplier rates, reduce waste, or add value to justify higher prices.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'sales-tax',
+        title: 'Sales Tax Calculator',
+        description: 'Calculate sales tax amount and total price with tax. Enter price and tax rate to get instant results.',
+        formula: 'Tax Amount = Price × (Tax Rate / 100)',
+        example: {
+          price: 100,
+          taxRate: 8.5,
+          taxAmount: 8.50,
+          totalPrice: 108.50,
+        },
+        seo: {
+          title: 'Sales Tax Calculator - Calculate Tax Amount & Total Price | PercentLab',
+          description: 'Free sales tax calculator. Calculate sales tax amount and total price with tax instantly. Enter price and tax rate for accurate tax calculations.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate sales tax?',
+            a: 'To calculate sales tax, multiply the price by the tax rate as a decimal. For example, for an $100 item with 8.5% tax: $100 × 0.085 = $8.50 tax. Total price: $100 + $8.50 = $108.50.',
+          },
+          {
+            q: 'How do I remove sales tax from a total?',
+            a: 'To remove sales tax, divide the total by (1 + tax rate as decimal). For example, if the total is $108.50 with 8.5% tax: $108.50 / 1.085 = $100 original price.',
+          },
+          {
+            q: 'What is the sales tax rate in my state?',
+            a: 'Sales tax rates vary by state and locality, ranging from 0% (no sales tax states like Oregon) to over 10% in some cities. Check your local government website for exact rates, as city and county taxes may apply on top of state tax.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'discount',
+        title: 'Discount Calculator',
+        description: 'Calculate discount percentage and final price after discount.',
+        formula: 'final price = original price - (original price × discount% / 100)',
+        example: {
+          originalPrice: 100,
+          discountPercent: 20,
+          discountAmount: 20,
+          finalPrice: 80,
+        },
+        seo: {
+          title: 'Discount Calculator - Calculate Sale Price & Savings | PercentLab',
+          description: 'Free discount calculator. Calculate final price after discount and total savings. Find sale prices with percentage discount calculator.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate a 20% discount?',
+            a: 'Multiply the original price by 0.20 (20/100) to find the discount amount, then subtract from the original. Example: $100 × 0.20 = $20 discount, so $100 - $20 = $80 final price.',
+          },
+          {
+            q: 'What is 30% off $150?',
+            a: 'Discount amount: $150 × 0.30 = $45. Final price: $150 - $45 = $105. So 30% off $150 is $105.',
+          },
+          {
+            q: 'How do I calculate multiple discounts?',
+            a: 'Apply discounts sequentially. For 20% then 10% off $100: First discount: $100 - ($100 × 0.20) = $80. Second discount: $80 - ($80 × 0.10) = $72 final price.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        hasChart: true,
+        schemaType: 'HowTo',
+      },
     ],
-    comingSoon: ['profit-margin', 'compound-interest', 'loan-interest', 'mortgage-calculator'],
+    comingSoon: ['compound-interest', 'loan-interest', 'mortgage-calculator'],
   },
   {
     id: 'education',
@@ -149,50 +385,190 @@ export const CATEGORIES: Category[] = [
         lastUpdated: '2025-11-12',
         schemaType: 'FAQPage',
       },
+      {
+        slug: 'gpa-calculator',
+        title: 'GPA Calculator',
+        description: 'Calculate your GPA (Grade Point Average) on a 4.0 scale. Enter your grades and credit hours for accurate GPA calculation.',
+        formula: 'GPA = (Sum of (Grade Points × Credit Hours)) / Total Credit Hours',
+        example: {
+          courses: 4,
+          totalCredits: 12,
+          gpa: 3.5,
+        },
+        seo: {
+          title: 'GPA Calculator - Calculate Grade Point Average (4.0 Scale) | PercentLab',
+          description: 'Free GPA calculator. Calculate your grade point average on a 4.0 scale with multiple courses. Enter grades and credit hours for instant GPA calculation.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate my GPA?',
+            a: 'Multiply each course grade (on 4.0 scale) by its credit hours, sum these values, then divide by total credit hours. For example: (A=4.0 × 3 credits) + (B=3.0 × 3 credits) = (12 + 9) / 6 = 3.5 GPA.',
+          },
+          {
+            q: 'What is the 4.0 GPA scale?',
+            a: 'On the 4.0 scale: A = 4.0, A- = 3.7, B+ = 3.3, B = 3.0, B- = 2.7, C+ = 2.3, C = 2.0, C- = 1.7, D+ = 1.3, D = 1.0, F = 0.0.',
+          },
+          {
+            q: 'What is a good GPA?',
+            a: 'Generally, 3.0 is considered average, 3.5+ is good, and 3.7+ is excellent. For competitive colleges, 3.8+ is often expected. Requirements vary by institution and program.',
+          },
+          {
+            q: 'How do credit hours affect GPA?',
+            a: 'Credit hours weight each course. A 4-credit course affects your GPA more than a 2-credit course. Higher credit courses have a greater impact on your overall GPA.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'test-score',
+        title: 'Test Score Calculator',
+        description: 'Calculate your test score percentage and letter grade. Enter points earned and total points for instant grade calculation.',
+        formula: 'Percentage = (Points Earned / Total Points) × 100',
+        example: {
+          pointsEarned: 42,
+          totalPoints: 50,
+          percentage: 84,
+          grade: 'B',
+        },
+        seo: {
+          title: 'Test Score Calculator - Calculate Grade Percentage | PercentLab',
+          description: 'Free test score calculator. Convert test points to percentage and letter grade instantly. Calculate your test score with grading scale breakdown.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate my test score percentage?',
+            a: 'Divide the points you earned by the total points possible, then multiply by 100. For example, if you scored 42 out of 50: (42 / 50) × 100 = 84%.',
+          },
+          {
+            q: 'What letter grade is each percentage?',
+            a: 'Standard grading scale: A (90-100%), B (80-89%), C (70-79%), D (60-69%), F (below 60%). Some schools use different scales or plus/minus grades.',
+          },
+          {
+            q: 'How many questions can I miss to get an A?',
+            a: 'To get 90% (A grade), you can miss 10% of questions. On a 50-question test: 50 × 0.10 = 5 questions. You can miss up to 5 questions and still get an A.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
     ],
-    comingSoon: ['gpa-calculator', 'weighted-grade', 'final-grade', 'grade-needed'],
+    comingSoon: ['weighted-grade', 'final-grade', 'grade-needed'],
   },
   {
     id: 'daily',
     title: 'Daily Use Calculators',
-    description: 'Discount, tip, tax, and other everyday percentage calculations.',
+    description: 'Tip, percentage change, ratio, and other everyday percentage calculations.',
     icon: 'shopping-cart',
     calculators: [
       {
-        slug: 'discount',
-        title: 'Discount Calculator',
-        description: 'Calculate discount percentage and final price after discount.',
-        formula: 'final price = original price - (original price × discount% / 100)',
+        slug: 'tip-calculator',
+        title: 'Tip Calculator',
+        description: 'Calculate tip amount and total bill with tip. Perfect for restaurants, delivery, and service gratuity calculations.',
+        formula: 'Tip Amount = Bill Amount × (Tip % / 100)',
         example: {
-          originalPrice: 100,
-          discountPercent: 20,
-          discountAmount: 20,
-          finalPrice: 80,
+          billAmount: 50,
+          tipPercent: 20,
+          tipAmount: 10,
+          totalWithTip: 60,
+          perPerson: 20,
         },
         seo: {
-          title: 'Discount Calculator - Calculate Sale Price & Savings | PercentLab',
-          description: 'Free discount calculator. Calculate final price after discount and total savings. Find sale prices with percentage discount calculator.',
+          title: 'Tip Calculator - Calculate Restaurant Tip & Split Bill | PercentLab',
+          description: 'Free tip calculator. Calculate tip percentage, total with tip, and split bill per person. Perfect for restaurants, delivery, and service gratuity.',
         },
         faq: [
           {
-            q: 'How do I calculate a 20% discount?',
-            a: 'Multiply the original price by 0.20 (20/100) to find the discount amount, then subtract from the original. Example: $100 × 0.20 = $20 discount, so $100 - $20 = $80 final price.',
+            q: 'How do I calculate a 20% tip?',
+            a: 'Multiply the bill amount by 0.20. For a $50 bill: $50 × 0.20 = $10 tip. Total with tip: $50 + $10 = $60.',
           },
           {
-            q: 'What is 30% off $150?',
-            a: 'Discount amount: $150 × 0.30 = $45. Final price: $150 - $45 = $105. So 30% off $150 is $105.',
+            q: 'What is a standard tip percentage?',
+            a: 'Standard tip percentages: 15% for adequate service, 18% for good service, 20% for great service, 25% for exceptional service. Some areas or situations may have different norms.',
           },
           {
-            q: 'How do I calculate multiple discounts?',
-            a: 'Apply discounts sequentially. For 20% then 10% off $100: First discount: $100 - ($100 × 0.20) = $80. Second discount: $80 - ($80 × 0.10) = $72 final price.',
+            q: 'How do I split a bill with tip?',
+            a: 'Calculate the total with tip first, then divide by the number of people. For a $100 bill with 20% tip split 4 ways: ($100 + $20) / 4 = $30 per person.',
+          },
+          {
+            q: 'Should I tip on the pre-tax or post-tax amount?',
+            a: 'Either is acceptable. Most people tip on the pre-tax amount for consistency, but tipping on the post-tax amount is generous and ensures good service coverage.',
           },
         ],
-        lastUpdated: '2025-11-12',
-        hasChart: true,
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'percentage-change',
+        title: 'Percentage Change Calculator',
+        description: 'Calculate the percentage change (increase or decrease) between two values. Shows both direction and magnitude of change.',
+        formula: 'Percentage Change = ((New Value - Old Value) / Old Value) × 100',
+        example: {
+          oldValue: 100,
+          newValue: 150,
+          change: 50,
+          changePercent: 50,
+        },
+        seo: {
+          title: 'Percentage Change Calculator - Calculate % Increase/Decrease | PercentLab',
+          description: 'Free percentage change calculator. Calculate percent increase or decrease between two values. Find the rate of change with step-by-step explanation.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate percentage change?',
+            a: 'Subtract the old value from the new value, divide by the old value, then multiply by 100. Formula: ((New - Old) / Old) × 100. Positive result = increase, negative = decrease.',
+          },
+          {
+            q: 'What is the difference between percentage change and percentage difference?',
+            a: 'Percentage change shows change from a starting point (directional: +/-). Percentage difference compares two values without direction (always positive). Use change when tracking growth/decline over time.',
+          },
+          {
+            q: 'Can percentage change be negative?',
+            a: 'Yes, negative percentage change indicates a decrease. For example, going from 100 to 80 is a -20% change, meaning a 20% decrease.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'ratio-calculator',
+        title: 'Ratio Calculator',
+        description: 'Calculate and simplify ratios, convert to percentages, and find equivalent ratios. Perfect for recipes, mixtures, and scaling.',
+        formula: 'Ratio A:B simplified by dividing by GCD',
+        example: {
+          valueA: 4,
+          valueB: 6,
+          simplifiedRatio: '2:3',
+          percentA: 40,
+          percentB: 60,
+        },
+        seo: {
+          title: 'Ratio Calculator - Simplify Ratios & Convert to Percentage | PercentLab',
+          description: 'Free ratio calculator. Simplify ratios, convert to percentages, and find equivalent ratios. Perfect for recipes, mixtures, aspect ratios, and scaling.',
+        },
+        faq: [
+          {
+            q: 'How do I simplify a ratio?',
+            a: 'Divide both numbers by their greatest common divisor (GCD). For example, 4:6 has GCD of 2, so divide both by 2: 4÷2 : 6÷2 = 2:3.',
+          },
+          {
+            q: 'How do I convert a ratio to percentage?',
+            a: 'Add the ratio parts together, then divide each part by the total and multiply by 100. For 2:3, total is 5. Percentages: (2/5 × 100) = 40% and (3/5 × 100) = 60%.',
+          },
+          {
+            q: 'How do I scale a ratio?',
+            a: 'Multiply both parts of the ratio by the same number. For example, to scale 2:3 by 4: (2×4):(3×4) = 8:12. This maintains the same proportion.',
+          },
+          {
+            q: 'What is the difference between ratio and fraction?',
+            a: 'A ratio compares two quantities (2:3 means 2 parts A to 3 parts B). A fraction represents a part of a whole (2/5 means 2 out of 5 total parts).',
+          },
+        ],
+        lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
       },
     ],
-    comingSoon: ['tip-calculator', 'tax-calculator', 'markup-calculator', 'commission-calculator'],
+    comingSoon: ['markup-calculator', 'commission-calculator', 'compound-growth'],
   },
 ];
 
