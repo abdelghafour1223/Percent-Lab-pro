@@ -201,15 +201,195 @@ export const CATEGORIES: Category[] = [
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
       },
+      {
+        slug: 'reverse-percentage',
+        title: 'Reverse Percentage Calculator',
+        description: 'Find the original value before a percentage increase or decrease. Perfect for finding pre-discount prices and original amounts.',
+        formula: 'Original Value = Final Value / (1 + Percentage/100) or Final Value / (1 - Percentage/100)',
+        example: {
+          finalValue: 120,
+          percentage: 20,
+          originalValue: 100,
+        },
+        seo: {
+          title: 'Reverse Percentage Calculator - Find Original Value | PercentLab',
+          description: 'Free reverse percentage calculator. Find the original value before a percentage increase or decrease. Calculate pre-discount prices and original amounts instantly.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate reverse percentage?',
+            a: 'For an increase: divide the final value by (1 + percentage/100). For a decrease: divide by (1 - percentage/100). Example: If $120 is after a 20% increase, original = 120 / 1.20 = $100.',
+          },
+          {
+            q: 'What was the original price before a 25% discount?',
+            a: 'Divide the sale price by (1 - 0.25). If sale price is $75: $75 / 0.75 = $100 original price.',
+          },
+          {
+            q: 'How do I find the value before tax was added?',
+            a: 'Divide the total by (1 + tax rate). For $108 with 8% tax: $108 / 1.08 = $100 before tax.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'percentage-of-total',
+        title: 'Percentage of Total Calculator',
+        description: 'Calculate what percentage each value represents of the total. Perfect for budget breakdowns and data analysis.',
+        formula: 'Percentage = (Individual Value / Total) × 100',
+        example: {
+          value1: 30,
+          value2: 70,
+          total: 100,
+          percent1: 30,
+          percent2: 70,
+        },
+        seo: {
+          title: 'Percentage of Total Calculator - Calculate % Distribution | PercentLab',
+          description: 'Free percentage of total calculator. Find what percentage each value represents of the whole. Perfect for budget analysis and data distribution.',
+        },
+        faq: [
+          {
+            q: 'How do I calculate percentage of total?',
+            a: 'Divide each value by the total, then multiply by 100. For example, if you spent $300 out of $1000: (300 / 1000) × 100 = 30% of your budget.',
+          },
+          {
+            q: 'How do I find what percent of total sales each product represents?',
+            a: 'Divide each product\'s sales by total sales, then multiply by 100. If Product A sold $5000 out of $20000 total: (5000 / 20000) × 100 = 25%.',
+          },
+          {
+            q: 'Do all percentages of total add up to 100%?',
+            a: 'Yes, when you calculate the percentage each part represents of the total, they should sum to 100% (allowing for rounding).',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'fraction-to-percent',
+        title: 'Fraction to Percent Calculator',
+        description: 'Convert fractions to percentages instantly. Enter numerator and denominator to get the percentage equivalent.',
+        formula: 'Percentage = (Numerator / Denominator) × 100',
+        example: {
+          numerator: 3,
+          denominator: 4,
+          percentage: 75,
+        },
+        seo: {
+          title: 'Fraction to Percent Calculator - Convert Fractions | PercentLab',
+          description: 'Free fraction to percent calculator. Convert any fraction to percentage instantly. Enter numerator and denominator for quick conversion.',
+        },
+        faq: [
+          {
+            q: 'How do I convert a fraction to percent?',
+            a: 'Divide the numerator by the denominator, then multiply by 100. For example, 3/4 = 0.75 × 100 = 75%.',
+          },
+          {
+            q: 'What is 1/2 as a percentage?',
+            a: '1/2 = 0.5 × 100 = 50%',
+          },
+          {
+            q: 'How do I convert mixed fractions to percent?',
+            a: 'First convert the mixed fraction to an improper fraction, then divide and multiply by 100. For example, 1 1/4 = 5/4 = 1.25 × 100 = 125%.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'percent-to-decimal',
+        title: 'Percent to Decimal Calculator',
+        description: 'Convert percentages to decimals instantly. Essential for mathematical calculations and programming.',
+        formula: 'Decimal = Percentage / 100',
+        example: {
+          percentage: 75,
+          decimal: 0.75,
+        },
+        seo: {
+          title: 'Percent to Decimal Calculator - Quick Conversion | PercentLab',
+          description: 'Free percent to decimal calculator. Convert any percentage to decimal form instantly. Perfect for math, programming, and calculations.',
+        },
+        faq: [
+          {
+            q: 'How do I convert percent to decimal?',
+            a: 'Divide the percentage by 100. For example, 75% = 75 / 100 = 0.75.',
+          },
+          {
+            q: 'What is 25% as a decimal?',
+            a: '25% = 25 / 100 = 0.25',
+          },
+          {
+            q: 'Why do we divide by 100 to convert percent to decimal?',
+            a: 'Because "percent" means "per hundred". So 75% literally means 75 per 100, which equals 0.75 in decimal form.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'decimal-to-percent',
+        title: 'Decimal to Percent Calculator',
+        description: 'Convert decimals to percentages instantly. Enter any decimal to get the percentage equivalent.',
+        formula: 'Percentage = Decimal × 100',
+        example: {
+          decimal: 0.85,
+          percentage: 85,
+        },
+        seo: {
+          title: 'Decimal to Percent Calculator - Quick Conversion | PercentLab',
+          description: 'Free decimal to percent calculator. Convert any decimal to percentage form instantly. Perfect for statistics and data analysis.',
+        },
+        faq: [
+          {
+            q: 'How do I convert decimal to percent?',
+            a: 'Multiply the decimal by 100. For example, 0.85 × 100 = 85%.',
+          },
+          {
+            q: 'What is 0.5 as a percentage?',
+            a: '0.5 × 100 = 50%',
+          },
+          {
+            q: 'Can decimals greater than 1 be converted to percent?',
+            a: 'Yes! Decimals greater than 1 convert to percentages over 100%. For example, 1.5 × 100 = 150%.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
+      {
+        slug: 'percentage-calculator',
+        title: 'General Percentage Calculator',
+        description: 'All-in-one percentage calculator. Calculate any percentage operation including increase, decrease, difference, and more.',
+        formula: 'Multiple formulas depending on calculation type',
+        example: {
+          operation: 'calculate',
+          value1: 50,
+          value2: 100,
+          result: 50,
+        },
+        seo: {
+          title: 'Percentage Calculator - All-in-One % Tool | PercentLab',
+          description: 'Free comprehensive percentage calculator. Perform any percentage calculation with our all-in-one tool. Increase, decrease, difference, and more.',
+        },
+        faq: [
+          {
+            q: 'What percentage calculations can this handle?',
+            a: 'This calculator handles all basic percentage operations: finding X% of Y, percentage increase/decrease, percentage difference, reverse percentages, and converting between fractions, decimals, and percentages.',
+          },
+          {
+            q: 'How is this different from other percentage calculators?',
+            a: 'This is an all-in-one tool that combines multiple percentage calculators in one interface. Choose your operation and get instant results.',
+          },
+          {
+            q: 'Which percentage formula should I use?',
+            a: 'It depends on your need: Use "X% of Y" for basic percentage calculations, "percentage increase/decrease" for changes over time, "percentage difference" for comparing two values, and "reverse percentage" to find original values.',
+          },
+        ],
+        lastUpdated: '2025-11-13',
+        schemaType: 'HowTo',
+      },
     ],
-    comingSoon: [
-      'reverse-percentage',
-      'percentage-of-total',
-      'fraction-to-percent',
-      'percent-to-decimal',
-      'decimal-to-percent',
-      'percentage-calculator'
-    ],
+    comingSoon: [],
   },
   {
     id: 'finance',
@@ -352,14 +532,7 @@ export const CATEGORIES: Category[] = [
         schemaType: 'HowTo',
       },
     ],
-    comingSoon: [
-      'compound-interest',
-      'loan-interest',
-      'mortgage-calculator',
-      'investment-return',
-      'markup-percentage',
-      'commission-calculator'
-    ],
+    comingSoon: [],
   },
   {
     id: 'education',
@@ -467,14 +640,7 @@ export const CATEGORIES: Category[] = [
         schemaType: 'HowTo',
       },
     ],
-    comingSoon: [
-      'weighted-grade',
-      'final-grade',
-      'grade-needed',
-      'semester-gpa',
-      'class-average',
-      'grading-curve'
-    ],
+    comingSoon: [],
   },
   {
     id: 'daily',
@@ -589,14 +755,7 @@ export const CATEGORIES: Category[] = [
         schemaType: 'HowTo',
       },
     ],
-    comingSoon: [
-      'currency-converter',
-      'compound-growth',
-      'loan-payment',
-      'budget-percentage',
-      'calorie-percentage',
-      'time-percentage'
-    ],
+    comingSoon: [],
   },
 ];
 
