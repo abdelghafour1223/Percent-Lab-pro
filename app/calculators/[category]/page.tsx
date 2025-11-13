@@ -100,9 +100,19 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
             {category.title}
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl">
+          <p className="text-xl text-muted-foreground max-w-3xl mb-4">
             {category.description}
           </p>
+          <div className="flex flex-wrap gap-3 mt-4">
+            <Badge variant="default" className="text-sm py-1.5 px-3">
+              {category.calculators.length} {category.calculators.length === 1 ? 'Calculator' : 'Calculators'} Available
+            </Badge>
+            {category.comingSoon.length > 0 && (
+              <Badge variant="outline" className="text-sm py-1.5 px-3">
+                {category.comingSoon.length} Coming Soon
+              </Badge>
+            )}
+          </div>
         </section>
 
         {/* Available Calculators */}
@@ -141,7 +151,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                     </div>
                     <Button asChild className="w-full">
                       <Link href={`/calculators/${categoryId}/${calculator.slug}`}>
-                        Use Calculator <ArrowRight className="ml-2 h-4 w-4" />
+                        Use Calculator <ArrowRight className="ml-2 h-4 w-4" aria-label="Navigate to calculator" />
                       </Link>
                     </Button>
                   </div>
@@ -160,7 +170,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 <Card key={item} className="opacity-60">
                   <CardContent className="pt-6">
                     <div className="flex flex-col items-center text-center space-y-2">
-                      <Clock className="h-8 w-8 text-muted-foreground" />
+                      <Clock className="h-8 w-8 text-muted-foreground" aria-label="Coming soon calculator icon" />
                       <div className="text-sm font-medium capitalize">
                         {item.replace(/-/g, ' ')}
                       </div>

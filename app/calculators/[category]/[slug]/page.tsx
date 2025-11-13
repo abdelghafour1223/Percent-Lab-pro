@@ -73,31 +73,34 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
 
   const relatedCalculators = getRelatedCalculators(categoryId, slug, 3);
 
-  // JSON-LD Schema
-  const schema = calculator.schemaType === 'HowTo' ? {
+  // JSON-LD Schemas - All 4 required schemas for enterprise SEO
+
+  // 1. WebApplication Schema
+  const webApplicationSchema = {
     "@context": "https://schema.org",
-    "@type": "HowTo",
+    "@type": "WebApplication",
     "name": calculator.title,
+    "url": `https://percentlab.app/calculators/${categoryId}/${slug}`,
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
     "description": calculator.description,
-    "step": [
-      {
-        "@type": "HowToStep",
-        "name": "Enter your values",
-        "text": `Enter the required values for ${calculator.title.toLowerCase()} calculation.`
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Click Calculate",
-        "text": "Click the calculate button to get your result."
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Review the result",
-        "text": "See your result with detailed step-by-step explanation and formula breakdown."
-      }
+    "featureList": [
+      "Instant calculation",
+      "Step-by-step explanation",
+      "Real-world examples",
+      "Mobile friendly",
+      "Free to use"
     ],
-    "totalTime": "PT1M"
-  } : {
+    "browserRequirements": "Requires JavaScript"
+  };
+
+  // 2. FAQPage Schema
+  const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": calculator.faq.map(item => ({
@@ -110,12 +113,91 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     }))
   };
 
+  // 3. HowTo Schema
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": `How to use ${calculator.title}`,
+    "description": calculator.description,
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Enter your values",
+        "text": `Enter the required values for ${calculator.title.toLowerCase()} calculation.`,
+        "position": 1
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Click Calculate",
+        "text": "Click the calculate button to get your result.",
+        "position": 2
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Review the result",
+        "text": "See your result with detailed step-by-step explanation and formula breakdown.",
+        "position": 3
+      },
+      {
+        "@type": "HowToStep",
+        "name": "View detailed steps",
+        "text": "Review the complete mathematical breakdown and learn how the calculation works.",
+        "position": 4
+      }
+    ],
+    "totalTime": "PT1M"
+  };
+
+  // 4. BreadcrumbList Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://percentlab.app"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Calculators",
+        "item": "https://percentlab.app/#categories"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": category.title,
+        "item": `https://percentlab.app/calculators/${categoryId}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": calculator.title,
+        "item": `https://percentlab.app/calculators/${categoryId}/${slug}`
+      }
+    ]
+  };
+
   return (
     <>
-      {/* Structured Data */}
+      {/* All 4 Structured Data Schemas for Enterprise SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <div className="container px-4 md:px-6 py-8 md:py-12 max-w-7xl mx-auto">
@@ -217,7 +299,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
                         href={`/calculators/${relatedCategory?.id}/${relatedCalc.slug}`}
                         className="inline-flex items-center text-sm text-primary hover:underline"
                       >
-                        Try Calculator <ArrowRight className="ml-1 h-3 w-3" />
+                        Try Calculator <ArrowRight className="ml-1 h-3 w-3" aria-label="Navigate to related calculator" />
                       </Link>
                     </CardContent>
                   </Card>
@@ -240,7 +322,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
                 </p>
                 <Button asChild size="lg" className="min-h-[48px] text-base font-semibold">
                   <Link href="/blog">
-                    Visit Learning Hub <ArrowRight className="ml-2 h-4 w-4" />
+                    Visit Learning Hub <ArrowRight className="ml-2 h-4 w-4" aria-label="Navigate to learning hub" />
                   </Link>
                 </Button>
               </div>
