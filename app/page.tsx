@@ -82,7 +82,7 @@ export default function HomePage() {
                   <div className="p-3 bg-primary/10 rounded-lg">
                     <Zap className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-lg">Lightning Fast</h3>
+                  <h2 className="font-semibold text-lg">Lightning Fast</h2>
                   <p className="text-sm text-muted-foreground">
                     Get instant results with our optimized calculation engine. No waiting, no delays.
                   </p>
@@ -96,7 +96,7 @@ export default function HomePage() {
                   <div className="p-3 bg-primary/10 rounded-lg">
                     <BookOpen className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-lg">Learn How It Works</h3>
+                  <h2 className="font-semibold text-lg">Learn How It Works</h2>
                   <p className="text-sm text-muted-foreground">
                     Every calculation includes detailed step-by-step explanations to help you understand.
                   </p>
@@ -110,7 +110,7 @@ export default function HomePage() {
                   <div className="p-3 bg-primary/10 rounded-lg">
                     <Target className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-lg">Specialized Tools</h3>
+                  <h2 className="font-semibold text-lg">Specialized Tools</h2>
                   <p className="text-sm text-muted-foreground">
                     Purpose-built calculators for finance, education, shopping, and everyday calculations.
                   </p>
@@ -205,7 +205,7 @@ export default function HomePage() {
             <CardContent className="pt-6 pb-6">
               <div className="flex flex-col md:flex-row items-center justify-between gap-5 md:gap-6 px-2 md:px-0">
                 <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-xl sm:text-2xl font-bold mb-2">Learn More About Percentages</h3>
+                  <h2 className="text-xl sm:text-2xl font-bold mb-2">Learn More About Percentages</h2>
                   <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                     Explore our comprehensive guides, tutorials, and articles to master percentage calculations for real-world applications.
                   </p>

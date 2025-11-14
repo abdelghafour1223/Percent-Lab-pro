@@ -43,7 +43,7 @@ export default function AboutPage() {
                 <div className="p-3 bg-primary/10 rounded-lg">
                   <Calculator className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="font-semibold text-lg">Accurate Calculations</h3>
+                <h2 className="font-semibold text-lg">Accurate Calculations</h2>
                 <p className="text-sm text-muted-foreground">
                   Our calculator uses proven mathematical formulas to ensure every result is precise and reliable.
                 </p>
@@ -57,7 +57,7 @@ export default function AboutPage() {
                 <div className="p-3 bg-primary/10 rounded-lg">
                   <Heart className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="font-semibold text-lg">Free Forever</h3>
+                <h2 className="font-semibold text-lg">Free Forever</h2>
                 <p className="text-sm text-muted-foreground">
                   No registration, no hidden fees, no paywalls. Just free, unlimited calculations for everyone.
                 </p>
@@ -71,7 +71,7 @@ export default function AboutPage() {
                 <div className="p-3 bg-primary/10 rounded-lg">
                   <Zap className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="font-semibold text-lg">Lightning Fast</h3>
+                <h2 className="font-semibold text-lg">Lightning Fast</h2>
                 <p className="text-sm text-muted-foreground">
                   Built with modern web technologies for instant results without any delays or loading times.
                 </p>
@@ -85,7 +85,7 @@ export default function AboutPage() {
                 <div className="p-3 bg-primary/10 rounded-lg">
                   <Shield className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="font-semibold text-lg">Privacy Focused</h3>
+                <h2 className="font-semibold text-lg">Privacy Focused</h2>
                 <p className="text-sm text-muted-foreground">
                   We don't collect personal information. Your calculations stay private and secure.
                 </p>

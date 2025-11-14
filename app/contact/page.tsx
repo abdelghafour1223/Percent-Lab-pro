@@ -223,7 +223,7 @@ export default function ContactPage() {
                 <div className="p-3 bg-primary/10 rounded-lg">
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="font-semibold text-lg">Email Us</h3>
+                <h2 className="font-semibold text-lg">Email Us</h2>
                 <p className="text-sm text-muted-foreground">
                   contact@percentlab.app
                 </p>
@@ -236,7 +236,7 @@ export default function ContactPage() {
 
           <Card>
             <CardContent className="pt-6">
-              <h3 className="font-semibold mb-3">Frequently Asked Questions</h3>
+              <h2 className="font-semibold mb-3">Frequently Asked Questions</h2>
               <p className="text-sm text-muted-foreground mb-3">
                 Before contacting us, you might find your answer in our FAQ section.
               </p>
@@ -252,7 +252,7 @@ export default function ContactPage() {
 
           <Card>
             <CardContent className="pt-6">
-              <h3 className="font-semibold mb-3">Report an Issue</h3>
+              <h2 className="font-semibold mb-3">Report an Issue</h2>
               <p className="text-sm text-muted-foreground">
                 Found a bug or calculation error? Let us know so we can fix it quickly.
               </p>
