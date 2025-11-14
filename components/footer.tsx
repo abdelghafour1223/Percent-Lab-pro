@@ -18,23 +18,23 @@ export function Footer() {
             <h4 className="text-sm font-semibold mb-3">Calculators</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/calculators/basic-percent" className="text-muted-foreground hover:text-primary transition-colors">
-                  Basic Percentages
+                <Link href="/calculators/basic-percent" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Basic percentage calculators">
+                  Basic Percentage Calculators
                 </Link>
               </li>
               <li>
-                <Link href="/calculators/finance" className="text-muted-foreground hover:text-primary transition-colors">
-                  Financial
+                <Link href="/calculators/finance" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Financial percentage calculators">
+                  Financial Calculators
                 </Link>
               </li>
               <li>
-                <Link href="/calculators/education" className="text-muted-foreground hover:text-primary transition-colors">
-                  Education
+                <Link href="/calculators/education" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Education and grade calculators">
+                  Education Calculators
                 </Link>
               </li>
               <li>
-                <Link href="/calculators/daily" className="text-muted-foreground hover:text-primary transition-colors">
-                  Daily Use
+                <Link href="/calculators/daily" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Daily use percentage calculators">
+                  Daily Use Calculators
                 </Link>
               </li>
             </ul>
@@ -44,18 +44,18 @@ export function Footer() {
             <h4 className="text-sm font-semibold mb-3">Company</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">
-                  About
+                <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors" aria-label="About PercentLab">
+                  About PercentLab
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-muted-foreground hover:text-primary transition-colors">
-                  FAQ
+                <Link href="/faq" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Frequently asked questions">
+                  Frequently Asked Questions
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
-                  Contact
+                <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Contact PercentLab support">
+                  Contact Us
                 </Link>
               </li>
               <li>
