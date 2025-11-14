@@ -243,6 +243,7 @@ export default function ContactPage() {
               <a
                 href="/faq"
                 className="text-sm text-primary hover:underline"
+                aria-label="Visit frequently asked questions page"
               >
                 Visit FAQ →
               </a>

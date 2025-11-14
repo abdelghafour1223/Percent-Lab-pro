@@ -203,15 +203,15 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
       <div className="container px-4 md:px-6 py-8 md:py-12 max-w-7xl mx-auto">
         {/* Breadcrumbs */}
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
-          <Link href="/" className="hover:text-primary transition-colors">
+          <Link href="/" className="hover:text-primary transition-colors" aria-label="Go to PercentLab homepage">
             Home
           </Link>
           <span>/</span>
-          <Link href="/#categories" className="hover:text-primary transition-colors">
+          <Link href="/#categories" className="hover:text-primary transition-colors" aria-label="Browse all calculator categories">
             Categories
           </Link>
           <span>/</span>
-          <Link href={`/calculators/${categoryId}`} className="hover:text-primary transition-colors">
+          <Link href={`/calculators/${categoryId}`} className="hover:text-primary transition-colors" aria-label={`View all ${category.title} calculators`}>
             {category.title}
           </Link>
           <span>/</span>
@@ -298,8 +298,9 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
                       <Link
                         href={`/calculators/${relatedCategory?.id}/${relatedCalc.slug}`}
                         className="inline-flex items-center text-sm text-primary hover:underline"
+                        aria-label={`Try ${relatedCalc.title} calculator`}
                       >
-                        Try Calculator <ArrowRight className="ml-1 h-3 w-3" aria-label="Navigate to related calculator" />
+                        Try Calculator <ArrowRight className="ml-1 h-3 w-3" />
                       </Link>
                     </CardContent>
                   </Card>

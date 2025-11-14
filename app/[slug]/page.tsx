@@ -225,6 +225,7 @@ export default async function PSEOPage({ params }: PageProps) {
                       key={page.slug}
                       href={`/${page.slug}`}
                       className="flex items-center justify-between p-4 rounded-lg border hover:bg-accent transition-colors group"
+                      aria-label={`Calculate ${page.percent}% of ${page.number}`}
                     >
                       <div>
                         <p className="font-medium">
@@ -253,6 +254,7 @@ export default async function PSEOPage({ params }: PageProps) {
               <Link
                 href="/blog/percentage-basics"
                 className="flex flex-col p-4 rounded-lg border hover:bg-accent transition-colors group"
+                aria-label="Read guide on percentage basics"
               >
                 <h4 className="font-semibold mb-2 group-hover:text-primary transition-colors">
                   Percentage Basics
@@ -264,6 +266,7 @@ export default async function PSEOPage({ params }: PageProps) {
               <Link
                 href="/blog/finance"
                 className="flex flex-col p-4 rounded-lg border hover:bg-accent transition-colors group"
+                aria-label="Read guide on finance and money percentages"
               >
                 <h4 className="font-semibold mb-2 group-hover:text-primary transition-colors">
                   Finance & Money
@@ -275,6 +278,7 @@ export default async function PSEOPage({ params }: PageProps) {
               <Link
                 href="/blog/education"
                 className="flex flex-col p-4 rounded-lg border hover:bg-accent transition-colors group"
+                aria-label="Read guide on education and grades"
               >
                 <h4 className="font-semibold mb-2 group-hover:text-primary transition-colors">
                   Education & Grades
@@ -297,6 +301,7 @@ export default async function PSEOPage({ params }: PageProps) {
             <Link
               href="/"
               className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-8 py-2"
+              aria-label="Go to main percentage calculator"
             >
               Go to Calculator
             </Link>

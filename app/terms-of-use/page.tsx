@@ -241,7 +241,7 @@ export default function TermsOfUsePage() {
             <p className="text-muted-foreground">
               <strong>PercentLab</strong><br />
               Email: legal@percentlab.app<br />
-              Contact Form: <a href="/contact" className="text-primary hover:underline">/contact</a>
+              Contact Form: <a href="/contact" className="text-primary hover:underline" aria-label="Visit our contact page">/contact</a>
             </p>
           </div>
         </section>

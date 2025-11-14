@@ -82,7 +82,7 @@ export default function PrivacyPolicyPage() {
           </p>
           <p className="text-muted-foreground mt-3">
             <strong>Third-Party Privacy Policy:</strong> Google's use of advertising cookies is governed by Google's Privacy Policy. You can learn more and opt out at{' '}
-            <a href="https://policies.google.com/technologies/ads" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+            <a href="https://policies.google.com/technologies/ads" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer" aria-label="Read Google's advertising privacy policy (opens in new tab)">
               https://policies.google.com/technologies/ads
             </a>
           </p>
@@ -202,19 +202,19 @@ export default function PrivacyPolicyPage() {
           <ul className="list-disc list-inside space-y-2 text-muted-foreground mt-3">
             <li>
               <strong>Google Analytics:</strong> Analytics service by Google LLC. Privacy Policy:{' '}
-              <a href="https://policies.google.com/privacy" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+              <a href="https://policies.google.com/privacy" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer" aria-label="Read Google's privacy policy (opens in new tab)">
                 https://policies.google.com/privacy
               </a>
             </li>
             <li>
               <strong>Google AdSense:</strong> Advertising service by Google LLC. Privacy Policy:{' '}
-              <a href="https://policies.google.com/privacy" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+              <a href="https://policies.google.com/privacy" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer" aria-label="Read Google's privacy policy for AdSense (opens in new tab)">
                 https://policies.google.com/privacy
               </a>
             </li>
             <li>
               <strong>Vercel:</strong> Hosting service. Privacy Policy:{' '}
-              <a href="https://vercel.com/legal/privacy-policy" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+              <a href="https://vercel.com/legal/privacy-policy" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer" aria-label="Read Vercel's privacy policy (opens in new tab)">
                 https://vercel.com/legal/privacy-policy
               </a>
             </li>
@@ -276,7 +276,7 @@ export default function PrivacyPolicyPage() {
             <p className="text-muted-foreground">
               <strong>PercentLab</strong><br />
               Email: privacy@percentlab.app<br />
-              Contact Form: <a href="/contact" className="text-primary hover:underline">/contact</a>
+              Contact Form: <a href="/contact" className="text-primary hover:underline" aria-label="Visit our contact page">/contact</a>
             </p>
           </div>
           <p className="text-muted-foreground mt-4">
