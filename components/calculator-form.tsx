@@ -9,6 +9,7 @@ import { Calculator as CalculatorType } from '@/data/calculators';
 import { Copy, Check } from 'lucide-react';
 import { ROIChart } from '@/components/charts/roi-chart';
 import { DiscountChart } from '@/components/charts/discount-chart';
+import { SocialShare } from '@/components/social-share';
 
 interface CalculatorFormProps {
   calculator: CalculatorType;
@@ -1299,6 +1300,18 @@ export function CalculatorForm({ calculator, categoryId }: CalculatorFormProps) 
                   </li>
                 ))}
               </ol>
+            </CardContent>
+          </Card>
+
+          {/* Social Media Share */}
+          <Card>
+            <CardContent className="pt-6">
+              <SocialShare
+                title={calculator.title}
+                description={calculator.description}
+                result={`${result.result.toFixed(2)}${calculator.slug === 'roi' || calculator.slug === 'grade-percentage' ? '%' : ''}`}
+                calculatorName={calculator.title}
+              />
             </CardContent>
           </Card>
 
