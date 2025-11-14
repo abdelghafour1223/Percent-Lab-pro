@@ -11,7 +11,7 @@ User-agent: Bingbot
 Allow: /
 
 # Host
-Host: https://percentlab.app
+Host: percentlab.app
 
 # Sitemaps
 Sitemap: https://percentlab.app/sitemap.xml
