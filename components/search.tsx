@@ -90,9 +90,12 @@ export function SearchBar() {
           onFocus={handleFocus}
           onKeyDown={handleKeyDown}
           className="pl-9 pr-9 h-10"
+          role="combobox"
           aria-label="Search calculators"
           aria-expanded={isOpen}
           aria-autocomplete="list"
+          aria-controls={isOpen ? "search-results" : undefined}
+          aria-haspopup="listbox"
         />
         {query && (
           <button
@@ -107,7 +110,7 @@ export function SearchBar() {
 
       {/* Search Results Dropdown */}
       {isOpen && results.length > 0 && (
-        <div className="absolute top-full mt-2 w-full bg-background border rounded-lg shadow-lg z-50 max-h-[400px] overflow-y-auto">
+        <div id="search-results" className="absolute top-full mt-2 w-full bg-background border rounded-lg shadow-lg z-50 max-h-[400px] overflow-y-auto" role="listbox">
           {/* Header */}
           <div className="px-3 py-2 border-b bg-muted/50">
             <p className="text-xs font-medium text-muted-foreground">
@@ -129,6 +132,7 @@ export function SearchBar() {
                 href={result.url}
                 onClick={handleSelect}
                 className="block px-3 py-2.5 hover:bg-muted/50 transition-colors focus:bg-muted/50 focus:outline-none"
+                role="option"
               >
                 <div className="flex items-start gap-3">
                   <div className="mt-0.5 flex-shrink-0">
