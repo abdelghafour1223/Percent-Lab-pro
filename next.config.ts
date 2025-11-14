@@ -11,6 +11,19 @@ const nextConfig: NextConfig = {
 
   experimental: {
     optimizePackageImports: ['lucide-react'],
+    // Optimize CSS loading with critical CSS inlining
+    optimizeCss: true,
+  },
+
+  // Webpack configuration to exclude polyfills
+  webpack: (config, { isServer }) => {
+    // Exclude polyfills for modern browsers
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      // Prevent polyfill inclusion
+      'core-js/modules': false,
+    };
+    return config;
   },
 
   async headers() {
