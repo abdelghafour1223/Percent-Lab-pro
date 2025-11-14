@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Calculator } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { SearchBar } from '@/components/search';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -22,13 +23,20 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+      <div className="container flex h-16 items-center gap-4 px-4 md:px-6">
+        {/* Logo */}
+        <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity flex-shrink-0">
           <Calculator className="h-6 w-6 text-primary" />
           <span className="text-xl font-bold">PercentLab</span>
         </Link>
 
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+        {/* Search Bar - Desktop */}
+        <div className="hidden md:block flex-1 max-w-md">
+          <SearchBar />
+        </div>
+
+        {/* Navigation - Desktop */}
+        <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -37,7 +45,7 @@ export function Header() {
                 href={item.href}
                 aria-label={item.ariaLabel}
                 className={cn(
-                  "transition-colors hover:text-primary relative",
+                  "transition-colors hover:text-primary relative whitespace-nowrap",
                   isActive ? "text-primary font-semibold" : "text-muted-foreground"
                 )}
               >
@@ -50,12 +58,18 @@ export function Header() {
           })}
         </nav>
 
-        <div className="flex items-center space-x-2">
+        {/* Right Side Actions */}
+        <div className="flex items-center space-x-2 ml-auto">
           <ThemeToggle />
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <MobileNav />
           </div>
         </div>
+      </div>
+
+      {/* Search Bar - Mobile (below header) */}
+      <div className="md:hidden border-t bg-background px-4 py-3">
+        <SearchBar />
       </div>
     </header>
   );
@@ -111,14 +125,14 @@ function MobileNav() {
         <>
           {/* Backdrop overlay */}
           <div
-            className="fixed inset-0 top-16 z-40 bg-black/50 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 top-[7.5rem] z-40 bg-black/50 backdrop-blur-sm lg:hidden"
             onClick={() => setOpen(false)}
             aria-hidden="true"
           />
 
           {/* Mobile menu */}
-          <div className="fixed inset-x-0 top-16 z-50 bg-background border-b shadow-lg md:hidden">
-            <nav className="flex flex-col space-y-1 p-4 max-h-[calc(100vh-4rem)] overflow-y-auto">
+          <div className="fixed inset-x-0 top-[7.5rem] z-50 bg-background border-b shadow-lg lg:hidden">
+            <nav className="flex flex-col space-y-1 p-4 max-h-[calc(100vh-7.5rem)] overflow-y-auto">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
                 return (
