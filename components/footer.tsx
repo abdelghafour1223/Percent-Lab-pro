@@ -59,12 +59,12 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Read our privacy policy">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms-of-use" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/terms-of-use" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Read our terms of use">
                   Terms of Use
                 </Link>
               </li>

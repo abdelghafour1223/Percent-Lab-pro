@@ -84,11 +84,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <div className="container px-4 md:px-6 py-8 md:py-12 max-w-7xl mx-auto">
         {/* Breadcrumbs */}
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
-          <Link href="/" className="hover:text-primary transition-colors">
+          <Link href="/" className="hover:text-primary transition-colors" aria-label="Go to PercentLab homepage">
             Home
           </Link>
           <span>/</span>
-          <Link href="/#categories" className="hover:text-primary transition-colors">
+          <Link href="/#categories" className="hover:text-primary transition-colors" aria-label="Browse all calculator categories">
             Categories
           </Link>
           <span>/</span>
