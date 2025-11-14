@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
@@ -11,11 +12,11 @@ export const metadata: Metadata = {
     canonical: 'https://percentlab.app',
   },
   title: {
-    default: 'PercentLab - Free Online Percentage Calculator with Step-by-Step Solutions',
+    default: 'PercentLab - Free Percentage Calculator & Tools',
     template: '%s | PercentLab',
   },
   description:
-    'Free online percentage calculator. Calculate percent of number, percentage increase, percentage decrease, and more with step-by-step explanations and real-life examples.',
+    'Free percentage calculator with step-by-step solutions. Calculate percentages, increases, decreases and more with detailed explanations and examples.',
   keywords: [
     'percentage calculator',
     'percent calculator',
@@ -69,15 +70,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        {process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID && (
-          <script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}`}
-            crossOrigin="anonymous"
-          />
-        )}
-      </head>
       <body className="min-h-screen flex flex-col antialiased">
         <ThemeProvider
           attribute="class"
@@ -90,6 +82,13 @@ export default function RootLayout({
           <Footer />
           <Analytics />
         </ThemeProvider>
+        {process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID && (
+          <Script
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}`}
+            strategy="lazyOnload"
+            crossOrigin="anonymous"
+          />
+        )}
       </body>
     </html>
   );
