@@ -68,7 +68,7 @@ export default function HomePage() {
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="min-h-[48px] text-base font-semibold">
-              <Link href="/about">Learn More</Link>
+              <Link href="/about">About PercentLab</Link>
             </Button>
           </div>
         </section>
