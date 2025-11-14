@@ -14,6 +14,7 @@ export function SearchBar() {
   const [isFocused, setIsFocused] = React.useState(false);
   const searchRef = React.useRef<HTMLDivElement>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
+  const listboxId = React.useId();
 
   // Debounced search
   React.useEffect(() => {
@@ -84,17 +85,17 @@ export function SearchBar() {
         <Input
           ref={inputRef}
           type="text"
+          role="combobox"
           placeholder="Search calculators..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={handleFocus}
           onKeyDown={handleKeyDown}
           className="pl-9 pr-9 h-10"
-          role="combobox"
           aria-label="Search calculators"
           aria-expanded={isOpen}
           aria-autocomplete="list"
-          aria-controls={isOpen ? "search-results" : undefined}
+          aria-controls={isOpen ? listboxId : undefined}
           aria-haspopup="listbox"
         />
         {query && (
@@ -102,6 +103,7 @@ export function SearchBar() {
             onClick={handleClear}
             className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
             aria-label="Clear search"
+            tabIndex={-1}
           >
             <X className="h-4 w-4" />
           </button>
@@ -110,9 +112,14 @@ export function SearchBar() {
 
       {/* Search Results Dropdown */}
       {isOpen && results.length > 0 && (
-        <div id="search-results" className="absolute top-full mt-2 w-full bg-background border rounded-lg shadow-lg z-50 max-h-[400px] overflow-y-auto" role="listbox">
+        <div
+          id={listboxId}
+          role="listbox"
+          aria-label="Calculator search results"
+          className="absolute top-full mt-2 w-full bg-background border rounded-lg shadow-lg z-50 max-h-[400px] overflow-y-auto"
+        >
           {/* Header */}
-          <div className="px-3 py-2 border-b bg-muted/50">
+          <div className="px-3 py-2 border-b bg-muted/50" role="presentation">
             <p className="text-xs font-medium text-muted-foreground">
               {query.trim().length > 0 ? (
                 <>
@@ -125,18 +132,19 @@ export function SearchBar() {
           </div>
 
           {/* Results List */}
-          <div className="py-2">
+          <div className="py-2" role="presentation">
             {results.map((result, index) => (
               <Link
                 key={`${result.categoryId}-${result.calculator.slug}-${index}`}
                 href={result.url}
                 onClick={handleSelect}
-                className="block px-3 py-2.5 hover:bg-muted/50 transition-colors focus:bg-muted/50 focus:outline-none"
                 role="option"
+                aria-selected="false"
+                className="block px-3 py-2.5 hover:bg-muted/50 transition-colors focus:bg-muted/50 focus:outline-none"
               >
                 <div className="flex items-start gap-3">
                   <div className="mt-0.5 flex-shrink-0">
-                    <Calculator className="h-4 w-4 text-primary" />
+                    <Calculator className="h-4 w-4 text-primary" aria-hidden="true" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
