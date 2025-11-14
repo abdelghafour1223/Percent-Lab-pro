@@ -4,6 +4,11 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
 
+  // Target modern browsers only, no legacy polyfills
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
@@ -32,6 +37,24 @@ const nextConfig: NextConfig = {
           {
             key: 'Link',
             value: '<https://fonts.googleapis.com>; rel=preconnect; crossorigin, <https://www.googletagmanager.com>; rel=dns-prefetch'
+          },
+        ],
+      },
+      {
+        source: '/_next/static/css/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/js/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },

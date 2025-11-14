@@ -12,12 +12,12 @@ export function Header() {
   const pathname = usePathname();
 
   const navItems = [
-    { href: '/', label: 'Home' },
-    { href: '/#categories', label: 'Calculators' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/faq', label: 'FAQ' },
-    { href: '/about', label: 'About' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/', label: 'Home', ariaLabel: 'Go to PercentLab homepage' },
+    { href: '/#categories', label: 'Calculators', ariaLabel: 'Browse percentage calculators' },
+    { href: '/blog', label: 'Blog', ariaLabel: 'Read PercentLab blog articles' },
+    { href: '/faq', label: 'FAQ', ariaLabel: 'Frequently asked questions about PercentLab' },
+    { href: '/about', label: 'About PercentLab', ariaLabel: 'Learn about PercentLab' },
+    { href: '/contact', label: 'Contact', ariaLabel: 'Contact PercentLab support' },
   ];
 
   return (
@@ -35,6 +35,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
+                aria-label={item.ariaLabel}
                 className={cn(
                   "transition-colors hover:text-primary relative",
                   isActive ? "text-primary font-semibold" : "text-muted-foreground"
@@ -65,12 +66,12 @@ function MobileNav() {
   const pathname = usePathname();
 
   const navItems = [
-    { href: '/', label: 'Home' },
-    { href: '/#categories', label: 'Calculators' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/faq', label: 'FAQ' },
-    { href: '/about', label: 'About' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/', label: 'Home', ariaLabel: 'Go to PercentLab homepage' },
+    { href: '/#categories', label: 'Calculators', ariaLabel: 'Browse percentage calculators' },
+    { href: '/blog', label: 'Blog', ariaLabel: 'Read PercentLab blog articles' },
+    { href: '/faq', label: 'FAQ', ariaLabel: 'Frequently asked questions about PercentLab' },
+    { href: '/about', label: 'About PercentLab', ariaLabel: 'Learn about PercentLab' },
+    { href: '/contact', label: 'Contact', ariaLabel: 'Contact PercentLab support' },
   ];
 
   return (
@@ -125,6 +126,7 @@ function MobileNav() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
+                    aria-label={item.ariaLabel}
                     className={cn(
                       "text-base font-medium transition-colors hover:text-primary px-4 py-3 rounded-lg hover:bg-muted/50",
                       isActive ? "text-primary font-bold bg-primary/10" : "text-foreground"
