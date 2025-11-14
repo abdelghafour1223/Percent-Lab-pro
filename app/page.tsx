@@ -75,6 +75,7 @@ export default function HomePage() {
 
         {/* Features */}
         <section className="mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 md:mb-8 px-4">Why Choose PercentLab</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
             <Card>
               <CardContent className="pt-6">
@@ -236,9 +237,9 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Why Choose PercentLab */}
+        {/* Who Uses PercentLab */}
         <section className="mb-12 md:mb-16 max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 md:mb-8 px-4">Why Choose PercentLab?</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 md:mb-8 px-4">Who Uses PercentLab?</h2>
           <div className="prose prose-gray dark:prose-invert max-w-none px-4">
             <p className="text-base sm:text-lg text-muted-foreground text-center mb-6 md:mb-8 leading-relaxed">
               PercentLab is your comprehensive suite of percentage calculators, designed to handle every calculation scenario you encounter in daily life, work, or study. Our platform stands out by providing not just answers, but complete understanding through detailed explanations and multiple calculation methods.

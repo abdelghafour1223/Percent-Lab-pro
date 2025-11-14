@@ -246,7 +246,7 @@ export default async function PSEOPage({ params }: PageProps) {
         {/* Suggested Guides */}
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle>Suggested Guides (Coming Soon)</CardTitle>
+            <h2 className="text-2xl font-semibold leading-none tracking-tight">Suggested Guides (Coming Soon)</h2>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -254,9 +254,9 @@ export default async function PSEOPage({ params }: PageProps) {
                 href="/blog/percentage-basics"
                 className="flex flex-col p-4 rounded-lg border hover:bg-accent transition-colors group"
               >
-                <h4 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
                   Percentage Basics
-                </h4>
+                </h3>
                 <p className="text-sm text-muted-foreground">
                   Master fundamental percentage calculations
                 </p>
@@ -265,9 +265,9 @@ export default async function PSEOPage({ params }: PageProps) {
                 href="/blog/finance"
                 className="flex flex-col p-4 rounded-lg border hover:bg-accent transition-colors group"
               >
-                <h4 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
                   Finance & Money
-                </h4>
+                </h3>
                 <p className="text-sm text-muted-foreground">
                   Learn financial percentage applications
                 </p>
@@ -276,9 +276,9 @@ export default async function PSEOPage({ params }: PageProps) {
                 href="/blog/education"
                 className="flex flex-col p-4 rounded-lg border hover:bg-accent transition-colors group"
               >
-                <h4 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
                   Education & Grades
-                </h4>
+                </h3>
                 <p className="text-sm text-muted-foreground">
                   Understand grade calculations
                 </p>
@@ -290,7 +290,7 @@ export default async function PSEOPage({ params }: PageProps) {
         {/* CTA */}
         <Card>
           <CardContent className="pt-6 text-center">
-            <h3 className="text-xl font-semibold mb-3">Need to Calculate Other Percentages?</h3>
+            <h2 className="text-xl font-semibold mb-3">Need to Calculate Other Percentages?</h2>
             <p className="text-muted-foreground mb-6">
               Use our full-featured percentage calculator for any calculation with detailed explanations
             </p>

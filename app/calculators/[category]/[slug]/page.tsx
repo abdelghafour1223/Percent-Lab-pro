@@ -243,7 +243,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card>
               <CardContent className="pt-6">
-                <h3 className="font-semibold text-lg mb-4">Formula</h3>
+                <h2 className="font-semibold text-lg mb-4">Formula</h2>
                 <div className="bg-muted/50 p-4 rounded-lg">
                   <code className="text-sm font-mono">{calculator.formula}</code>
                 </div>
@@ -252,7 +252,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
 
             <Card>
               <CardContent className="pt-6">
-                <h3 className="font-semibold text-lg mb-4">Example</h3>
+                <h2 className="font-semibold text-lg mb-4">Example</h2>
                 <div className="space-y-2">
                   {Object.entries(calculator.example).map(([key, value]) => (
                     <div key={key} className="flex justify-between text-sm">
