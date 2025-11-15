@@ -171,13 +171,23 @@ export default function MonthlyExpensesPercentagePage() {
 
           <div className="flex justify-center my-8">
             <svg width="400" height="400" viewBox="0 0 400 400" className="max-w-full h-auto">
-              <circle cx="200" cy="200" r="160" fill="#3b82f6" />
-              <path d="M 200 200 L 200 40 A 160 160 0 0 1 357.13 123.43 Z" fill="#10b981" />
-              <path d="M 200 200 L 357.13 123.43 A 160 160 0 0 1 360 200 Z" fill="#f59e0b" />
-              <path d="M 200 200 L 360 200 A 160 160 0 0 1 318.85 318.85 Z" fill="#ef4444" />
-              <path d="M 200 200 L 318.85 318.85 A 160 160 0 0 1 200 360 Z" fill="#8b5cf6" />
-              <path d="M 200 200 L 200 360 A 160 160 0 0 1 81.15 318.85 Z" fill="#ec4899" />
-              <path d="M 200 200 L 81.15 318.85 A 160 160 0 0 1 42.87 276.57 Z" fill="#14b8a6" />
+              {/* Housing: 30% = 108° */}
+              <path d="M 200 200 L 200 40 A 160 160 0 0 1 347.13 249.44 Z" fill="#3b82f6" />
+              {/* Food: 15% = 54° */}
+              <path d="M 200 200 L 347.13 249.44 A 160 160 0 0 1 304.94 325.06 Z" fill="#10b981" />
+              {/* Savings: 15% = 54° */}
+              <path d="M 200 200 L 304.94 325.06 A 160 160 0 0 1 200 360 Z" fill="#f59e0b" />
+              {/* Transportation: 12.5% = 45° */}
+              <path d="M 200 200 L 200 360 A 160 160 0 0 1 87.16 326.27 Z" fill="#ef4444" />
+              {/* Insurance: 7.5% = 27° */}
+              <path d="M 200 200 L 87.16 326.27 A 160 160 0 0 1 55.56 286.27 Z" fill="#8b5cf6" />
+              {/* Entertainment: 7.5% = 27° */}
+              <path d="M 200 200 L 55.56 286.27 A 160 160 0 0 1 40 200 Z" fill="#ec4899" />
+              {/* Other (Utilities + Debt + Personal): 12.5% = 45° */}
+              <path d="M 200 200 L 40 200 A 160 160 0 0 1 87.16 73.73 Z" fill="#14b8a6" />
+              {/* Remaining to close circle back to start: 2.5% = 9° */}
+              <path d="M 200 200 L 87.16 73.73 A 160 160 0 0 1 200 40 Z" fill="#64748b" />
+
               <circle cx="200" cy="200" r="80" fill="white" className="dark:fill-slate-800" />
               <text x="200" y="195" textAnchor="middle" className="fill-slate-900 dark:fill-slate-100 text-xl font-bold">Your</text>
               <text x="200" y="220" textAnchor="middle" className="fill-slate-900 dark:fill-slate-100 text-xl font-bold">Budget</text>
@@ -203,7 +213,10 @@ export default function MonthlyExpensesPercentagePage() {
                 <text x="20" y="137" className="fill-slate-900 dark:fill-slate-100 text-sm">Entertainment (7.5%)</text>
 
                 <rect x="0" y="150" width="15" height="15" fill="#14b8a6" />
-                <text x="20" y="162" className="fill-slate-900 dark:fill-slate-100 text-sm">Other (12.5%)</text>
+                <text x="20" y="162" className="fill-slate-900 dark:fill-slate-100 text-sm">Utilities (5%)</text>
+
+                <rect x="0" y="175" width="15" height="15" fill="#64748b" />
+                <text x="20" y="187" className="fill-slate-900 dark:fill-slate-100 text-sm">Debt (5%) + Other (2.5%)</text>
               </g>
             </svg>
           </div>
@@ -345,7 +358,7 @@ export default function MonthlyExpensesPercentagePage() {
 
           <div className="grid md:grid-cols-2 gap-4 my-6">
             <Link
-              href="/calculators/financial/budget-percentage"
+              href="/calculators/daily/budget-percentage"
               className="block p-6 bg-primary/5 hover:bg-primary/10 rounded-lg border border-primary/20 transition-colors no-underline"
             >
               <h3 className="text-lg font-semibold mb-2 text-primary">Budget Percentage Calculator</h3>
@@ -411,7 +424,7 @@ export default function MonthlyExpensesPercentagePage() {
               Ready to take control of your monthly expenses? Use our free Budget Percentage Calculator to instantly see where your money is going and get personalized recommendations.
             </p>
             <Link
-              href="/calculators/financial/budget-percentage"
+              href="/calculators/daily/budget-percentage"
               className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-6 py-2 no-underline"
             >
               Calculate Your Budget Percentages

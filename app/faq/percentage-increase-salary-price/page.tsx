@@ -154,40 +154,6 @@ export default function PercentageIncreaseSalaryPricePage() {
 
           <div className="flex justify-center my-8">
             <svg width="500" height="300" viewBox="0 0 500 300" className="max-w-full h-auto">
-              {/* Original Value Bar */}
-              <rect x="50" y="100" width="200" height="80" fill="#3b82f6" rx="4" />
-              <text x="150" y="145" textAnchor="middle" className="fill-white text-base font-semibold">
-                Original: $50,000
-              </text>
-
-              {/* New Value Bar */}
-              <rect x="50" y="200" width="220" height="80" fill="#10b981" rx="4" />
-              <text x="160" y="245" textAnchor="middle" className="fill-white text-base font-semibold">
-                New: $55,000
-              </text>
-
-              {/* Increase Highlight */}
-              <rect x="250" y="200" width="20" height="80" fill="#fbbf24" rx="4" />
-
-              {/* Arrow and Label */}
-              <path d="M 270 240 L 320 240" stroke="#ef4444" strokeWidth="3" markerEnd="url(#arrowhead)" />
-              <defs>
-                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                  <polygon points="0 0, 10 3, 0 6" fill="#ef4444" />
-                </marker>
-              </defs>
-              <text x="330" y="245" className="fill-slate-900 dark:fill-slate-100 text-lg font-bold">
-                +$5,000 (10% increase)
-              </text>
-
-              {/* Labels */}
-              <text x="150" y="75" textAnchor="middle" className="fill-slate-900 dark:fill-slate-100 text-sm font-semibold">
-                Starting Point
-              </text>
-              <text x="160" y="295" textAnchor="middle" className="fill-slate-900 dark:fill-slate-100 text-sm font-semibold">
-                After Increase
-              </text>
-
               {/* Calculation Formula */}
               <rect x="30" y="10" width="440" height="50" fill="#f3f4f6" className="dark:fill-slate-700" rx="4" />
               <text x="250" y="30" textAnchor="middle" className="fill-slate-900 dark:fill-slate-100 text-sm font-mono">
@@ -195,6 +161,55 @@ export default function PercentageIncreaseSalaryPricePage() {
               </text>
               <text x="250" y="48" textAnchor="middle" className="fill-slate-900 dark:fill-slate-100 text-sm font-mono">
                 ((55,000 - 50,000) ÷ 50,000) × 100 = 10%
+              </text>
+
+              {/* Labels */}
+              <text x="150" y="85" textAnchor="middle" className="fill-slate-900 dark:fill-slate-100 text-sm font-semibold">
+                Starting Point
+              </text>
+              <text x="155" y="280" textAnchor="middle" className="fill-slate-900 dark:fill-slate-100 text-sm font-semibold">
+                After 10% Increase
+              </text>
+
+              {/* Original Value Bar - Represents 100% */}
+              <rect x="50" y="100" width="200" height="60" fill="#3b82f6" rx="4" />
+              <text x="150" y="135" textAnchor="middle" className="fill-white text-base font-semibold">
+                $50,000 (100%)
+              </text>
+
+              {/* New Value Bar - Base portion (same as original) */}
+              <rect x="50" y="195" width="200" height="60" fill="#10b981" rx="4" />
+              {/* Increase portion - exactly 10% of original bar width */}
+              <rect x="250" y="195" width="20" height="60" fill="#fbbf24" rx="4" />
+              <text x="150" y="230" textAnchor="middle" className="fill-white text-base font-semibold">
+                $50,000
+              </text>
+              <text x="260" y="230" textAnchor="middle" className="fill-slate-900 dark:fill-slate-900 text-sm font-bold">
+                +$5K
+              </text>
+
+              {/* Arrow pointing to the increase */}
+              <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                  <polygon points="0 0, 10 3, 0 6" fill="#ef4444" />
+                </marker>
+              </defs>
+              <path d="M 260 170 L 260 190" stroke="#ef4444" strokeWidth="2" markerEnd="url(#arrowhead)" />
+              <text x="260" y="165" textAnchor="middle" className="fill-slate-900 dark:fill-slate-100 text-sm font-bold">
+                10% increase
+              </text>
+
+              {/* Visual comparison note */}
+              <text x="280" y="230" textAnchor="start" className="fill-slate-900 dark:fill-slate-100 text-xs">
+                = $55,000 (110% of original)
+              </text>
+
+              {/* Dimension lines to show exact 10% */}
+              <line x1="250" y1="260" x2="270" y2="260" stroke="#64748b" strokeWidth="1" />
+              <line x1="250" y1="258" x2="250" y2="262" stroke="#64748b" strokeWidth="1" />
+              <line x1="270" y1="258" x2="270" y2="262" stroke="#64748b" strokeWidth="1" />
+              <text x="260" y="272" textAnchor="middle" className="fill-slate-600 dark:fill-slate-400 text-xs">
+                20px (10% of 200px)
               </text>
             </svg>
           </div>
