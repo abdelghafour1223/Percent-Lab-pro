@@ -170,54 +170,91 @@ export default function MonthlyExpensesPercentagePage() {
           <h2 className="text-2xl font-bold mt-8 mb-4">Visual Budget Breakdown</h2>
 
           <div className="flex justify-center my-8">
-            <svg width="400" height="400" viewBox="0 0 400 400" className="max-w-full h-auto">
-              {/* Housing: 30% = 108° */}
-              <path d="M 200 200 L 200 40 A 160 160 0 0 1 347.13 249.44 Z" fill="#3b82f6" />
-              {/* Food: 15% = 54° */}
-              <path d="M 200 200 L 347.13 249.44 A 160 160 0 0 1 304.94 325.06 Z" fill="#10b981" />
-              {/* Savings: 15% = 54° */}
-              <path d="M 200 200 L 304.94 325.06 A 160 160 0 0 1 200 360 Z" fill="#f59e0b" />
-              {/* Transportation: 12.5% = 45° */}
-              <path d="M 200 200 L 200 360 A 160 160 0 0 1 87.16 326.27 Z" fill="#ef4444" />
-              {/* Insurance: 7.5% = 27° */}
-              <path d="M 200 200 L 87.16 326.27 A 160 160 0 0 1 55.56 286.27 Z" fill="#8b5cf6" />
-              {/* Entertainment: 7.5% = 27° */}
-              <path d="M 200 200 L 55.56 286.27 A 160 160 0 0 1 40 200 Z" fill="#ec4899" />
-              {/* Other (Utilities + Debt + Personal): 12.5% = 45° */}
-              <path d="M 200 200 L 40 200 A 160 160 0 0 1 87.16 73.73 Z" fill="#14b8a6" />
-              {/* Remaining to close circle back to start: 2.5% = 9° */}
-              <path d="M 200 200 L 87.16 73.73 A 160 160 0 0 1 200 40 Z" fill="#64748b" />
+            <svg viewBox="0 0 900 550" xmlns="http://www.w3.org/2000/svg" className="max-w-full h-auto">
+              {/* Title */}
+              <text
+                x="450"
+                y="35"
+                textAnchor="middle"
+                fontFamily="Arial, sans-serif"
+                fontSize="32"
+                fontWeight="bold"
+                className="fill-slate-900 dark:fill-slate-100"
+              >
+                Your Budget
+              </text>
 
-              <circle cx="200" cy="200" r="80" fill="white" className="dark:fill-slate-800" />
-              <text x="200" y="195" textAnchor="middle" className="fill-slate-900 dark:fill-slate-100 text-xl font-bold">Your</text>
-              <text x="200" y="220" textAnchor="middle" className="fill-slate-900 dark:fill-slate-100 text-xl font-bold">Budget</text>
+              {/* Note about visualization */}
+              <text
+                x="450"
+                y="60"
+                textAnchor="middle"
+                fontFamily="Arial, sans-serif"
+                fontSize="13"
+                className="fill-slate-600 dark:fill-slate-400"
+                fontStyle="italic"
+              >
+                (Bar lengths adjusted for visual clarity while maintaining proportional relationships)
+              </text>
 
-              {/* Legend */}
-              <g transform="translate(20, 20)">
-                <rect x="0" y="0" width="15" height="15" fill="#3b82f6" />
-                <text x="20" y="12" className="fill-slate-900 dark:fill-slate-100 text-sm">Housing (30%)</text>
-
-                <rect x="0" y="25" width="15" height="15" fill="#10b981" />
-                <text x="20" y="37" className="fill-slate-900 dark:fill-slate-100 text-sm">Food (15%)</text>
-
-                <rect x="0" y="50" width="15" height="15" fill="#f59e0b" />
-                <text x="20" y="62" className="fill-slate-900 dark:fill-slate-100 text-sm">Savings (15%)</text>
-
-                <rect x="0" y="75" width="15" height="15" fill="#ef4444" />
-                <text x="20" y="87" className="fill-slate-900 dark:fill-slate-100 text-sm">Transport (12.5%)</text>
-
-                <rect x="0" y="100" width="15" height="15" fill="#8b5cf6" />
-                <text x="20" y="112" className="fill-slate-900 dark:fill-slate-100 text-sm">Insurance (7.5%)</text>
-
-                <rect x="0" y="125" width="15" height="15" fill="#ec4899" />
-                <text x="20" y="137" className="fill-slate-900 dark:fill-slate-100 text-sm">Entertainment (7.5%)</text>
-
-                <rect x="0" y="150" width="15" height="15" fill="#14b8a6" />
-                <text x="20" y="162" className="fill-slate-900 dark:fill-slate-100 text-sm">Utilities (5%)</text>
-
-                <rect x="0" y="175" width="15" height="15" fill="#64748b" />
-                <text x="20" y="187" className="fill-slate-900 dark:fill-slate-100 text-sm">Debt (5%) + Other (2.5%)</text>
+              {/* Background grid lines */}
+              <g opacity="0.15">
+                <line x1="200" y1="85" x2="200" y2="470" stroke="#999" strokeWidth="1"/>
+                <line x1="350" y1="85" x2="350" y2="470" stroke="#999" strokeWidth="1"/>
+                <line x1="500" y1="85" x2="500" y2="470" stroke="#999" strokeWidth="1"/>
+                <line x1="650" y1="85" x2="650" y2="470" stroke="#999" strokeWidth="1"/>
+                <line x1="800" y1="85" x2="800" y2="470" stroke="#999" strokeWidth="1"/>
               </g>
+
+              {/* Housing (30%) - base length 500px */}
+              <text x="190" y="108" textAnchor="end" fontFamily="Arial, sans-serif" fontSize="17" fontWeight="500" className="fill-slate-900 dark:fill-slate-100">Housing</text>
+              <rect x="200" y="88" width="500" height="38" fill="#2196F3" rx="5"/>
+              <text x="710" y="112" fontFamily="Arial, sans-serif" fontSize="16" fontWeight="bold" className="fill-slate-900 dark:fill-slate-100">30%</text>
+
+              {/* Food (15%) - 350px (base + 50% reduction) */}
+              <text x="190" y="153" textAnchor="end" fontFamily="Arial, sans-serif" fontSize="17" fontWeight="500" className="fill-slate-900 dark:fill-slate-100">Food</text>
+              <rect x="200" y="133" width="350" height="38" fill="#4CAF50" rx="5"/>
+              <text x="560" y="157" fontFamily="Arial, sans-serif" fontSize="16" fontWeight="bold" className="fill-slate-900 dark:fill-slate-100">15%</text>
+
+              {/* Savings (15%) - 350px */}
+              <text x="190" y="198" textAnchor="end" fontFamily="Arial, sans-serif" fontSize="17" fontWeight="500" className="fill-slate-900 dark:fill-slate-100">Savings</text>
+              <rect x="200" y="178" width="350" height="38" fill="#FF9800" rx="5"/>
+              <text x="560" y="202" fontFamily="Arial, sans-serif" fontSize="16" fontWeight="bold" className="fill-slate-900 dark:fill-slate-100">15%</text>
+
+              {/* Transport (12.5%) - 320px */}
+              <text x="190" y="243" textAnchor="end" fontFamily="Arial, sans-serif" fontSize="17" fontWeight="500" className="fill-slate-900 dark:fill-slate-100">Transport</text>
+              <rect x="200" y="223" width="320" height="38" fill="#F44336" rx="5"/>
+              <text x="530" y="247" fontFamily="Arial, sans-serif" fontSize="16" fontWeight="bold" className="fill-slate-900 dark:fill-slate-100">12.5%</text>
+
+              {/* Insurance (7.5%) - 250px */}
+              <text x="190" y="288" textAnchor="end" fontFamily="Arial, sans-serif" fontSize="17" fontWeight="500" className="fill-slate-900 dark:fill-slate-100">Insurance</text>
+              <rect x="200" y="268" width="250" height="38" fill="#9C27B0" rx="5"/>
+              <text x="460" y="292" fontFamily="Arial, sans-serif" fontSize="16" fontWeight="bold" className="fill-slate-900 dark:fill-slate-100">7.5%</text>
+
+              {/* Entertainment (7.5%) - 250px */}
+              <text x="190" y="333" textAnchor="end" fontFamily="Arial, sans-serif" fontSize="17" fontWeight="500" className="fill-slate-900 dark:fill-slate-100">Entertainment</text>
+              <rect x="200" y="313" width="250" height="38" fill="#E91E63" rx="5"/>
+              <text x="460" y="337" fontFamily="Arial, sans-serif" fontSize="16" fontWeight="bold" className="fill-slate-900 dark:fill-slate-100">7.5%</text>
+
+              {/* Utilities (5%) - 200px */}
+              <text x="190" y="378" textAnchor="end" fontFamily="Arial, sans-serif" fontSize="17" fontWeight="500" className="fill-slate-900 dark:fill-slate-100">Utilities</text>
+              <rect x="200" y="358" width="200" height="38" fill="#009688" rx="5"/>
+              <text x="410" y="382" fontFamily="Arial, sans-serif" fontSize="16" fontWeight="bold" className="fill-slate-900 dark:fill-slate-100">5%</text>
+
+              {/* Debt (5%) - 200px */}
+              <text x="190" y="423" textAnchor="end" fontFamily="Arial, sans-serif" fontSize="17" fontWeight="500" className="fill-slate-900 dark:fill-slate-100">Debt</text>
+              <rect x="200" y="403" width="200" height="38" fill="#607D8B" rx="5"/>
+              <text x="410" y="427" fontFamily="Arial, sans-serif" fontSize="16" fontWeight="bold" className="fill-slate-900 dark:fill-slate-100">5%</text>
+
+              {/* Other (2.5%) - 150px (more visible) */}
+              <text x="190" y="468" textAnchor="end" fontFamily="Arial, sans-serif" fontSize="17" fontWeight="500" className="fill-slate-900 dark:fill-slate-100">Other</text>
+              <rect x="200" y="448" width="150" height="38" fill="#9E9E9E" rx="5"/>
+              <text x="360" y="472" fontFamily="Arial, sans-serif" fontSize="16" fontWeight="bold" className="fill-slate-900 dark:fill-slate-100">2.5%</text>
+
+              {/* Scale reference */}
+              <text x="200" y="520" textAnchor="start" fontFamily="Arial, sans-serif" fontSize="13" className="fill-slate-600 dark:fill-slate-400">
+                Note: Larger categories are proportionally accurate; smaller categories are scaled up slightly for visibility.
+              </text>
             </svg>
           </div>
 
