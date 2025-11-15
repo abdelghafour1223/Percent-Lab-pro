@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import {
   Accordion,
   AccordionContent,
@@ -248,6 +249,77 @@ export default function FAQPage() {
           </AccordionContent>
         </AccordionItem>
       </Accordion>
+
+      <div className="mt-8 space-y-4">
+        <h2 className="text-2xl font-semibold mb-4">In-Depth Guides</h2>
+        <p className="text-muted-foreground mb-6">
+          Explore our comprehensive guides for detailed explanations, examples, and practical tips.
+        </p>
+
+        <Link
+          href="/faq/monthly-expenses-percentage"
+          className="block p-6 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900 hover:from-blue-100 hover:to-blue-200 dark:hover:from-blue-900 dark:hover:to-blue-800 rounded-lg border-2 border-blue-200 dark:border-blue-800 transition-all hover:shadow-md group"
+        >
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                How do I calculate the percentage of my monthly expenses?
+              </h3>
+              <p className="text-muted-foreground mb-3">
+                Learn to track your budget percentages, apply the 50/30/20 rule, and understand where your money goes each month.
+              </p>
+              <span className="text-sm font-medium text-primary">
+                Read Full Guide →
+              </span>
+            </div>
+            <svg
+              className="w-6 h-6 text-primary flex-shrink-0 group-hover:translate-x-1 transition-transform"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </div>
+        </Link>
+
+        <Link
+          href="/faq/percentage-increase-salary-price"
+          className="block p-6 bg-gradient-to-r from-green-50 to-green-100 dark:from-green-950 dark:to-green-900 hover:from-green-100 hover:to-green-200 dark:hover:from-green-900 dark:hover:to-green-800 rounded-lg border-2 border-green-200 dark:border-green-800 transition-all hover:shadow-md group"
+        >
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                How do I calculate the percentage increase for a salary or price?
+              </h3>
+              <p className="text-muted-foreground mb-3">
+                Master percentage increase calculations for salary negotiations, price analysis, and understanding growth rates.
+              </p>
+              <span className="text-sm font-medium text-primary">
+                Read Full Guide →
+              </span>
+            </div>
+            <svg
+              className="w-6 h-6 text-primary flex-shrink-0 group-hover:translate-x-1 transition-transform"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </div>
+        </Link>
+      </div>
 
       <div className="mt-12 p-6 bg-muted rounded-lg text-center">
         <h2 className="text-xl font-semibold mb-2">Still have questions?</h2>
