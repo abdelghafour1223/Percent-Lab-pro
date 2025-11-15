@@ -152,8 +152,8 @@ export default function PercentageIncreaseSalaryPricePage() {
 
           <h2 className="text-2xl font-bold mt-8 mb-4">Visual Representation</h2>
 
-          <div className="flex justify-center my-8">
-            <svg viewBox="0 0 900 550" className="max-w-full h-auto" style={{ maxHeight: '550px' }}>
+          <div className="flex justify-center my-8 w-full">
+            <svg viewBox="0 0 900 550" className="w-full h-auto min-w-0" style={{ maxWidth: '900px' }}>
               {/* Background */}
               <rect width="900" height="550" fill="#f8f9fa" className="dark:fill-slate-800"/>
 

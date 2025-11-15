@@ -169,8 +169,8 @@ export default function MonthlyExpensesPercentagePage() {
 
           <h2 className="text-2xl font-bold mt-8 mb-4">Visual Budget Breakdown</h2>
 
-          <div className="flex justify-center my-8">
-            <svg viewBox="0 0 900 550" xmlns="http://www.w3.org/2000/svg" className="max-w-full h-auto">
+          <div className="flex justify-center my-8 w-full">
+            <svg viewBox="0 0 900 550" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto min-w-0" style={{ maxWidth: '900px' }}>
               {/* Title */}
               <text
                 x="450"
