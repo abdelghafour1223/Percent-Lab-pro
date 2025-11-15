@@ -64,7 +64,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4 sm:px-0">
             <Button asChild size="lg" className="min-h-[48px] text-base font-semibold">
               <Link href="#categories">
-                Browse Categories <ArrowRight className="ml-2 h-4 w-4" />
+                Start Calculating Now <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="min-h-[48px] text-base font-semibold">
