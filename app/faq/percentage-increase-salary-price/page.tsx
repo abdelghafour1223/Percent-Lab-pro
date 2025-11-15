@@ -236,9 +236,8 @@ export default function PercentageIncreaseSalaryPricePage() {
               <text x="410" y="488" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="12" className="fill-slate-600 dark:fill-slate-400">
                 220px (110%)
               </text>
-
               {/* Legend at bottom */}
-              <rect x="200" y="505" width="500" height="35" fill="#fff" className="dark:fill-slate-700" stroke="#ddd" className="dark:stroke-slate-600" strokeWidth="1" rx="4"/>
+              <rect x="200" y="505" width="500" height="35" fill="#fff" stroke="#ddd" strokeWidth="1" rx="4" className="dark:fill-slate-700 dark:stroke-slate-600"/>
               <circle cx="220" cy="522" r="7" fill="#3B82F6"/>
               <text x="235" y="527" fontFamily="Arial, sans-serif" fontSize="13" className="fill-slate-900 dark:fill-slate-100">
                 Original Amount
