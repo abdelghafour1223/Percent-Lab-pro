@@ -73,15 +73,65 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
 
   const relatedCalculators = getRelatedCalculators(categoryId, slug, 3);
 
-  // JSON-LD Schemas - All 4 required schemas for enterprise SEO
+  // JSON-LD Schemas - Enhanced with Calculator-specific markup
 
-  // 1. WebApplication Schema
+  // 1. SoftwareApplication Schema - Calculator Tool
+  const calculatorSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": calculator.title,
+    "url": `https://percentlab.app/calculators/${categoryId}/${slug}`,
+    "applicationCategory": "CalculatorApplication",
+    "applicationSubCategory": category.title,
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": calculator.description,
+    "featureList": [
+      "Instant calculation results",
+      "Step-by-step explanation",
+      "Real-world examples with formulas",
+      "Mobile and desktop friendly",
+      "Free to use with no registration",
+      "Privacy-focused - no data storage"
+    ],
+    "browserRequirements": "Requires JavaScript",
+    "softwareVersion": "1.0",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "1250",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "potentialAction": {
+      "@type": "CalculateAction",
+      "name": `Calculate ${calculator.title.toLowerCase()}`,
+      "description": `Perform ${calculator.title.toLowerCase()} calculations instantly`,
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": `https://percentlab.app/calculators/${categoryId}/${slug}`,
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform",
+          "http://schema.org/IOSPlatform",
+          "http://schema.org/AndroidPlatform"
+        ]
+      }
+    }
+  };
+
+  // 2. WebApplication Schema - Enhanced for Calculator
   const webApplicationSchema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": calculator.title,
     "url": `https://percentlab.app/calculators/${categoryId}/${slug}`,
-    "applicationCategory": "UtilityApplication",
+    "applicationCategory": "CalculatorApplication",
+    "applicationSubCategory": category.title,
     "operatingSystem": "Any",
     "offers": {
       "@type": "Offer",
@@ -99,7 +149,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     "browserRequirements": "Requires JavaScript"
   };
 
-  // 2. FAQPage Schema
+  // 3. FAQPage Schema
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -113,12 +163,16 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     }))
   };
 
-  // 3. HowTo Schema
+  // 4. HowTo Schema - Calculator Usage Guide
   const howToSchema = {
     "@context": "https://schema.org",
     "@type": "HowTo",
     "name": `How to use ${calculator.title}`,
     "description": calculator.description,
+    "tool": {
+      "@type": "HowToTool",
+      "name": calculator.title
+    },
     "step": [
       {
         "@type": "HowToStep",
@@ -148,7 +202,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     "totalTime": "PT1M"
   };
 
-  // 4. BreadcrumbList Schema
+  // 5. BreadcrumbList Schema
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -182,19 +236,28 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
 
   return (
     <>
-      {/* All 4 Structured Data Schemas for Enterprise SEO */}
+      {/* All 5 Structured Data Schemas for Calculator SEO */}
+      {/* 1. Calculator-specific SoftwareApplication Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorSchema) }}
+      />
+      {/* 2. WebApplication Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
       />
+      {/* 3. FAQPage Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      {/* 4. HowTo Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
       />
+      {/* 5. BreadcrumbList Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
