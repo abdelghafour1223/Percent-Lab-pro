@@ -153,63 +153,103 @@ export default function PercentageIncreaseSalaryPricePage() {
           <h2 className="text-2xl font-bold mt-8 mb-4">Visual Representation</h2>
 
           <div className="flex justify-center my-8">
-            <svg width="500" height="300" viewBox="0 0 500 300" className="max-w-full h-auto">
-              {/* Calculation Formula */}
-              <rect x="30" y="10" width="440" height="50" fill="#f3f4f6" className="dark:fill-slate-700" rx="4" />
-              <text x="250" y="30" textAnchor="middle" className="fill-slate-900 dark:fill-slate-100 text-sm font-mono">
+            <svg viewBox="0 0 900 550" xmlns="http://www.w3.org/2000/svg" className="max-w-full h-auto">
+              {/* Background */}
+              <rect width="900" height="550" fill="#f8f9fa" className="dark:fill-slate-800"/>
+
+              {/* Formula Box */}
+              <rect x="250" y="20" width="400" height="80" fill="#e9ecef" className="dark:fill-slate-700" rx="8"/>
+              <text x="450" y="50" textAnchor="middle" fontFamily="monospace" fontSize="16" fontWeight="bold" className="fill-slate-900 dark:fill-slate-100">
                 Formula: ((New - Original) ÷ Original) × 100
               </text>
-              <text x="250" y="48" textAnchor="middle" className="fill-slate-900 dark:fill-slate-100 text-sm font-mono">
+              <text x="450" y="80" textAnchor="middle" fontFamily="monospace" fontSize="16" className="fill-slate-700 dark:fill-slate-300">
                 ((55,000 - 50,000) ÷ 50,000) × 100 = 10%
               </text>
 
-              {/* Labels */}
-              <text x="150" y="85" textAnchor="middle" className="fill-slate-900 dark:fill-slate-100 text-sm font-semibold">
+              {/* Starting Point Label */}
+              <text x="450" y="140" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="22" fontWeight="bold" className="fill-slate-900 dark:fill-slate-100">
                 Starting Point
               </text>
-              <text x="155" y="280" textAnchor="middle" className="fill-slate-900 dark:fill-slate-100 text-sm font-semibold">
-                After 10% Increase
+
+              {/* Measurement line above blue bar */}
+              <line x1="300" y1="160" x2="500" y2="160" stroke="#999" strokeWidth="1.5"/>
+              <line x1="300" y1="155" x2="300" y2="165" stroke="#999" strokeWidth="1.5"/>
+              <line x1="500" y1="155" x2="500" y2="165" stroke="#999" strokeWidth="1.5"/>
+              <text x="400" y="153" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="12" className="fill-slate-600 dark:fill-slate-400">
+                200px (100%)
               </text>
 
-              {/* Original Value Bar - Represents 100% */}
-              <rect x="50" y="100" width="200" height="60" fill="#3b82f6" rx="4" />
-              <text x="150" y="135" textAnchor="middle" className="fill-white text-base font-semibold">
+              {/* Original Bar (Blue) - EXACTLY 200px wide */}
+              <rect x="300" y="180" width="200" height="80" fill="#3B82F6" rx="6"/>
+              <text x="400" y="230" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="26" fontWeight="bold" fill="white">
                 $50,000 (100%)
               </text>
 
-              {/* New Value Bar - Base portion (same as original) */}
-              <rect x="50" y="195" width="200" height="60" fill="#10b981" rx="4" />
-              {/* Increase portion - exactly 10% of original bar width */}
-              <rect x="250" y="195" width="20" height="60" fill="#fbbf24" rx="4" />
-              <text x="150" y="230" textAnchor="middle" className="fill-white text-base font-semibold">
+              {/* Arrow with label (moved to the right) */}
+              <text x="580" y="200" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="bold" fill="#dc3545">
+                10%
+              </text>
+              <path d="M 545 220 L 560 235 L 545 250" fill="none" stroke="#dc3545" strokeWidth="3"/>
+              <line x1="555" y1="235" x2="555" y2="305" stroke="#dc3545" strokeWidth="3"/>
+              <polygon points="555,305 550,295 560,295" fill="#dc3545"/>
+
+              {/* New Amount Bar (Green) - EXACTLY 200px wide */}
+              <rect x="300" y="320" width="200" height="80" fill="#10B981" rx="6"/>
+              <text x="400" y="370" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="26" fontWeight="bold" fill="white">
                 $50,000
               </text>
-              <text x="260" y="230" textAnchor="middle" className="fill-slate-900 dark:fill-slate-900 text-sm font-bold">
+
+              {/* Orange extension - EXACTLY 20px wide */}
+              <rect x="500" y="320" width="20" height="80" fill="#F59E0B" rx="6"/>
+
+              {/* Labels for the orange section (moved away from overlap) */}
+              <text x="530" y="345" fontFamily="Arial, sans-serif" fontSize="15" fontWeight="bold" className="fill-slate-900 dark:fill-slate-100">
                 +$5K
               </text>
-
-              {/* Arrow pointing to the increase */}
-              <defs>
-                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                  <polygon points="0 0, 10 3, 0 6" fill="#ef4444" />
-                </marker>
-              </defs>
-              <path d="M 260 170 L 260 190" stroke="#ef4444" strokeWidth="2" markerEnd="url(#arrowhead)" />
-              <text x="260" y="165" textAnchor="middle" className="fill-slate-900 dark:fill-slate-100 text-sm font-bold">
-                10% increase
+              <text x="530" y="365" fontFamily="Arial, sans-serif" fontSize="13" className="fill-slate-600 dark:fill-slate-400">
+                = $55,000
+              </text>
+              <text x="530" y="382" fontFamily="Arial, sans-serif" fontSize="11" className="fill-slate-500 dark:fill-slate-500">
+                (110% of original)
               </text>
 
-              {/* Visual comparison note */}
-              <text x="280" y="230" textAnchor="start" className="fill-slate-900 dark:fill-slate-100 text-xs">
-                = $55,000 (110% of original)
+              {/* Measurement for orange section */}
+              <line x1="500" y1="410" x2="520" y2="410" stroke="#999" strokeWidth="1.5"/>
+              <line x1="500" y1="405" x2="500" y2="415" stroke="#999" strokeWidth="1.5"/>
+              <line x1="520" y1="405" x2="520" y2="415" stroke="#999" strokeWidth="1.5"/>
+              <text x="510" y="428" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="12" className="fill-slate-600 dark:fill-slate-400" fontWeight="bold">
+                20px
+              </text>
+              <text x="510" y="443" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" className="fill-slate-500 dark:fill-slate-500" fontStyle="italic">
+                (10% of 200px)
               </text>
 
-              {/* Dimension lines to show exact 10% */}
-              <line x1="250" y1="260" x2="270" y2="260" stroke="#64748b" strokeWidth="1" />
-              <line x1="250" y1="258" x2="250" y2="262" stroke="#64748b" strokeWidth="1" />
-              <line x1="270" y1="258" x2="270" y2="262" stroke="#64748b" strokeWidth="1" />
-              <text x="260" y="272" textAnchor="middle" className="fill-slate-600 dark:fill-slate-400 text-xs">
-                20px (10% of 200px)
+              {/* After Increase Label */}
+              <text x="400" y="455" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="22" fontWeight="bold" className="fill-slate-900 dark:fill-slate-100">
+                After 10% Increase
+              </text>
+
+              {/* Total measurement line below */}
+              <line x1="300" y1="470" x2="520" y2="470" stroke="#999" strokeWidth="1.5"/>
+              <line x1="300" y1="465" x2="300" y2="475" stroke="#999" strokeWidth="1.5"/>
+              <line x1="520" y1="465" x2="520" y2="475" stroke="#999" strokeWidth="1.5"/>
+              <text x="410" y="488" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="12" className="fill-slate-600 dark:fill-slate-400">
+                220px (110%)
+              </text>
+
+              {/* Legend at bottom */}
+              <rect x="200" y="505" width="500" height="35" fill="#fff" className="dark:fill-slate-700" stroke="#ddd" strokeWidth="1" rx="4"/>
+              <circle cx="220" cy="522" r="7" fill="#3B82F6"/>
+              <text x="235" y="527" fontFamily="Arial, sans-serif" fontSize="13" className="fill-slate-900 dark:fill-slate-100">
+                Original Amount
+              </text>
+              <circle cx="370" cy="522" r="7" fill="#10B981"/>
+              <text x="385" y="527" fontFamily="Arial, sans-serif" fontSize="13" className="fill-slate-900 dark:fill-slate-100">
+                Base Amount
+              </text>
+              <circle cx="520" cy="522" r="7" fill="#F59E0B"/>
+              <text x="535" y="527" fontFamily="Arial, sans-serif" fontSize="13" className="fill-slate-900 dark:fill-slate-100">
+                10% Increase
               </text>
             </svg>
           </div>
