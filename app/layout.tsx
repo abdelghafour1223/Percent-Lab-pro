@@ -7,9 +7,9 @@ import { Analytics } from '@/components/analytics';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://percentlab.app'),
+  metadataBase: new URL('https://www.percentlab.app'),
   alternates: {
-    canonical: 'https://percentlab.app',
+    canonical: 'https://www.percentlab.app',
   },
   title: {
     default: 'PercentLab - Free Percentage Calculator & Tools',
@@ -46,11 +46,12 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://percentlab.app',
+    url: 'https://www.percentlab.app',
     title: 'PercentLab - Free Online Percentage Calculator',
     description:
       'Free percentage calculator with detailed explanations. Calculate percentages, increases, decreases, and more.',
     siteName: 'PercentLab',
+    images: ['/opengraph-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
