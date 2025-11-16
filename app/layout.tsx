@@ -51,13 +51,21 @@ export const metadata: Metadata = {
     description:
       'Free percentage calculator with detailed explanations. Calculate percentages, increases, decreases, and more.',
     siteName: 'PercentLab',
-    images: ['/opengraph-image.png'],
+    images: [
+      {
+        url: '/opengraph-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'PercentLab - Free Percentage Calculator',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'PercentLab - Free Online Percentage Calculator',
     description:
       'Free percentage calculator with detailed explanations. Calculate percentages, increases, decreases, and more.',
+    images: ['/opengraph-image.png'],
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
