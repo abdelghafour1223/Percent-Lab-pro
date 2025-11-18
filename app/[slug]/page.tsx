@@ -37,29 +37,30 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const result = (percent / 100) * number;
 
   return {
-    title: `What is ${percent}% of ${number}? = ${formatNumber(result, 2)} | PercentLab`,
-    description: `Calculate ${percent}% of ${number}. The answer is ${formatNumber(result, 2)}. Learn the formula, see step-by-step calculations, and explore real-world examples with our percentage calculator.`,
+    title: `What is ${percent}% of $${number}? Calculator [2025] | PercentLab`,
+    description: `Calculate ${percent}% of $${number} easily. The answer is $${formatNumber(result, 2)}. Learn the formula with step-by-step explanations, Black Friday discounts, tax calculations, and real-world US examples.`,
     alternates: {
       canonical: `https://www.percentlab.app/${slug}`,
     },
     keywords: [
       `${percent} percent of ${number}`,
-      `${percent}% of ${number}`,
+      `${percent}% of $${number}`,
       `calculate ${percent} percent`,
       'percentage calculator',
       'percent of number',
+      'US percentage calculator',
       'step-by-step calculation',
     ],
     openGraph: {
-      title: `What is ${percent}% of ${number}? Answer: ${formatNumber(result, 2)}`,
-      description: `Calculate ${percent}% of ${number} with detailed explanations and examples. Free percentage calculator.`,
+      title: `What is ${percent}% of $${number}? Answer: $${formatNumber(result, 2)}`,
+      description: `Calculate ${percent}% of $${number} with detailed explanations and real-world US examples. Free percentage calculator.`,
       type: 'article',
       url: `https://www.percentlab.app/${slug}`,
     },
     twitter: {
       card: 'summary_large_image',
-      title: `What is ${percent}% of ${number}? Answer: ${formatNumber(result, 2)}`,
-      description: `Calculate ${percent}% of ${number} with step-by-step explanations.`,
+      title: `What is ${percent}% of $${number}? = $${formatNumber(result, 2)}`,
+      description: `Calculate ${percent}% of $${number} with step-by-step explanations and real-world examples.`,
     },
   };
 }
@@ -80,8 +81,8 @@ export default async function PSEOPage({ params }: PageProps) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
-    name: `How to Calculate ${percent}% of ${number}`,
-    description: `Step-by-step guide to calculate ${percent}% of ${number}`,
+    name: `How to Calculate ${percent}% of $${number}`,
+    description: `Step-by-step guide to calculate ${percent}% of $${number}`,
     step: calculation.steps.map((step, index) => ({
       '@type': 'HowToStep',
       position: index + 1,
@@ -91,24 +92,60 @@ export default async function PSEOPage({ params }: PageProps) {
     totalTime: 'PT1M',
   };
 
+  // FAQ Schema Markup
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: `What is ${percent}% of $${number}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `${percent}% of $${number} is $${formatNumber(calculation.result, 2)}. To calculate this, divide the percentage by 100 (${percent} ÷ 100 = ${(percent / 100).toFixed(4)}) and multiply by the amount (${(percent / 100).toFixed(4)} × ${number} = $${formatNumber(calculation.result, 2)}).`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `How do I calculate ${percent}% of $${number}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `The formula is: (${percent} ÷ 100) × ${number} = $${formatNumber(calculation.result, 2)}. First convert the percentage to decimal form by dividing by 100, then multiply by your amount.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `What are real-world examples of ${percent}% of $${number}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `Examples include: Black Friday discounts (saving $${formatNumber(calculation.result, 2)} on a $${number} purchase), restaurant tips ($${formatNumber(calculation.result, 2)} tip on a $${number} bill), and sales tax ($${formatNumber(calculation.result, 2)} tax added to $${number}).`,
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
       <div className="container px-4 md:px-6 py-8 md:py-12 max-w-4xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            What is {percent}% of {number}?
+            What is {percent}% of ${number}?
           </h1>
           <div className="text-6xl md:text-7xl font-bold text-primary my-6">
-            {formatNumber(calculation.result, 2)}
+            ${formatNumber(calculation.result, 2)}
           </div>
           <p className="text-xl text-muted-foreground">
-            Learn how to calculate {percent}% of {number} with our step-by-step guide
+            Learn how to calculate {percent}% of ${number} with our step-by-step guide and real-world US examples
           </p>
         </div>
 
@@ -119,10 +156,10 @@ export default async function PSEOPage({ params }: PageProps) {
           </CardHeader>
           <CardContent>
             <p className="text-lg text-muted-foreground mb-4">
-              {percent}% of {number} equals <strong className="text-foreground">{formatNumber(calculation.result, 2)}</strong>. To calculate this, we convert the percentage to a decimal ({percent} ÷ 100 = {(percent / 100).toFixed(4)}) and multiply it by {number}.
+              {percent}% of ${number} equals <strong className="text-foreground">${formatNumber(calculation.result, 2)}</strong>. To calculate this, we convert the percentage to a decimal ({percent} ÷ 100 = {(percent / 100).toFixed(4)}) and multiply it by ${number}.
             </p>
             <div className="bg-muted p-4 rounded-lg font-mono text-sm">
-              {calculation.formula}
+              ({percent} ÷ 100) × ${number} = ${calculation.result.toFixed(2)}
             </div>
           </CardContent>
         </Card>
@@ -136,11 +173,11 @@ export default async function PSEOPage({ params }: PageProps) {
             <ComparisonChart
               value1={calculation.result}
               value2={number - calculation.result}
-              label1={`${percent}% (${formatNumber(calculation.result, 2)})`}
-              label2={`${100 - percent}% (${formatNumber(number - calculation.result, 2)})`}
+              label1={`${percent}% ($${formatNumber(calculation.result, 2)})`}
+              label2={`${100 - percent}% ($${formatNumber(number - calculation.result, 2)})`}
             />
             <p className="text-sm text-muted-foreground mt-4 text-center">
-              The chart shows how {formatNumber(calculation.result, 2)} relates to the total {number}
+              The chart shows how ${formatNumber(calculation.result, 2)} relates to the total $${number}
             </p>
           </CardContent>
         </Card>
@@ -192,17 +229,17 @@ export default async function PSEOPage({ params }: PageProps) {
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-muted-foreground">
-              The general formula for calculating what a percentage of a number equals is:
+              The general formula for calculating what a percentage of a dollar amount equals is:
             </p>
             <div className="bg-muted p-4 rounded-lg font-mono text-center">
-              Result = (Percentage ÷ 100) × Number
+              Result = (Percentage ÷ 100) × Dollar Amount
             </div>
             <p className="text-muted-foreground">
-              In this case, we're calculating {percent}% of {number}:
+              In this case, we're calculating {percent}% of ${number}:
             </p>
             <ul className="list-disc list-inside space-y-2 text-muted-foreground">
               <li>First, divide the percentage by 100: {percent} ÷ 100 = {(percent / 100).toFixed(4)}</li>
-              <li>Then, multiply by the number: {(percent / 100).toFixed(4)} × {number} = {formatNumber(calculation.result, 2)}</li>
+              <li>Then, multiply by the amount: {(percent / 100).toFixed(4)} × ${number} = ${formatNumber(calculation.result, 2)}</li>
             </ul>
             <p className="text-muted-foreground">
               This formula works for any percentage calculation. You can use our calculator above to try different values.
@@ -225,14 +262,14 @@ export default async function PSEOPage({ params }: PageProps) {
                       key={page.slug}
                       href={`/${page.slug}`}
                       className="flex items-center justify-between p-4 rounded-lg border hover:bg-accent transition-colors group"
-                      aria-label={`Calculate ${page.percent}% of ${page.number}`}
+                      aria-label={`Calculate ${page.percent}% of $${page.number}`}
                     >
                       <div>
                         <p className="font-medium">
-                          {page.percent}% of {page.number}
+                          {page.percent}% of ${page.number}
                         </p>
                         <p className="text-sm text-muted-foreground">
-                          = {formatNumber(result, 2)}
+                          = ${formatNumber(result, 2)}
                         </p>
                       </div>
                       <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -294,16 +331,16 @@ export default async function PSEOPage({ params }: PageProps) {
         {/* CTA */}
         <Card>
           <CardContent className="pt-6 text-center">
-            <h3 className="text-xl font-semibold mb-3">Need to Calculate Other Percentages?</h3>
+            <h3 className="text-xl font-semibold mb-3">Calculate More Percentages Instantly</h3>
             <p className="text-muted-foreground mb-6">
-              Use our full-featured percentage calculator for any calculation with detailed explanations
+              Use our full-featured percentage calculator for discounts, tips, taxes, and more with detailed step-by-step explanations
             </p>
             <Link
               href="/"
               className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-8 py-2"
               aria-label="Go to main percentage calculator"
             >
-              Go to Calculator
+              💰 Calculate My Savings
             </Link>
           </CardContent>
         </Card>

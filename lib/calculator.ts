@@ -83,8 +83,10 @@ export function explainPercentOf(
       `Therefore, ${percent}% of ${number} is ${result.toFixed(2)}`,
     ],
     examples: [
-      `Shopping example: If a $${number} item has a ${percent}% discount, you save $${result.toFixed(2)}, paying $${(number - result).toFixed(2)}.`,
-      `Tax example: A ${percent}% tax on $${number} adds $${result.toFixed(2)} to your bill, totaling $${(number + result).toFixed(2)}.`,
+      `Shopping & Discounts: If a $${number} item has a ${percent}% discount, you save $${result.toFixed(2)}, paying $${(number - result).toFixed(2)}.`,
+      `Black Friday Sale: During Black Friday, a $${number} product with ${percent}% off costs $${(number - result).toFixed(2)} instead.`,
+      `Tax Calculation: A ${percent}% sales tax on $${number} adds $${result.toFixed(2)} to your bill, totaling $${(number + result).toFixed(2)}.`,
+      `Restaurant Tips: A ${percent}% tip on a $${number} bill is $${result.toFixed(2)}.`,
     ],
   };
 }
