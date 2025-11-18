@@ -6,7 +6,7 @@ module.exports = {
   sitemapSize: 7000,
   changefreq: 'weekly',
   priority: 0.7,
-  exclude: ['/api/*', '/server-sitemap.xml'],
+  exclude: ['/api/*', '/server-sitemap.xml', '/icon.svg', '/opengraph-image.png'],
 
   robotsTxtOptions: {
     policies: [
