@@ -407,6 +407,14 @@ export default function HomePage() {
               </CardContent>
             </Card>
           </div>
+
+          <div className="text-center mt-8 px-4">
+            <Button asChild variant="outline" size="lg" className="min-h-[48px] text-base font-semibold">
+              <Link href="/faq">
+                View All FAQs <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
         </section>
       </div>
     </>

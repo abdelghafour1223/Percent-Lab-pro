@@ -31,12 +31,12 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     title: `${category.title} - Percentage Calculators | PercentLab`,
     description: `${category.description} Free online calculators with step-by-step explanations.`,
     alternates: {
-      canonical: `https://percentlab.app/calculators/${categoryId}`,
+      canonical: `https://www.percentlab.app/calculators/${categoryId}`,
     },
     openGraph: {
       title: `${category.title} | PercentLab`,
       description: category.description,
-      url: `https://percentlab.app/calculators/${categoryId}`,
+      url: `https://www.percentlab.app/calculators/${categoryId}`,
       type: 'website',
     },
   };
@@ -56,7 +56,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     "@type": "CollectionPage",
     "name": category.title,
     "description": category.description,
-    "url": `https://percentlab.app/calculators/${categoryId}`,
+    "url": `https://www.percentlab.app/calculators/${categoryId}`,
     "mainEntity": {
       "@type": "ItemList",
       "numberOfItems": category.calculators.length,
@@ -67,7 +67,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           "@type": "WebPage",
           "name": calc.title,
           "description": calc.description,
-          "url": `https://percentlab.app/calculators/${categoryId}/${calc.slug}`
+          "url": `https://www.percentlab.app/calculators/${categoryId}/${calc.slug}`
         }
       }))
     }

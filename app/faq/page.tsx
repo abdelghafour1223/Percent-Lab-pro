@@ -19,8 +19,103 @@ export const metadata: Metadata = {
 };
 
 export default function FAQPage() {
+  // FAQ Schema for SEO
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you calculate a percentage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To calculate what percentage one number is of another, divide the part by the whole and multiply by 100. The formula is: Percentage = (Part ÷ Whole) × 100. For example, if you scored 85 out of 100 on a test: (85 ÷ 100) × 100 = 85%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is 20% of 200?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "20% of 200 is 40. To calculate it: 1) Convert the percentage to a decimal: 20 ÷ 100 = 0.20, 2) Multiply by the number: 0.20 × 200 = 40. The formula is (20 ÷ 100) × 200 = 40."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I calculate percentage increase?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To calculate percentage increase, use this formula: Percentage Increase = ((New Value - Original Value) ÷ Original Value) × 100. For example, if a stock price increases from $100 to $120: 1) Find the difference: 120 - 100 = 20, 2) Divide by the original: 20 ÷ 100 = 0.20, 3) Multiply by 100: 0.20 × 100 = 20%. The stock price increased by 20%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I calculate percentage decrease?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Percentage decrease uses the same formula as increase. The result will be negative, indicating a decrease: Percentage Change = ((New Value - Original Value) ÷ Original Value) × 100. For example, if a price drops from $100 to $80: 1) Find the difference: 80 - 100 = -20, 2) Divide by the original: -20 ÷ 100 = -0.20, 3) Multiply by 100: -0.20 × 100 = -20%. The negative result (-20%) indicates a 20% decrease."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I add or subtract a percentage from a number?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To increase a number by a percentage: Result = Original + (Original × Percentage ÷ 100). Example: Increase 100 by 20%: 100 + (100 × 20 ÷ 100) = 100 + 20 = 120. To decrease a number by a percentage: Result = Original - (Original × Percentage ÷ 100). Example: Decrease 100 by 20%: 100 - (100 × 20 ÷ 100) = 100 - 20 = 80."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can percentages be greater than 100%?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, percentages can definitely exceed 100%. This commonly occurs when: 1) Percentage increases - If sales double from 100 to 200 units, that's a 100% increase. If they triple to 300, that's a 200% increase. 2) When part exceeds whole - If you compare 150 to 100, then 150 is 150% of 100. 3) Growth rates - A stock that goes from $50 to $200 has grown by 300%. There's no upper limit to percentages in mathematics."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between percentage and percentile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "While they sound similar, percentage and percentile are different concepts: Percentage is a proportion out of 100. Example: Getting 90 out of 100 questions correct is 90%. Percentile is a rank in a distribution. Example: Being in the 90th percentile means you scored higher than 90% of people, not that you got 90% correct."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate is this percentage calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our calculator is highly accurate and uses standard mathematical formulas that are mathematically proven. All calculations are performed using JavaScript's number precision, which provides accuracy to approximately 15-17 decimal places. For display purposes, we typically round results to 2-4 decimal places, but the underlying calculation maintains full precision. This is more than sufficient for virtually all practical applications, from financial calculations to scientific work."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this percentage calculator free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, PercentLab is completely free to use with no restrictions. You can perform unlimited calculations, access all calculator types, view detailed step-by-step explanations for every calculation, and use the calculator on any device without registration. The service is supported by non-intrusive advertisements, which allow us to keep it free for everyone. We don't require registration, subscriptions, or any form of payment."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this calculator on my phone or tablet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely! PercentLab is fully responsive and works seamlessly on all devices including mobile phones (iOS and Android), tablets (iPad, Android tablets), desktop computers (Windows, macOS, and Linux), and all modern browsers (Chrome, Safari, Firefox, Edge). The interface automatically adapts to your screen size, ensuring a smooth experience whether you're using a small phone screen or a large desktop monitor."
+        }
+      }
+    ]
+  };
+
   return (
-    <div className="container px-4 md:px-6 py-8 md:py-12 max-w-4xl mx-auto">
+    <>
+      {/* FAQ Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      <div className="container px-4 md:px-6 py-8 md:py-12 max-w-4xl mx-auto">
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
           Frequently Asked Questions

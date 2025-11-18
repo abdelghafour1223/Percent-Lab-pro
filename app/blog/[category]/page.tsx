@@ -44,12 +44,12 @@ export async function generateMetadata({ params }: BlogCategoryPageProps): Promi
     title: category.metaTitle,
     description: category.metaDescription,
     alternates: {
-      canonical: `https://percentlab.app/blog/${categorySlug}`,
+      canonical: `https://www.percentlab.app/blog/${categorySlug}`,
     },
     openGraph: {
       title: category.metaTitle,
       description: category.metaDescription,
-      url: `https://percentlab.app/blog/${categorySlug}`,
+      url: `https://www.percentlab.app/blog/${categorySlug}`,
       type: 'website',
     },
   };
@@ -72,7 +72,7 @@ export default async function BlogCategoryPage({ params }: BlogCategoryPageProps
     "@type": "CollectionPage",
     "name": category.title,
     "description": category.description,
-    "url": `https://percentlab.app/blog/${categorySlug}`,
+    "url": `https://www.percentlab.app/blog/${categorySlug}`,
   };
 
   const breadcrumbSchema = {
@@ -83,19 +83,19 @@ export default async function BlogCategoryPage({ params }: BlogCategoryPageProps
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://percentlab.app"
+        "item": "https://www.percentlab.app"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Blog",
-        "item": "https://percentlab.app/blog"
+        "item": "https://www.percentlab.app/blog"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": category.title,
-        "item": `https://percentlab.app/blog/${categorySlug}`
+        "item": `https://www.percentlab.app/blog/${categorySlug}`
       }
     ]
   };

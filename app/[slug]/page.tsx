@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `What is ${percent}% of ${number}? = ${formatNumber(result, 2)} | PercentLab`,
     description: `Calculate ${percent}% of ${number}. The answer is ${formatNumber(result, 2)}. Learn the formula, see step-by-step calculations, and explore real-world examples with our percentage calculator.`,
     alternates: {
-      canonical: `https://percentlab.app/${slug}`,
+      canonical: `https://www.percentlab.app/${slug}`,
     },
     keywords: [
       `${percent} percent of ${number}`,
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `What is ${percent}% of ${number}? Answer: ${formatNumber(result, 2)}`,
       description: `Calculate ${percent}% of ${number} with detailed explanations and examples. Free percentage calculator.`,
       type: 'article',
-      url: `https://percentlab.app/${slug}`,
+      url: `https://www.percentlab.app/${slug}`,
     },
     twitter: {
       card: 'summary_large_image',

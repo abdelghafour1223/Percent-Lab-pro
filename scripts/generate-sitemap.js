@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Import the calculators data (we need to use dynamic import for ESM)
-const SITE_URL = process.env.SITE_URL || 'https://percentlab.app';
+const SITE_URL = process.env.SITE_URL || 'https://www.percentlab.app';
 
 // Define static pages
 const staticPages = [

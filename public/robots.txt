@@ -1,6 +1,9 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /sitemap.xml
+Disallow: /sitemap-*.xml
+Disallow: /*.xml$
 
 # Googlebot
 User-agent: Googlebot
@@ -11,7 +14,8 @@ User-agent: Bingbot
 Allow: /
 
 # Host
-Host: https://percentlab.app
+Host: https://www.percentlab.app
 
 # Sitemaps
-Sitemap: https://percentlab.app/sitemap.xml
+Sitemap: https://www.percentlab.app/sitemap.xml
+Sitemap: https://www.percentlab.app/sitemap-calculators.xml
