@@ -23,12 +23,12 @@ export const metadata: Metadata = {
   title: 'PercentLab Blog — Percentage Guides, Tutorials & Insights',
   description: 'Explore upcoming guides and tutorials to master percentage calculations, finance concepts, and practical real-world math.',
   alternates: {
-    canonical: 'https://percentlab.app/blog',
+    canonical: 'https://www.percentlab.app/blog',
   },
   openGraph: {
     title: 'PercentLab Blog — Percentage Guides, Tutorials & Insights',
     description: 'Explore upcoming guides and tutorials to master percentage calculations, finance concepts, and practical real-world math.',
-    url: 'https://percentlab.app/blog',
+    url: 'https://www.percentlab.app/blog',
     type: 'website',
   },
 };
@@ -40,11 +40,11 @@ export default function BlogPage() {
     "@type": "Blog",
     "name": "PercentLab Blog",
     "description": "Guides and tutorials to master percentage calculations, finance concepts, and practical real-world math.",
-    "url": "https://percentlab.app/blog",
+    "url": "https://www.percentlab.app/blog",
     "publisher": {
       "@type": "Organization",
       "name": "PercentLab",
-      "url": "https://percentlab.app"
+      "url": "https://www.percentlab.app"
     }
   };
 
@@ -56,13 +56,13 @@ export default function BlogPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://percentlab.app"
+        "item": "https://www.percentlab.app"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Blog",
-        "item": "https://percentlab.app/blog"
+        "item": "https://www.percentlab.app/blog"
       }
     ]
   };

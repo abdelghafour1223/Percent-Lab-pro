@@ -13,7 +13,7 @@ import path from 'path';
 import { CATEGORIES } from '../data/calculators';
 import { BLOG_CATEGORIES } from '../data/blog';
 
-const SITE_URL = process.env.SITE_URL || 'https://percentlab.app';
+const SITE_URL = process.env.SITE_URL || 'https://www.percentlab.app';
 
 interface StaticPage {
   url: string;

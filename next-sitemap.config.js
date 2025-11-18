@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://percentlab.app',
+  siteUrl: process.env.SITE_URL || 'https://www.percentlab.app',
   generateRobotsTxt: true,
   generateIndexSitemap: false, // Disable index sitemap for smaller sites
   sitemapSize: 7000,

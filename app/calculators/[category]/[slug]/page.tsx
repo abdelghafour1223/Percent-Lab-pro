@@ -46,12 +46,12 @@ export async function generateMetadata({ params }: CalculatorPageProps): Promise
     title: calculator.seo.title,
     description: calculator.seo.description,
     alternates: {
-      canonical: `https://percentlab.app/calculators/${categoryId}/${slug}`,
+      canonical: `https://www.percentlab.app/calculators/${categoryId}/${slug}`,
     },
     openGraph: {
       title: calculator.seo.title,
       description: calculator.seo.description,
-      url: `https://percentlab.app/calculators/${categoryId}/${slug}`,
+      url: `https://www.percentlab.app/calculators/${categoryId}/${slug}`,
       type: 'article',
     },
     twitter: {
@@ -80,7 +80,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": calculator.title,
-    "url": `https://percentlab.app/calculators/${categoryId}/${slug}`,
+    "url": `https://www.percentlab.app/calculators/${categoryId}/${slug}`,
     "applicationCategory": "CalculatorApplication",
     "applicationSubCategory": category.title,
     "operatingSystem": "Any",
@@ -113,7 +113,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
       "description": `Perform ${calculator.title.toLowerCase()} calculations instantly`,
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": `https://percentlab.app/calculators/${categoryId}/${slug}`,
+        "urlTemplate": `https://www.percentlab.app/calculators/${categoryId}/${slug}`,
         "actionPlatform": [
           "http://schema.org/DesktopWebPlatform",
           "http://schema.org/MobileWebPlatform",
@@ -129,7 +129,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": calculator.title,
-    "url": `https://percentlab.app/calculators/${categoryId}/${slug}`,
+    "url": `https://www.percentlab.app/calculators/${categoryId}/${slug}`,
     "applicationCategory": "CalculatorApplication",
     "applicationSubCategory": category.title,
     "operatingSystem": "Any",
@@ -211,25 +211,25 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://percentlab.app"
+        "item": "https://www.percentlab.app"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Calculators",
-        "item": "https://percentlab.app/#categories"
+        "item": "https://www.percentlab.app/#categories"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": category.title,
-        "item": `https://percentlab.app/calculators/${categoryId}`
+        "item": `https://www.percentlab.app/calculators/${categoryId}`
       },
       {
         "@type": "ListItem",
         "position": 4,
         "name": calculator.title,
-        "item": `https://percentlab.app/calculators/${categoryId}/${slug}`
+        "item": `https://www.percentlab.app/calculators/${categoryId}/${slug}`
       }
     ]
   };
