@@ -119,48 +119,48 @@ export default function Page() {
 
       <div className="container px-4 md:px-6 py-8 md:py-12 max-w-4xl mx-auto">
         {/* Black Friday Banner */}
-        <div className="bg-gradient-to-r from-black via-red-600 to-black text-white p-4 rounded-lg mb-6 text-center">
-          <div className="flex items-center justify-center gap-2">
-            <Zap className="h-5 w-5 text-yellow-400 animate-pulse" />
-            <span className="font-bold text-lg">BLACK FRIDAY 2025</span>
-            <Zap className="h-5 w-5 text-yellow-400 animate-pulse" />
+        <div className="bg-gradient-to-r from-black via-red-600 to-black dark:from-gray-900 dark:via-red-900 dark:to-gray-900 text-white p-4 md:p-6 rounded-lg mb-6 text-center">
+          <div className="flex items-center justify-center gap-2 flex-wrap">
+            <Zap className="h-5 w-5 md:h-6 md:w-6 text-yellow-400 dark:text-yellow-300 animate-pulse" />
+            <span className="font-bold text-base md:text-lg">BLACK FRIDAY 2025</span>
+            <Zap className="h-5 w-5 md:h-6 md:w-6 text-yellow-400 dark:text-yellow-300 animate-pulse" />
           </div>
-          <p className="text-sm mt-1">Quick calculator for $75 purchases!</p>
+          <p className="text-xs md:text-sm mt-1">Quick calculator for $75 purchases!</p>
         </div>
 
         {/* Countdown Timer */}
         <CountdownTimer />
 
         {/* Hero Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="text-center mb-8 md:mb-12">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 px-2">
             10% Off $75 Calculator
           </h1>
-          <div className="text-6xl md:text-7xl font-bold text-green-700 my-6">
+          <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-green-700 dark:text-green-500 my-6">
             $67.50
           </div>
-          <div className="inline-block bg-gradient-to-r from-yellow-400 to-red-500 text-white px-6 py-3 rounded-lg text-xl font-bold mb-4">
-            <Calculator className="inline h-5 w-5 mr-2" />
+          <div className="inline-block bg-gradient-to-r from-yellow-400 to-red-500 dark:from-yellow-600 dark:to-red-700 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg text-base md:text-xl font-bold mb-4">
+            <Calculator className="inline h-4 w-4 md:h-5 md:w-5 mr-2" />
             You Save $7.50
           </div>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-base md:text-xl text-muted-foreground px-4">
             Instant answer for restaurant bills, clothing & accessories
           </p>
         </div>
 
         {/* Quick Answer */}
-        <Card className="mb-8 border-2 border-green-500">
-          <CardHeader className="bg-green-50">
-            <CardTitle>Quick Answer</CardTitle>
+        <Card className="mb-8 border-2 border-green-500 dark:border-green-700">
+          <CardHeader className="bg-green-50 dark:bg-green-950/20">
+            <CardTitle className="text-base md:text-lg">Quick Answer</CardTitle>
           </CardHeader>
-          <CardContent>
-            <p className="text-lg text-muted-foreground mb-4">
-              <strong className="text-2xl text-green-700">10% off $75 = $67.50</strong>
+          <CardContent className="px-4 md:px-6">
+            <p className="text-base md:text-lg text-muted-foreground mb-4">
+              <strong className="text-xl md:text-2xl text-green-700 dark:text-green-500 block mb-2">10% off $75 = $67.50</strong>
             </p>
-            <p className="text-muted-foreground mb-4">
+            <p className="text-muted-foreground mb-4 text-sm md:text-base">
               When something costs $75 and has a 10% discount, you save $7.50 and pay $67.50.
             </p>
-            <div className="bg-muted p-4 rounded-lg font-mono text-sm">
+            <div className="bg-muted dark:bg-muted/50 p-3 md:p-4 rounded-lg font-mono text-xs md:text-sm overflow-x-auto">
               $75 × 0.10 = $7.50 discount → $75 - $7.50 = $67.50 final price
             </div>
           </CardContent>
@@ -176,9 +176,9 @@ export default function Page() {
         {/* Visual Representation */}
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle>Visual Breakdown: $75 with 10% Off</CardTitle>
+            <CardTitle className="text-base md:text-lg">Visual Breakdown: $75 with 10% Off</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="px-4 md:px-6">
             <ComparisonChart
               value1={savings}
               value2={finalPrice}
@@ -199,99 +199,99 @@ export default function Page() {
         {/* Real Shopping Examples */}
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Tag className="h-5 w-5 text-yellow-500" />
+            <CardTitle className="flex items-center gap-2 text-base md:text-lg">
+              <Tag className="h-5 w-5 text-yellow-500 dark:text-yellow-400" />
               Common $75 Shopping Scenarios (10% Off)
             </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="px-4 md:px-6">
             <div className="space-y-3">
               {/* Dining */}
-              <h3 className="font-bold text-lg mt-4 mb-3 text-red-600">🍽️ Restaurants & Dining</h3>
+              <h3 className="font-bold text-base md:text-lg mt-4 mb-3 text-red-600 dark:text-red-500">🍽️ Restaurants & Dining</h3>
 
-              <div className="bg-gradient-to-r from-yellow-50 to-red-50 p-4 rounded-lg border-l-4 border-yellow-500">
-                <p className="font-semibold">Dinner for Two</p>
-                <p className="text-muted-foreground text-sm">
-                  Bill <span className="line-through">$75</span> • 10% off (coupon) = <strong className="text-red-600">Save $7.50</strong> • Pay <strong className="text-green-700">$67.50</strong>
+              <div className="bg-gradient-to-r from-yellow-50 to-red-50 dark:from-yellow-950/20 dark:to-red-950/20 p-3 md:p-4 rounded-lg border-l-4 border-yellow-500 dark:border-yellow-600">
+                <p className="font-semibold text-sm md:text-base">Dinner for Two</p>
+                <p className="text-muted-foreground text-xs md:text-sm">
+                  Bill <span className="line-through">$75</span> • 10% off (coupon) = <strong className="text-red-600 dark:text-red-500">Save $7.50</strong> • Pay <strong className="text-green-700 dark:text-green-500">$67.50</strong>
                 </p>
               </div>
 
-              <div className="bg-gradient-to-r from-yellow-50 to-red-50 p-4 rounded-lg border-l-4 border-yellow-500">
-                <p className="font-semibold">Family Brunch</p>
-                <p className="text-muted-foreground text-sm">
-                  Total <span className="line-through">$75</span> • 10% off (early bird) = <strong className="text-red-600">Save $7.50</strong> • Pay <strong className="text-green-700">$67.50</strong>
+              <div className="bg-gradient-to-r from-yellow-50 to-red-50 dark:from-yellow-950/20 dark:to-red-950/20 p-3 md:p-4 rounded-lg border-l-4 border-yellow-500 dark:border-yellow-600">
+                <p className="font-semibold text-sm md:text-base">Family Brunch</p>
+                <p className="text-muted-foreground text-xs md:text-sm">
+                  Total <span className="line-through">$75</span> • 10% off (early bird) = <strong className="text-red-600 dark:text-red-500">Save $7.50</strong> • Pay <strong className="text-green-700 dark:text-green-500">$67.50</strong>
                 </p>
               </div>
 
               {/* Fashion */}
-              <h3 className="font-bold text-lg mt-6 mb-3 text-red-600">👕 Clothing & Shoes</h3>
+              <h3 className="font-bold text-base md:text-lg mt-6 mb-3 text-red-600 dark:text-red-500">👕 Clothing & Shoes</h3>
 
-              <div className="bg-gradient-to-r from-yellow-50 to-red-50 p-4 rounded-lg border-l-4 border-red-500">
-                <p className="font-semibold">Casual Sneakers</p>
-                <p className="text-muted-foreground text-sm">
-                  Was <span className="line-through">$75</span> • 10% off = <strong className="text-red-600">Save $7.50</strong> • Pay <strong className="text-green-700">$67.50</strong>
+              <div className="bg-gradient-to-r from-yellow-50 to-red-50 dark:from-yellow-950/20 dark:to-red-950/20 p-3 md:p-4 rounded-lg border-l-4 border-red-500 dark:border-red-600">
+                <p className="font-semibold text-sm md:text-base">Casual Sneakers</p>
+                <p className="text-muted-foreground text-xs md:text-sm">
+                  Was <span className="line-through">$75</span> • 10% off = <strong className="text-red-600 dark:text-red-500">Save $7.50</strong> • Pay <strong className="text-green-700 dark:text-green-500">$67.50</strong>
                 </p>
               </div>
 
-              <div className="bg-gradient-to-r from-yellow-50 to-red-50 p-4 rounded-lg border-l-4 border-red-500">
-                <p className="font-semibold">Designer T-Shirt</p>
-                <p className="text-muted-foreground text-sm">
-                  Was <span className="line-through">$75</span> • 10% off = <strong className="text-red-600">Save $7.50</strong> • Pay <strong className="text-green-700">$67.50</strong>
+              <div className="bg-gradient-to-r from-yellow-50 to-red-50 dark:from-yellow-950/20 dark:to-red-950/20 p-3 md:p-4 rounded-lg border-l-4 border-red-500 dark:border-red-600">
+                <p className="font-semibold text-sm md:text-base">Designer T-Shirt</p>
+                <p className="text-muted-foreground text-xs md:text-sm">
+                  Was <span className="line-through">$75</span> • 10% off = <strong className="text-red-600 dark:text-red-500">Save $7.50</strong> • Pay <strong className="text-green-700 dark:text-green-500">$67.50</strong>
                 </p>
               </div>
 
-              <div className="bg-gradient-to-r from-yellow-50 to-red-50 p-4 rounded-lg border-l-4 border-red-500">
-                <p className="font-semibold">Summer Dress</p>
-                <p className="text-muted-foreground text-sm">
-                  Was <span className="line-through">$75</span> • 10% off = <strong className="text-red-600">Save $7.50</strong> • Pay <strong className="text-green-700">$67.50</strong>
+              <div className="bg-gradient-to-r from-yellow-50 to-red-50 dark:from-yellow-950/20 dark:to-red-950/20 p-3 md:p-4 rounded-lg border-l-4 border-red-500 dark:border-red-600">
+                <p className="font-semibold text-sm md:text-base">Summer Dress</p>
+                <p className="text-muted-foreground text-xs md:text-sm">
+                  Was <span className="line-through">$75</span> • 10% off = <strong className="text-red-600 dark:text-red-500">Save $7.50</strong> • Pay <strong className="text-green-700 dark:text-green-500">$67.50</strong>
                 </p>
               </div>
 
               {/* Electronics */}
-              <h3 className="font-bold text-lg mt-6 mb-3 text-red-600">🎮 Electronics & Gaming</h3>
+              <h3 className="font-bold text-base md:text-lg mt-6 mb-3 text-red-600 dark:text-red-500">🎮 Electronics & Gaming</h3>
 
-              <div className="bg-gradient-to-r from-yellow-50 to-red-50 p-4 rounded-lg border-l-4 border-black">
-                <p className="font-semibold">Video Game (New Release)</p>
-                <p className="text-muted-foreground text-sm">
-                  Was <span className="line-through">$75</span> • 10% off = <strong className="text-red-600">Save $7.50</strong> • Pay <strong className="text-green-700">$67.50</strong>
+              <div className="bg-gradient-to-r from-yellow-50 to-red-50 dark:from-yellow-950/20 dark:to-red-950/20 p-3 md:p-4 rounded-lg border-l-4 border-black dark:border-gray-700">
+                <p className="font-semibold text-sm md:text-base">Video Game (New Release)</p>
+                <p className="text-muted-foreground text-xs md:text-sm">
+                  Was <span className="line-through">$75</span> • 10% off = <strong className="text-red-600 dark:text-red-500">Save $7.50</strong> • Pay <strong className="text-green-700 dark:text-green-500">$67.50</strong>
                 </p>
               </div>
 
-              <div className="bg-gradient-to-r from-yellow-50 to-red-50 p-4 rounded-lg border-l-4 border-black">
-                <p className="font-semibold">Wireless Mouse + Keyboard</p>
-                <p className="text-muted-foreground text-sm">
-                  Was <span className="line-through">$75</span> • 10% off = <strong className="text-red-600">Save $7.50</strong> • Pay <strong className="text-green-700">$67.50</strong>
+              <div className="bg-gradient-to-r from-yellow-50 to-red-50 dark:from-yellow-950/20 dark:to-red-950/20 p-3 md:p-4 rounded-lg border-l-4 border-black dark:border-gray-700">
+                <p className="font-semibold text-sm md:text-base">Wireless Mouse + Keyboard</p>
+                <p className="text-muted-foreground text-xs md:text-sm">
+                  Was <span className="line-through">$75</span> • 10% off = <strong className="text-red-600 dark:text-red-500">Save $7.50</strong> • Pay <strong className="text-green-700 dark:text-green-500">$67.50</strong>
                 </p>
               </div>
 
-              <div className="bg-gradient-to-r from-yellow-50 to-red-50 p-4 rounded-lg border-l-4 border-black">
-                <p className="font-semibold">Phone Case + Screen Protector Bundle</p>
-                <p className="text-muted-foreground text-sm">
-                  Was <span className="line-through">$75</span> • 10% off = <strong className="text-red-600">Save $7.50</strong> • Pay <strong className="text-green-700">$67.50</strong>
+              <div className="bg-gradient-to-r from-yellow-50 to-red-50 dark:from-yellow-950/20 dark:to-red-950/20 p-3 md:p-4 rounded-lg border-l-4 border-black dark:border-gray-700">
+                <p className="font-semibold text-sm md:text-base">Phone Case + Screen Protector Bundle</p>
+                <p className="text-muted-foreground text-xs md:text-sm">
+                  Was <span className="line-through">$75</span> • 10% off = <strong className="text-red-600 dark:text-red-500">Save $7.50</strong> • Pay <strong className="text-green-700 dark:text-green-500">$67.50</strong>
                 </p>
               </div>
 
               {/* Accessories */}
-              <h3 className="font-bold text-lg mt-6 mb-3 text-red-600">👜 Accessories</h3>
+              <h3 className="font-bold text-base md:text-lg mt-6 mb-3 text-red-600 dark:text-red-500">👜 Accessories</h3>
 
-              <div className="bg-gradient-to-r from-yellow-50 to-red-50 p-4 rounded-lg border-l-4 border-green-600">
-                <p className="font-semibold">Leather Wallet</p>
-                <p className="text-muted-foreground text-sm">
-                  Was <span className="line-through">$75</span> • 10% off = <strong className="text-red-600">Save $7.50</strong> • Pay <strong className="text-green-700">$67.50</strong>
+              <div className="bg-gradient-to-r from-yellow-50 to-red-50 dark:from-yellow-950/20 dark:to-red-950/20 p-3 md:p-4 rounded-lg border-l-4 border-green-600 dark:border-green-700">
+                <p className="font-semibold text-sm md:text-base">Leather Wallet</p>
+                <p className="text-muted-foreground text-xs md:text-sm">
+                  Was <span className="line-through">$75</span> • 10% off = <strong className="text-red-600 dark:text-red-500">Save $7.50</strong> • Pay <strong className="text-green-700 dark:text-green-500">$67.50</strong>
                 </p>
               </div>
 
-              <div className="bg-gradient-to-r from-yellow-50 to-red-50 p-4 rounded-lg border-l-4 border-green-600">
-                <p className="font-semibold">Sunglasses</p>
-                <p className="text-muted-foreground text-sm">
-                  Was <span className="line-through">$75</span> • 10% off = <strong className="text-red-600">Save $7.50</strong> • Pay <strong className="text-green-700">$67.50</strong>
+              <div className="bg-gradient-to-r from-yellow-50 to-red-50 dark:from-yellow-950/20 dark:to-red-950/20 p-3 md:p-4 rounded-lg border-l-4 border-green-600 dark:border-green-700">
+                <p className="font-semibold text-sm md:text-base">Sunglasses</p>
+                <p className="text-muted-foreground text-xs md:text-sm">
+                  Was <span className="line-through">$75</span> • 10% off = <strong className="text-red-600 dark:text-red-500">Save $7.50</strong> • Pay <strong className="text-green-700 dark:text-green-500">$67.50</strong>
                 </p>
               </div>
 
-              <div className="bg-gradient-to-r from-yellow-50 to-red-50 p-4 rounded-lg border-l-4 border-green-600">
-                <p className="font-semibold">Watch (Casual)</p>
-                <p className="text-muted-foreground text-sm">
-                  Was <span className="line-through">$75</span> • 10% off = <strong className="text-red-600">Save $7.50</strong> • Pay <strong className="text-green-700">$67.50</strong>
+              <div className="bg-gradient-to-r from-yellow-50 to-red-50 dark:from-yellow-950/20 dark:to-red-950/20 p-3 md:p-4 rounded-lg border-l-4 border-green-600 dark:border-green-700">
+                <p className="font-semibold text-sm md:text-base">Watch (Casual)</p>
+                <p className="text-muted-foreground text-xs md:text-sm">
+                  Was <span className="line-through">$75</span> • 10% off = <strong className="text-red-600 dark:text-red-500">Save $7.50</strong> • Pay <strong className="text-green-700 dark:text-green-500">$67.50</strong>
                 </p>
               </div>
             </div>
@@ -301,9 +301,9 @@ export default function Page() {
         {/* Step by Step */}
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle>Step-by-Step: How to Calculate 10% Off $75</CardTitle>
+            <CardTitle className="text-base md:text-lg">Step-by-Step: How to Calculate 10% Off $75</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="px-4 md:px-6">
             <ol className="space-y-4">
               <li className="flex gap-4">
                 <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-yellow-500 to-red-500 text-white flex items-center justify-center font-semibold">
@@ -339,9 +339,9 @@ export default function Page() {
               </li>
             </ol>
 
-            <div className="mt-6 p-4 bg-yellow-50 rounded-lg border-2 border-yellow-300">
-              <p className="font-semibold mb-2">Quick Mental Math Trick:</p>
-              <p className="text-sm text-muted-foreground">
+            <div className="mt-6 p-3 md:p-4 bg-yellow-50 dark:bg-yellow-950/20 rounded-lg border-2 border-yellow-300 dark:border-yellow-600">
+              <p className="font-semibold mb-2 text-sm md:text-base">Quick Mental Math Trick:</p>
+              <p className="text-xs md:text-sm text-muted-foreground">
                 To find 10% of any number, just move the decimal point one place to the left.
                 $75.00 becomes $7.50 for the discount. Then subtract: $75 - $7.50 = $67.50!
               </p>
@@ -352,9 +352,9 @@ export default function Page() {
         {/* FAQ Section */}
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle>Frequently Asked Questions</CardTitle>
+            <CardTitle className="text-base md:text-lg">Frequently Asked Questions</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-6">
+          <CardContent className="px-4 md:px-6 space-y-6">
             <div>
               <h3 className="font-semibold text-lg mb-2">What is 10% off $75?</h3>
               <p className="text-muted-foreground">
@@ -403,41 +403,84 @@ export default function Page() {
         {/* Related Calculators */}
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle>Related Discount Calculators</CardTitle>
+            <CardTitle className="text-base md:text-lg">Related Discount Calculators</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="px-4 md:px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {relatedPages.map((page) => (
                 <Link
                   key={page.slug}
                   href={`/${page.slug}`}
-                  className="flex items-center justify-between p-4 rounded-lg border-2 border-yellow-400 hover:bg-yellow-50 transition-colors group"
+                  className="flex items-center justify-between p-3 md:p-4 rounded-lg border-2 border-yellow-400 dark:border-yellow-600 hover:bg-yellow-50 dark:hover:bg-yellow-950/20 transition-colors group"
                   aria-label={`Go to ${page.title}`}
                 >
                   <div className="flex items-center gap-2">
-                    <Tag className="h-4 w-4 text-red-600" />
-                    <p className="font-medium">{page.title}</p>
+                    <Tag className="h-4 w-4 text-red-600 dark:text-red-500" />
+                    <p className="font-medium text-sm md:text-base">{page.title}</p>
                   </div>
-                  <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-red-600 transition-colors" />
+                  <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-red-600 dark:group-hover:text-red-500 transition-colors" />
                 </Link>
               ))}
             </div>
           </CardContent>
         </Card>
 
+        {/* Related Percentage Calculators */}
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle className="text-base md:text-lg">Related Percentage Calculators</CardTitle>
+          </CardHeader>
+          <CardContent className="px-4 md:px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <Link
+                href="/calculators/basic-percent/percent-of"
+                className="flex items-center justify-between p-3 md:p-4 rounded-lg border hover:bg-muted/50 transition-colors group"
+                aria-label="Go to Percent Of Calculator"
+              >
+                <p className="font-medium text-sm md:text-base">Percent Of Calculator</p>
+                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              </Link>
+              <Link
+                href="/calculators/basic-percent/percentage-decrease"
+                className="flex items-center justify-between p-3 md:p-4 rounded-lg border hover:bg-muted/50 transition-colors group"
+                aria-label="Go to Percentage Decrease Calculator"
+              >
+                <p className="font-medium text-sm md:text-base">Percentage Decrease Calculator</p>
+                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              </Link>
+              <Link
+                href="/calculators/basic-percent/percentage-increase"
+                className="flex items-center justify-between p-3 md:p-4 rounded-lg border hover:bg-muted/50 transition-colors group"
+                aria-label="Go to Percentage Increase Calculator"
+              >
+                <p className="font-medium text-sm md:text-base">Percentage Increase Calculator</p>
+                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              </Link>
+              <Link
+                href="/calculators/basic-percent/reverse-percentage"
+                className="flex items-center justify-between p-3 md:p-4 rounded-lg border hover:bg-muted/50 transition-colors group"
+                aria-label="Go to Reverse Percentage Calculator"
+              >
+                <p className="font-medium text-sm md:text-base">Reverse Percentage Calculator</p>
+                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* CTA */}
-        <Card className="bg-gradient-to-r from-black to-red-900 text-white">
-          <CardContent className="pt-6 text-center">
-            <h3 className="text-2xl font-bold mb-3">Calculate All Your Black Friday Discounts</h3>
-            <p className="mb-6 text-gray-200">
+        <Card className="bg-gradient-to-r from-black to-red-900 dark:from-gray-900 dark:to-red-950 text-white">
+          <CardContent className="pt-6 px-4 md:px-6 text-center">
+            <h3 className="text-xl md:text-2xl font-bold mb-3">Calculate All Your Black Friday Discounts</h3>
+            <p className="mb-6 text-gray-200 dark:text-gray-300 text-sm md:text-base">
               Track multiple items and maximize your Black Friday 2025 savings!
             </p>
             <Link
               href="/black-friday-2025-savings-calculator"
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium bg-yellow-500 text-black hover:bg-yellow-400 h-12 px-8 py-2 transition-colors"
+              className="inline-flex items-center justify-center rounded-md text-sm md:text-base font-medium bg-yellow-500 dark:bg-yellow-600 text-black dark:text-white hover:bg-yellow-400 dark:hover:bg-yellow-500 min-h-[44px] h-12 px-6 md:px-8 py-2 transition-colors"
               aria-label="Track all Black Friday deals"
             >
-              <Zap className="mr-2 h-5 w-5" />
+              <Zap className="mr-2 h-4 w-4 md:h-5 md:w-5" />
               Track All My Black Friday Deals
             </Link>
           </CardContent>
