@@ -114,40 +114,40 @@ export default function Page() {
 
       <div className="container px-4 md:px-6 py-8 md:py-12 max-w-4xl mx-auto">
         {/* Black Friday Banner */}
-        <div className="bg-gradient-to-r from-black via-red-600 to-black text-white p-4 rounded-lg mb-6 text-center">
-          <div className="flex items-center justify-center gap-2">
-            <Zap className="h-5 w-5 text-yellow-400 animate-pulse" />
-            <span className="font-bold text-lg">BLACK FRIDAY 2025 SPECIAL</span>
-            <Zap className="h-5 w-5 text-yellow-400 animate-pulse" />
+        <div className="bg-gradient-to-r from-black via-red-600 to-black dark:from-gray-900 dark:via-red-900 dark:to-gray-900 text-white p-4 md:p-6 rounded-lg mb-6 text-center">
+          <div className="flex items-center justify-center gap-2 flex-wrap">
+            <Zap className="h-5 w-5 md:h-6 md:w-6 text-yellow-400 dark:text-yellow-300 animate-pulse" />
+            <span className="font-bold text-base md:text-lg">BLACK FRIDAY 2025 SPECIAL</span>
+            <Zap className="h-5 w-5 md:h-6 md:w-6 text-yellow-400 dark:text-yellow-300 animate-pulse" />
           </div>
-          <p className="text-sm mt-1">Track all your deals in one place!</p>
+          <p className="text-xs md:text-sm mt-1">Track all your deals in one place!</p>
         </div>
 
         {/* Countdown Timer */}
         <CountdownTimer />
 
         {/* Hero Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="text-center mb-8 md:mb-12">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 px-2">
             Black Friday 2025 Savings Calculator
           </h1>
-          <div className="inline-block bg-gradient-to-r from-yellow-400 to-red-500 text-white px-6 py-3 rounded-lg text-xl font-bold mb-4">
-            <ShoppingCart className="inline h-5 w-5 mr-2" />
+          <div className="inline-block bg-gradient-to-r from-yellow-400 to-red-500 dark:from-yellow-600 dark:to-red-700 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg text-base md:text-xl font-bold mb-4">
+            <ShoppingCart className="inline h-4 w-4 md:h-5 md:w-5 mr-2" />
             Track Multiple Deals
           </div>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-base md:text-xl text-muted-foreground px-4">
             Compare multiple Black Friday deals and calculate total savings for November 29, 2025
           </p>
         </div>
 
         {/* Quick Answer */}
-        <Card className="mb-8 border-2 border-green-500">
-          <CardHeader className="bg-green-50">
-            <CardTitle>Why Track Your Black Friday Savings?</CardTitle>
+        <Card className="mb-8 border-2 border-green-500 dark:border-green-700">
+          <CardHeader className="bg-green-50 dark:bg-green-950/20">
+            <CardTitle className="text-base md:text-lg">Why Track Your Black Friday Savings?</CardTitle>
           </CardHeader>
-          <CardContent>
-            <p className="text-lg text-muted-foreground mb-4">
-              Planning to buy multiple items on Black Friday? Our calculator lets you track all your deals, compare discounts, and see your <strong className="text-green-700">total savings</strong> in real-time. Stay within budget while maximizing your Black Friday 2025 deals!
+          <CardContent className="px-4 md:px-6">
+            <p className="text-base md:text-lg text-muted-foreground mb-4">
+              Planning to buy multiple items on Black Friday? Our calculator lets you track all your deals, compare discounts, and see your <strong className="text-green-700 dark:text-green-500">total savings</strong> in real-time. Stay within budget while maximizing your Black Friday 2025 deals!
             </p>
           </CardContent>
         </Card>
@@ -163,12 +163,12 @@ export default function Page() {
         {/* Real Black Friday Shopping Examples */}
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Zap className="h-5 w-5 text-yellow-500" />
+            <CardTitle className="flex items-center gap-2 text-base md:text-lg">
+              <Zap className="h-5 w-5 text-yellow-500 dark:text-yellow-400" />
               Real Black Friday 2025 Shopping Scenarios
             </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="px-4 md:px-6">
             <div className="space-y-6">
               {/* Scenario 1 */}
               <div className="border-l-4 border-yellow-500 pl-4">
@@ -256,9 +256,9 @@ export default function Page() {
         {/* Tips Section */}
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle>Black Friday 2025 Shopping Tips</CardTitle>
+            <CardTitle className="text-base md:text-lg">Black Friday 2025 Shopping Tips</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="px-4 md:px-6">
             <ol className="space-y-4">
               <li className="flex gap-4">
                 <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-yellow-500 to-red-500 text-white flex items-center justify-center font-semibold">
@@ -307,9 +307,9 @@ export default function Page() {
         {/* FAQ Section */}
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle>Black Friday 2025 - Frequently Asked Questions</CardTitle>
+            <CardTitle className="text-base md:text-lg">Black Friday 2025 - Frequently Asked Questions</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-6">
+          <CardContent className="px-4 md:px-6 space-y-6">
             <div>
               <h3 className="font-semibold text-lg mb-2">When is Black Friday 2025?</h3>
               <p className="text-muted-foreground">
@@ -352,41 +352,84 @@ export default function Page() {
         {/* Related Calculators */}
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle>Related Black Friday Calculators</CardTitle>
+            <CardTitle className="text-base md:text-lg">Related Black Friday Calculators</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="px-4 md:px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {relatedBlackFridayPages.map((page) => (
                 <Link
                   key={page.slug}
                   href={`/${page.slug}`}
-                  className="flex items-center justify-between p-4 rounded-lg border-2 border-yellow-400 hover:bg-yellow-50 transition-colors group"
+                  className="flex items-center justify-between p-3 md:p-4 rounded-lg border-2 border-yellow-400 dark:border-yellow-600 hover:bg-yellow-50 dark:hover:bg-yellow-950/20 transition-colors group"
                   aria-label={`Go to ${page.title}`}
                 >
                   <div className="flex items-center gap-2">
-                    <Tag className="h-4 w-4 text-red-600" />
-                    <p className="font-medium">{page.title}</p>
+                    <Tag className="h-4 w-4 text-red-600 dark:text-red-500" />
+                    <p className="font-medium text-sm md:text-base">{page.title}</p>
                   </div>
-                  <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-red-600 transition-colors" />
+                  <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-red-600 dark:group-hover:text-red-500 transition-colors" />
                 </Link>
               ))}
             </div>
           </CardContent>
         </Card>
 
+        {/* Related Percentage Calculators */}
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle className="text-base md:text-lg">Related Percentage Calculators</CardTitle>
+          </CardHeader>
+          <CardContent className="px-4 md:px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <Link
+                href="/calculators/basic-percent/percent-of"
+                className="flex items-center justify-between p-3 md:p-4 rounded-lg border hover:bg-muted/50 transition-colors group"
+                aria-label="Go to Percent Of Calculator"
+              >
+                <p className="font-medium text-sm md:text-base">Percent Of Calculator</p>
+                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              </Link>
+              <Link
+                href="/calculators/basic-percent/percentage-decrease"
+                className="flex items-center justify-between p-3 md:p-4 rounded-lg border hover:bg-muted/50 transition-colors group"
+                aria-label="Go to Percentage Decrease Calculator"
+              >
+                <p className="font-medium text-sm md:text-base">Percentage Decrease Calculator</p>
+                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              </Link>
+              <Link
+                href="/calculators/basic-percent/percentage-increase"
+                className="flex items-center justify-between p-3 md:p-4 rounded-lg border hover:bg-muted/50 transition-colors group"
+                aria-label="Go to Percentage Increase Calculator"
+              >
+                <p className="font-medium text-sm md:text-base">Percentage Increase Calculator</p>
+                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              </Link>
+              <Link
+                href="/calculators/basic-percent/reverse-percentage"
+                className="flex items-center justify-between p-3 md:p-4 rounded-lg border hover:bg-muted/50 transition-colors group"
+                aria-label="Go to Reverse Percentage Calculator"
+              >
+                <p className="font-medium text-sm md:text-base">Reverse Percentage Calculator</p>
+                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* CTA */}
-        <Card className="bg-gradient-to-r from-black to-red-900 text-white">
-          <CardContent className="pt-6 text-center">
-            <h3 className="text-2xl font-bold mb-3">Ready to Dominate Black Friday 2025?</h3>
-            <p className="mb-6 text-gray-200">
+        <Card className="bg-gradient-to-r from-black to-red-900 dark:from-gray-900 dark:to-red-950 text-white">
+          <CardContent className="pt-6 px-4 md:px-6 text-center">
+            <h3 className="text-xl md:text-2xl font-bold mb-3">Ready to Dominate Black Friday 2025?</h3>
+            <p className="mb-6 text-gray-200 dark:text-gray-300 text-sm md:text-base">
               Start tracking your deals now and maximize your November 29 savings!
             </p>
             <Link
               href="/black-friday-calculator-20-off"
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium bg-yellow-500 text-black hover:bg-yellow-400 h-12 px-8 py-2 transition-colors"
+              className="inline-flex items-center justify-center rounded-md text-sm md:text-base font-medium bg-yellow-500 dark:bg-yellow-600 text-black dark:text-white hover:bg-yellow-400 dark:hover:bg-yellow-500 min-h-[44px] h-12 px-6 md:px-8 py-2 transition-colors"
               aria-label="Calculate specific discounts"
             >
-              <Zap className="mr-2 h-5 w-5" />
+              <Zap className="mr-2 h-4 w-4 md:h-5 md:w-5" />
               Calculate Specific Discounts
             </Link>
           </CardContent>
