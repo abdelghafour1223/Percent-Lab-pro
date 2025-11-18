@@ -67,12 +67,40 @@ export interface CalculationResult {
   examples: string[];
 }
 
+// Check if a page should use US market examples
+function isUSMarketPage(percent: number, number: number): boolean {
+  const usPages = [
+    { percent: 30, number: 50 },
+    { percent: 20, number: 150 },
+    { percent: 40, number: 200 },
+    { percent: 75, number: 200 },
+    { percent: 30, number: 200 },
+  ];
+
+  return usPages.some(page => page.percent === percent && page.number === number);
+}
+
+// Generate US market-specific examples
+function getUSMarketExamples(percent: number, number: number, result: number): string[] {
+  // Black Friday example
+  const blackFridayExample = `Black Friday Deal: Save ${percent}% on a $${number} purchase! You save $${result.toFixed(2)} and pay only $${(number - result).toFixed(2)}.`;
+
+  // Restaurant tip example
+  const tipExample = `Restaurant Tip: For a $${number} meal, a ${percent}% tip would be $${result.toFixed(2)}, making your total $${(number + result).toFixed(2)}.`;
+
+  // Sales tax example
+  const taxExample = `Sales Tax: With ${percent}% tax on $${number}, you'll pay an additional $${result.toFixed(2)} for a total of $${(number + result).toFixed(2)}.`;
+
+  return [blackFridayExample, tipExample, taxExample];
+}
+
 // Generate explanations
 export function explainPercentOf(
   percent: number,
   number: number
 ): CalculationResult {
   const result = calculatePercentOf(percent, number);
+  const useUSMarket = isUSMarketPage(percent, number);
 
   return {
     result,
@@ -82,10 +110,12 @@ export function explainPercentOf(
       `Multiply the decimal by the number: ${(percent / 100).toFixed(4)} × ${number} = ${result.toFixed(2)}`,
       `Therefore, ${percent}% of ${number} is ${result.toFixed(2)}`,
     ],
-    examples: [
-      `Shopping example: If a $${number} item has a ${percent}% discount, you save $${result.toFixed(2)}, paying $${(number - result).toFixed(2)}.`,
-      `Tax example: A ${percent}% tax on $${number} adds $${result.toFixed(2)} to your bill, totaling $${(number + result).toFixed(2)}.`,
-    ],
+    examples: useUSMarket
+      ? getUSMarketExamples(percent, number, result)
+      : [
+          `Shopping example: If a $${number} item has a ${percent}% discount, you save $${result.toFixed(2)}, paying $${(number - result).toFixed(2)}.`,
+          `Tax example: A ${percent}% tax on $${number} adds $${result.toFixed(2)} to your bill, totaling $${(number + result).toFixed(2)}.`,
+        ],
   };
 }
 
