@@ -114,10 +114,10 @@ export default function Page() {
 
       <div className="container px-4 md:px-6 py-8 md:py-12 max-w-4xl mx-auto">
         {/* Black Friday Banner */}
-        <div className="bg-gradient-to-r from-black via-red-600 to-black text-white p-4 rounded-lg mb-6 text-center">
+        <div className="bg-gradient-to-r from-black via-red-600 to-black dark:from-red-900 dark:via-yellow-900 dark:to-black text-white p-3 sm:p-4 rounded-lg mb-6 text-center">
           <div className="flex items-center justify-center gap-2">
             <Zap className="h-5 w-5 text-yellow-400 animate-pulse" />
-            <span className="font-bold text-lg">BLACK FRIDAY 2025 SPECIAL</span>
+            <span className="font-bold text-base sm:text-lg">BLACK FRIDAY 2025 SPECIAL</span>
             <Zap className="h-5 w-5 text-yellow-400 animate-pulse" />
           </div>
           <p className="text-sm mt-1">Track all your deals in one place!</p>
@@ -128,7 +128,7 @@ export default function Page() {
 
         {/* Hero Section */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Black Friday 2025 Savings Calculator
           </h1>
           <div className="inline-block bg-gradient-to-r from-yellow-400 to-red-500 text-white px-6 py-3 rounded-lg text-xl font-bold mb-4">
@@ -360,7 +360,7 @@ export default function Page() {
                 <Link
                   key={page.slug}
                   href={`/${page.slug}`}
-                  className="flex items-center justify-between p-4 rounded-lg border-2 border-yellow-400 hover:bg-yellow-50 transition-colors group"
+                  className="flex items-center justify-between p-4 rounded-lg border-2 border-yellow-400 dark:border-yellow-600 hover:bg-yellow-50 dark:hover:bg-yellow-950/20 transition-colors group"
                   aria-label={`Go to ${page.title}`}
                 >
                   <div className="flex items-center gap-2">
@@ -375,7 +375,7 @@ export default function Page() {
         </Card>
 
         {/* CTA */}
-        <Card className="bg-gradient-to-r from-black to-red-900 text-white">
+        <Card className="bg-gradient-to-r from-black to-red-900 dark:from-gray-900 dark:to-red-950 text-white">
           <CardContent className="pt-6 text-center">
             <h3 className="text-2xl font-bold mb-3">Ready to Dominate Black Friday 2025?</h3>
             <p className="mb-6 text-gray-200">

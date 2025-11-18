@@ -28,47 +28,47 @@ export function DiscountCalculator({
   }, [originalPrice, discountPercent]);
 
   return (
-    <Card className="mb-8 border-2 border-yellow-500 shadow-xl">
-      <CardHeader className="bg-gradient-to-r from-yellow-50 to-red-50">
-        <CardTitle className="flex items-center gap-2">
-          <DollarSign className="h-5 w-5 text-green-600" />
+    <Card className="mb-6 sm:mb-8 border-2 border-yellow-500 dark:border-yellow-600 shadow-xl">
+      <CardHeader className="bg-gradient-to-r from-yellow-50 to-red-50 dark:from-yellow-950/30 dark:to-red-950/30">
+        <CardTitle className="flex items-center gap-2 text-base sm:text-lg">
+          <DollarSign className="h-5 w-5 text-green-600 dark:text-green-500" />
           {title}
         </CardTitle>
       </CardHeader>
-      <CardContent className="pt-6">
-        <div className="space-y-6">
+      <CardContent className="pt-4 sm:pt-6">
+        <div className="space-y-4 sm:space-y-6">
           <div>
-            <label className="block text-sm font-medium mb-2">Original Price ($)</label>
+            <label className="block text-sm sm:text-base font-medium mb-2">Original Price ($)</label>
             <input
               type="number"
               value={originalPrice}
               onChange={(e) => setOriginalPrice(e.target.value)}
-              className="w-full p-3 border-2 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-lg"
+              className="w-full p-3 sm:p-4 border-2 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-base sm:text-lg bg-white dark:bg-gray-900 dark:border-gray-600 dark:text-white min-h-[48px]"
               placeholder="Enter price"
             />
           </div>
 
-          <div className="bg-yellow-50 p-6 rounded-lg border-2 border-yellow-400">
+          <div className="bg-yellow-50 dark:bg-yellow-950/20 p-4 sm:p-6 rounded-lg border-2 border-yellow-400 dark:border-yellow-600">
             <div className="text-center space-y-3">
               <div>
-                <p className="text-sm text-gray-600 mb-1">You Save</p>
-                <p className="text-4xl font-bold text-red-600">${savingsAmount.toFixed(2)}</p>
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-1">You Save</p>
+                <p className="text-3xl sm:text-4xl font-bold text-red-600 dark:text-red-500">${savingsAmount.toFixed(2)}</p>
               </div>
-              <div className="border-t border-yellow-300 pt-3">
-                <p className="text-sm text-gray-600 mb-1">Final Price</p>
-                <p className="text-3xl font-bold text-green-700">${finalPrice.toFixed(2)}</p>
+              <div className="border-t border-yellow-300 dark:border-yellow-700 pt-3">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-1">Final Price</p>
+                <p className="text-2xl sm:text-3xl font-bold text-green-700 dark:text-green-500">${finalPrice.toFixed(2)}</p>
               </div>
-              <div className="text-xs text-gray-500">
+              <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                 {discountPercent}% OFF • Original: ${parseFloat(originalPrice || '0').toFixed(2)}
               </div>
             </div>
           </div>
 
-          <div className="flex gap-3">
-            <button className="flex-1 bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+          <div className="flex flex-col sm:flex-row gap-3">
+            <button className="flex-1 bg-black hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-lg font-semibold transition-colors min-h-[48px]">
               Share Deal
             </button>
-            <button className="flex-1 bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-lg font-semibold transition-colors">
+            <button className="flex-1 bg-yellow-500 hover:bg-yellow-600 dark:bg-yellow-600 dark:hover:bg-yellow-500 text-black dark:text-white px-4 sm:px-6 py-3 sm:py-4 rounded-lg font-semibold transition-colors min-h-[48px]">
               Save Result
             </button>
           </div>

@@ -34,24 +34,24 @@ export function CountdownTimer() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-black via-yellow-600 to-red-600 text-white p-6 rounded-lg mb-8 shadow-lg">
+    <div className="bg-gradient-to-r from-black via-yellow-600 to-red-600 dark:from-yellow-700 dark:via-red-700 dark:to-black text-white p-4 sm:p-6 rounded-lg mb-6 sm:mb-8 shadow-lg">
       <div className="text-center">
         <div className="flex items-center justify-center gap-2 mb-3">
-          <Zap className="h-6 w-6 text-yellow-400" />
-          <h2 className="text-2xl font-bold">Black Friday 2025 Countdown</h2>
-          <Zap className="h-6 w-6 text-yellow-400" />
+          <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-300 dark:text-yellow-400" />
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold">Black Friday 2025 Countdown</h2>
+          <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-300 dark:text-yellow-400" />
         </div>
-        <p className="text-sm mb-4">November 29, 2025</p>
-        <div className="flex justify-center gap-4 flex-wrap">
+        <p className="text-sm sm:text-base mb-4">November 29, 2025</p>
+        <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 flex-wrap">
           {[
             { label: 'Days', value: timeLeft.days },
             { label: 'Hours', value: timeLeft.hours },
             { label: 'Minutes', value: timeLeft.minutes },
             { label: 'Seconds', value: timeLeft.seconds },
           ].map((item) => (
-            <div key={item.label} className="bg-black/30 backdrop-blur-sm px-4 py-3 rounded-lg min-w-[80px]">
-              <div className="text-3xl font-bold text-yellow-400">{item.value}</div>
-              <div className="text-xs uppercase tracking-wide">{item.label}</div>
+            <div key={item.label} className="bg-black/40 dark:bg-black/60 backdrop-blur-sm px-3 sm:px-4 py-2 sm:py-3 rounded-lg min-w-[70px] sm:min-w-[80px]">
+              <div className="text-2xl sm:text-3xl font-bold text-yellow-300 dark:text-yellow-400">{item.value}</div>
+              <div className="text-xs uppercase tracking-wide text-white/90">{item.label}</div>
             </div>
           ))}
         </div>
