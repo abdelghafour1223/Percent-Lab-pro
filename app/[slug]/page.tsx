@@ -7,6 +7,7 @@ import { explainPercentOf } from '@/lib/calculator';
 import { parseSlug, getRelatedCalculations, generatePSEOPages, formatSlug } from '@/lib/pseo';
 import { formatNumber } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
+import { isUSMarketPage, getUSMarketExamples, getUSMarketFAQ } from '@/lib/us-market-config';
 
 interface PageProps {
   params: Promise<{
@@ -35,31 +36,59 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const { percent, number } = data;
   const result = (percent / 100) * number;
+  const isUSMarket = isUSMarketPage(slug);
+
+  // Format numbers with $ for US market pages
+  const formattedNumber = isUSMarket ? `$${number}` : `${number}`;
+  const formattedResult = isUSMarket ? `$${formatNumber(result, 2)}` : `${formatNumber(result, 2)}`;
 
   return {
-    title: `What is ${percent}% of ${number}? = ${formatNumber(result, 2)} | PercentLab`,
-    description: `Calculate ${percent}% of ${number}. The answer is ${formatNumber(result, 2)}. Learn the formula, see step-by-step calculations, and explore real-world examples with our percentage calculator.`,
+    title: isUSMarket
+      ? `${percent}% of ${formattedNumber}: Calculator [2025] | PercentLab`
+      : `What is ${percent}% of ${number}? = ${formatNumber(result, 2)} | PercentLab`,
+    description: isUSMarket
+      ? `Calculate ${percent}% of ${formattedNumber}. The answer is ${formattedResult}. Perfect for Black Friday discounts, restaurant tips, and sales tax calculations. Free US calculator [2025].`
+      : `Calculate ${percent}% of ${number}. The answer is ${formatNumber(result, 2)}. Learn the formula, see step-by-step calculations, and explore real-world examples with our percentage calculator.`,
     alternates: {
       canonical: `https://percentlab.app/${slug}`,
     },
-    keywords: [
-      `${percent} percent of ${number}`,
-      `${percent}% of ${number}`,
-      `calculate ${percent} percent`,
-      'percentage calculator',
-      'percent of number',
-      'step-by-step calculation',
-    ],
+    keywords: isUSMarket
+      ? [
+          `${percent} percent of ${formattedNumber}`,
+          `${percent}% of ${formattedNumber}`,
+          `calculate ${percent} percent`,
+          'percentage calculator',
+          'US calculator',
+          'Black Friday calculator',
+          'tip calculator',
+          'sales tax calculator',
+        ]
+      : [
+          `${percent} percent of ${number}`,
+          `${percent}% of ${number}`,
+          `calculate ${percent} percent`,
+          'percentage calculator',
+          'percent of number',
+          'step-by-step calculation',
+        ],
     openGraph: {
-      title: `What is ${percent}% of ${number}? Answer: ${formatNumber(result, 2)}`,
-      description: `Calculate ${percent}% of ${number} with detailed explanations and examples. Free percentage calculator.`,
+      title: isUSMarket
+        ? `${percent}% of ${formattedNumber}: Answer ${formattedResult}`
+        : `What is ${percent}% of ${number}? Answer: ${formatNumber(result, 2)}`,
+      description: isUSMarket
+        ? `Calculate ${percent}% of ${formattedNumber} for Black Friday deals, tips, and tax. Answer: ${formattedResult}. Free calculator [2025].`
+        : `Calculate ${percent}% of ${number} with detailed explanations and examples. Free percentage calculator.`,
       type: 'article',
       url: `https://percentlab.app/${slug}`,
     },
     twitter: {
       card: 'summary_large_image',
-      title: `What is ${percent}% of ${number}? Answer: ${formatNumber(result, 2)}`,
-      description: `Calculate ${percent}% of ${number} with step-by-step explanations.`,
+      title: isUSMarket
+        ? `${percent}% of ${formattedNumber}: ${formattedResult}`
+        : `What is ${percent}% of ${number}? Answer: ${formatNumber(result, 2)}`,
+      description: isUSMarket
+        ? `Perfect for Black Friday, tips, and tax calculations.`
+        : `Calculate ${percent}% of ${number} with step-by-step explanations.`,
     },
   };
 }
@@ -75,21 +104,58 @@ export default async function PSEOPage({ params }: PageProps) {
   const { percent, number } = data;
   const calculation = explainPercentOf(percent, number);
   const relatedPages = getRelatedCalculations(percent, number, 5);
+  const isUSMarket = isUSMarketPage(slug);
 
-  // JSON-LD structured data
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: `How to Calculate ${percent}% of ${number}`,
-    description: `Step-by-step guide to calculate ${percent}% of ${number}`,
-    step: calculation.steps.map((step, index) => ({
-      '@type': 'HowToStep',
-      position: index + 1,
-      name: `Step ${index + 1}`,
-      text: step,
-    })),
-    totalTime: 'PT1M',
-  };
+  // Use US market examples if applicable
+  const examples = isUSMarket ? getUSMarketExamples(percent, number) : calculation.examples;
+  const faqItems = isUSMarket ? getUSMarketFAQ(percent, number) : [];
+
+  // Format numbers with $ for US market pages
+  const formattedNumber = isUSMarket ? `$${number}` : `${number}`;
+  const formattedResult = isUSMarket ? `$${formatNumber(calculation.result, 2)}` : formatNumber(calculation.result, 2);
+
+  // JSON-LD structured data - combine HowTo and FAQPage for US market
+  const jsonLd = isUSMarket
+    ? [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'HowTo',
+          name: `How to Calculate ${percent}% of ${formattedNumber}`,
+          description: `Step-by-step guide to calculate ${percent}% of ${formattedNumber}`,
+          step: calculation.steps.map((step, index) => ({
+            '@type': 'HowToStep',
+            position: index + 1,
+            name: `Step ${index + 1}`,
+            text: step.replace(new RegExp(`\\b${number}\\b`, 'g'), formattedNumber),
+          })),
+          totalTime: 'PT1M',
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqItems.map((faq) => ({
+            '@type': 'Question',
+            name: faq.q,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: faq.a,
+            },
+          })),
+        },
+      ]
+    : {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: `How to Calculate ${percent}% of ${number}`,
+        description: `Step-by-step guide to calculate ${percent}% of ${number}`,
+        step: calculation.steps.map((step, index) => ({
+          '@type': 'HowToStep',
+          position: index + 1,
+          name: `Step ${index + 1}`,
+          text: step,
+        })),
+        totalTime: 'PT1M',
+      };
 
   return (
     <>
@@ -102,13 +168,15 @@ export default async function PSEOPage({ params }: PageProps) {
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            What is {percent}% of {number}?
+            {isUSMarket ? `${percent}% of ${formattedNumber}` : `What is ${percent}% of ${number}?`}
           </h1>
           <div className="text-6xl md:text-7xl font-bold text-primary my-6">
-            {formatNumber(calculation.result, 2)}
+            {formattedResult}
           </div>
           <p className="text-xl text-muted-foreground">
-            Learn how to calculate {percent}% of {number} with our step-by-step guide
+            {isUSMarket
+              ? `Perfect for Black Friday deals, restaurant tips, and sales tax calculations`
+              : `Learn how to calculate ${percent}% of ${number} with our step-by-step guide`}
           </p>
         </div>
 
@@ -119,10 +187,12 @@ export default async function PSEOPage({ params }: PageProps) {
           </CardHeader>
           <CardContent>
             <p className="text-lg text-muted-foreground mb-4">
-              {percent}% of {number} equals <strong className="text-foreground">{formatNumber(calculation.result, 2)}</strong>. To calculate this, we convert the percentage to a decimal ({percent} ÷ 100 = {(percent / 100).toFixed(4)}) and multiply it by {number}.
+              {percent}% of {formattedNumber} equals <strong className="text-foreground">{formattedResult}</strong>. To calculate this, we convert the percentage to a decimal ({percent} ÷ 100 = {(percent / 100).toFixed(4)}) and multiply it by {formattedNumber}.
             </p>
             <div className="bg-muted p-4 rounded-lg font-mono text-sm">
-              {calculation.formula}
+              {isUSMarket
+                ? `(${percent} ÷ 100) × $${number} = ${formattedResult}`
+                : calculation.formula}
             </div>
           </CardContent>
         </Card>
@@ -136,11 +206,11 @@ export default async function PSEOPage({ params }: PageProps) {
             <ComparisonChart
               value1={calculation.result}
               value2={number - calculation.result}
-              label1={`${percent}% (${formatNumber(calculation.result, 2)})`}
-              label2={`${100 - percent}% (${formatNumber(number - calculation.result, 2)})`}
+              label1={`${percent}% (${formattedResult})`}
+              label2={`${100 - percent}% (${isUSMarket ? `$${formatNumber(number - calculation.result, 2)}` : formatNumber(number - calculation.result, 2)})`}
             />
             <p className="text-sm text-muted-foreground mt-4 text-center">
-              The chart shows how {formatNumber(calculation.result, 2)} relates to the total {number}
+              The chart shows how {formattedResult} relates to the total {formattedNumber}
             </p>
           </CardContent>
         </Card>
@@ -152,14 +222,20 @@ export default async function PSEOPage({ params }: PageProps) {
           </CardHeader>
           <CardContent>
             <ol className="space-y-4">
-              {calculation.steps.map((step, index) => (
-                <li key={index} className="flex gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold">
-                    {index + 1}
-                  </span>
-                  <span className="text-muted-foreground flex-1 pt-1">{step}</span>
-                </li>
-              ))}
+              {calculation.steps.map((step, index) => {
+                // Replace plain numbers with formatted numbers for US market
+                const formattedStep = isUSMarket
+                  ? step.replace(new RegExp(`\\b${number}\\b`, 'g'), formattedNumber).replace(new RegExp(`\\b${calculation.result.toFixed(2)}\\b`, 'g'), formattedResult)
+                  : step;
+                return (
+                  <li key={index} className="flex gap-4">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold">
+                      {index + 1}
+                    </span>
+                    <span className="text-muted-foreground flex-1 pt-1">{formattedStep}</span>
+                  </li>
+                );
+              })}
             </ol>
           </CardContent>
         </Card>
@@ -172,11 +248,11 @@ export default async function PSEOPage({ params }: PageProps) {
         {/* Real-Life Examples */}
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle>Real-Life Examples</CardTitle>
+            <CardTitle>{isUSMarket ? 'US Market Examples' : 'Real-Life Examples'}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {calculation.examples.map((example, index) => (
+              {examples.map((example, index) => (
                 <div key={index} className="bg-accent/50 p-4 rounded-lg">
                   <p className="text-muted-foreground">{example}</p>
                 </div>
@@ -184,6 +260,25 @@ export default async function PSEOPage({ params }: PageProps) {
             </div>
           </CardContent>
         </Card>
+
+        {/* FAQ Section for US Market Pages */}
+        {isUSMarket && faqItems.length > 0 && (
+          <Card className="mb-8">
+            <CardHeader>
+              <CardTitle>Frequently Asked Questions</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                {faqItems.map((faq, index) => (
+                  <div key={index}>
+                    <h3 className="font-semibold text-lg mb-2">{faq.q}</h3>
+                    <p className="text-muted-foreground">{faq.a}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
         {/* How to Use Formula */}
         <Card className="mb-8">
@@ -198,14 +293,14 @@ export default async function PSEOPage({ params }: PageProps) {
               Result = (Percentage ÷ 100) × Number
             </div>
             <p className="text-muted-foreground">
-              In this case, we're calculating {percent}% of {number}:
+              In this case, we're calculating {percent}% of {formattedNumber}:
             </p>
             <ul className="list-disc list-inside space-y-2 text-muted-foreground">
               <li>First, divide the percentage by 100: {percent} ÷ 100 = {(percent / 100).toFixed(4)}</li>
-              <li>Then, multiply by the number: {(percent / 100).toFixed(4)} × {number} = {formatNumber(calculation.result, 2)}</li>
+              <li>Then, multiply by the number: {(percent / 100).toFixed(4)} × {formattedNumber} = {formattedResult}</li>
             </ul>
             <p className="text-muted-foreground">
-              This formula works for any percentage calculation. You can use our calculator above to try different values.
+              This formula works for any percentage calculation. {isUSMarket ? 'Use it for discounts, tips, taxes, and more!' : 'You can use our calculator above to try different values.'}
             </p>
           </CardContent>
         </Card>
@@ -294,16 +389,20 @@ export default async function PSEOPage({ params }: PageProps) {
         {/* CTA */}
         <Card>
           <CardContent className="pt-6 text-center">
-            <h3 className="text-xl font-semibold mb-3">Need to Calculate Other Percentages?</h3>
+            <h3 className="text-xl font-semibold mb-3">
+              {isUSMarket ? 'Calculate Your Savings!' : 'Need to Calculate Other Percentages?'}
+            </h3>
             <p className="text-muted-foreground mb-6">
-              Use our full-featured percentage calculator for any calculation with detailed explanations
+              {isUSMarket
+                ? 'Use our calculator for Black Friday deals, tips, tax, and more with instant results'
+                : 'Use our full-featured percentage calculator for any calculation with detailed explanations'}
             </p>
             <Link
               href="/"
               className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-8 py-2"
               aria-label="Go to main percentage calculator"
             >
-              Go to Calculator
+              {isUSMarket ? '💰 Calculate My Savings' : 'Go to Calculator'}
             </Link>
           </CardContent>
         </Card>
