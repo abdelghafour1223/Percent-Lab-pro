@@ -132,20 +132,20 @@ export function MultiItemCalculator() {
           </button>
 
           {/* Total Summary */}
-          <div className="bg-gradient-to-br from-yellow-100 to-red-100 dark:from-yellow-950/30 dark:to-red-950/30 p-6 rounded-lg border-2 border-yellow-500 dark:border-yellow-600 mt-6">
-            <h3 className="font-bold text-lg mb-4 text-center">Total Black Friday Savings</h3>
-            <div className="grid grid-cols-3 gap-4 text-center">
-              <div>
-                <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Original Total</p>
-                <p className="text-xl font-bold text-gray-700 dark:text-gray-300">${totalOriginal.toFixed(2)}</p>
+          <div className="bg-gradient-to-br from-yellow-100 to-red-100 dark:from-yellow-950/30 dark:to-red-950/30 p-4 md:p-6 rounded-lg border-2 border-yellow-500 dark:border-yellow-600 mt-6">
+            <h3 className="font-bold text-base md:text-lg mb-4 text-center">Total Black Friday Savings</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+              <div className="py-2">
+                <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-1">Original Total</p>
+                <p className="text-lg md:text-xl font-bold text-gray-700 dark:text-gray-300">${totalOriginal.toFixed(2)}</p>
               </div>
-              <div>
-                <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">You Save</p>
-                <p className="text-2xl font-bold text-red-600 dark:text-red-400">${totalSavings.toFixed(2)}</p>
+              <div className="py-2">
+                <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-1">You Save</p>
+                <p className="text-xl md:text-2xl font-bold text-red-600 dark:text-red-400">${totalSavings.toFixed(2)}</p>
               </div>
-              <div>
-                <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">You Pay</p>
-                <p className="text-2xl font-bold text-green-700 dark:text-green-400">${totalFinal.toFixed(2)}</p>
+              <div className="py-2">
+                <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-1">You Pay</p>
+                <p className="text-xl md:text-2xl font-bold text-green-700 dark:text-green-400">${totalFinal.toFixed(2)}</p>
               </div>
             </div>
             <div className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
