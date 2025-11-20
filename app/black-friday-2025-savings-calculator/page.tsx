@@ -176,20 +176,20 @@ export default function Page() {
                 <div className="space-y-2 text-sm">
                   <div className="grid grid-cols-3 gap-2">
                     <span>Gaming Laptop</span>
-                    <span className="text-gray-600">$1,200 - 25% off</span>
-                    <span className="text-green-700 font-semibold">Pay $900</span>
+                    <span className="text-gray-600 dark:text-gray-400">$1,200 - 25% off</span>
+                    <span className="text-green-700 dark:text-green-400 font-semibold">Pay $900</span>
                   </div>
                   <div className="grid grid-cols-3 gap-2">
                     <span>Monitor 27"</span>
-                    <span className="text-gray-600">$300 - 30% off</span>
-                    <span className="text-green-700 font-semibold">Pay $210</span>
+                    <span className="text-gray-600 dark:text-gray-400">$300 - 30% off</span>
+                    <span className="text-green-700 dark:text-green-400 font-semibold">Pay $210</span>
                   </div>
                   <div className="grid grid-cols-3 gap-2">
                     <span>Office Chair</span>
-                    <span className="text-gray-600">$400 - 40% off</span>
-                    <span className="text-green-700 font-semibold">Pay $240</span>
+                    <span className="text-gray-600 dark:text-gray-400">$400 - 40% off</span>
+                    <span className="text-green-700 dark:text-green-400 font-semibold">Pay $240</span>
                   </div>
-                  <div className="border-t pt-2 font-bold text-red-600">
+                  <div className="border-t pt-2 font-bold text-red-600 dark:text-red-400">
                     Total Savings: $610 • You Pay: $1,350 (instead of $1,900)
                   </div>
                 </div>
@@ -201,50 +201,50 @@ export default function Page() {
                 <div className="space-y-2 text-sm">
                   <div className="grid grid-cols-3 gap-2">
                     <span>PlayStation 5</span>
-                    <span className="text-gray-600">$500 - 15% off</span>
-                    <span className="text-green-700 font-semibold">Pay $425</span>
+                    <span className="text-gray-600 dark:text-gray-400">$500 - 15% off</span>
+                    <span className="text-green-700 dark:text-green-400 font-semibold">Pay $425</span>
                   </div>
                   <div className="grid grid-cols-3 gap-2">
                     <span>4K TV 55"</span>
-                    <span className="text-gray-600">$600 - 30% off</span>
-                    <span className="text-green-700 font-semibold">Pay $420</span>
+                    <span className="text-gray-600 dark:text-gray-400">$600 - 30% off</span>
+                    <span className="text-green-700 dark:text-green-400 font-semibold">Pay $420</span>
                   </div>
                   <div className="grid grid-cols-3 gap-2">
                     <span>Gaming Headset</span>
-                    <span className="text-gray-600">$150 - 25% off</span>
-                    <span className="text-green-700 font-semibold">Pay $112.50</span>
+                    <span className="text-gray-600 dark:text-gray-400">$150 - 25% off</span>
+                    <span className="text-green-700 dark:text-green-400 font-semibold">Pay $112.50</span>
                   </div>
-                  <div className="border-t pt-2 font-bold text-red-600">
+                  <div className="border-t pt-2 font-bold text-red-600 dark:text-red-400">
                     Total Savings: $292.50 • You Pay: $957.50 (instead of $1,250)
                   </div>
                 </div>
               </div>
 
               {/* Scenario 3 */}
-              <div className="border-l-4 border-black pl-4">
+              <div className="border-l-4 border-black dark:border-gray-300 pl-4">
                 <h3 className="font-bold text-lg mb-2">👨‍👩‍👧 Family Shopping</h3>
                 <div className="space-y-2 text-sm">
                   <div className="grid grid-cols-3 gap-2">
                     <span>Winter Coats (4)</span>
-                    <span className="text-gray-600">$400 - 40% off</span>
-                    <span className="text-green-700 font-semibold">Pay $240</span>
+                    <span className="text-gray-600 dark:text-gray-400">$400 - 40% off</span>
+                    <span className="text-green-700 dark:text-green-400 font-semibold">Pay $240</span>
                   </div>
                   <div className="grid grid-cols-3 gap-2">
                     <span>Kitchen Appliances</span>
-                    <span className="text-gray-600">$300 - 35% off</span>
-                    <span className="text-green-700 font-semibold">Pay $195</span>
+                    <span className="text-gray-600 dark:text-gray-400">$300 - 35% off</span>
+                    <span className="text-green-700 dark:text-green-400 font-semibold">Pay $195</span>
                   </div>
                   <div className="grid grid-cols-3 gap-2">
                     <span>Toys & Games</span>
-                    <span className="text-gray-600">$200 - 50% off</span>
-                    <span className="text-green-700 font-semibold">Pay $100</span>
+                    <span className="text-gray-600 dark:text-gray-400">$200 - 50% off</span>
+                    <span className="text-green-700 dark:text-green-400 font-semibold">Pay $100</span>
                   </div>
                   <div className="grid grid-cols-3 gap-2">
                     <span>Smart Watch</span>
-                    <span className="text-gray-600">$250 - 20% off</span>
-                    <span className="text-green-700 font-semibold">Pay $200</span>
+                    <span className="text-gray-600 dark:text-gray-400">$250 - 20% off</span>
+                    <span className="text-green-700 dark:text-green-400 font-semibold">Pay $200</span>
                   </div>
-                  <div className="border-t pt-2 font-bold text-red-600">
+                  <div className="border-t pt-2 font-bold text-red-600 dark:text-red-400">
                     Total Savings: $415 • You Pay: $735 (instead of $1,150)
                   </div>
                 </div>
