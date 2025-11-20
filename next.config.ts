@@ -10,12 +10,12 @@ const nextConfig: NextConfig = {
   },
 
   experimental: {
-    optimizePackageImports: ['lucide-react'],
+    optimizePackageImports: ['lucide-react', 'framer-motion', 'chart.js', 'react-chartjs-2'],
     // Optimize CSS loading with critical CSS inlining
     optimizeCss: true,
   },
 
-  // Webpack configuration to exclude polyfills
+  // Webpack configuration to exclude polyfills and optimize chunks
   webpack: (config, { isServer }) => {
     // Exclude polyfills for modern browsers
     config.resolve.alias = {
@@ -23,6 +23,52 @@ const nextConfig: NextConfig = {
       // Prevent polyfill inclusion
       'core-js/modules': false,
     };
+
+    // Optimize chunking for better code splitting
+    if (!isServer) {
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          chunks: 'all',
+          cacheGroups: {
+            default: false,
+            vendors: false,
+            // Separate vendor chunks
+            framework: {
+              name: 'framework',
+              test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
+              priority: 40,
+              enforce: true,
+            },
+            lib: {
+              test: /[\\/]node_modules[\\/]/,
+              name(module: any) {
+                const packageName = module.context.match(
+                  /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+                )?.[1];
+                return `npm.${packageName?.replace('@', '')}`;
+              },
+              priority: 30,
+              minChunks: 1,
+              reuseExistingChunk: true,
+            },
+            commons: {
+              name: 'commons',
+              minChunks: 2,
+              priority: 20,
+            },
+            shared: {
+              name: 'shared',
+              minChunks: 1,
+              priority: 10,
+              reuseExistingChunk: true,
+              enforce: true,
+            },
+          },
+        },
+      };
+    }
+
     return config;
   },
 
@@ -50,6 +96,32 @@ const nextConfig: NextConfig = {
           {
             key: 'Link',
             value: '<https://fonts.googleapis.com>; rel=preconnect; crossorigin, <https://www.googletagmanager.com>; rel=dns-prefetch'
+          },
+        ],
+      },
+      {
+        source: '/robots.txt',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/plain',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/sitemap.xml',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/xml',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, must-revalidate',
           },
         ],
       },
