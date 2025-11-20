@@ -107,10 +107,98 @@ export default function Page() {
           },
           {
             '@type': 'Question',
+            name: 'Do I tip on the pre-tax or post-tax amount?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Traditional etiquette says pre-tax, but most people tip on the post-tax total for simplicity. On a $50 bill, the difference is typically only $0.50-1.00.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Is 15% tip enough at expensive restaurants?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'For upscale dining, 18-20% is more common. However, 15% is still acceptable if service was standard. On a $50 bill, consider $9-10 (18-20%) for fine dining.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'How much should I tip for takeout?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Takeout typically warrants 10% ($5 on $50) or $2-3 for the service. Full 15% is generous but not required since there\'s no table service.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'What if service was bad?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'If service was poor, speak to a manager first. If unresolved, 10% ($5) or less is acceptable. Never skip tipping entirely without addressing the issue—others may have worked on your meal.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Should I tip more during Thanksgiving or Christmas?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes! On holidays like Thanksgiving (Nov 27, 2025) or Christmas, tip 20% ($10 on $50) to thank staff working when most people are home with family.',
+            },
+          },
+          {
+            '@type': 'Question',
             name: 'How do I split a $50 bill with 15% tip among 4 people?',
             acceptedAnswer: {
               '@type': 'Answer',
               text: 'Total with tip: $57.50. Divided by 4 = $14.38 per person. Round to $14.50 or $15 for easier math.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Is it better to tip cash or credit card?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Servers often prefer cash (immediate access, no processing fees), but credit card tips are perfectly acceptable and tracked for taxes. Do what\'s convenient for you.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'What\'s the difference between 15% tip and doubling the tax?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'If sales tax is 7.5%, doubling gives you 15%—perfect for quick mental math! If tax is 8%, doubling gives 16%, which is slightly generous.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Do I need to tip at buffets?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes, but less—typically 10% ($5 on $50) since servers only bring drinks and clear plates. Some people tip $1-2 per person instead of a percentage.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Should I tip the same percentage for lunch and dinner?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes, 15% is standard for both. Some people tip slightly less for lunch ($5-6 on $50 lunch), but servers work equally hard regardless of time.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'What if automatic gratuity is already included?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Check your bill! If 15-20% gratuity is already added (common for large parties), you don\'t need to tip extra. Additional tipping is optional for exceptional service.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'How does Venmo/Zelle change tipping etiquette when splitting?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'When splitting digitally, round up your share to make it easy. If your share is $14.38, send $15—the extra goes to the server as a bonus.',
             },
           },
         ],
@@ -1124,7 +1212,7 @@ export default function Page() {
                 </CardContent>
               </Card>
             </Link>
-            <Link href="/percent-of-calculator" className="block">
+            <Link href="/calculators/basic-percent/percent-of" className="block">
               <Card className="h-full hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
                   <h3 className="font-semibold mb-2 flex items-center gap-2">
@@ -1137,7 +1225,7 @@ export default function Page() {
                 </CardContent>
               </Card>
             </Link>
-            <Link href="/calculators" className="block">
+            <Link href="/" className="block">
               <Card className="h-full hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
                   <h3 className="font-semibold mb-2 flex items-center gap-2">
@@ -1169,7 +1257,7 @@ export default function Page() {
                 Calculate Any Tip Amount →
               </Link>
               <Link
-                href="/calculators"
+                href="/"
                 className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8"
                 aria-label="Browse all calculators"
               >
