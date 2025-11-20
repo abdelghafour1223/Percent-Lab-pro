@@ -197,6 +197,75 @@ export default function Page() {
           <span className="text-xs text-muted-foreground">Advertisement</span>
         </div>
 
+        {/* Black Friday Examples */}
+        <Card className="mb-8 border-2 border-yellow-500 dark:border-yellow-600">
+          <CardHeader className="bg-gradient-to-r from-yellow-50 to-red-50 dark:from-yellow-950/20 dark:to-red-950/20">
+            <CardTitle className="flex items-center gap-2 text-base md:text-lg">
+              <Zap className="h-5 w-5 text-yellow-500 dark:text-yellow-400" />
+              25% Off Black Friday Examples
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="px-4 md:px-6">
+            <p className="text-sm text-muted-foreground mb-6 mt-4">
+              Discover the hottest Black Friday 2025 deals with 25% off - from TVs to fashion!
+            </p>
+
+            <div className="space-y-4">
+              {/* TV Deals */}
+              <div className="bg-black dark:bg-gray-900 text-white p-4 md:p-5 rounded-lg">
+                <h3 className="font-bold text-lg md:text-xl mb-2 text-yellow-400 dark:text-yellow-300">
+                  📺 25% Off Black Friday TV Deals
+                </h3>
+                <p className="text-sm md:text-base mb-3">
+                  55&quot; Smart TV: Was $400 → <span className="font-bold text-green-400">Pay $300</span> (Save $100)
+                </p>
+                <p className="text-sm md:text-base">
+                  65&quot; 4K TV: Was $600 → <span className="font-bold text-green-400">Pay $450</span> (Save $150)
+                </p>
+              </div>
+
+              {/* Fashion Sale */}
+              <div className="bg-gradient-to-r from-pink-100 to-purple-100 dark:from-pink-950/30 dark:to-purple-950/30 p-4 md:p-5 rounded-lg border-2 border-pink-300 dark:border-pink-700">
+                <h3 className="font-bold text-lg md:text-xl mb-2 text-pink-700 dark:text-pink-400">
+                  👗 25% Off Black Friday Fashion Sale
+                </h3>
+                <p className="text-sm md:text-base mb-3 text-gray-700 dark:text-gray-300">
+                  Designer Dresses: Was $120 → <span className="font-bold text-green-700 dark:text-green-400">Pay $90</span> (Save $30)
+                </p>
+                <p className="text-sm md:text-base text-gray-700 dark:text-gray-300">
+                  Winter Coats: Was $200 → <span className="font-bold text-green-700 dark:text-green-400">Pay $150</span> (Save $50)
+                </p>
+              </div>
+
+              {/* Electronics */}
+              <div className="bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-950/30 dark:to-cyan-950/30 p-4 md:p-5 rounded-lg border-2 border-blue-300 dark:border-blue-700">
+                <h3 className="font-bold text-lg md:text-xl mb-2 text-blue-700 dark:text-blue-400">
+                  💻 25% Off Black Friday Electronics
+                </h3>
+                <p className="text-sm md:text-base mb-3 text-gray-700 dark:text-gray-300">
+                  Laptop Accessories: Was $80 → <span className="font-bold text-green-700 dark:text-green-400">Pay $60</span> (Save $20)
+                </p>
+                <p className="text-sm md:text-base text-gray-700 dark:text-gray-300">
+                  Gaming Headset: Was $100 → <span className="font-bold text-green-700 dark:text-green-400">Pay $75</span> (Save $25)
+                </p>
+              </div>
+
+              {/* Home Goods */}
+              <div className="bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-950/30 dark:to-emerald-950/30 p-4 md:p-5 rounded-lg border-2 border-green-300 dark:border-green-700">
+                <h3 className="font-bold text-lg md:text-xl mb-2 text-green-700 dark:text-green-400">
+                  🏠 25% Off Black Friday Home Goods
+                </h3>
+                <p className="text-sm md:text-base mb-3 text-gray-700 dark:text-gray-300">
+                  Kitchen Appliances: Was $140 → <span className="font-bold text-green-700 dark:text-green-400">Pay $105</span> (Save $35)
+                </p>
+                <p className="text-sm md:text-base text-gray-700 dark:text-gray-300">
+                  Bedding Sets: Was $100 → <span className="font-bold text-green-700 dark:text-green-400">Pay $75</span> (Save $25)
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Real Shopping Examples */}
         <Card className="mb-8">
           <CardHeader>
