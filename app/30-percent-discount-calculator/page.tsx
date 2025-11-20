@@ -8,31 +8,31 @@ import { DiscountCalculator } from '@/components/black-friday/discount-calculato
 
 // Metadata for SEO
 export const metadata: Metadata = {
-  title: '30% Discount Calculator: Sale Savings [2025] | PercentLab',
-  description: 'Calculate 30% off discounts instantly. Perfect for Black Friday, Cyber Monday, and holiday sales. See real US shopping examples with our free 30% discount calculator.',
+  title: '30% Off Black Friday Calculator 2025 | PercentLab',
+  description: 'Calculate 30% off Black Friday discounts instantly. Your Black Friday 2025 calculator specialist for the best deals on electronics, furniture, fashion & more. Free calculator.',
   alternates: {
     canonical: 'https://www.percentlab.app/30-percent-discount-calculator',
   },
   keywords: [
-    '30 percent discount',
-    '30% off calculator',
-    'discount calculator',
-    'black friday 30 off',
-    'cyber monday calculator',
-    'holiday sales calculator',
-    '30 percent off',
-    'shopping discount calculator',
+    '30% off black friday',
+    'black friday 30 percent off',
+    'black friday calculator 30',
+    '30 off black friday 2025',
+    'black friday discount calculator',
+    'cyber monday 30% off',
+    '30 percent black friday deals',
+    'black friday savings 30%',
   ],
   openGraph: {
-    title: '30% Discount Calculator: Sale Savings [2025]',
-    description: 'Calculate 30% off discounts for Black Friday, Cyber Monday, and sales.',
+    title: '30% Off Black Friday Calculator 2025',
+    description: 'Calculate 30% off Black Friday discounts instantly. Your 2025 specialist.',
     type: 'article',
     url: 'https://www.percentlab.app/30-percent-discount-calculator',
   },
   twitter: {
     card: 'summary_large_image',
-    title: '30% Discount Calculator [2025]',
-    description: 'Calculate 30% off discounts instantly for all your shopping.',
+    title: '30% Off Black Friday Calculator 2025',
+    description: 'Black Friday 30% off calculator - instant savings calculations.',
   },
 };
 
@@ -106,8 +106,8 @@ export default function Page() {
   const relatedPages = [
     { title: '20% Off Black Friday Calculator', slug: 'black-friday-calculator-20-off' },
     { title: 'Black Friday 2025 Savings', slug: 'black-friday-2025-savings-calculator' },
-    { title: '25% Off $100', slug: '25-percent-off-100-dollars' },
-    { title: '10% Off $75', slug: '10-percent-off-75-dollars' },
+    { title: '25% Off Black Friday Deals', slug: '25-percent-off-100-dollars' },
+    { title: '10% Off Black Friday Savings', slug: '10-percent-off-75-dollars' },
   ];
 
   return (
@@ -122,10 +122,10 @@ export default function Page() {
         <div className="bg-gradient-to-r from-black via-red-600 to-black dark:from-gray-900 dark:via-red-900 dark:to-gray-900 text-white p-4 md:p-6 rounded-lg mb-6 text-center">
           <div className="flex items-center justify-center gap-2 flex-wrap">
             <Zap className="h-5 w-5 md:h-6 md:w-6 text-yellow-400 dark:text-yellow-300 animate-pulse" />
-            <span className="font-bold text-base md:text-lg">BLACK FRIDAY 2025 READY</span>
+            <span className="font-bold text-base md:text-lg">BLACK FRIDAY 2025 CALCULATOR SPECIALIST</span>
             <Zap className="h-5 w-5 md:h-6 md:w-6 text-yellow-400 dark:text-yellow-300 animate-pulse" />
           </div>
-          <p className="text-xs md:text-sm mt-1">Perfect for holiday sales - Calculate 30% off discounts!</p>
+          <p className="text-xs md:text-sm mt-1">Master Black Friday with 30% off calculations - the biggest savings!</p>
         </div>
 
         {/* Countdown Timer */}
@@ -134,14 +134,14 @@ export default function Page() {
         {/* Hero Section */}
         <div className="text-center mb-8 md:mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 px-2">
-            30% Discount Calculator: Sale Savings
+            30% Off Black Friday Calculator
           </h1>
           <div className="inline-block bg-gradient-to-r from-yellow-400 to-red-500 dark:from-yellow-600 dark:to-red-700 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg text-base md:text-xl font-bold mb-4">
             <Percent className="inline h-4 w-4 md:h-5 md:w-5 mr-2" />
-            Instant Results
+            Instant Black Friday Savings
           </div>
           <p className="text-base md:text-xl text-muted-foreground px-4">
-            Calculate 30% off for Black Friday, Cyber Monday & holiday sales
+            Your Black Friday 2025 specialist for 30% off deals - electronics, furniture, fashion & more
           </p>
         </div>
 
@@ -164,7 +164,7 @@ export default function Page() {
         <DiscountCalculator
           defaultPrice="500"
           discountPercent={30}
-          title="30% Off Discount Calculator"
+          title="30% Off Black Friday Calculator (Try Different Amounts)"
         />
 
         {/* Visual Representation */}

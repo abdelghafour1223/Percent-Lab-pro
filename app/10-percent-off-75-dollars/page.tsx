@@ -8,30 +8,31 @@ import { DiscountCalculator } from '@/components/black-friday/discount-calculato
 
 // Metadata for SEO
 export const metadata: Metadata = {
-  title: '10% Off $75 Calculator [Instant Answer] | PercentLab',
-  description: '10% off $75 equals $67.50. Quick calculation guide with real examples for restaurant bills, clothing, and accessories. Free calculator included.',
+  title: '10% Off Black Friday Savings Calculator 2025 | PercentLab',
+  description: '10% off $75 equals $67.50. Your Black Friday 2025 savings specialist for $75 deals. Calculate discounts on electronics, fashion, dining & more. Free Black Friday calculator.',
   alternates: {
     canonical: 'https://www.percentlab.app/10-percent-off-75-dollars',
   },
   keywords: [
-    '10% off 75',
-    '10 percent off $75',
-    '$75 with 10% discount',
-    'how much is 10% off 75 dollars',
-    '10 off 75',
-    'restaurant discount',
-    'clothing discount calculator',
+    '10% off black friday',
+    'black friday 10 percent off',
+    'black friday savings $75',
+    '10% off 75 black friday 2025',
+    'black friday deals calculator',
+    'black friday discount $75',
+    '10 percent off black friday',
+    'black friday shopping calculator',
   ],
   openGraph: {
-    title: '10% Off $75 Calculator [Instant Answer]',
-    description: '10% off $75 = $67.50. See examples and calculate instantly.',
+    title: '10% Off Black Friday Savings Calculator 2025',
+    description: '10% off $75 = $67.50. Your Black Friday 2025 savings specialist.',
     type: 'article',
     url: 'https://www.percentlab.app/10-percent-off-75-dollars',
   },
   twitter: {
     card: 'summary_large_image',
-    title: '10% Off $75 Calculator',
-    description: 'Quick answer: 10% off $75 equals $67.50. Free calculator.',
+    title: '10% Off Black Friday Savings 2025',
+    description: 'Black Friday savings: 10% off $75 equals $67.50. Free calculator.',
   },
 };
 
@@ -104,9 +105,9 @@ export default function Page() {
   };
 
   const relatedPages = [
-    { title: '25% Off $100', slug: '25-percent-off-100-dollars' },
+    { title: '25% Off Black Friday Deals', slug: '25-percent-off-100-dollars' },
     { title: '20% Off Black Friday Calculator', slug: 'black-friday-calculator-20-off' },
-    { title: '30% Discount Calculator', slug: '30-percent-discount-calculator' },
+    { title: '30% Off Black Friday Calculator', slug: '30-percent-discount-calculator' },
     { title: 'Black Friday 2025 Savings', slug: 'black-friday-2025-savings-calculator' },
   ];
 
@@ -122,10 +123,10 @@ export default function Page() {
         <div className="bg-gradient-to-r from-black via-red-600 to-black dark:from-gray-900 dark:via-red-900 dark:to-gray-900 text-white p-4 md:p-6 rounded-lg mb-6 text-center">
           <div className="flex items-center justify-center gap-2 flex-wrap">
             <Zap className="h-5 w-5 md:h-6 md:w-6 text-yellow-400 dark:text-yellow-300 animate-pulse" />
-            <span className="font-bold text-base md:text-lg">BLACK FRIDAY 2025</span>
+            <span className="font-bold text-base md:text-lg">BLACK FRIDAY 2025 SAVINGS SPECIALIST</span>
             <Zap className="h-5 w-5 md:h-6 md:w-6 text-yellow-400 dark:text-yellow-300 animate-pulse" />
           </div>
-          <p className="text-xs md:text-sm mt-1">Quick calculator for $75 purchases!</p>
+          <p className="text-xs md:text-sm mt-1">Your go-to calculator for 10% off $75 Black Friday deals!</p>
         </div>
 
         {/* Countdown Timer */}
@@ -134,7 +135,7 @@ export default function Page() {
         {/* Hero Section */}
         <div className="text-center mb-8 md:mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 px-2">
-            10% Off $75 Calculator
+            10% Off Black Friday Savings
           </h1>
           <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-green-700 dark:text-green-500 my-6">
             $67.50
@@ -144,7 +145,7 @@ export default function Page() {
             You Save $7.50
           </div>
           <p className="text-base md:text-xl text-muted-foreground px-4">
-            Instant answer for restaurant bills, clothing & accessories
+            Your Black Friday 2025 specialist for $75 deals - electronics, fashion, dining & more
           </p>
         </div>
 
@@ -170,7 +171,7 @@ export default function Page() {
         <DiscountCalculator
           defaultPrice="75"
           discountPercent={10}
-          title="10% Off Calculator (Try Different Amounts)"
+          title="10% Off Black Friday Calculator (Try Different Amounts)"
         />
 
         {/* Visual Representation */}
