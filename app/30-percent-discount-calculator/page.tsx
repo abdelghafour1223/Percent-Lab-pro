@@ -190,6 +190,88 @@ export default function Page() {
           <span className="text-xs text-muted-foreground">Advertisement</span>
         </div>
 
+        {/* Black Friday Examples */}
+        <Card className="mb-8 border-2 border-yellow-500 dark:border-yellow-600">
+          <CardHeader className="bg-gradient-to-r from-yellow-50 to-red-50 dark:from-yellow-950/20 dark:to-red-950/20">
+            <CardTitle className="flex items-center gap-2 text-base md:text-lg">
+              <Zap className="h-5 w-5 text-yellow-500 dark:text-yellow-400" />
+              30% Off Black Friday Examples
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="px-4 md:px-6">
+            <p className="text-sm text-muted-foreground mb-6 mt-4">
+              The biggest Black Friday 2025 savings - 30% off on premium items!
+            </p>
+
+            <div className="space-y-4">
+              {/* TV Deals */}
+              <div className="bg-black dark:bg-gray-900 text-white p-4 md:p-5 rounded-lg">
+                <h3 className="font-bold text-lg md:text-xl mb-2 text-yellow-400 dark:text-yellow-300">
+                  📺 30% Off Black Friday TV Deals
+                </h3>
+                <p className="text-sm md:text-base mb-3">
+                  65&quot; OLED TV: Was $1,500 → <span className="font-bold text-green-400">Pay $1,050</span> (Save $450)
+                </p>
+                <p className="text-sm md:text-base">
+                  55&quot; Smart TV: Was $700 → <span className="font-bold text-green-400">Pay $490</span> (Save $210)
+                </p>
+              </div>
+
+              {/* Laptop Deals */}
+              <div className="bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-950/30 dark:to-cyan-950/30 p-4 md:p-5 rounded-lg border-2 border-blue-300 dark:border-blue-700">
+                <h3 className="font-bold text-lg md:text-xl mb-2 text-blue-700 dark:text-blue-400">
+                  💻 30% Off Black Friday Laptop Deals
+                </h3>
+                <p className="text-sm md:text-base mb-3 text-gray-700 dark:text-gray-300">
+                  MacBook Air: Was $1,200 → <span className="font-bold text-green-700 dark:text-green-400">Pay $840</span> (Save $360)
+                </p>
+                <p className="text-sm md:text-base text-gray-700 dark:text-gray-300">
+                  Gaming Laptop: Was $1,800 → <span className="font-bold text-green-700 dark:text-green-400">Pay $1,260</span> (Save $540)
+                </p>
+              </div>
+
+              {/* Furniture */}
+              <div className="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-950/30 dark:to-orange-950/30 p-4 md:p-5 rounded-lg border-2 border-amber-300 dark:border-amber-700">
+                <h3 className="font-bold text-lg md:text-xl mb-2 text-amber-700 dark:text-amber-400">
+                  🛋️ 30% Off Black Friday Furniture
+                </h3>
+                <p className="text-sm md:text-base mb-3 text-gray-700 dark:text-gray-300">
+                  Sectional Sofa: Was $2,000 → <span className="font-bold text-green-700 dark:text-green-400">Pay $1,400</span> (Save $600)
+                </p>
+                <p className="text-sm md:text-base text-gray-700 dark:text-gray-300">
+                  Dining Set: Was $1,000 → <span className="font-bold text-green-700 dark:text-green-400">Pay $700</span> (Save $300)
+                </p>
+              </div>
+
+              {/* Fashion */}
+              <div className="bg-gradient-to-r from-pink-100 to-rose-100 dark:from-pink-950/30 dark:to-rose-950/30 p-4 md:p-5 rounded-lg border-2 border-pink-300 dark:border-pink-700">
+                <h3 className="font-bold text-lg md:text-xl mb-2 text-pink-700 dark:text-pink-400">
+                  👗 30% Off Black Friday Fashion
+                </h3>
+                <p className="text-sm md:text-base mb-3 text-gray-700 dark:text-gray-300">
+                  Designer Coat: Was $400 → <span className="font-bold text-green-700 dark:text-green-400">Pay $280</span> (Save $120)
+                </p>
+                <p className="text-sm md:text-base text-gray-700 dark:text-gray-300">
+                  Leather Jacket: Was $500 → <span className="font-bold text-green-700 dark:text-green-400">Pay $350</span> (Save $150)
+                </p>
+              </div>
+
+              {/* Appliances */}
+              <div className="bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-950/30 dark:to-emerald-950/30 p-4 md:p-5 rounded-lg border-2 border-green-300 dark:border-green-700">
+                <h3 className="font-bold text-lg md:text-xl mb-2 text-green-700 dark:text-green-400">
+                  🏠 30% Off Black Friday Appliances
+                </h3>
+                <p className="text-sm md:text-base mb-3 text-gray-700 dark:text-gray-300">
+                  Robot Vacuum: Was $600 → <span className="font-bold text-green-700 dark:text-green-400">Pay $420</span> (Save $180)
+                </p>
+                <p className="text-sm md:text-base text-gray-700 dark:text-gray-300">
+                  Air Purifier: Was $300 → <span className="font-bold text-green-700 dark:text-green-400">Pay $210</span> (Save $90)
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Real Shopping Examples */}
         <Card className="mb-8">
           <CardHeader>

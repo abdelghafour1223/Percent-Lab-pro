@@ -197,6 +197,75 @@ export default function Page() {
           <span className="text-xs text-muted-foreground">Advertisement</span>
         </div>
 
+        {/* Black Friday Examples */}
+        <Card className="mb-8 border-2 border-yellow-500 dark:border-yellow-600">
+          <CardHeader className="bg-gradient-to-r from-yellow-50 to-red-50 dark:from-yellow-950/20 dark:to-red-950/20">
+            <CardTitle className="flex items-center gap-2 text-base md:text-lg">
+              <Zap className="h-5 w-5 text-yellow-500 dark:text-yellow-400" />
+              10% Off Black Friday Examples
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="px-4 md:px-6">
+            <p className="text-sm text-muted-foreground mb-6 mt-4">
+              Smart Black Friday 2025 savings with 10% off on everyday items!
+            </p>
+
+            <div className="space-y-4">
+              {/* Apparel Deals */}
+              <div className="bg-gradient-to-r from-pink-100 to-purple-100 dark:from-pink-950/30 dark:to-purple-950/30 p-4 md:p-5 rounded-lg border-2 border-pink-300 dark:border-pink-700">
+                <h3 className="font-bold text-lg md:text-xl mb-2 text-pink-700 dark:text-pink-400">
+                  👟 10% Off Black Friday Apparel
+                </h3>
+                <p className="text-sm md:text-base mb-3 text-gray-700 dark:text-gray-300">
+                  Sneakers: Was $75 → <span className="font-bold text-green-700 dark:text-green-400">Pay $67.50</span> (Save $7.50)
+                </p>
+                <p className="text-sm md:text-base text-gray-700 dark:text-gray-300">
+                  Designer Jeans: Was $85 → <span className="font-bold text-green-700 dark:text-green-400">Pay $76.50</span> (Save $8.50)
+                </p>
+              </div>
+
+              {/* Dining Deals */}
+              <div className="bg-gradient-to-r from-orange-100 to-red-100 dark:from-orange-950/30 dark:to-red-950/30 p-4 md:p-5 rounded-lg border-2 border-orange-300 dark:border-orange-700">
+                <h3 className="font-bold text-lg md:text-xl mb-2 text-orange-700 dark:text-orange-400">
+                  🍽️ 10% Off Black Friday Dining
+                </h3>
+                <p className="text-sm md:text-base mb-3 text-gray-700 dark:text-gray-300">
+                  Restaurant Gift Cards: Was $75 → <span className="font-bold text-green-700 dark:text-green-400">Pay $67.50</span> (Save $7.50)
+                </p>
+                <p className="text-sm md:text-base text-gray-700 dark:text-gray-300">
+                  Meal Delivery: Was $60 → <span className="font-bold text-green-700 dark:text-green-400">Pay $54</span> (Save $6)
+                </p>
+              </div>
+
+              {/* Gaming Deals */}
+              <div className="bg-gradient-to-r from-purple-100 to-indigo-100 dark:from-purple-950/30 dark:to-indigo-950/30 p-4 md:p-5 rounded-lg border-2 border-purple-300 dark:border-purple-700">
+                <h3 className="font-bold text-lg md:text-xl mb-2 text-purple-700 dark:text-purple-400">
+                  🎮 10% Off Black Friday Gaming
+                </h3>
+                <p className="text-sm md:text-base mb-3 text-gray-700 dark:text-gray-300">
+                  Video Games: Was $70 → <span className="font-bold text-green-700 dark:text-green-400">Pay $63</span> (Save $7)
+                </p>
+                <p className="text-sm md:text-base text-gray-700 dark:text-gray-300">
+                  Controller Bundle: Was $80 → <span className="font-bold text-green-700 dark:text-green-400">Pay $72</span> (Save $8)
+                </p>
+              </div>
+
+              {/* Accessories */}
+              <div className="bg-gradient-to-r from-amber-100 to-yellow-100 dark:from-amber-950/30 dark:to-yellow-950/30 p-4 md:p-5 rounded-lg border-2 border-amber-300 dark:border-amber-700">
+                <h3 className="font-bold text-lg md:text-xl mb-2 text-amber-700 dark:text-amber-400">
+                  👜 10% Off Black Friday Accessories
+                </h3>
+                <p className="text-sm md:text-base mb-3 text-gray-700 dark:text-gray-300">
+                  Wallets & Bags: Was $75 → <span className="font-bold text-green-700 dark:text-green-400">Pay $67.50</span> (Save $7.50)
+                </p>
+                <p className="text-sm md:text-base text-gray-700 dark:text-gray-300">
+                  Sunglasses: Was $90 → <span className="font-bold text-green-700 dark:text-green-400">Pay $81</span> (Save $9)
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Real Shopping Examples */}
         <Card className="mb-8">
           <CardHeader>
