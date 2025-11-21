@@ -18,6 +18,11 @@ export interface Calculator {
   lastUpdated: string;
   hasChart?: boolean;
   schemaType?: 'HowTo' | 'FAQPage';
+  webAppSchema?: {
+    detailedDescription: string; // 100-150 words, SEO-optimized
+    featureList: string[]; // 5-7 specific features
+    applicationCategory: string; // Specific category for this calculator
+  };
 }
 
 export interface Category {
@@ -66,6 +71,19 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-12',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Percent Of Calculator is a powerful, free online tool designed to help you calculate what percentage one number represents of another with instant, accurate results. Whether you\'re calculating discounts while shopping, determining tax amounts, analyzing business metrics, or solving homework problems, this calculator provides step-by-step explanations and real-world examples to help you understand the mathematical process. Perfect for students, professionals, shoppers, and anyone needing quick percentage calculations. Our tool supports any percentage value including decimals and percentages over 100%, making it versatile for all your calculation needs. Get instant results with detailed formula breakdowns to learn while you calculate.',
+          featureList: [
+            'Instant percentage calculations with real-time results',
+            'Step-by-step mathematical explanations and formula breakdown',
+            'Support for any percentage value including decimals and values over 100%',
+            'Real-world examples demonstrating practical applications',
+            'Mobile-responsive design for calculations on any device',
+            'Completely free with no registration or sign-up required',
+            'Privacy-focused - all calculations performed client-side with no data storage'
+          ],
+          applicationCategory: 'CalculatorApplication'
+        },
       },
       {
         slug: 'percentage-increase',
@@ -102,6 +120,19 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Percentage Increase Calculator is an essential financial and mathematical tool that helps you determine the rate of growth between two values with precision and clarity. Whether you\'re negotiating a salary raise, tracking business revenue growth, analyzing stock price appreciation, monitoring property value increases, or calculating price inflation, this calculator provides instant, accurate results with comprehensive explanations. Ideal for HR professionals, business analysts, investors, students, and anyone tracking growth metrics. The tool clearly displays both the percentage increase and the absolute increase amount, helping you understand both the relative and absolute changes. Get detailed step-by-step calculations that show exactly how the percentage increase is derived from your input values.',
+          featureList: [
+            'Calculate percentage increase between any two positive or negative numbers',
+            'Display both percentage increase and absolute increase amount simultaneously',
+            'Detailed step-by-step calculation breakdown with formula explanation',
+            'Real-world applications for salary negotiations, investments, and business metrics',
+            'Support for values over 100% increase for dramatic growth scenarios',
+            'Instant calculation results with no delays or loading times',
+            'Mobile-optimized interface for calculations on the go'
+          ],
+          applicationCategory: 'FinanceApplication'
+        },
       },
       {
         slug: 'percentage-decrease',
@@ -138,6 +169,19 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Percentage Decrease Calculator is an indispensable tool for tracking reductions, losses, and declines with mathematical precision. Whether you\'re monitoring weight loss progress, analyzing sales declines, calculating price drops, tracking expense reductions, or measuring performance decreases, this calculator provides instant, accurate results with clear explanations. Perfect for fitness enthusiasts, business analysts, retailers, budget planners, and anyone tracking downward trends. The tool displays both the percentage decrease and the absolute decrease amount, helping you understand the magnitude of change in both relative and absolute terms. Our calculator supports any positive numbers and provides step-by-step breakdowns to enhance your understanding of percentage calculations and help you make data-driven decisions.',
+          featureList: [
+            'Calculate percentage decrease between any two positive values instantly',
+            'Display both percentage and absolute decrease amounts for comprehensive analysis',
+            'Real-world applications for weight loss tracking, sales analysis, and budgeting',
+            'Step-by-step calculation breakdown showing the mathematical process',
+            'Support for decimal values and large numbers for any use case',
+            'Mobile-responsive design for calculations anywhere, anytime',
+            'Completely free with no registration required and privacy-focused operation'
+          ],
+          applicationCategory: 'CalculatorApplication'
+        },
       },
       {
         slug: 'percentage-difference',
@@ -169,6 +213,19 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Percentage Difference Calculator is a specialized tool designed for symmetric comparison of two values without assuming either is the baseline. Unlike percentage increase or decrease calculators that require a starting point, this calculator treats both values equally, making it ideal for comparing prices from different stores, temperatures in different cities, test scores from different students, or measurements from different sources. Perfect for researchers, data analysts, comparison shoppers, and anyone needing unbiased percentage comparisons. The calculator uses the absolute difference divided by the average, ensuring consistent results regardless of which value you enter first. Get instant results with detailed mathematical explanations that help you understand when to use percentage difference versus percentage change.',
+          featureList: [
+            'Symmetric comparison treating both values equally without bias',
+            'Calculate absolute percentage difference between any two numbers',
+            'Ideal for comparing prices, scores, measurements, and statistics',
+            'Step-by-step explanation of the percentage difference formula',
+            'Results remain consistent regardless of input order',
+            'Real-time calculation with instant results',
+            'Free to use with no sign-up and privacy-focused client-side processing'
+          ],
+          applicationCategory: 'CalculatorApplication'
+        },
       },
       {
         slug: 'what-percent',
@@ -200,6 +257,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The What Percent Calculator is an essential educational and practical tool that answers the question "X is what percentage of Y?" Whether you\'re calculating test scores from points earned, determining project completion rates, finding what percentage of a budget you\'ve spent, analyzing sales achievement against quotas, or computing proportion percentages, this calculator delivers instant, accurate results. Ideal for students checking grades, teachers calculating scores, project managers tracking progress, business professionals analyzing metrics, and anyone working with proportions and ratios. The tool provides clear step-by-step explanations showing how to convert any part-to-whole relationship into a percentage, making it both a calculation tool and a learning resource for understanding percentage concepts.',
+          featureList: [
+            'Instantly calculate what percentage one number represents of another',
+            'Perfect for test score calculations and grade determination',
+            'Track project completion rates and progress percentages',
+            'Detailed step-by-step formula breakdown for learning',
+            'Support for any positive numbers including decimals',
+            'Real-time results with no delays or loading times',
+            'Mobile-optimized interface accessible on any device',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'EducationApplication'
+        },
       },
       {
         slug: 'reverse-percentage',
@@ -231,6 +302,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Reverse Percentage Calculator is a powerful tool that works backwards to find original values before a percentage change was applied. Whether you need to find the original price before a discount, determine pre-tax amounts, calculate base salary before a raise, find initial investment amounts, or reverse any percentage increase or decrease, this calculator provides accurate results instantly. Essential for accountants, financial planners, shoppers analyzing deals, business owners setting prices, and anyone needing to reverse-engineer percentage calculations. The tool clearly distinguishes between percentage increases and decreases, automatically applying the correct formula. Perfect for understanding the true value of discounts, calculating original prices for resale, or verifying tax calculations by working backwards from final amounts.',
+          featureList: [
+            'Find original values before percentage increases or decreases',
+            'Calculate pre-discount prices and pre-tax amounts instantly',
+            'Automatic detection of increase vs decrease scenarios',
+            'Step-by-step reverse calculation explanations',
+            'Essential for pricing strategy and financial analysis',
+            'Verify tax and discount calculations by working backwards',
+            'Real-time results with instant calculations',
+            'Free to use with no registration and complete privacy'
+          ],
+          applicationCategory: 'FinanceApplication'
+        },
       },
       {
         slug: 'percentage-of-total',
@@ -264,6 +349,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Percentage of Total Calculator is an invaluable tool for analyzing distributions, breakdowns, and proportions across multiple values. Whether you\'re creating budget breakdowns to see what percentage of income goes to each expense, analyzing sales data to understand product mix, examining survey results for response distributions, breaking down project time allocation, or studying any dataset where you need to see how parts relate to the whole, this calculator provides instant, comprehensive results. Perfect for financial planners, business analysts, market researchers, project managers, and anyone working with data analysis. The tool can handle multiple values simultaneously, calculating what percentage each represents of the total, making it easy to create pie charts, verify that percentages sum to 100%, and understand data distributions at a glance.',
+          featureList: [
+            'Calculate percentage distribution for multiple values simultaneously',
+            'Perfect for budget analysis and expense breakdowns',
+            'Analyze sales data and product mix percentages',
+            'Automatic verification that percentages sum to 100%',
+            'Ideal for creating data visualizations and pie charts',
+            'Step-by-step calculations for each value',
+            'Mobile-responsive design for data analysis anywhere',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'FinanceApplication'
+        },
       },
       {
         slug: 'fraction-to-percent',
@@ -295,6 +394,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Fraction to Percent Calculator is an essential educational tool that instantly converts any fraction into its percentage equivalent. Whether you\'re a student learning fraction and percentage conversions, a teacher creating materials, a cook converting recipe measurements, a seamstress working with fabric calculations, or anyone needing to express fractions as percentages, this calculator provides immediate, accurate results. Simply enter the numerator and denominator to get the percentage instantly. The tool handles proper fractions (where numerator is less than denominator), improper fractions (where numerator is greater), and even mixed numbers when converted to improper fractions. Perfect for homework help, standardized test preparation, practical conversions in cooking and crafts, and understanding the relationship between fractions and percentages with clear explanations of the conversion process.',
+          featureList: [
+            'Instantly convert any fraction to percentage format',
+            'Support for proper fractions, improper fractions, and mixed numbers',
+            'Perfect for students learning fraction-to-percentage conversions',
+            'Real-world applications in cooking, sewing, and measurements',
+            'Step-by-step conversion process with formula explanation',
+            'Handles any numerator and denominator values',
+            'Real-time calculation with instant results',
+            'Free educational tool with no registration required'
+          ],
+          applicationCategory: 'EducationApplication'
+        },
       },
       {
         slug: 'percent-to-decimal',
@@ -325,6 +438,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Percent to Decimal Calculator is a fundamental conversion tool essential for mathematics, programming, financial calculations, and scientific work. Whether you\'re a programmer working with percentages in code, a student solving algebra problems, a scientist converting measurement data, an engineer performing calculations, or a financial analyst working with percentage data in spreadsheets, this calculator provides instant, accurate decimal conversions. Simply enter any percentage value to get its decimal equivalent immediately. The tool is crucial for understanding that percentages are just another way to express decimal values, where the percentage represents "per hundred." Perfect for Excel and spreadsheet work, programming projects, mathematical problem-solving, and any scenario where you need to convert human-readable percentages into calculation-ready decimal format.',
+          featureList: [
+            'Instantly convert any percentage to decimal format',
+            'Essential for programming, spreadsheets, and mathematical calculations',
+            'Support for percentages over 100% and decimal percentages',
+            'Clear explanation of the "per hundred" concept',
+            'Perfect for Excel formulas and programming applications',
+            'Handles any percentage value including negative percentages',
+            'Real-time conversion with instant results',
+            'Free to use with no registration and privacy-focused'
+          ],
+          applicationCategory: 'CalculatorApplication'
+        },
       },
       {
         slug: 'decimal-to-percent',
@@ -355,6 +482,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Decimal to Percent Calculator is an indispensable conversion tool for transforming decimal values into percentage format for easier interpretation and communication. Whether you\'re a statistician presenting data analysis results, a student working on probability problems, a data scientist converting model outputs, a business analyst creating reports, or anyone needing to express decimal values as percentages, this calculator provides instant, accurate conversions. Simply enter any decimal value (including those greater than 1 for percentages over 100%) to get the percentage equivalent immediately. Perfect for making decimal data more readable and understandable for presentations, reports, dashboards, and any context where percentages communicate more effectively than decimals. The tool helps bridge the gap between mathematical precision and human readability.',
+          featureList: [
+            'Instantly convert any decimal to percentage format',
+            'Support for decimals greater than 1 for percentages over 100%',
+            'Perfect for statistics, data analysis, and probability calculations',
+            'Essential for creating readable reports and presentations',
+            'Handles negative decimals for negative percentages',
+            'Clear step-by-step conversion explanation',
+            'Real-time calculation with instant results',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'CalculatorApplication'
+        },
       },
       {
         slug: 'percentage-calculator',
@@ -387,6 +528,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The General Percentage Calculator is a comprehensive, all-in-one tool that handles every type of percentage calculation you might need in a single, convenient interface. Whether you need to calculate what X% of Y is, find percentage increases or decreases, determine what percentage one number is of another, calculate percentage differences, perform reverse percentage calculations, or convert between fractions, decimals, and percentages, this versatile calculator does it all. Perfect for students learning percentage concepts, professionals needing quick calculations, shoppers comparing deals, teachers creating problems, and anyone who wants one reliable tool for all percentage operations. Instead of switching between multiple specialized calculators, access all percentage functions in one place with clear explanations and instant results for any percentage-related question you encounter.',
+          featureList: [
+            'All-in-one tool for every type of percentage calculation',
+            'Calculate percent of, percentage change, difference, and more',
+            'Convert between fractions, decimals, and percentages',
+            'Perfect for students learning comprehensive percentage concepts',
+            'Step-by-step explanations for each calculation type',
+            'Convenient single interface eliminates switching between tools',
+            'Real-time calculations with instant results',
+            'Completely free with no registration and privacy-focused operation'
+          ],
+          applicationCategory: 'CalculatorApplication'
+        },
       },
     ],
     comingSoon: [],
@@ -428,6 +583,20 @@ export const CATEGORIES: Category[] = [
         lastUpdated: '2025-11-12',
         hasChart: true,
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The ROI Calculator is a critical financial analysis tool that calculates Return on Investment percentage to measure the profitability and efficiency of investments. Whether you\'re evaluating stock investments, real estate deals, business ventures, marketing campaigns, equipment purchases, or any capital allocation decision, this calculator provides instant, accurate ROI calculations with gain/loss analysis. Essential for investors, business owners, financial advisors, marketing professionals, and anyone making investment decisions. The tool clearly shows both the absolute gain or loss and the percentage return, helping you compare different investment opportunities on an equal basis. Perfect for portfolio analysis, business case development, investment property evaluation, and making data-driven financial decisions with confidence using the universally recognized ROI metric.',
+          featureList: [
+            'Calculate ROI percentage for any investment type instantly',
+            'Display both absolute gain/loss and percentage return',
+            'Compare multiple investment opportunities on equal basis',
+            'Essential for stock, real estate, and business investments',
+            'Visual chart showing investment growth or loss over time',
+            'Step-by-step ROI calculation with formula breakdown',
+            'Mobile-optimized for investment decisions on the go',
+            'Free to use with no registration and complete privacy'
+          ],
+          applicationCategory: 'FinanceApplication'
+        },
       },
       {
         slug: 'profit-margin',
@@ -465,6 +634,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Profit Margin Calculator is an essential business financial tool that calculates profit margin percentage, markup percentage, and profit amounts to help you understand and optimize your business profitability. Whether you\'re running an e-commerce store, retail business, service company, restaurant, or any profit-driven venture, this calculator provides instant analysis of your pricing and cost structure. Perfect for entrepreneurs, business owners, accountants, pricing strategists, and financial managers. The tool clearly distinguishes between profit margin (profit as percentage of revenue) and markup (profit as percentage of cost), helping you avoid common pricing mistakes. Essential for setting competitive prices, analyzing product profitability, negotiating deals, and ensuring your business maintains healthy profit margins across all products and services.',
+          featureList: [
+            'Calculate profit margin and markup percentages simultaneously',
+            'Clear distinction between margin and markup to avoid confusion',
+            'Determine optimal pricing for target profit margins',
+            'Essential for retail, e-commerce, and service businesses',
+            'Analyze individual product or overall business profitability',
+            'Step-by-step calculation with formula explanations',
+            'Real-time results for quick pricing decisions',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'FinanceApplication'
+        },
       },
       {
         slug: 'sales-tax',
@@ -497,6 +680,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Sales Tax Calculator is a practical everyday tool that instantly calculates sales tax amounts and total prices including tax for any purchase. Whether you\'re shopping online or in-store, budgeting for purchases, running a retail business, selling products, or simply want to know the out-the-door price before checkout, this calculator provides accurate tax calculations instantly. Essential for consumers planning purchases, retailers pricing products, small business owners managing sales, accountants reconciling transactions, and anyone dealing with sales tax calculations. The tool also works in reverse to remove sales tax from a total, helping you determine the pre-tax price. Perfect for comparing prices across different tax jurisdictions, calculating exact amounts for expense reports, and ensuring accurate pricing and budgeting.',
+          featureList: [
+            'Calculate sales tax amount and total price instantly',
+            'Reverse calculation to remove tax from total price',
+            'Support for any tax rate from 0% to over 10%',
+            'Perfect for shopping, budgeting, and retail pricing',
+            'Essential for small business owners and retailers',
+            'Clear breakdown showing price, tax, and total separately',
+            'Mobile-responsive for shopping and pricing on the go',
+            'Free to use with no registration and privacy-focused'
+          ],
+          applicationCategory: 'FinanceApplication'
+        },
       },
       {
         slug: 'discount',
@@ -530,6 +727,20 @@ export const CATEGORIES: Category[] = [
         lastUpdated: '2025-11-13',
         hasChart: true,
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Discount Calculator is an essential shopping and retail tool that instantly calculates final sale prices, discount amounts, and savings percentages. Whether you\'re a shopper hunting for deals, comparing discounts during sales events, a retailer planning promotions, a business owner setting clearance prices, or anyone wanting to quickly calculate how much you\'ll save, this calculator provides instant, accurate results. Perfect for Black Friday shopping, seasonal sales, coupon calculations, and price comparison. The tool clearly shows both the discount amount you save and the final price you pay, helping you make informed purchasing decisions. Essential for budget-conscious shoppers, retailers planning markdown strategies, and anyone wanting to maximize savings during sales events or quickly evaluate if a discount represents good value.',
+          featureList: [
+            'Calculate final price after discount and total savings instantly',
+            'Perfect for shopping, sales events, and deal hunting',
+            'Visual chart showing price breakdown and savings',
+            'Compare multiple discounts to find the best deal',
+            'Essential for retailers planning sales and markdowns',
+            'Support for any discount percentage including multiple discounts',
+            'Real-time calculation for quick shopping decisions',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'FinanceApplication'
+        },
       },
       {
         slug: 'compound-interest',
@@ -569,6 +780,20 @@ export const CATEGORIES: Category[] = [
         lastUpdated: '2025-11-13',
         hasChart: true,
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Compound Interest Calculator is a powerful financial planning tool that demonstrates how investments grow exponentially over time through the magic of compounding. Whether you\'re planning for retirement, evaluating savings accounts, comparing investment options, calculating education fund growth, or understanding how compound interest accelerates wealth building, this calculator provides detailed projections with multiple compounding frequency options. Essential for investors, financial planners, students learning about compound growth, retirement planners, and anyone building long-term wealth. The tool clearly shows how different compounding frequencies (daily, monthly, quarterly, annually) affect your returns, helping you understand that even small differences in interest rates or compounding frequency can result in significant differences over time. Visual charts illustrate the exponential growth curve that makes compound interest such a powerful wealth-building tool.',
+          featureList: [
+            'Calculate compound interest with daily, monthly, quarterly, or annual compounding',
+            'Visual chart showing exponential investment growth over time',
+            'Compare different compounding frequencies to maximize returns',
+            'Essential for retirement planning and long-term wealth building',
+            'Detailed breakdown of principal vs interest earned',
+            'See the power of compound interest over different time periods',
+            'Mobile-optimized for financial planning on the go',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'FinanceApplication'
+        },
       },
       {
         slug: 'loan-interest',
@@ -608,6 +833,20 @@ export const CATEGORIES: Category[] = [
         lastUpdated: '2025-11-13',
         hasChart: true,
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Loan Interest Calculator is a comprehensive debt management tool that calculates monthly payments, total interest costs, and complete payoff schedules for any type of loan. Whether you\'re considering a personal loan, auto loan, student loan, business loan, or any amortized debt, this calculator provides detailed payment breakdowns showing exactly how much interest you\'ll pay over the life of the loan. Essential for borrowers comparing loan offers, financial advisors counseling clients, individuals refinancing debt, or anyone making borrowing decisions. The tool uses standard amortization formulas to show how early payments are mostly interest while later payments pay down more principal. Perfect for understanding the true cost of borrowing, comparing different loan terms and rates, and planning extra payments to save on interest costs.',
+          featureList: [
+            'Calculate monthly payments and total interest for any loan',
+            'Complete amortization schedule showing payment breakdown',
+            'Visual chart illustrating principal vs interest over time',
+            'Perfect for personal loans, auto loans, and student loans',
+            'Compare different loan terms and interest rates',
+            'See how extra payments reduce total interest paid',
+            'Mobile-optimized for loan shopping and comparisons',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'FinanceApplication'
+        },
       },
       {
         slug: 'mortgage-calculator',
@@ -648,6 +887,20 @@ export const CATEGORIES: Category[] = [
         lastUpdated: '2025-11-13',
         hasChart: true,
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Mortgage Calculator is an essential home-buying tool that calculates monthly mortgage payments, total interest costs, and complete amortization schedules, including property taxes and insurance for accurate budgeting. Whether you\'re a first-time homebuyer, refinancing your current mortgage, comparing loan offers, real estate shopping, or planning to buy investment property, this calculator provides comprehensive financial projections for your home loan. Perfect for prospective homebuyers, real estate agents, mortgage brokers, financial planners, and homeowners exploring refinancing options. The tool accounts for down payment, loan term (15-year vs 30-year), interest rates, property taxes, and homeowners insurance to give you the complete PITI (Principal, Interest, Taxes, Insurance) payment. Essential for determining home affordability and comparing different loan scenarios.',
+          featureList: [
+            'Calculate complete PITI payment including taxes and insurance',
+            'Compare 15-year vs 30-year mortgage scenarios',
+            'Visual amortization chart showing payment breakdown over time',
+            'Essential for first-time homebuyers and refinancing decisions',
+            'See how down payment size affects monthly payments',
+            'Calculate total interest paid over the life of the loan',
+            'Mobile-optimized for house hunting and loan shopping',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'FinanceApplication'
+        },
       },
       {
         slug: 'investment-return',
@@ -686,6 +939,20 @@ export const CATEGORIES: Category[] = [
         lastUpdated: '2025-11-13',
         hasChart: true,
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Investment Return Calculator is a comprehensive portfolio analysis tool that calculates total returns, annualized returns, and performance metrics including both capital gains and dividend income. Whether you\'re tracking stock portfolio performance, analyzing mutual fund returns, evaluating real estate investment gains, measuring cryptocurrency returns, or assessing any investment performance over time, this calculator provides accurate return calculations with both total and annualized perspectives. Essential for investors, financial advisors, portfolio managers, and anyone managing investments. The tool properly accounts for dividends and distributions, which are often overlooked but can represent significant portions of total returns. Perfect for comparing investment performance across different time periods, evaluating investment strategies, and making informed decisions about holding or selling positions based on historical performance.',
+          featureList: [
+            'Calculate total return percentage including capital gains and dividends',
+            'Annualized return calculation for comparing different time periods',
+            'Visual chart showing investment performance over time',
+            'Essential for tracking stock, fund, and real estate investments',
+            'Proper accounting for dividend and distribution income',
+            'Compare multiple investment returns on equal basis',
+            'Mobile-optimized for portfolio tracking on the go',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'FinanceApplication'
+        },
       },
       {
         slug: 'markup-percentage',
@@ -722,6 +989,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Markup Percentage Calculator is a crucial retail and wholesale pricing tool that calculates markup percentages and determines optimal selling prices based on product costs. Whether you\'re a retailer setting product prices, wholesaler establishing trade prices, e-commerce seller determining listings prices, restaurant owner pricing menu items, or any business owner needing to price products profitably, this calculator ensures your prices cover costs and deliver target profit margins. Perfect for small business owners, pricing managers, retail buyers, and entrepreneurs. The tool clearly distinguishes between markup (based on cost) and profit margin (based on selling price), helping you avoid pricing errors. Essential for competitive pricing strategies, ensuring profitability across product lines, and understanding industry-standard markup practices in your sector.',
+          featureList: [
+            'Calculate markup percentage from cost and selling price',
+            'Determine selling price needed for target markup',
+            'Clear distinction between markup and profit margin',
+            'Essential for retail, wholesale, and e-commerce pricing',
+            'Industry-specific markup guidelines and recommendations',
+            'Ensure profitability while maintaining competitive pricing',
+            'Real-time calculation for quick pricing decisions',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'FinanceApplication'
+        },
       },
       {
         slug: 'commission-calculator',
@@ -758,6 +1039,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Commission Calculator is an essential earnings tool for sales professionals that calculates commission amounts based on sales performance and commission rates. Whether you\'re a real estate agent calculating property sale commissions, car salesperson tracking earnings, insurance agent computing policy commissions, retail salesperson determining bonuses, or any commission-based professional, this calculator provides instant, accurate commission calculations. Perfect for salespeople planning income, employers structuring compensation plans, freelancers calculating fees, and anyone earning performance-based pay. The tool supports simple percentage-based commissions and helps you understand how different commission rates and sales volumes affect your earnings. Essential for income planning, comparing job offers with different commission structures, and tracking earnings performance throughout the month or quarter.',
+          featureList: [
+            'Calculate commission earnings from sales amount and rate',
+            'Perfect for real estate, car sales, and insurance agents',
+            'Support for any commission percentage structure',
+            'Calculate net profit after commission is paid',
+            'Essential for income planning and goal setting',
+            'Compare different commission rate scenarios',
+            'Real-time calculation for quick earnings estimates',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'FinanceApplication'
+        },
       },
     ],
     comingSoon: [],
@@ -799,6 +1094,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-12',
         schemaType: 'FAQPage',
+        webAppSchema: {
+          detailedDescription: 'The Grade Percentage Calculator is an essential academic tool that instantly converts test scores and assignment points into percentage grades and letter grades. Whether you\'re a student checking your test performance, teacher grading assignments, parent helping with homework, or educator creating grading rubrics, this calculator provides immediate, accurate grade conversions. Simply enter the points earned and total points possible to see your percentage score and corresponding letter grade. Perfect for understanding exam results, calculating course grades, determining GPA impact, and tracking academic progress. The tool uses standard grading scales (90-100% = A, 80-89% = B, etc.) while accommodating custom grading scales. Essential for students monitoring academic performance, teachers streamlining grading workflows, and anyone working with educational assessments and academic evaluations.',
+          featureList: [
+            'Instantly convert test scores to percentage and letter grades',
+            'Support for any point values and total possible points',
+            'Standard grading scale with A-F letter grade assignments',
+            'Perfect for students, teachers, and parents',
+            'Calculate grades for tests, quizzes, and assignments',
+            'Clear breakdown showing points, percentage, and letter grade',
+            'Mobile-responsive for quick grade checks anywhere',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'EducationApplication'
+        },
       },
       {
         slug: 'gpa-calculator',
@@ -834,6 +1143,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The GPA Calculator is a comprehensive academic planning tool that calculates your Grade Point Average on the standard 4.0 scale by factoring in course grades and credit hours. Whether you\'re a college student tracking semester performance, high school student planning for college applications, graduate student monitoring program requirements, academic advisor counseling students, or educator evaluating academic standing, this calculator provides accurate GPA calculations with proper credit hour weighting. Perfect for understanding how each course impacts your overall GPA, planning future semesters to reach GPA goals, evaluating scholarship eligibility, and tracking academic progress toward graduation. The tool handles multiple courses with varying credit hours, automatically weighting higher-credit courses appropriately. Essential for academic planning, understanding GPA requirements, and making strategic course selection decisions.',
+          featureList: [
+            'Calculate GPA on standard 4.0 scale with credit hour weighting',
+            'Support for multiple courses with different credit values',
+            'Perfect for semester GPA and cumulative GPA calculations',
+            'Essential for college applications and scholarship eligibility',
+            'Clear grade point scale reference (A=4.0, B=3.0, etc.)',
+            'Plan future semesters to reach target GPA goals',
+            'Mobile-responsive for academic planning anywhere',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'EducationApplication'
+        },
       },
       {
         slug: 'test-score',
@@ -866,6 +1189,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Test Score Calculator is a quick and practical academic tool that converts raw test scores into percentage grades and letter grades instantly. Whether you\'re a student checking your exam performance immediately after a test, teacher efficiently grading multiple papers, tutor reviewing student progress, or parent helping with study planning, this calculator provides immediate grade feedback. Simply enter the points earned and total points possible to instantly see the percentage score and corresponding letter grade. Perfect for standardized tests, classroom exams, quizzes, homework assignments, and any scored academic work. The tool helps students understand their performance level, identify areas for improvement, and track progress over multiple assessments. Essential for quick grade calculations, understanding grading scales, and determining how many questions can be missed while still achieving target grades.',
+          featureList: [
+            'Instantly convert test points to percentage and letter grade',
+            'Calculate how many questions can be missed for target grade',
+            'Support for any test length from quizzes to major exams',
+            'Standard A-F grading scale with percentage breakdown',
+            'Perfect for students, teachers, and tutors',
+            'Quick grade feedback for immediate performance understanding',
+            'Mobile-optimized for grade checks right after tests',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'EducationApplication'
+        },
       },
       {
         slug: 'weighted-grade',
@@ -902,6 +1239,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Weighted Grade Calculator is a sophisticated academic tool that calculates overall course grades when different assignment categories have different weights or importance levels. Whether you\'re a student in a course where homework counts 20%, tests count 50%, and finals count 30%, or managing any complex grading system, this calculator handles the weighted mathematics automatically. Perfect for college courses, high school classes with multiple grading categories, AP classes, and any educational setting using weighted grading systems. Essential for students tracking current course performance, teachers designing fair grading systems, and anyone needing to understand how different assignment types contribute to final grades. The tool clearly shows how each category\'s weight affects the overall grade, helping students prioritize efforts on high-weight assignments for maximum grade impact.',
+          featureList: [
+            'Calculate weighted grades with multiple category weights',
+            'Support for any number of categories (homework, tests, projects, etc.)',
+            'Automatic normalization if weights don\'t total 100%',
+            'Perfect for college courses and complex grading systems',
+            'Clear breakdown showing each category\'s contribution',
+            'Essential for understanding grade composition and priorities',
+            'Mobile-responsive for grade tracking on the go',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'EducationApplication'
+        },
       },
       {
         slug: 'final-grade',
@@ -938,6 +1289,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Final Grade Calculator is an indispensable academic planning tool that calculates exactly what score you need on your final exam to achieve your desired course grade. Whether you\'re a student aiming for a specific letter grade, trying to maintain a GPA requirement, planning study priorities across multiple courses, or determining if your target grade is mathematically achievable, this calculator provides clear answers instantly. Perfect for college students, high school students, graduate students, and anyone facing final exams. Simply enter your current grade before the final, the final exam\'s weight in the overall grade, and your target grade to see exactly what final exam score you need. Essential for realistic goal setting, efficient study time allocation, and understanding what\'s possible given your current standing. Helps reduce final exam stress by providing clarity on requirements.',
+          featureList: [
+            'Calculate exact score needed on final exam for target grade',
+            'Determine if your target grade is mathematically possible',
+            'Support for any final exam weight from 10% to 50%',
+            'Perfect for end-of-semester planning and goal setting',
+            'Clear indication when target requires over 100% (impossible)',
+            'Essential for study prioritization across multiple courses',
+            'Mobile-responsive for grade planning during finals week',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'EducationApplication'
+        },
       },
       {
         slug: 'grade-needed',
@@ -970,6 +1335,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Grade Needed Calculator is a forward-looking academic planning tool that calculates the minimum grade required on your next assignment to reach or maintain a desired course average. Whether you\'re a student planning to raise your grade, maintaining a scholarship GPA, aiming for honors, or simply tracking academic progress, this calculator shows exactly what you need to achieve on upcoming assignments. Perfect for proactive grade management, setting realistic goals, and understanding the impact of each assignment on your overall average. The tool helps students stay motivated by showing achievable targets and helps identify when extra effort is needed. Essential for equal-weight assignment courses, continuous assessment systems, and any situation where you want to know "what do I need to get to reach my goal?" Helps turn grade anxiety into actionable study plans.',
+          featureList: [
+            'Calculate minimum grade needed on next assignment for target average',
+            'Plan ahead to reach desired course grades proactively',
+            'Perfect for courses with equal-weight assignments',
+            'Set realistic goals based on current performance',
+            'Essential for maintaining scholarships and honors standing',
+            'Clear indication if target is achievable or requires perfect scores',
+            'Mobile-responsive for grade planning on the go',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'EducationApplication'
+        },
       },
       {
         slug: 'semester-gpa',
@@ -1007,6 +1386,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Semester GPA Calculator is a comprehensive academic tracking tool that calculates both semester GPA and cumulative GPA, properly weighing courses by credit hours on the standard 4.0 scale. Whether you\'re a college student tracking term performance, calculating cumulative GPA for graduation requirements, planning course loads to reach GPA goals, evaluating academic standing, or preparing college applications, this calculator provides accurate GPA calculations that reflect how your institution calculates grades. Perfect for undergraduate students, graduate students, transfer students calculating combined GPAs, and academic advisors. The tool handles the complex mathematics of credit-hour weighting automatically, ensuring accurate results even when courses have different credit values. Essential for scholarship maintenance, dean\'s list eligibility, graduate school applications, and overall academic planning.',
+          featureList: [
+            'Calculate semester GPA and cumulative GPA on 4.0 scale',
+            'Proper credit hour weighting for accurate calculations',
+            'Support for multiple courses with varying credit values',
+            'Calculate how semester GPA affects cumulative GPA',
+            'Essential for scholarship eligibility and academic standing',
+            'Perfect for college, graduate school, and transfer students',
+            'Mobile-responsive for GPA tracking and planning',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'EducationApplication'
+        },
       },
       {
         slug: 'class-average',
@@ -1044,6 +1437,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Class Average Calculator is a comprehensive statistical analysis tool for educators that calculates class average (mean), median, grade distribution, and performance statistics for any group of students. Whether you\'re a teacher analyzing test results, professor evaluating exam difficulty, department chair reviewing course outcomes, tutor tracking group progress, or educator creating grade reports, this calculator provides instant statistical insights into class performance. Perfect for identifying if a test was too difficult or too easy, understanding grade distribution patterns, comparing class performance across sections, and making data-driven decisions about grading policies. The tool calculates both mean (average) and median (middle value), helping educators understand central tendency even when outliers exist. Essential for fair grading, curriculum evaluation, and communicating class performance to administrators or parents.',
+          featureList: [
+            'Calculate class mean, median, and mode for comprehensive analysis',
+            'Grade distribution breakdown showing A, B, C, D, F percentages',
+            'Identify highest and lowest scores for range analysis',
+            'Perfect for teachers, professors, and educational administrators',
+            'Compare class performance across multiple sections or periods',
+            'Essential for evaluating test difficulty and fairness',
+            'Mobile-responsive for grade analysis anywhere',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'EducationApplication'
+        },
       },
       {
         slug: 'grading-curve',
@@ -1080,6 +1487,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Grading Curve Calculator is a specialized educational tool that applies various curve methodologies to adjust student grades when exams are unexpectedly difficult or class performance is below expectations. Whether you\'re a professor applying a square root curve, teacher using flat scaling, educator implementing bell curve grading, or administrator establishing fair grading policies, this calculator automates curve calculations using proven mathematical methods. Perfect for higher education, challenging courses, standardized testing scenarios, and situations where test difficulty was misjudged. The tool supports multiple curve types including square root curve (helps lower scores more), flat curve (adds same points to everyone), and scaled curves (multiplies all scores). Essential for maintaining grade fairness, compensating for test difficulty variations, and ensuring student success without lowering academic standards.',
+          featureList: [
+            'Apply multiple curve types: square root, flat, scaled, and bell curve',
+            'Square root curve benefits lower scores more than higher ones',
+            'Flat curve adds same points to all students equally',
+            'Calculate optimal curve amount to reach target class average',
+            'Perfect for professors, teachers, and educational administrators',
+            'Essential for fair grading when tests are too difficult',
+            'Clear before-and-after comparison for each student',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'EducationApplication'
+        },
       },
     ],
     comingSoon: [],
@@ -1126,6 +1547,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Tip Calculator is an essential everyday tool that instantly calculates appropriate tip amounts, total bills with tip, and per-person splits for dining out and service situations. Whether you\'re at a restaurant, ordering food delivery, getting a haircut, taking a taxi, using valet parking, or receiving any service where tipping is customary, this calculator ensures you tip appropriately and quickly. Perfect for diners, travelers, anyone uncomfortable with mental math, and groups splitting bills. The tool supports standard tip percentages (15%, 18%, 20%, 25%) and custom amounts, calculates the total including tip, and handles bill splitting for groups. Essential for ensuring fair compensation for service workers, avoiding awkward payment moments, and teaching proper tipping etiquette. Takes the stress out of tip calculation so you can focus on enjoying your experience.',
+          featureList: [
+            'Calculate tip amount and total with tip instantly',
+            'Support for standard tip percentages (15%, 18%, 20%, 25%) and custom rates',
+            'Split bill evenly among any number of people',
+            'Perfect for restaurants, delivery, taxis, and all service situations',
+            'Calculate tip on pre-tax or post-tax amounts',
+            'Essential for proper service worker compensation',
+            'Mobile-optimized for quick calculations at restaurants',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'UtilitiesApplication'
+        },
       },
       {
         slug: 'percentage-change',
@@ -1158,6 +1593,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Percentage Change Calculator is a versatile analytical tool that calculates the rate of change between two values, showing both the direction (increase or decrease) and magnitude of change as a percentage. Whether you\'re tracking stock price changes, monitoring weight fluctuations, analyzing sales trends, measuring website traffic growth, comparing temperature changes, or evaluating any metric over time, this calculator provides instant percentage change calculations. Perfect for data analysts, business professionals, investors, fitness enthusiasts, and anyone tracking changes over time. The tool automatically determines whether the change is positive (increase) or negative (decrease) and expresses the change as a percentage of the original value. Essential for trend analysis, performance tracking, and understanding the relative significance of changes rather than just absolute differences.',
+          featureList: [
+            'Calculate percentage change showing increase or decrease direction',
+            'Automatic positive/negative indication for change direction',
+            'Perfect for tracking stocks, weight, sales, and any metrics over time',
+            'Essential for business analytics and performance monitoring',
+            'Compare changes across different scales and measurements',
+            'Step-by-step calculation showing the change formula',
+            'Real-time results for instant trend analysis',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'CalculatorApplication'
+        },
       },
       {
         slug: 'ratio-calculator',
@@ -1195,6 +1644,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Ratio Calculator is a practical mathematical tool that simplifies ratios, converts ratios to percentages, finds equivalent ratios, and scales proportions for countless real-world applications. Whether you\'re adjusting recipe quantities, mixing paint colors, calculating gear ratios, determining aspect ratios for images or screens, creating chemical mixtures, or scaling any proportional relationship, this calculator handles the mathematics automatically. Perfect for cooks, artists, photographers, engineers, chemists, DIY enthusiasts, and anyone working with proportions. The tool simplifies ratios to their lowest terms, converts ratios to percentage distributions, and scales ratios up or down while maintaining proportions. Essential for recipe doubling or halving, maintaining aspect ratios when resizing images, creating consistent mixtures, and understanding proportional relationships in everyday situations.',
+          featureList: [
+            'Simplify ratios to lowest terms automatically',
+            'Convert ratios to percentage distribution',
+            'Scale ratios up or down while maintaining proportions',
+            'Perfect for recipes, mixtures, aspect ratios, and scaling',
+            'Find equivalent ratios for any scaling factor',
+            'Essential for cooking, photography, engineering, and art',
+            'Real-time calculation with instant results',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'CalculatorApplication'
+        },
       },
       {
         slug: 'currency-converter',
@@ -1232,6 +1695,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Currency Percentage Calculator is a specialized financial tool for tracking exchange rate fluctuations, calculating conversion fees as percentages, and analyzing forex gains and losses. Whether you\'re an international traveler monitoring exchange rates, forex trader analyzing currency movements, business owner managing international payments, expatriate tracking currency impacts on savings, or anyone dealing with foreign exchange, this calculator quantifies currency changes as easy-to-understand percentages. Perfect for understanding how much currency has strengthened or weakened, calculating the percentage cost of conversion fees, and determining the percentage gain or loss on currency holdings. Essential for travel budgeting, international business planning, forex trading decisions, and understanding the real cost of currency conversions beyond just looking at exchange rates.',
+          featureList: [
+            'Calculate percentage change in exchange rates over time',
+            'Determine conversion fee percentages for currency exchanges',
+            'Track forex gains and losses as percentages',
+            'Perfect for travelers, forex traders, and international businesses',
+            'Compare currency conversion costs across different providers',
+            'Essential for travel budgeting and international transactions',
+            'Real-time calculation for quick currency analysis',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'FinanceApplication'
+        },
       },
       {
         slug: 'compound-growth',
@@ -1268,6 +1745,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Compound Growth Calculator is a powerful analytical tool that calculates CAGR (Compound Annual Growth Rate) and projects compound growth over time for business metrics, investments, and any growth scenario. Whether you\'re analyzing revenue growth rates, tracking user base expansion, measuring investment performance, evaluating company valuation changes, projecting population growth, or comparing growth rates across different time periods, this calculator provides accurate CAGR calculations and future projections. Perfect for business analysts, investors, entrepreneurs, financial planners, and data analysts. CAGR is superior to simple average growth because it accounts for the compounding effect - growth building upon previous growth. Essential for startup pitch decks, investment analysis, business planning, and understanding true growth rates that can be fairly compared across different time periods and investment types.',
+          featureList: [
+            'Calculate CAGR (Compound Annual Growth Rate) accurately',
+            'Project future values based on historical growth rates',
+            'Perfect for business metrics, investments, and population tracking',
+            'Compare growth rates across different time periods fairly',
+            'Essential for startup analysis and investment decisions',
+            'Understand the difference between CAGR and simple averages',
+            'Real-time calculation with instant results',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'FinanceApplication'
+        },
       },
       {
         slug: 'loan-payment',
@@ -1303,6 +1794,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Loan Payment Percentage Calculator is a critical financial health tool that calculates your debt-to-income (DTI) ratio by determining what percentage of your income goes toward loan and debt payments. Whether you\'re applying for a mortgage, auto loan, or personal loan, planning to take on new debt, evaluating current financial health, or preparing loan applications, this calculator provides the DTI ratio that lenders use to evaluate your creditworthiness. Essential for prospective borrowers, homebuyers, financial advisors, and anyone managing debt. Lenders typically prefer DTI ratios under 36%, with ratios over 43% making loan approval difficult. The tool helps you understand if you can afford additional debt, need to pay down existing obligations, or should increase income before borrowing. Perfect for financial planning, loan preparation, and maintaining healthy debt levels.',
+          featureList: [
+            'Calculate debt-to-income (DTI) ratio percentage',
+            'Essential for mortgage, auto loan, and personal loan applications',
+            'Determine if you can afford additional debt',
+            'Understand lender requirements (typically under 36-43% DTI)',
+            'Perfect for financial planning and debt management',
+            'Identify if debt reduction or income increase is needed',
+            'Real-time calculation for quick financial assessment',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'FinanceApplication'
+        },
       },
       {
         slug: 'budget-percentage',
@@ -1340,6 +1845,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Budget Percentage Calculator is an essential personal finance tool that calculates what percentage of your income or total budget goes to each expense category, helping you follow proven budgeting rules like the 50/30/20 method. Whether you\'re creating your first budget, analyzing current spending habits, following the 50/30/20 rule (50% needs, 30% wants, 20% savings), tracking housing costs, or evaluating expense distributions, this calculator provides clear percentage breakdowns instantly. Perfect for budget-conscious individuals, financial planners, anyone trying to save more, and people wanting to understand where their money goes. The tool helps identify overspending categories, ensures housing costs stay under 30%, validates you\'re saving enough, and compares your spending to recommended guidelines. Essential for financial wellness, achieving savings goals, and making data-driven budget adjustments.',
+          featureList: [
+            'Calculate percentage of income for each budget category',
+            'Apply and track the 50/30/20 budgeting rule',
+            'Ensure housing costs stay under recommended 28-30%',
+            'Identify overspending categories at a glance',
+            'Perfect for personal finance and budget optimization',
+            'Compare spending to recommended percentage guidelines',
+            'Real-time calculation for quick budget analysis',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'FinanceApplication'
+        },
       },
       {
         slug: 'calorie-percentage',
@@ -1379,6 +1898,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Calorie Percentage Calculator is a specialized nutrition tool that calculates macronutrient distribution percentages (protein, carbohydrates, and fats) in your diet to help you meet fitness and health goals. Whether you\'re bodybuilding and need high protein, following a keto diet with high fat percentages, training for endurance with high carbs, managing weight loss with balanced macros, or simply wanting to eat healthier, this calculator shows your current macro distribution and helps you adjust to reach targets. Perfect for fitness enthusiasts, bodybuilders, dietitians, nutritionists, weight loss clients, and health-conscious individuals. The tool converts grams of each macronutrient to calories (protein: 4 cal/g, carbs: 4 cal/g, fat: 9 cal/g) and calculates percentages. Essential for meal planning, tracking nutrition apps, achieving body composition goals, and understanding how your diet breaks down beyond just total calories.',
+          featureList: [
+            'Calculate macronutrient percentages (protein, carbs, fats)',
+            'Convert grams to calories automatically for each macro',
+            'Perfect for bodybuilding, weight loss, and fitness goals',
+            'Essential for keto, high-protein, and balanced diets',
+            'Compare current macros to recommended distributions',
+            'Plan meals to hit target macro percentages',
+            'Real-time calculation for nutrition tracking',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'HealthApplication'
+        },
       },
       {
         slug: 'time-percentage',
@@ -1415,6 +1948,20 @@ export const CATEGORIES: Category[] = [
         ],
         lastUpdated: '2025-11-13',
         schemaType: 'HowTo',
+        webAppSchema: {
+          detailedDescription: 'The Time Percentage Calculator is a versatile productivity and project management tool that calculates what percentage of time has elapsed or remains for any time period or project timeline. Whether you\'re tracking project completion percentages, analyzing how you allocate work hours, measuring progress through a workday or deadline, applying the 80/20 Pareto Principle to time management, or understanding time distributions across activities, this calculator provides instant percentage calculations. Perfect for project managers, productivity enthusiasts, students tracking study time, professionals managing deadlines, and anyone wanting to quantify time usage. The tool helps visualize progress (e.g., "45% of the project timeline has passed"), identify if you\'re on track, and make time allocation decisions. Essential for deadline management, productivity analysis, time blocking strategies, and understanding where your time actually goes versus where you think it goes.',
+          featureList: [
+            'Calculate percentage of time elapsed or remaining',
+            'Track project progress as percentage of timeline',
+            'Analyze time allocation across different activities',
+            'Perfect for project management and deadline tracking',
+            'Apply 80/20 rule to time management and productivity',
+            'Essential for productivity analysis and time blocking',
+            'Real-time calculation for instant progress updates',
+            'Completely free with no registration and privacy-focused'
+          ],
+          applicationCategory: 'UtilitiesApplication'
+        },
       },
     ],
     comingSoon: [],
