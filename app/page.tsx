@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import { CATEGORIES, getAllCalculators } from '@/data/calculators';
 import {
   Calculator,
@@ -11,7 +12,79 @@ import {
   BookOpen,
   Zap,
   Target,
+  TrendingUp,
+  Home,
+  Percent,
+  Scale,
 } from 'lucide-react';
+
+// Priority calculators for internal linking - 8 high-value tools
+const priorityCalculators = [
+  {
+    title: 'Discount Calculator',
+    description: 'Calculate savings on any purchase',
+    href: '/calculators/finance/discount',
+    icon: ShoppingCart,
+    badge: 'Most Popular',
+    anchor: 'Calculate Your Discount Now',
+  },
+  {
+    title: 'Mortgage Calculator',
+    description: 'Estimate your monthly payments',
+    href: '/calculators/finance/mortgage-calculator',
+    icon: Home,
+    badge: 'High Demand',
+    anchor: 'Find Your Mortgage Payment',
+  },
+  {
+    title: 'Final Grade Calculator',
+    description: 'Calculate your course grade',
+    href: '/calculators/education/final-grade',
+    icon: GraduationCap,
+    badge: 'Popular',
+    anchor: 'Calculate Your Final Grade',
+  },
+  {
+    title: 'Sales Tax Calculator',
+    description: 'Find your total cost with tax',
+    href: '/calculators/finance/sales-tax',
+    icon: DollarSign,
+    badge: null,
+    anchor: 'Find Your Total Cost',
+  },
+  {
+    title: 'Compound Interest Calculator',
+    description: 'Calculate investment growth',
+    href: '/calculators/finance/compound-interest',
+    icon: TrendingUp,
+    badge: null,
+    anchor: 'Calculate Investment Growth',
+  },
+  {
+    title: 'Weighted Grade Calculator',
+    description: 'Calculate weighted averages',
+    href: '/calculators/education/weighted-grade',
+    icon: Calculator,
+    badge: null,
+    anchor: 'Calculate Weighted Grades',
+  },
+  {
+    title: 'Grade Needed Calculator',
+    description: 'Find what grade you need to pass',
+    href: '/calculators/education/grade-needed',
+    icon: Target,
+    badge: null,
+    anchor: 'What Grade Do I Need?',
+  },
+  {
+    title: 'Ratio Calculator',
+    description: 'Compare numbers easily',
+    href: '/calculators/daily/ratio-calculator',
+    icon: Scale,
+    badge: null,
+    anchor: 'Compare Numbers Easily',
+  },
+];
 
 const iconMap = {
   'calculator': Calculator,
@@ -70,6 +143,22 @@ export default function HomePage() {
             <Button asChild variant="outline" size="lg" className="min-h-[48px] text-base font-semibold">
               <Link href="/about">About PercentLab</Link>
             </Button>
+          </div>
+
+          {/* Quick Links to Popular Calculators */}
+          <div className="mt-8 flex flex-wrap justify-center gap-2 px-4">
+            <span className="text-sm text-muted-foreground mr-2">Popular:</span>
+            <Link href="/calculators/finance/discount" className="text-sm text-primary hover:underline font-medium">
+              Discount Calculator
+            </Link>
+            <span className="text-muted-foreground">·</span>
+            <Link href="/calculators/finance/mortgage-calculator" className="text-sm text-primary hover:underline font-medium">
+              Mortgage Calculator
+            </Link>
+            <span className="text-muted-foreground">·</span>
+            <Link href="/calculators/education/final-grade" className="text-sm text-primary hover:underline font-medium">
+              Final Grade Calculator
+            </Link>
           </div>
         </section>
 
@@ -194,6 +283,62 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Quick Access Grid - 8 Priority Calculators */}
+        <section className="mb-12 md:mb-16">
+          <div className="text-center mb-6 md:mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2 px-4">Quick Access Tools</h2>
+            <p className="text-muted-foreground px-4">Jump directly to our most-used calculators</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+            {priorityCalculators.map((calc) => {
+              const IconComponent = calc.icon;
+              return (
+                <Link
+                  key={calc.href}
+                  href={calc.href}
+                  className="group relative p-4 md:p-5 rounded-xl border bg-card hover:shadow-lg hover:border-primary/50 transition-all duration-200"
+                >
+                  {calc.badge && (
+                    <Badge className="absolute -top-2 -right-2 text-xs" variant="default">
+                      {calc.badge}
+                    </Badge>
+                  )}
+                  <div className="flex flex-col items-center text-center space-y-2">
+                    <div className="p-2.5 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                      <IconComponent className="h-5 w-5 text-primary" />
+                    </div>
+                    <h3 className="font-semibold text-sm md:text-base leading-tight">{calc.title}</h3>
+                    <p className="text-xs text-muted-foreground hidden sm:block">{calc.description}</p>
+                    <span className="text-xs text-primary font-medium group-hover:underline flex items-center gap-1">
+                      {calc.anchor} <ArrowRight className="h-3 w-3" />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Hub Page Links */}
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/calculators/finance"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/5 hover:bg-primary/10 border border-primary/20 transition-colors"
+            >
+              <DollarSign className="h-4 w-4 text-primary" />
+              <span className="text-sm font-medium">Browse All Financial Tools</span>
+              <ArrowRight className="h-3 w-3 text-primary" />
+            </Link>
+            <Link
+              href="/calculators/education"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/5 hover:bg-primary/10 border border-primary/20 transition-colors"
+            >
+              <GraduationCap className="h-4 w-4 text-primary" />
+              <span className="text-sm font-medium">Browse All Education Tools</span>
+              <ArrowRight className="h-3 w-3 text-primary" />
+            </Link>
+          </div>
+        </section>
+
         {/* Ad Slot */}
         <div className="ad-slot max-w-4xl mx-auto my-8 min-h-[100px] flex items-center justify-center bg-muted/30 rounded-lg border border-dashed border-muted-foreground/20">
           <span className="text-xs text-muted-foreground">Advertisement</span>
@@ -249,7 +394,7 @@ export default function HomePage() {
                 <CardContent className="pt-6">
                   <h3 className="font-semibold mb-3">For Students</h3>
                   <p className="text-sm text-muted-foreground">
-                    Calculate grade percentages, understand test scores, and track academic progress with our education-focused calculators. Whether you need to calculate your semester GPA, determine what grade you need on a final exam, or understand weighted grades, our tools provide clear step-by-step solutions that help you learn the underlying concepts while getting accurate results.
+                    Calculate grade percentages, understand test scores, and track academic progress with our education-focused calculators. Whether you need to calculate your semester GPA, <Link href="/calculators/education/grade-needed" className="text-primary hover:underline font-medium">find out what grade you need</Link> on a final exam, or understand <Link href="/calculators/education/weighted-grade" className="text-primary hover:underline font-medium">weighted grades</Link>, our tools provide clear step-by-step solutions. <Link href="/calculators/education/final-grade" className="text-primary hover:underline font-medium">Calculate your final grade</Link> with ease.
                   </p>
                 </CardContent>
               </Card>
@@ -258,7 +403,7 @@ export default function HomePage() {
                 <CardContent className="pt-6">
                   <h3 className="font-semibold mb-3">For Professionals</h3>
                   <p className="text-sm text-muted-foreground">
-                    Analyze ROI, profit margins, and financial metrics with professional-grade calculators designed for business use. Our financial calculators help you make informed decisions about investments, loans, mortgages, and business finances. Calculate compound interest, commission rates, markup percentages, and investment returns with precision and confidence.
+                    Analyze ROI, profit margins, and financial metrics with professional-grade calculators designed for business use. Our financial calculators help you make informed decisions about investments, loans, and business finances. <Link href="/calculators/finance/mortgage-calculator" className="text-primary hover:underline font-medium">Analyze mortgage payments</Link> for real estate decisions, <Link href="/calculators/finance/compound-interest" className="text-primary hover:underline font-medium">calculate compound interest</Link> for investments, and plan with precision and confidence.
                   </p>
                 </CardContent>
               </Card>
@@ -267,7 +412,7 @@ export default function HomePage() {
                 <CardContent className="pt-6">
                   <h3 className="font-semibold mb-3">For Shoppers</h3>
                   <p className="text-sm text-muted-foreground">
-                    Calculate discounts, sales tax, tip amounts, and final prices with our everyday shopping calculators. Find out how much you save during sales, determine the best deals when comparing products, calculate tips at restaurants, and understand the true cost of purchases including taxes and fees. Make smarter shopping decisions with quick, accurate calculations.
+                    <Link href="/calculators/finance/discount" className="text-primary hover:underline font-medium">Calculate discounts</Link> and savings on any purchase, find your total cost with our <Link href="/calculators/finance/sales-tax" className="text-primary hover:underline font-medium">sales tax calculator</Link>, and determine final prices with our everyday shopping calculators. Find out how much you save during sales, determine the best deals when comparing products, and make smarter shopping decisions with quick, accurate calculations.
                   </p>
                 </CardContent>
               </Card>
@@ -307,25 +452,25 @@ export default function HomePage() {
             <div>
               <h3 className="text-lg font-semibold mb-2">In Finance and Business</h3>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Percentages are essential in financial calculations. Interest rates on loans and savings accounts are expressed as percentages. Investment returns, profit margins, commission rates, and tax calculations all rely on percentage computations. Understanding these calculations helps you make better financial decisions, whether you're evaluating a mortgage offer, comparing investment opportunities, or setting business pricing strategies.
+                Percentages are essential in financial calculations. Interest rates on loans and savings accounts are expressed as percentages. Use our <Link href="/calculators/finance/compound-interest" className="text-primary hover:underline font-medium">compound interest calculator</Link> to see how investments grow over time, or our <Link href="/calculators/finance/mortgage-calculator" className="text-primary hover:underline font-medium">mortgage calculator</Link> to evaluate loan offers. Understanding these calculations helps you make better financial decisions and compare investment opportunities effectively.
               </p>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-2">In Education</h3>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Academic grading systems commonly use percentages to represent student performance. Grade point averages, test scores, assignment weights, and course grades are all calculated using percentage methods. Students and teachers use percentage calculators to determine final grades, calculate what score is needed on future assignments, and understand weighted grade systems where different assignments contribute different amounts to the final grade.
+                Academic grading systems commonly use percentages to represent student performance. Use our <Link href="/calculators/education/final-grade" className="text-primary hover:underline font-medium">final grade calculator</Link> to determine course grades, our <Link href="/calculators/education/grade-needed" className="text-primary hover:underline font-medium">grade needed calculator</Link> to find what score you need on future assignments, or our <Link href="/calculators/education/weighted-grade" className="text-primary hover:underline font-medium">weighted grade calculator</Link> to understand how different assignments contribute to your final grade.
               </p>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-2">In Shopping and Retail</h3>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Retail discounts, sales promotions, and price comparisons all involve percentage calculations. When stores advertise "30% off" or "save 50%," understanding these percentages helps you determine actual savings and final prices. Sales tax rates, tip calculations, and loyalty program rewards also use percentages, making these calculators valuable for everyday shopping decisions.
+                Retail discounts, sales promotions, and price comparisons all involve percentage calculations. When stores advertise "30% off" or "save 50%," use our <Link href="/calculators/finance/discount" className="text-primary hover:underline font-medium">discount calculator</Link> to determine actual savings and final prices. Our <Link href="/calculators/finance/sales-tax" className="text-primary hover:underline font-medium">sales tax calculator</Link> helps you understand the true cost of purchases including taxes and fees.
               </p>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-2">In Data Analysis and Statistics</h3>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Percentages help us understand proportions and make comparisons in data analysis. Percentage change calculations show growth or decline over time. Market share, survey results, demographic statistics, and scientific measurements often use percentages to communicate findings in an easily understandable format. Converting raw numbers to percentages makes data more interpretable and comparable across different scales.
+                Percentages help us understand proportions and make comparisons in data analysis. Our <Link href="/calculators/daily/ratio-calculator" className="text-primary hover:underline font-medium">ratio calculator</Link> helps you compare numbers and understand proportions easily. Percentage change calculations show growth or decline over time. Market share, survey results, and demographic statistics often use percentages to communicate findings in an easily understandable format.
               </p>
             </div>
           </div>
