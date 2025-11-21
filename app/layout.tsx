@@ -61,6 +61,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    other: {
+      'msvalidate.01': '2D132559A5A87D89B25589B29928083A',
+    },
   },
 };
 
