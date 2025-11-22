@@ -339,6 +339,56 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Popular Percentage Calculations */}
+        <section className="mb-12 md:mb-16">
+          <div className="text-center mb-6 md:mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2 px-4">Popular Percentage Calculations</h2>
+            <p className="text-muted-foreground px-4">Quick answers to the most searched percentage questions</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+            {[
+              { percent: 20, number: 100, result: 20 },
+              { percent: 15, number: 200, result: 30 },
+              { percent: 10, number: 150, result: 15 },
+              { percent: 25, number: 100, result: 25 },
+              { percent: 50, number: 200, result: 100 },
+              { percent: 30, number: 100, result: 30 },
+              { percent: 20, number: 150, result: 30 },
+              { percent: 10, number: 100, result: 10 },
+            ].map(({ percent, number, result }) => (
+              <Link
+                key={`${percent}-${number}`}
+                href={`/what-is-${percent}-percent-of-${number}`}
+                className="group p-4 md:p-5 rounded-xl border bg-card hover:shadow-lg hover:border-primary/50 transition-all duration-200"
+              >
+                <div className="flex flex-col items-center text-center space-y-2">
+                  <div className="p-2.5 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                    <Percent className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-sm md:text-base leading-tight">
+                    {percent}% of ${number}
+                  </h3>
+                  <div className="text-lg font-bold text-primary">
+                    ${result}
+                  </div>
+                  <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors flex items-center gap-1">
+                    View Calculation <ArrowRight className="h-3 w-3" />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-6">
+            <p className="text-sm text-muted-foreground px-4">
+              Need a different calculation? Try our{' '}
+              <Link href="/calculators/basic-percent/percent-of" className="text-primary hover:underline font-medium">
+                Percent Of Calculator
+              </Link>
+              {' '}for any percentage
+            </p>
+          </div>
+        </section>
+
         {/* Ad Slot */}
         <div className="ad-slot max-w-4xl mx-auto my-8 min-h-[100px] flex items-center justify-center bg-muted/30 rounded-lg border border-dashed border-muted-foreground/20">
           <span className="text-xs text-muted-foreground">Advertisement</span>
