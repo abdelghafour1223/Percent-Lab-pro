@@ -381,6 +381,51 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
           </section>
         )}
 
+        {/* Popular Calculations - Show only for percent-of calculator */}
+        {slug === 'percent-of' && (
+          <section className="mb-12">
+            <h2 className="text-3xl font-bold mb-6">Popular Percentage Calculations</h2>
+            <p className="text-muted-foreground mb-6">Quick answers to the most common percentage questions</p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              {[
+                { percent: 10, number: 100 },
+                { percent: 15, number: 100 },
+                { percent: 20, number: 100 },
+                { percent: 25, number: 100 },
+                { percent: 20, number: 150 },
+                { percent: 30, number: 200 },
+                { percent: 10, number: 500 },
+                { percent: 15, number: 200 },
+                { percent: 50, number: 100 },
+                { percent: 25, number: 200 },
+                { percent: 10, number: 1000 },
+                { percent: 20, number: 500 },
+              ].map(({ percent, number }) => {
+                const result = (percent / 100) * number;
+                return (
+                  <Link
+                    key={`${percent}-${number}`}
+                    href={`/what-is-${percent}-percent-of-${number}`}
+                    className="group p-4 rounded-lg border bg-card hover:shadow-lg hover:border-primary/50 transition-all"
+                  >
+                    <div className="text-center space-y-2">
+                      <div className="text-sm font-medium text-muted-foreground">
+                        {percent}% of ${number}
+                      </div>
+                      <div className="text-xl font-bold text-primary">
+                        ${result.toFixed(2)}
+                      </div>
+                      <div className="text-xs text-muted-foreground group-hover:text-primary transition-colors flex items-center justify-center gap-1">
+                        View Details <ArrowRight className="h-3 w-3" />
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
         {/* Learning Hub CTA */}
         <section className="mb-12 max-w-4xl mx-auto">
           <Card className="bg-primary/5 border-primary/20">

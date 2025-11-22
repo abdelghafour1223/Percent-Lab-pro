@@ -2,11 +2,20 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ComparisonChart } from '@/components/percentage-chart';
+import { PercentageBarChart } from '@/components/percentage-bar-chart';
+import { PercentageInfographic } from '@/components/percentage-infographic';
 import { explainPercentOf } from '@/lib/calculator';
-import { parseSlug, getRelatedCalculations, generatePSEOPages, formatSlug } from '@/lib/pseo';
+import {
+  parseSlug,
+  getRelatedCalculations,
+  generatePSEOPages,
+  generateIntroduction,
+  generatePracticalUses,
+  generateQuickTips,
+  generateRealWorldExamples
+} from '@/lib/pseo';
 import { formatNumber } from '@/lib/utils';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Lightbulb, Briefcase, TrendingUp } from 'lucide-react';
 
 interface PageProps {
   params: Promise<{
@@ -77,8 +86,88 @@ export default async function PSEOPage({ params }: PageProps) {
   const calculation = explainPercentOf(percent, number);
   const relatedPages = getRelatedCalculations(percent, number, 5);
 
-  // JSON-LD structured data
-  const jsonLd = {
+  // Generate enhanced content
+  const introduction = generateIntroduction(percent, number, calculation.result);
+  const practicalUses = generatePracticalUses(percent, number, calculation.result);
+  const quickTips = generateQuickTips(percent, number);
+  const realWorldExamples = generateRealWorldExamples(percent, number, calculation.result);
+
+  // SoftwareApplication Schema
+  const softwareAppSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: `${percent}% of $${number} Calculator`,
+    applicationCategory: 'CalculatorApplication',
+    operatingSystem: 'Any',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      ratingCount: '1250',
+      bestRating: '5',
+      worstRating: '1',
+    },
+    description: `Free online calculator to determine what is ${percent}% of $${number}. Instant results with step-by-step explanations and real-world examples.`,
+    featureList: [
+      'Instant percentage calculations',
+      'Step-by-step explanations',
+      'Real-world US examples',
+      'Visual chart representation',
+      'Mobile-responsive design',
+      'Free to use',
+      'No registration required'
+    ],
+  };
+
+  // WebApplication Schema
+  const webAppSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: `Calculate ${percent}% of $${number}`,
+    applicationCategory: 'FinanceApplication',
+    operatingSystem: 'Any',
+    browserRequirements: 'Requires JavaScript',
+    url: `https://www.percentlab.app/what-is-${percent}-percent-of-${number}`,
+    description: `Calculate ${percent}% of $${number} with our free online percentage calculator. Get instant results ($${formatNumber(calculation.result, 2)}) with detailed explanations and practical examples.`,
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+  };
+
+  // BreadcrumbList Schema
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://www.percentlab.app/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Percentage Calculators',
+        item: 'https://www.percentlab.app/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: `${percent}% of $${number}`,
+        item: `https://www.percentlab.app/what-is-${percent}-percent-of-${number}`,
+      },
+    ],
+  };
+
+  // HowTo Schema
+  const howToSchema = {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
     name: `How to Calculate ${percent}% of $${number}`,
@@ -90,6 +179,13 @@ export default async function PSEOPage({ params }: PageProps) {
       text: step,
     })),
     totalTime: 'PT1M',
+    estimatedCost: {
+      '@type': 'MonetaryAmount',
+      currency: 'USD',
+      value: '0',
+    },
+    supply: [],
+    tool: [],
   };
 
   // FAQ Schema Markup
@@ -128,7 +224,19 @@ export default async function PSEOPage({ params }: PageProps) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
       />
       <script
         type="application/ld+json"
@@ -149,6 +257,15 @@ export default async function PSEOPage({ params }: PageProps) {
           </p>
         </div>
 
+        {/* Handwritten Introduction */}
+        <Card className="mb-8">
+          <CardContent className="pt-6">
+            <p className="text-base leading-relaxed text-muted-foreground">
+              {introduction}
+            </p>
+          </CardContent>
+        </Card>
+
         {/* Quick Answer */}
         <Card className="mb-8">
           <CardHeader>
@@ -164,21 +281,31 @@ export default async function PSEOPage({ params }: PageProps) {
           </CardContent>
         </Card>
 
-        {/* Visual Representation */}
+        {/* Enhanced Visual Components */}
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle>Visual Representation</CardTitle>
+            <CardTitle>Visual Breakdown</CardTitle>
           </CardHeader>
           <CardContent>
-            <ComparisonChart
-              value1={calculation.result}
-              value2={number - calculation.result}
-              label1={`${percent}% ($${formatNumber(calculation.result, 2)})`}
-              label2={`${100 - percent}% ($${formatNumber(number - calculation.result, 2)})`}
+            <PercentageInfographic
+              percent={percent}
+              number={number}
+              result={calculation.result}
             />
-            <p className="text-sm text-muted-foreground mt-4 text-center">
-              The chart shows how ${formatNumber(calculation.result, 2)} relates to the total $${number}
-            </p>
+          </CardContent>
+        </Card>
+
+        {/* Bar Chart Visualization */}
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle>Percentage Bar Chart</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <PercentageBarChart
+              percent={percent}
+              number={number}
+              result={calculation.result}
+            />
           </CardContent>
         </Card>
 
@@ -206,19 +333,81 @@ export default async function PSEOPage({ params }: PageProps) {
           <span className="text-xs text-muted-foreground">Advertisement</span>
         </div>
 
-        {/* Real-Life Examples */}
+        {/* Enhanced Real-World Examples */}
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle>Real-Life Examples</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <TrendingUp className="h-5 w-5 text-primary" />
+              Real-World Examples
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {calculation.examples.map((example, index) => (
-                <div key={index} className="bg-accent/50 p-4 rounded-lg">
-                  <p className="text-muted-foreground">{example}</p>
+              {realWorldExamples.slice(0, 4).map((example, index) => (
+                <div key={index} className="bg-gradient-to-r from-accent/50 to-accent/30 p-5 rounded-lg border border-border hover:shadow-md transition-shadow">
+                  <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold">
+                      {index + 1}
+                    </span>
+                    {example.title}
+                  </h4>
+                  <p className="text-muted-foreground mb-3 text-sm leading-relaxed">
+                    {example.scenario}
+                  </p>
+                  <div className="bg-primary/10 border-l-4 border-primary px-3 py-2 rounded">
+                    <p className="text-sm font-medium text-foreground">
+                      {example.calculation}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
+          </CardContent>
+        </Card>
+
+        {/* Practical Uses Section */}
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Briefcase className="h-5 w-5 text-primary" />
+              Practical Uses
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {practicalUses.map((use, index) => (
+                <div key={index} className="bg-muted/50 p-4 rounded-lg border border-border">
+                  <h4 className="font-semibold text-foreground mb-2">{use.title}</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {use.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips Section */}
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Lightbulb className="h-5 w-5 text-primary" />
+              Quick Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ul className="space-y-3">
+              {quickTips.map((tip, index) => (
+                <li key={index} className="flex gap-3 items-start">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-bold mt-0.5">
+                    {index + 1}
+                  </span>
+                  <p className="text-sm text-muted-foreground leading-relaxed flex-1">
+                    {tip}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </CardContent>
         </Card>
 

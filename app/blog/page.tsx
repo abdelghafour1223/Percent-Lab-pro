@@ -163,6 +163,52 @@ export default function BlogPage() {
           </div>
         </section>
 
+        {/* Popular Examples Section */}
+        <section className="mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4 px-4">
+            Quick Percentage Examples
+          </h2>
+          <p className="text-center text-muted-foreground mb-6 md:mb-8 px-4">
+            Learn by example — see step-by-step solutions to common percentage questions
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+            {[
+              { percent: 20, number: 100, context: 'Common discount' },
+              { percent: 15, number: 200, context: 'Typical tax rate' },
+              { percent: 25, number: 100, context: 'Quarter value' },
+              { percent: 10, number: 500, context: 'Service tip' },
+              { percent: 50, number: 200, context: 'Half off sale' },
+              { percent: 30, number: 100, context: 'Popular discount' },
+              { percent: 20, number: 150, context: 'Savings example' },
+              { percent: 10, number: 1000, context: 'Large purchase' },
+            ].map(({ percent, number, context }) => {
+              const result = (percent / 100) * number;
+              return (
+                <Link
+                  key={`${percent}-${number}`}
+                  href={`/what-is-${percent}-percent-of-${number}`}
+                  className="group p-4 rounded-lg border bg-card hover:shadow-lg hover:border-primary/50 transition-all"
+                >
+                  <div className="text-center space-y-2">
+                    <div className="text-xs text-muted-foreground uppercase tracking-wide">
+                      {context}
+                    </div>
+                    <div className="text-sm font-medium">
+                      {percent}% of ${number}
+                    </div>
+                    <div className="text-xl font-bold text-primary">
+                      ${result.toFixed(2)}
+                    </div>
+                    <div className="text-xs text-muted-foreground group-hover:text-primary transition-colors flex items-center justify-center gap-1">
+                      See Breakdown <ArrowRight className="h-3 w-3" />
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="max-w-3xl mx-auto text-center">
           <Card className="bg-primary/5 border-primary/20">
