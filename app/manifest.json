@@ -1,6 +1,6 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "PercentLab - Free Percentage Calculator & Tools",
+  "short_name": "PercentLab",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

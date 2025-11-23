@@ -65,6 +65,15 @@ export const metadata: Metadata = {
       'msvalidate.01': '2D132559A5A87D89B25589B29928083A',
     },
   },
+  icons: {
+    icon: [
+      { url: '/icon0.svg', type: 'image/svg+xml' },
+      { url: '/icon1.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon.ico', sizes: '48x48' },
+    ],
+    apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({
