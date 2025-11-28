@@ -81,9 +81,36 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'PercentLab',
+    url: 'https://www.percentlab.app/',
+    logo: 'https://www.percentlab.app/logo.png',
+    sameAs: [
+      'https://www.facebook.com/profile.php?id=61584195726259',
+      'https://x.com/percentlab',
+      'https://www.threads.net/@percentlab_app',
+      'https://www.pinterest.com/percentlab/',
+      'https://www.instagram.com/percentlab_app/',
+      'https://www.linkedin.com/in/percentlab-app/',
+      'https://www.reddit.com/user/Percentlab/',
+      'https://www.quora.com/profile/Percentlab',
+      'https://medium.com/@percentlab-app',
+    ],
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen flex flex-col antialiased">
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
