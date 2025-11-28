@@ -63,6 +63,7 @@ export const metadata: Metadata = {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
     other: {
       'msvalidate.01': '2D132559A5A87D89B25589B29928083A',
+      'p:domain_verify': '7ac34e0ff4153e43915ba6b4922f5840',
     },
   },
   icons: {
