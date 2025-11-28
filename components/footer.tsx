@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Twitter, Linkedin, Mail } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -72,8 +73,39 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {currentYear} PercentLab. All rights reserved.</p>
+        <div className="border-t mt-8 pt-8">
+          <div className="flex flex-col items-center gap-4">
+            <div className="flex items-center gap-6">
+              <a
+                href="https://x.com/percentlab"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Follow us on X (Twitter)"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/percentlab-app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Connect with us on LinkedIn"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                href="mailto:contact@percentlab.app"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Email us"
+              >
+                <Mail className="h-5 w-5" />
+              </a>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              &copy; {currentYear} PercentLab. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
