@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Twitter, Linkedin, Mail } from 'lucide-react';
+import { Twitter, Linkedin, Mail, Youtube } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -84,6 +84,15 @@ export function Footer() {
                 aria-label="Follow us on X (Twitter)"
               >
                 <Twitter className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.youtube.com/@Percentlab"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Subscribe to our YouTube channel"
+              >
+                <Youtube className="h-5 w-5" />
               </a>
               <a
                 href="https://www.linkedin.com/in/percentlab-app/"
