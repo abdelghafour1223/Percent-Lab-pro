@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { CATEGORIES, getAllCalculators } from '@/data/calculators';
+import VideoSection from '@/components/home/VideoSection';
 import {
   Calculator,
   DollarSign,
@@ -338,6 +339,9 @@ export default function HomePage() {
             </Link>
           </div>
         </section>
+
+        {/* YouTube Video Section */}
+        <VideoSection />
 
         {/* Popular Percentage Calculations */}
         <section className="mb-12 md:mb-16">
