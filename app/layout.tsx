@@ -90,6 +90,7 @@ export default function RootLayout({
     sameAs: [
       'https://www.facebook.com/profile.php?id=61584195726259',
       'https://x.com/percentlab',
+      'https://www.youtube.com/@Percentlab',
       'https://www.threads.net/@percentlab_app',
       'https://www.pinterest.com/percentlab/',
       'https://www.instagram.com/percentlab_app/',
