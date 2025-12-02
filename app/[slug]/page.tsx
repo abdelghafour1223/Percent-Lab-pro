@@ -46,14 +46,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const result = (percent / 100) * number;
 
   return {
-    title: `What is ${percent}% of $${number}? Calculator [2025] | PercentLab`,
-    description: `Calculate ${percent}% of $${number} easily. The answer is $${formatNumber(result, 2)}. Learn the formula with step-by-step explanations, Black Friday discounts, tax calculations, and real-world US examples.`,
+    title: `What is ${percent}% of ${number}? - PercentLab`,
+    description: `Easily calculate what is ${percent} percent of ${number}. The answer is ${formatNumber(result, 2)}. Use our free online percentage calculator for quick and accurate results.`,
     alternates: {
       canonical: `https://www.percentlab.app/${slug}`,
     },
     keywords: [
       `${percent} percent of ${number}`,
-      `${percent}% of $${number}`,
+      `${percent}% of ${number}`,
       `calculate ${percent} percent`,
       'percentage calculator',
       'percent of number',
@@ -61,15 +61,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       'step-by-step calculation',
     ],
     openGraph: {
-      title: `What is ${percent}% of $${number}? Answer: $${formatNumber(result, 2)}`,
-      description: `Calculate ${percent}% of $${number} with detailed explanations and real-world US examples. Free percentage calculator.`,
+      title: `What is ${percent}% of ${number}? - PercentLab`,
+      description: `Easily calculate what is ${percent} percent of ${number}. The answer is ${formatNumber(result, 2)}. Use our free online percentage calculator for quick and accurate results.`,
       type: 'article',
       url: `https://www.percentlab.app/${slug}`,
     },
     twitter: {
       card: 'summary_large_image',
-      title: `What is ${percent}% of $${number}? = $${formatNumber(result, 2)}`,
-      description: `Calculate ${percent}% of $${number} with step-by-step explanations and real-world examples.`,
+      title: `What is ${percent}% of ${number}? - PercentLab`,
+      description: `Easily calculate what is ${percent} percent of ${number}. The answer is ${formatNumber(result, 2)}. Use our free online percentage calculator for quick and accurate results.`,
     },
   };
 }
