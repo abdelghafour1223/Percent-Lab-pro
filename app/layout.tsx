@@ -8,9 +8,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.percentlab.app'),
-  alternates: {
-    canonical: 'https://www.percentlab.app',
-  },
+
   title: {
     default: 'PercentLab - Free Percentage Calculator & Tools',
     template: '%s | PercentLab',
