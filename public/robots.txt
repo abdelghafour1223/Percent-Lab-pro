@@ -1,6 +1,0 @@
-# This file is intentionally minimal.
-# The actual robots.txt is generated dynamically by app/robots.ts
-# Redirects from this file are ignored in favor of the Next.js handler.
-User-agent: *
-Allow: /
-Sitemap: https://www.percentlab.app/sitemap.xml
