@@ -1,54 +1,26 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-// Common search engine bot user agents
-const SEARCH_ENGINE_BOTS = [
-  'googlebot',
-  'bingbot',
-  'slurp', // Yahoo
-  'duckduckbot',
-  'baiduspider',
-  'yandexbot',
-  'facebookexternalhit',
-  'twitterbot',
-  'linkedinbot',
-  'pinterestbot',
-  'applebot',
-];
-
-function isSearchEngineBot(userAgent: string): boolean {
-  const ua = userAgent.toLowerCase();
-  return SEARCH_ENGINE_BOTS.some((bot) => ua.includes(bot));
-}
-
 export function middleware(request: NextRequest) {
-  // Get user agent
-  const userAgent = request.headers.get('user-agent') || '';
+  const host = request.headers.get('host') || '';
+  const url = request.nextUrl.clone();
 
-  // Set appropriate X-Robots-Tag based on user agent
-  const response = NextResponse.next();
-
-  if (isSearchEngineBot(userAgent)) {
-    response.headers.set('X-Robots-Tag', 'index, follow');
-  } else {
-    response.headers.set('X-Robots-Tag', 'index, follow');
+  // Force www canonical — redirect non-www to www with 301
+  if (host === 'percentlab.app' || host.startsWith('percentlab.app:')) {
+    url.host = 'www.percentlab.app';
+    return NextResponse.redirect(url, { status: 301 });
   }
 
-  return response;
+  return NextResponse.next();
 }
 
-// Configure which routes the middleware should run on
 export const config = {
   matcher: [
     /*
-     * Match all request paths except:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - robots.txt (robots file)
-     * - sitemap.xml and related files (sitemap files)
-     * - public files (public directory)
+     * Match all request paths except static assets:
+     * - _next/static, _next/image, favicon.ico
+     * - robots.txt, sitemap files, images
      */
-    '/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.*\\.xml|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+    '/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.*\.xml|.*\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 };

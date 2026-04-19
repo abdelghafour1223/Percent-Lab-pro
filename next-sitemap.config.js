@@ -1,56 +1,25 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://www.percentlab.app',
-  generateRobotsTxt: true,
-  generateIndexSitemap: false,
-  sitemapSize: 7000,
+  siteUrl: 'https://www.percentlab.app',
+  // generateRobotsTxt is DISABLED — robots.txt is handled by app/robots.ts
+  generateRobotsTxt: false,
+  // Sitemap is handled by app/sitemap.ts — this config is kept for reference only
+  exclude: ['/api/*', '/admin/*'],
   changefreq: 'weekly',
   priority: 0.7,
-  exclude: ['/api/*', '/server-sitemap.xml', '/icon.svg', '/opengraph-image.png'],
-
-  robotsTxtOptions: {
-    policies: [
-      { userAgent: '*', allow: '/' },
-      { userAgent: 'Googlebot', allow: '/' },
-      { userAgent: 'Bingbot', allow: '/' },
-    ],
-    additionalSitemaps: [],
-  },
-
+  sitemapSize: 5000,
   transform: async (config, path) => {
+    // Higher priority for homepage and calculators
     let priority = 0.7;
-    let changefreq = 'weekly';
-
-    // ✅ lastmod ثابت حسب نوع الصفحة — مش new Date() كل مرة
-    let lastmod = '2025-11-13';
-
-    if (path === '/') {
-      priority = 1.0;
-      changefreq = 'daily';
-      lastmod = '2026-01-18';
-    } else if (path === '/faq' || path === '/about') {
-      priority = 0.8;
-      changefreq = 'monthly';
-      lastmod = '2026-01-18';
-    } else if (path === '/contact' || path === '/privacy-policy' || path === '/terms-of-use') {
-      priority = 0.5;
-      changefreq = 'monthly';
-      lastmod = '2026-02-01';
-    } else if (path.startsWith('/calculators/')) {
-      priority = 0.7;
-      changefreq = 'weekly';
-      lastmod = '2025-11-13';
-    } else if (path.startsWith('/what-is-')) {
-      priority = 0.6;
-      changefreq = 'monthly';
-      lastmod = '2026-01-18';
-    }
+    if (path === '/') priority = 1.0;
+    else if (path.startsWith('/calculators')) priority = 0.9;
+    else if (path.startsWith('/what-is')) priority = 0.8;
 
     return {
       loc: path,
-      changefreq,
+      changefreq: config.changefreq,
       priority,
-      lastmod,
+      lastmod: new Date().toISOString(),
     };
   },
 };
