@@ -1,9 +1,16 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { CATEGORIES, getAllCalculators } from '@/data/calculators';
 import VideoSection from '@/components/home/VideoSection';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://www.percentlab.app/',
+  },
+};
 import {
   Calculator,
   DollarSign,
@@ -109,11 +116,6 @@ export default function HomePage() {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "1250"
     },
     "description": "Free online percentage calculators organized by category. Calculate percentages, ROI, grades, discounts and more with step-by-step explanations."
   };

@@ -8,13 +8,18 @@ import {
 } from '@/components/ui/accordion';
 
 export const metadata: Metadata = {
-  title: 'FAQ - Percentage Calculator Questions & Answers',
+  title: 'Frequently Asked Questions',
   description:
     'Frequently asked questions about percentage calculations. Learn how to calculate percentages, understand formulas, and solve common percentage problems.',
+  alternates: {
+    canonical: 'https://www.percentlab.app/faq',
+  },
   openGraph: {
-    title: 'FAQ - Percentage Calculator',
+    title: 'Frequently Asked Questions',
     description:
       'Find answers to common questions about percentage calculations and how to use our calculator.',
+    url: 'https://www.percentlab.app/faq',
+    type: 'website',
   },
 };
 

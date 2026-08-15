@@ -8,7 +8,7 @@ import { DiscountCalculator } from '@/components/black-friday/discount-calculato
 
 // Metadata for SEO
 export const metadata: Metadata = {
-  title: '30% Off Black Friday Calculator 2025 | PercentLab',
+  title: '30% Off Black Friday Calculator 2025',
   description: 'Calculate 30% discount instantly. Learn 3 easy methods (mental math, calculator, formula) + Black Friday shopping guide. Save $300 on $1,000 purchases. Free calculator 2025.',
   alternates: {
     canonical: 'https://www.percentlab.app/30-percent-discount-calculator',
@@ -630,7 +630,7 @@ export default function Page() {
                       <td className="border border-muted-foreground/20 p-3 text-sm text-muted-foreground">Decent</td>
                     </tr>
                     <tr>
-                      <td className="border border-muted-foreground/20 p-3"><Link href="/20-percent-discount-calculator" className="text-blue-600 dark:text-blue-400 hover:underline">20% off</Link></td>
+                      <td className="border border-muted-foreground/20 p-3"><Link href="/black-friday-calculator-20-off" className="text-blue-600 dark:text-blue-400 hover:underline">20% off</Link></td>
                       <td className="border border-muted-foreground/20 p-3">$20</td>
                       <td className="border border-muted-foreground/20 p-3">$80</td>
                       <td className="border border-muted-foreground/20 p-3 text-sm text-muted-foreground">Good</td>

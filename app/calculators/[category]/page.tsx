@@ -23,18 +23,18 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
   if (!category) {
     return {
-      title: 'Category Not Found | PercentLab',
+      title: 'Category Not Found',
     };
   }
 
   return {
-    title: `${category.title} - Percentage Calculators | PercentLab`,
+    title: `${category.title} - Percentage Calculators`,
     description: `${category.description} Free online calculators with step-by-step explanations.`,
     alternates: {
       canonical: `https://www.percentlab.app/calculators/${categoryId}`,
     },
     openGraph: {
-      title: `${category.title} | PercentLab`,
+      title: `${category.title}`,
       description: category.description,
       url: `https://www.percentlab.app/calculators/${categoryId}`,
       type: 'website',
@@ -114,6 +114,35 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             )}
           </div>
         </section>
+
+        {/* Common Calculations Quick Reference Hub for Basic Percentages */}
+        {categoryId === 'basic-percent' && (
+          <section className="mb-12">
+            <Card className="border-primary/20 bg-primary/5 hover:bg-primary/10 transition-colors">
+              <CardHeader>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  <div>
+                    <CardTitle className="text-xl mb-1">Common Percentage Calculations Directory</CardTitle>
+                    <CardDescription className="text-sm sm:text-base">
+                      Quick lookup for 50 popular percentage calculations (50, 100, 150, 200, 250, 300, 400, 500, 1000).
+                    </CardDescription>
+                  </div>
+                  <Badge variant="default" className="shrink-0 w-fit">50 Calculations</Badge>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                  Need a pre-calculated answer for common discount, tip, or tax percentages? Browse our complete directory with instant results and step-by-step arithmetic.
+                </p>
+                <Button asChild>
+                  <Link href="/calculators/basic-percent/common-percentage-calculations">
+                    Browse Common Calculations <ArrowRight className="ml-2 h-4 w-4" aria-label="Browse common percentage calculations" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </section>
+        )}
 
         {/* Available Calculators */}
         <section className="mb-12">

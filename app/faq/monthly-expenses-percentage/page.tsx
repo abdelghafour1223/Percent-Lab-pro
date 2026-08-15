@@ -2,13 +2,18 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'How to Calculate the Percentage of Monthly Expenses | Budget Percentage Guide',
+  title: 'How to Calculate Percentage of Monthly Expenses - Budget Guide',
   description:
     'Learn how to calculate what percentage each expense category represents of your monthly budget. Complete guide with examples, the 50/30/20 rule, step-by-step instructions, and practical tips for budget management.',
+  alternates: {
+    canonical: 'https://www.percentlab.app/faq/monthly-expenses-percentage',
+  },
   openGraph: {
-    title: 'How to Calculate the Percentage of Monthly Expenses',
+    title: 'How to Calculate Percentage of Monthly Expenses',
     description:
       'Master budget percentage calculations with our comprehensive guide. Learn to track spending, apply the 50/30/20 rule, and optimize your monthly expenses.',
+    url: 'https://www.percentlab.app/faq/monthly-expenses-percentage',
+    type: 'article',
   },
 };
 

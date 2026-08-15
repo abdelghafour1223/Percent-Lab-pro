@@ -58,12 +58,12 @@ This document outlines all improvements made to PercentLab based on a comprehens
   - Optimized for social sharing
 
 ### Sitemap & Robots
-- ✅ **next-sitemap** configured and working
-  - Sitemap: `public/sitemap.xml`
-  - Robots: `public/robots.txt`
-  - Auto-generated on build (postbuild script)
+- ✅ **Native App Router sitemap & robots** configured
+  - Sitemap: `app/sitemap.ts` (emits `/sitemap.xml`)
+  - Robots: `app/robots.ts` (emits `/robots.txt`)
+  - Auto-generated natively on build
   - Priority weighting by page type
-  - Weekly changefreq for dynamic pages
+  - Weekly/monthly changefreq for dynamic pages
 
 ---
 

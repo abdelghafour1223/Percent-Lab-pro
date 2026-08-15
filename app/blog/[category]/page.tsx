@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: BlogCategoryPageProps): Promi
 
   if (!category) {
     return {
-      title: 'Category Not Found | PercentLab Blog',
+      title: 'Category Not Found',
     };
   }
 

@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: 'Terms of Use',
   description:
     'PercentLab Terms of Use - Read our terms and conditions for using our free percentage calculator service.',
+  alternates: {
+    canonical: 'https://www.percentlab.app/terms-of-use',
+  },
   robots: {
     index: true,
     follow: true,

@@ -94,7 +94,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - `npm run lint` - Run ESLint
 - `npm test` - Run unit tests with Jest
 - `npm run test:e2e` - Run E2E tests with Playwright
-- `npm run generate:sitemap` - Generate sitemap from data manifest
 - `npm run generate:pseo` - Generate programmatic SEO pages (legacy)
 
 ## Project Structure
@@ -107,13 +106,15 @@ percentlab/
 │   │       ├── page.tsx                    # Category page
 │   │       └── [slug]/                     # Calculator detail pages
 │   │           └── page.tsx                # Calculator page
-│   ├── [slug]/                             # Legacy pSEO pages (50 pages)
+│   ├── [slug]/                             # Dynamic PSEO pages (48 combinations)
 │   │   └── page.tsx                        # Dynamic route handler
 │   ├── about/                              # About page
 │   ├── contact/                            # Contact form page
 │   ├── faq/                                # FAQ page
 │   ├── privacy-policy/                     # Privacy policy
 │   ├── terms-of-use/                       # Terms of use
+│   ├── sitemap.ts                          # Native App Router sitemap
+│   ├── robots.ts                           # Native App Router robots.txt
 │   ├── layout.tsx                          # Root layout with providers
 │   ├── page.tsx                            # Homepage (categories overview)
 │   └── globals.css                         # Global styles
@@ -127,18 +128,16 @@ percentlab/
 │   ├── adsense.tsx                         # AdSense components
 │   └── analytics.tsx                       # GA4 integration
 ├── data/                                   # Data manifest
-│   └── calculators.ts                      # Single source of truth for calculators
+│   ├── calculators.ts                      # Single source of truth for calculators
+│   └── blog.ts                             # Blog categories manifest
 ├── lib/                                    # Utility functions
 │   ├── __tests__/                          # Unit tests
 │   ├── calculator.ts                       # Core calculation logic
 │   ├── pseo.ts                             # Programmatic SEO utilities
 │   └── utils.ts                            # Helper functions
-├── scripts/                                # Build scripts
-│   └── generate-sitemap.ts                 # Sitemap generator from manifest
 ├── e2e/                                    # E2E tests
 │   └── calculator.spec.ts                  # Playwright tests
-├── middleware.ts                           # Edge middleware (geo-blocking)
-├── next-sitemap.config.js                  # Sitemap configuration
+├── middleware.ts                           # Edge middleware (host normalization)
 ├── jest.config.js                          # Jest configuration
 ├── playwright.config.ts                    # Playwright configuration
 └── tailwind.config.ts                      # Tailwind configuration
@@ -218,37 +217,26 @@ export interface Category {
 
 2. Add calculation logic to `components/calculator-form.tsx` in the `calculateResult()` function
 
-3. Run build - pages are generated automatically:
+3. Run build - pages and sitemap are generated automatically:
 
 ```bash
 npm run build
 ```
 
-4. Generate updated sitemap:
-
-```bash
-npm run generate:sitemap
-```
-
 ## Sitemap Generation
 
-The sitemap is automatically generated from the data manifest:
+The sitemap is dynamically provided by Next.js App Router at `app/sitemap.ts` (`/sitemap.xml`) from the central data manifests and PSEO generator:
 
-```bash
-# Generate sitemap from data/calculators.ts
-npm run generate:sitemap
-```
+The sitemap includes:
+- Static informational pages (`/`, `/about`, `/contact`, `/faq`, `/privacy-policy`, `/terms-of-use`, `/blog`)
+- All calculator category hubs (`/calculators/[category]`)
+- All individual calculator pages (`/calculators/[category]/[slug]`) with `lastmod` timestamps
+- Blog category pages (`/blog/[category]`)
+- Sub-FAQ guide pages
+- Standalone landing/calculation pages
+- Dynamic programmatic calculation pages (`/what-is-X-percent-of-Y`)
 
-This creates `public/sitemap-calculators.xml` with:
-- All static pages (6)
-- All category pages (4)
-- All calculator pages (4+) with `lastmod` from manifest
-
-The sitemap includes proper priorities and changefreq values:
-- Homepage: priority 1.0, daily
-- Categories: priority 0.9, weekly
-- Calculators: priority 0.8, weekly (with lastmod dates)
-- Static pages: priority 0.5-0.8, monthly/yearly
+Priorities and change frequencies are configured directly in `app/sitemap.ts`.
 
 ## Testing
 

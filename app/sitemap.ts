@@ -51,6 +51,68 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  // Add FAQ guide pages
+  const faqPages = [
+    {
+      url: `${SITE_URL}/faq/monthly-expenses-percentage`,
+      lastModified: new Date('2026-01-18'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    },
+    {
+      url: `${SITE_URL}/faq/percentage-increase-salary-price`,
+      lastModified: new Date('2026-01-18'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    },
+  ];
+
+  // Add standalone calculation and special landing pages
+  const standalonePages = [
+    {
+      url: `${SITE_URL}/calculators/basic-percent/common-percentage-calculations`,
+      lastModified: new Date('2026-01-18'),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/10-percent-off-75-dollars`,
+      lastModified: new Date('2026-01-18'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/15-percent-tip-on-50-dollars`,
+      lastModified: new Date('2026-01-18'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/25-percent-off-100-dollars`,
+      lastModified: new Date('2026-01-18'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/30-percent-discount-calculator`,
+      lastModified: new Date('2026-01-18'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/black-friday-2025-savings-calculator`,
+      lastModified: new Date('2026-01-18'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/black-friday-calculator-20-off`,
+      lastModified: new Date('2026-01-18'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+  ];
+
   // Add calculator category pages
   const calculatorCategories = CATEGORIES.map(category => ({
     url: `${SITE_URL}/calculators/${category.id}`,
@@ -87,6 +149,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticPages,
+    ...faqPages,
+    ...standalonePages,
     ...calculatorCategories,
     ...calculatorPages,
     ...blogCategories,

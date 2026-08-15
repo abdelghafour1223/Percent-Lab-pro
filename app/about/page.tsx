@@ -3,9 +3,12 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Calculator, Heart, Shield, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'About PercentLab - Free Percentage Calculator',
+  title: 'About Us - Mission & Story',
   description:
     'Learn about PercentLab, our mission to make percentage calculations simple and accessible for everyone with transparent, accurate, and educational tools.',
+  alternates: {
+    canonical: 'https://www.percentlab.app/about',
+  },
   openGraph: {
     title: 'About PercentLab',
     description:

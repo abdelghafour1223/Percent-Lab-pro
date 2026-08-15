@@ -8,7 +8,7 @@ import { DiscountCalculator } from '@/components/black-friday/discount-calculato
 
 // Metadata for SEO
 export const metadata: Metadata = {
-  title: '20% Off Black Friday Calculator 2025 [Free Tool] | PercentLab',
+  title: '20% Off Black Friday Calculator 2025 [Free Tool]',
   description: 'Calculate Black Friday 20% off discounts instantly. See real examples from electronics, clothing, and home goods. Free calculator for Nov 29, 2025 savings.',
   alternates: {
     canonical: 'https://www.percentlab.app/black-friday-calculator-20-off',

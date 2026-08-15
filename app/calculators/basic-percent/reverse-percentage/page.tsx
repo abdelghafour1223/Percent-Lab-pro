@@ -8,7 +8,7 @@ import { ReversePercentageCalculator } from '@/components/reverse-percentage-cal
 
 // Metadata for SEO
 export const metadata: Metadata = {
-  title: 'Reverse Percentage Calculator: Find Original Price [2025] | PercentLab',
+  title: 'Reverse Percentage Calculator: Find Original Price [2025]',
   description: 'Calculate the original price before discount. Perfect for verifying Black Friday deals and shopping sales. Free calculator with step-by-step guide and real examples.',
   alternates: {
     canonical: 'https://www.percentlab.app/calculators/basic-percent/reverse-percentage',

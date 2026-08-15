@@ -2,13 +2,18 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'How to Calculate Percentage Increase for Salary or Price | Complete Guide',
+  title: 'How to Calculate Percentage Increase for Salary or Price - Guide',
   description:
     'Learn how to calculate percentage increase for salary raises, price changes, and growth rates. Step-by-step examples, formulas, visual guides, and practical tips for understanding percentage increases.',
+  alternates: {
+    canonical: 'https://www.percentlab.app/faq/percentage-increase-salary-price',
+  },
   openGraph: {
     title: 'How to Calculate Percentage Increase for Salary or Price',
     description:
       'Master percentage increase calculations for salary negotiations, price analysis, and financial planning. Complete guide with examples and calculators.',
+    url: 'https://www.percentlab.app/faq/percentage-increase-salary-price',
+    type: 'article',
   },
 };
 

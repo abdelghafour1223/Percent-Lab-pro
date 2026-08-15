@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     default: 'PercentLab - Free Percentage Calculator & Tools',
     template: '%s | PercentLab',
   },
+  alternates: {
+    canonical: '/',
+  },
   description:
     'Free percentage calculator with step-by-step solutions. Calculate percentages, increases, decreases and more with detailed explanations and examples.',
   keywords: [

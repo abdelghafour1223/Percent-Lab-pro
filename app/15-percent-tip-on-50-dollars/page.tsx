@@ -6,7 +6,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 // Metadata for SEO
 export const metadata: Metadata = {
-  title: '15% Tip on $50: Quick Calculator + Restaurant Guide [2025] | PercentLab',
+  title: '15% Tip on $50: Quick Calculator + Restaurant Guide [2025]',
   description: '15% tip on $50 = $7.50. Free calculator with restaurant examples, holiday tipping guide, and bill splitting. Perfect for Thanksgiving and Christmas dining 2025.',
   alternates: {
     canonical: 'https://www.percentlab.app/15-percent-tip-on-50-dollars',

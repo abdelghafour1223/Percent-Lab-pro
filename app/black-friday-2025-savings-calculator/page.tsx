@@ -7,7 +7,7 @@ import { MultiItemCalculator } from '@/components/black-friday/multi-item-calcul
 
 // Metadata for SEO
 export const metadata: Metadata = {
-  title: 'Black Friday 2025 Savings Calculator | Track Your Deals | PercentLab',
+  title: 'Black Friday 2025 Savings Calculator - Track Your Deals',
   description: 'Track all your Black Friday 2025 deals in one place. Compare multiple items, calculate total savings, and maximize your Nov 29 shopping. Free multi-item calculator.',
   alternates: {
     canonical: 'https://www.percentlab.app/black-friday-2025-savings-calculator',

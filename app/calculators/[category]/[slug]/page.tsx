@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: CalculatorPageProps): Promise
 
   if (!calculator) {
     return {
-      title: 'Calculator Not Found | PercentLab',
+      title: 'Calculator Not Found',
     };
   }
 
@@ -100,13 +100,6 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     ],
     "browserRequirements": "Requires JavaScript",
     "softwareVersion": "1.0",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "1250",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
     "potentialAction": {
       "@type": "CalculateAction",
       "name": `Calculate ${calculator.title.toLowerCase()}`,
@@ -147,14 +140,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
       "Free to use"
     ],
     "browserRequirements": "Requires JavaScript",
-    "softwareVersion": "1.0",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "1250",
-      "bestRating": "5",
-      "worstRating": "1"
-    }
+    "softwareVersion": "1.0"
   };
 
   // 3. FAQPage Schema

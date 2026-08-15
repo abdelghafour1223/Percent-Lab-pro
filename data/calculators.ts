@@ -52,7 +52,7 @@ export const CATEGORIES: Category[] = [
           result: 100,
         },
         seo: {
-          title: 'Percent Of Calculator - Calculate X% of Y | PercentLab',
+          title: 'Percent Of Calculator - Calculate X% of Y',
           description: 'Free online percent of calculator. Calculate what is X% of Y with detailed step-by-step explanation and examples. Instant results with formula breakdown.',
         },
         faq: [
@@ -97,7 +97,7 @@ export const CATEGORIES: Category[] = [
           increaseAmount: 25,
         },
         seo: {
-          title: 'Percentage Increase Calculator - Calculate % Increase | PercentLab',
+          title: 'Percentage Increase Calculator - Calculate % Increase',
           description: 'Free percentage increase calculator. Calculate the percent increase between two values with step-by-step explanation. Find salary raises, price increases, and growth rates.',
         },
         faq: [
@@ -146,7 +146,7 @@ export const CATEGORIES: Category[] = [
           decreaseAmount: 50,
         },
         seo: {
-          title: 'Percentage Decrease Calculator - Calculate % Reduction | PercentLab',
+          title: 'Percentage Decrease Calculator - Calculate % Reduction',
           description: 'Free percentage decrease calculator. Calculate the percent decrease between two values with detailed steps. Perfect for discounts, weight loss, and decline rates.',
         },
         faq: [
@@ -194,7 +194,7 @@ export const CATEGORIES: Category[] = [
           difference: 18.18,
         },
         seo: {
-          title: 'Percentage Difference Calculator - Compare Two Values | PercentLab',
+          title: 'Percentage Difference Calculator - Compare Two Values',
           description: 'Free percentage difference calculator. Find the absolute percent difference between two numbers with step-by-step explanation. Compare prices, scores, and more.',
         },
         faq: [
@@ -238,7 +238,7 @@ export const CATEGORIES: Category[] = [
           percentage: 12.5,
         },
         seo: {
-          title: 'What Percent Calculator - X is What % of Y | PercentLab',
+          title: 'What Percent Calculator - X is What % of Y',
           description: 'Free what percent calculator. Find out what percentage one number is of another with step-by-step explanation. Calculate test scores, completion rates, and more.',
         },
         faq: [
@@ -283,7 +283,7 @@ export const CATEGORIES: Category[] = [
           originalValue: 100,
         },
         seo: {
-          title: 'Reverse Percentage Calculator - Find Original Value | PercentLab',
+          title: 'Reverse Percentage Calculator - Find Original Value',
           description: 'Free reverse percentage calculator. Find the original value before a percentage increase or decrease. Calculate pre-discount prices and original amounts instantly.',
         },
         faq: [
@@ -330,7 +330,7 @@ export const CATEGORIES: Category[] = [
           percent2: 70,
         },
         seo: {
-          title: 'Percentage of Total Calculator - Calculate % Distribution | PercentLab',
+          title: 'Percentage of Total Calculator - Calculate % Distribution',
           description: 'Free percentage of total calculator. Find what percentage each value represents of the whole. Perfect for budget analysis and data distribution.',
         },
         faq: [
@@ -375,7 +375,7 @@ export const CATEGORIES: Category[] = [
           percentage: 75,
         },
         seo: {
-          title: 'Fraction to Percent Calculator - Convert Fractions | PercentLab',
+          title: 'Fraction to Percent Calculator - Convert Fractions',
           description: 'Free fraction to percent calculator. Convert any fraction to percentage instantly. Enter numerator and denominator for quick conversion.',
         },
         faq: [
@@ -419,7 +419,7 @@ export const CATEGORIES: Category[] = [
           decimal: 0.75,
         },
         seo: {
-          title: 'Percent to Decimal Calculator - Quick Conversion | PercentLab',
+          title: 'Percent to Decimal Calculator - Quick Conversion',
           description: 'Free percent to decimal calculator. Convert any percentage to decimal form instantly. Perfect for math, programming, and calculations.',
         },
         faq: [
@@ -463,7 +463,7 @@ export const CATEGORIES: Category[] = [
           percentage: 85,
         },
         seo: {
-          title: 'Decimal to Percent Calculator - Quick Conversion | PercentLab',
+          title: 'Decimal to Percent Calculator - Quick Conversion',
           description: 'Free decimal to percent calculator. Convert any decimal to percentage form instantly. Perfect for statistics and data analysis.',
         },
         faq: [
@@ -509,7 +509,7 @@ export const CATEGORIES: Category[] = [
           result: 50,
         },
         seo: {
-          title: 'Percentage Calculator - All-in-One % Tool | PercentLab',
+          title: 'Percentage Calculator - All-in-One % Tool',
           description: 'Free comprehensive percentage calculator. Perform any percentage calculation with our all-in-one tool. Increase, decrease, difference, and more.',
         },
         faq: [
@@ -563,7 +563,7 @@ export const CATEGORIES: Category[] = [
           roi: 50,
         },
         seo: {
-          title: 'ROI Calculator - Return on Investment Percentage | PercentLab',
+          title: 'ROI Calculator - Return on Investment Percentage',
           description: 'Calculate ROI (Return on Investment) percentage. Free online ROI calculator with step-by-step explanation. Determine investment profitability instantly.',
         },
         faq: [
@@ -611,7 +611,7 @@ export const CATEGORIES: Category[] = [
           markup: 66.67,
         },
         seo: {
-          title: 'Profit Margin Calculator - Calculate Profit % & Markup | PercentLab',
+          title: 'Profit Margin Calculator - Calculate Profit % & Markup',
           description: 'Free profit margin calculator. Calculate profit margin percentage, profit amount, and markup percentage instantly. Perfect for businesses and entrepreneurs.',
         },
         faq: [
@@ -661,7 +661,7 @@ export const CATEGORIES: Category[] = [
           totalPrice: 108.50,
         },
         seo: {
-          title: 'Sales Tax Calculator - Calculate Tax Amount & Total Price | PercentLab',
+          title: 'Sales Tax Calculator - Calculate Tax Amount & Total Price',
           description: 'Free sales tax calculator. Calculate sales tax amount and total price with tax instantly. Enter price and tax rate for accurate tax calculations.',
         },
         faq: [
@@ -707,7 +707,7 @@ export const CATEGORIES: Category[] = [
           finalPrice: 80,
         },
         seo: {
-          title: 'Discount Calculator - Calculate Sale Price & Savings | PercentLab',
+          title: 'Discount Calculator - Calculate Sale Price & Savings',
           description: 'Free discount calculator. Calculate final price after discount and total savings. Find sale prices with percentage discount calculator.',
         },
         faq: [
@@ -756,7 +756,7 @@ export const CATEGORIES: Category[] = [
           interest: 6470.09,
         },
         seo: {
-          title: 'Compound Interest Calculator - Investment Growth Calculator | PercentLab',
+          title: 'Compound Interest Calculator - Investment Growth Calculator',
           description: 'Free compound interest calculator. Calculate investment growth with different compounding frequencies. See detailed breakdown of compound interest over time.',
         },
         faq: [
@@ -809,7 +809,7 @@ export const CATEGORIES: Category[] = [
           totalPaid: 23199.60,
         },
         seo: {
-          title: 'Loan Interest Calculator - Calculate Monthly Payments | PercentLab',
+          title: 'Loan Interest Calculator - Calculate Monthly Payments',
           description: 'Free loan interest calculator. Calculate monthly payments, total interest, and payoff schedule for any loan. Perfect for personal, auto, and student loans.',
         },
         faq: [
@@ -863,7 +863,7 @@ export const CATEGORIES: Category[] = [
           totalInterest: 197774.40,
         },
         seo: {
-          title: 'Mortgage Calculator - Calculate Monthly Payments & Interest | PercentLab',
+          title: 'Mortgage Calculator - Calculate Monthly Payments & Interest',
           description: 'Free mortgage calculator. Calculate monthly payments, total interest, and amortization schedule. Includes property tax and insurance for accurate home loan estimates.',
         },
         faq: [
@@ -915,7 +915,7 @@ export const CATEGORIES: Category[] = [
           annualizedReturn: 8.45,
         },
         seo: {
-          title: 'Investment Return Calculator - Calculate Portfolio Returns | PercentLab',
+          title: 'Investment Return Calculator - Calculate Portfolio Returns',
           description: 'Free investment return calculator. Calculate total return, annualized returns, and ROI for your portfolio. Track investment performance with dividends and capital gains.',
         },
         faq: [
@@ -966,7 +966,7 @@ export const CATEGORIES: Category[] = [
           profitMargin: 33.33,
         },
         seo: {
-          title: 'Markup Percentage Calculator - Calculate Retail Markup | PercentLab',
+          title: 'Markup Percentage Calculator - Calculate Retail Markup',
           description: 'Free markup percentage calculator. Calculate markup from cost to selling price. Essential for retail pricing, product pricing, and profit planning.',
         },
         faq: [
@@ -1016,7 +1016,7 @@ export const CATEGORIES: Category[] = [
           netProfit: 47500,
         },
         seo: {
-          title: 'Commission Calculator - Calculate Sales Commission | PercentLab',
+          title: 'Commission Calculator - Calculate Sales Commission',
           description: 'Free commission calculator. Calculate sales commission based on percentage rate. Perfect for salespeople, real estate agents, and commission earnings.',
         },
         faq: [
@@ -1075,7 +1075,7 @@ export const CATEGORIES: Category[] = [
           grade: 'B',
         },
         seo: {
-          title: 'Grade Percentage Calculator - Test Score to Grade % | PercentLab',
+          title: 'Grade Percentage Calculator - Test Score to Grade %',
           description: 'Free grade percentage calculator. Convert test scores to percentages and letter grades. Calculate your grade percentage with step-by-step explanation.',
         },
         faq: [
@@ -1120,7 +1120,7 @@ export const CATEGORIES: Category[] = [
           gpa: 3.5,
         },
         seo: {
-          title: 'GPA Calculator - Calculate Grade Point Average (4.0 Scale) | PercentLab',
+          title: 'GPA Calculator - Calculate Grade Point Average (4.0 Scale)',
           description: 'Free GPA calculator. Calculate your grade point average on a 4.0 scale with multiple courses. Enter grades and credit hours for instant GPA calculation.',
         },
         faq: [
@@ -1170,7 +1170,7 @@ export const CATEGORIES: Category[] = [
           grade: 'B',
         },
         seo: {
-          title: 'Test Score Calculator - Calculate Grade Percentage | PercentLab',
+          title: 'Test Score Calculator - Calculate Grade Percentage',
           description: 'Free test score calculator. Convert test points to percentage and letter grade instantly. Calculate your test score with grading scale breakdown.',
         },
         faq: [
@@ -1216,7 +1216,7 @@ export const CATEGORIES: Category[] = [
           weightedGrade: 84.5,
         },
         seo: {
-          title: 'Weighted Grade Calculator - Calculate Course Grade with Weights | PercentLab',
+          title: 'Weighted Grade Calculator - Calculate Course Grade with Weights',
           description: 'Free weighted grade calculator. Calculate course grades with different category weights. Enter homework, tests, and exam grades with their weights for accurate grade calculation.',
         },
         faq: [
@@ -1266,7 +1266,7 @@ export const CATEGORIES: Category[] = [
           requiredFinal: 101.67,
         },
         seo: {
-          title: 'Final Grade Calculator - What Do I Need on Final Exam | PercentLab',
+          title: 'Final Grade Calculator - What Do I Need on Final Exam',
           description: 'Free final grade calculator. Calculate what score you need on your final exam to achieve your target course grade. Enter current grade and final weight for instant results.',
         },
         faq: [
@@ -1316,7 +1316,7 @@ export const CATEGORIES: Category[] = [
           gradeNeeded: 97,
         },
         seo: {
-          title: 'Grade Needed Calculator - Minimum Score to Reach Goal | PercentLab',
+          title: 'Grade Needed Calculator - Minimum Score to Reach Goal',
           description: 'Free grade needed calculator. Find the minimum grade needed on your next assignment to achieve your target average. Perfect for tracking academic goals.',
         },
         faq: [
@@ -1363,7 +1363,7 @@ export const CATEGORIES: Category[] = [
           semesterGPA: 3.43,
         },
         seo: {
-          title: 'Semester GPA Calculator - Calculate Term & Cumulative GPA | PercentLab',
+          title: 'Semester GPA Calculator - Calculate Term & Cumulative GPA',
           description: 'Free semester GPA calculator. Calculate term GPA and cumulative GPA on the 4.0 scale. Enter course grades and credit hours for accurate academic tracking.',
         },
         faq: [
@@ -1414,7 +1414,7 @@ export const CATEGORIES: Category[] = [
           lowest: 78,
         },
         seo: {
-          title: 'Class Average Calculator - Calculate Mean, Median & Distribution | PercentLab',
+          title: 'Class Average Calculator',
           description: 'Free class average calculator. Calculate class mean, median, and grade distribution. Perfect for teachers and students analyzing class performance.',
         },
         faq: [
@@ -1464,7 +1464,7 @@ export const CATEGORIES: Category[] = [
           improvement: 16,
         },
         seo: {
-          title: 'Grading Curve Calculator - Curve Test Scores & Grades | PercentLab',
+          title: 'Grading Curve Calculator - Curve Test Scores & Grades',
           description: 'Free grading curve calculator. Apply various curve methods including square root curve, flat scaling, and bell curve. Adjust grades to achieve desired class average.',
         },
         faq: [
@@ -1524,7 +1524,7 @@ export const CATEGORIES: Category[] = [
           perPerson: 20,
         },
         seo: {
-          title: 'Tip Calculator - Calculate Restaurant Tip & Split Bill | PercentLab',
+          title: 'Tip Calculator - Calculate Restaurant Tip & Split Bill',
           description: 'Free tip calculator. Calculate tip percentage, total with tip, and split bill per person. Perfect for restaurants, delivery, and service gratuity.',
         },
         faq: [
@@ -1574,7 +1574,7 @@ export const CATEGORIES: Category[] = [
           changePercent: 50,
         },
         seo: {
-          title: 'Percentage Change Calculator - Calculate % Increase/Decrease | PercentLab',
+          title: 'Percentage Change Calculator - Calculate % Increase/Decrease',
           description: 'Free percentage change calculator. Calculate percent increase or decrease between two values. Find the rate of change with step-by-step explanation.',
         },
         faq: [
@@ -1621,7 +1621,7 @@ export const CATEGORIES: Category[] = [
           percentB: 60,
         },
         seo: {
-          title: 'Ratio Calculator - Simplify Ratios & Convert to Percentage | PercentLab',
+          title: 'Ratio Calculator - Simplify Ratios & Convert to Percentage',
           description: 'Free ratio calculator. Simplify ratios, convert to percentages, and find equivalent ratios. Perfect for recipes, mixtures, aspect ratios, and scaling.',
         },
         faq: [
@@ -1661,7 +1661,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         slug: 'currency-converter',
-        title: 'Currency Percentage Calculator',
+        title: 'Currency Converter',
         description: 'Calculate percentage changes in currency exchange rates and conversion fees. Track forex gains and losses as percentages.',
         formula: 'Exchange Rate Change % = ((New Rate - Old Rate) / Old Rate) × 100',
         example: {
@@ -1672,7 +1672,7 @@ export const CATEGORIES: Category[] = [
           converted: 1250,
         },
         seo: {
-          title: 'Currency Percentage Calculator - Exchange Rate Changes | PercentLab',
+          title: 'Currency Converter',
           description: 'Free currency percentage calculator. Calculate exchange rate changes, conversion fees, and forex gains/losses as percentages. Track currency fluctuations.',
         },
         faq: [
@@ -1722,7 +1722,7 @@ export const CATEGORIES: Category[] = [
           cagr: 8.45,
         },
         seo: {
-          title: 'Compound Growth Calculator - CAGR & Growth Rate | PercentLab',
+          title: 'Compound Growth Calculator - CAGR & Growth Rate',
           description: 'Free compound growth calculator. Calculate CAGR (Compound Annual Growth Rate) and track growth over time. Perfect for business metrics and investment analysis.',
         },
         faq: [
@@ -1771,7 +1771,7 @@ export const CATEGORIES: Category[] = [
           debtToIncome: 24,
         },
         seo: {
-          title: 'Loan Payment Percentage Calculator - Debt-to-Income Ratio | PercentLab',
+          title: 'Loan Payment Percentage Calculator - Debt-to-Income Ratio',
           description: 'Free loan payment percentage calculator. Calculate debt-to-income ratio and see what percentage of income goes to debt. Essential for loan applications and budgeting.',
         },
         faq: [
@@ -1822,7 +1822,7 @@ export const CATEGORIES: Category[] = [
           foodPercent: 12,
         },
         seo: {
-          title: 'Budget Percentage Calculator - 50/30/20 Rule & Expense Distribution | PercentLab',
+          title: 'Budget Percentage Calculator - 50/30/20 Rule & Expense Distribution',
           description: 'Free budget percentage calculator. Calculate what percentage of income goes to each expense. Apply the 50/30/20 budgeting rule and track spending.',
         },
         faq: [
@@ -1875,7 +1875,7 @@ export const CATEGORIES: Category[] = [
           fatPercent: 25,
         },
         seo: {
-          title: 'Calorie Percentage Calculator - Macronutrient Distribution | PercentLab',
+          title: 'Calorie Percentage Calculator - Macronutrient Distribution',
           description: 'Free calorie percentage calculator. Calculate macro percentages (protein, carbs, fats) in your diet. Track nutrition and meet fitness goals.',
         },
         faq: [
@@ -1925,7 +1925,7 @@ export const CATEGORIES: Category[] = [
           percentRemaining: 62.5,
         },
         seo: {
-          title: 'Time Percentage Calculator - Track Time Elapsed & Remaining | PercentLab',
+          title: 'Time Percentage Calculator',
           description: 'Free time percentage calculator. Calculate percentage of time elapsed or remaining. Perfect for project tracking, productivity, and time management.',
         },
         faq: [

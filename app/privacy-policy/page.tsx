@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
     'PercentLab Privacy Policy - Learn how we handle data, cookies, and your privacy. GDPR and CCPA compliant.',
+  alternates: {
+    canonical: 'https://www.percentlab.app/privacy-policy',
+  },
   robots: {
     index: true,
     follow: true,
