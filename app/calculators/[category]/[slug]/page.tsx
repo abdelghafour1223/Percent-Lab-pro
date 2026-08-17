@@ -82,7 +82,6 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     "name": calculator.title,
     "url": `https://www.percentlab.app/calculators/${categoryId}/${slug}`,
     "applicationCategory": calculator.webAppSchema?.applicationCategory || "CalculatorApplication",
-    "applicationSubCategory": category.title,
     "operatingSystem": "Any",
     "offers": {
       "@type": "Offer",
@@ -99,7 +98,6 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
       "Privacy-focused - no data storage"
     ],
     "browserRequirements": "Requires JavaScript",
-    "softwareVersion": "1.0",
     "potentialAction": {
       "@type": "CalculateAction",
       "name": `Calculate ${calculator.title.toLowerCase()}`,
@@ -124,7 +122,6 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     "name": calculator.title,
     "url": `https://www.percentlab.app/calculators/${categoryId}/${slug}`,
     "applicationCategory": calculator.webAppSchema?.applicationCategory || "CalculatorApplication",
-    "applicationSubCategory": category.title,
     "operatingSystem": "Any",
     "offers": {
       "@type": "Offer",
@@ -139,8 +136,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
       "Mobile friendly",
       "Free to use"
     ],
-    "browserRequirements": "Requires JavaScript",
-    "softwareVersion": "1.0"
+    "browserRequirements": "Requires JavaScript"
   };
 
   // 3. FAQPage Schema

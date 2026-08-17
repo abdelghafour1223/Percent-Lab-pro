@@ -88,7 +88,7 @@ export default function RootLayout({
     '@type': 'Organization',
     name: 'PercentLab',
     url: 'https://www.percentlab.app/',
-    logo: 'https://www.percentlab.app/logo.png',
+    logo: 'https://www.percentlab.app/logo.svg',
     sameAs: [
       'https://www.facebook.com/profile.php?id=61584195726259',
       'https://x.com/percentlab',

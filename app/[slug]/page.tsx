@@ -149,8 +149,8 @@ export default async function PSEOPage({ params }: PageProps) {
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Percentage Calculators',
-        item: 'https://www.percentlab.app/',
+        name: 'Common Percentage Calculations',
+        item: 'https://www.percentlab.app/calculators/basic-percent/common-percentage-calculations',
       },
       {
         '@type': 'ListItem',
@@ -179,8 +179,6 @@ export default async function PSEOPage({ params }: PageProps) {
       currency: 'USD',
       value: '0',
     },
-    supply: [],
-    tool: [],
   };
 
   // Generate FAQ items with strict 100% JSON-LD and visibility alignment
@@ -259,6 +257,9 @@ export default async function PSEOPage({ params }: PageProps) {
           <div className="text-6xl md:text-7xl font-bold text-primary my-6">
             ${formatNumber(calculation.result, 2)}
           </div>
+          <p className="text-2xl font-semibold text-foreground mb-4">
+            {percent}% of {number} = {calculation.result}
+          </p>
           <p className="text-xl text-muted-foreground">
             Learn how to calculate {percent}% of ${number} with our step-by-step guide and real-world US examples
           </p>
