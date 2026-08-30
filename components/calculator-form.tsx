@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Calculator as CalculatorType } from '@/data/calculators';
+import { calculateFractionPercentage, gcd, getLetterGrade as getLetterGradeShared } from '@/lib/percentage-math';
 import { Copy, Check } from 'lucide-react';
 import { ROIChart } from '@/components/charts/roi-chart';
 import { DiscountChart } from '@/components/charts/discount-chart';
@@ -14,6 +15,14 @@ import { SocialShare } from '@/components/social-share';
 interface CalculatorFormProps {
   calculator: CalculatorType;
   categoryId: string;
+  /**
+   * Optional prefill for input fields, keyed by the calculator's field names
+   * (e.g. `{ numerator: '32', denominator: '40' }` for fraction-to-percent).
+   * Keys must match the calculator's rendered field names — unknown keys are
+   * stored in state but render nothing and would fail numeric validation.
+   * Values arrive via serialized props (hydration-safe; no URL/state APIs).
+   */
+  initialValues?: Record<string, string>;
 }
 
 interface CalculationResult {
@@ -22,8 +31,8 @@ interface CalculationResult {
   formula: string;
 }
 
-export function CalculatorForm({ calculator, categoryId }: CalculatorFormProps) {
-  const [inputs, setInputs] = useState<Record<string, string>>({});
+export function CalculatorForm({ calculator, categoryId, initialValues }: CalculatorFormProps) {
+  const [inputs, setInputs] = useState<Record<string, string>>(initialValues ?? {});
   const [result, setResult] = useState<CalculationResult | null>(null);
   const [copied, setCopied] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -498,8 +507,7 @@ export function CalculatorForm({ calculator, categoryId }: CalculatorFormProps) 
   };
 
   const calculateRatio = (valueA: number, valueB: number): CalculationResult => {
-    const gcd = (a: number, b: number): number => b === 0 ? a : gcd(b, a % b);
-    const divisor = gcd(Math.abs(valueA), Math.abs(valueB));
+    const divisor = gcd(valueA, valueB);
     const simplifiedA = valueA / divisor;
     const simplifiedB = valueB / divisor;
     const total = valueA + valueB;
@@ -520,13 +528,9 @@ export function CalculatorForm({ calculator, categoryId }: CalculatorFormProps) 
     };
   };
 
-  const getLetterGrade = (percentage: number): string => {
-    if (percentage >= 90) return 'A';
-    if (percentage >= 80) return 'B';
-    if (percentage >= 70) return 'C';
-    if (percentage >= 60) return 'D';
-    return 'F';
-  };
+  // Grading semantics preserved exactly: delegate to the shared helper
+  // (>= 90 A, >= 80 B, >= 70 C, >= 60 D, else F — no plus/minus grades).
+  const getLetterGrade = (percentage: number): string => getLetterGradeShared(percentage);
 
   // New Basic Percentage Calculation Functions
   const calculateReversePercentage = (finalValue: number, percentage: number, isIncrease: boolean): CalculationResult => {
@@ -569,7 +573,7 @@ export function CalculatorForm({ calculator, categoryId }: CalculatorFormProps) 
       return { result: 0, formula: 'Cannot divide by zero', steps: ['Denominator cannot be zero'] };
     }
     const decimal = numerator / denominator;
-    const percentage = decimal * 100;
+    const percentage = calculateFractionPercentage(numerator, denominator);
     return {
       result: percentage,
       formula: `(${numerator} ÷ ${denominator}) × 100 = ${percentage.toFixed(2)}%`,

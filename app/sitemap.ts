@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { CATEGORIES } from '@/data/calculators';
 import { BLOG_CATEGORIES } from '@/data/blog';
 import { generatePSEOPages } from '@/lib/pseo';
+import { FRACTION_PERCENT_PAGES } from '@/lib/fraction-pages';
 
 const SITE_URL = process.env.SITE_URL || 'https://www.percentlab.app';
 
@@ -139,6 +140,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  // Add inverse-percentage cluster pages (explicit allowlist — one entry per shipped page)
+  const fractionPercentPages = FRACTION_PERCENT_PAGES.map(page => ({
+    url: `${SITE_URL}/${page.slug}`,
+    lastModified: new Date(page.lastModified),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
   // Add PSEO pages
   const pseoPages = generatePSEOPages().map(page => ({
     url: `${SITE_URL}/${page.slug}`,
@@ -154,6 +163,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...calculatorCategories,
     ...calculatorPages,
     ...blogCategories,
+    ...fractionPercentPages,
     ...pseoPages,
   ];
 }

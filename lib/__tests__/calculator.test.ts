@@ -126,7 +126,9 @@ describe('Calculator Functions', () => {
       expect(result.formula).toContain('20');
       expect(result.formula).toContain('200');
       expect(result.steps).toHaveLength(3);
-      expect(result.examples).toHaveLength(2);
+      // explainPercentOf returns 4 examples since 8044f87 (US market update);
+      // this assertion previously expected 2 but never ran (missing jsdom env).
+      expect(result.examples).toHaveLength(4);
     });
 
     it('should include steps in explanation', () => {

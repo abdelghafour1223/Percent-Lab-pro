@@ -10,6 +10,8 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { CATEGORIES, getCalculatorBySlug, getRelatedCalculators } from '@/data/calculators';
+import { FRACTION_PERCENT_PAGES, getFractionPageData } from '@/lib/fraction-pages';
+import { formatNumber } from '@/lib/utils';
 import { CalculatorForm } from '@/components/calculator-form';
 import { ArrowRight } from 'lucide-react';
 
@@ -331,6 +333,40 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
             ))}
           </Accordion>
         </section>
+
+        {/* Common Score Conversions — inverse-percentage cluster pages (allowlist-driven) */}
+        {slug === 'fraction-to-percent' && FRACTION_PERCENT_PAGES.length > 0 && (
+          <section className="mb-12 max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold mb-2">Common Score Conversions</h2>
+            <p className="text-muted-foreground mb-6">
+              Step-by-step answers for the most-searched &quot;out of&quot; score conversions, with a
+              prefilled calculator for each one.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {FRACTION_PERCENT_PAGES.map((page) => {
+                const percentLabel = formatNumber(getFractionPageData(page).percentage, 2).replace(/\.00$/, '');
+                return (
+                  <Link
+                    key={page.slug}
+                    href={`/${page.slug}`}
+                    className="group flex items-center justify-between p-4 rounded-lg border hover:bg-accent transition-colors"
+                    aria-label={`See what ${page.part} out of ${page.whole} is as a percent`}
+                  >
+                    <div>
+                      <p className="font-medium text-foreground group-hover:text-primary transition-colors">
+                        What Is {page.part} Out of {page.whole} as a Percent?
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        {page.part}/{page.whole} = {percentLabel}% — steps, simplified fraction &amp; score breakdown
+                      </p>
+                    </div>
+                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        )}
 
         {/* Related Calculators */}
         {relatedCalculators.length > 0 && (
