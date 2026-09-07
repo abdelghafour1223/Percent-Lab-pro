@@ -14,7 +14,10 @@ export const metadata: Metadata = {
     template: '%s | PercentLab',
   },
   alternates: {
-    canonical: '/',
+    // NOTE: child pages override this with their own self-referencing
+    // canonical. Keep root as absolute URL to avoid inheriting a
+    // relative "/" canonical on pages that forget to set one.
+    canonical: 'https://www.percentlab.app/',
   },
   description:
     'Free percentage calculator with step-by-step solutions. Calculate percentages, increases, decreases and more with detailed explanations and examples.',

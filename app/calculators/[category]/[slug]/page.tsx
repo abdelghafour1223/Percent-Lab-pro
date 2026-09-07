@@ -75,7 +75,10 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
 
   const relatedCalculators = getRelatedCalculators(categoryId, slug, 3);
 
-  // JSON-LD Schemas - Enhanced with Calculator-specific markup
+  // JSON-LD Schemas - Consolidated for crawl efficiency (seo-schema skill)
+  // NOTE: HowTo rich results removed Sept 2023 → HowTo intentionally omitted.
+  // Single SoftwareApplication (not duplicated WebApplication) to stay well
+  // under Googlebot 2MB HTML fetch limit.
 
   // 1. SoftwareApplication Schema - Calculator Tool with enhanced SEO content
   const calculatorSchema = {
@@ -117,31 +120,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     }
   };
 
-  // 2. WebApplication Schema - Enhanced for Calculator with detailed SEO-optimized content
-  const webApplicationSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": calculator.title,
-    "url": `https://www.percentlab.app/calculators/${categoryId}/${slug}`,
-    "applicationCategory": calculator.webAppSchema?.applicationCategory || "CalculatorApplication",
-    "operatingSystem": "Any",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "description": calculator.webAppSchema?.detailedDescription || calculator.description,
-    "featureList": calculator.webAppSchema?.featureList || [
-      "Instant calculation",
-      "Step-by-step explanation",
-      "Real-world examples",
-      "Mobile friendly",
-      "Free to use"
-    ],
-    "browserRequirements": "Requires JavaScript"
-  };
-
-  // 3. FAQPage Schema
+  // 2. FAQPage Schema (kept — 1:1 with visible FAQ; no rich-result benefit
+  // since May 2026 retirement, but useful for AI citability)
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -155,46 +135,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     }))
   };
 
-  // 4. HowTo Schema - Calculator Usage Guide
-  const howToSchema = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": `How to use ${calculator.title}`,
-    "description": calculator.description,
-    "tool": {
-      "@type": "HowToTool",
-      "name": calculator.title
-    },
-    "step": [
-      {
-        "@type": "HowToStep",
-        "name": "Enter your values",
-        "text": `Enter the required values for ${calculator.title.toLowerCase()} calculation.`,
-        "position": 1
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Click Calculate",
-        "text": "Click the calculate button to get your result.",
-        "position": 2
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Review the result",
-        "text": "See your result with detailed step-by-step explanation and formula breakdown.",
-        "position": 3
-      },
-      {
-        "@type": "HowToStep",
-        "name": "View detailed steps",
-        "text": "Review the complete mathematical breakdown and learn how the calculation works.",
-        "position": 4
-      }
-    ],
-    "totalTime": "PT1M"
-  };
-
-  // 5. BreadcrumbList Schema
+  // 3. BreadcrumbList Schema
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -228,28 +169,18 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
 
   return (
     <>
-      {/* All 5 Structured Data Schemas for Calculator SEO */}
+      {/* 3 Structured Data Schemas: SoftwareApplication + FAQ + Breadcrumb */}
       {/* 1. Calculator-specific SoftwareApplication Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorSchema) }}
       />
-      {/* 2. WebApplication Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
-      />
-      {/* 3. FAQPage Schema */}
+      {/* 2. FAQPage Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      {/* 4. HowTo Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
-      />
-      {/* 5. BreadcrumbList Schema */}
+      {/* 3. BreadcrumbList Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

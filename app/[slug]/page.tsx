@@ -94,19 +94,23 @@ export default async function PSEOPage({ params }: PageProps) {
   const realWorldExamples = generateRealWorldExamples(percent, number, calculation.result);
   const ctaData = getContextualCTA(percent);
 
-  // SoftwareApplication Schema
-  const softwareAppSchema = {
+  // Single WebApplication Schema (consolidated — seo-schema skill:
+  // avoid duplicate SoftwareApplication + WebApplication for same entity,
+  // reduces HTML bloat under Googlebot 2MB fetch limit)
+  const webAppSchema = {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: `${percent}% of $${number} Calculator`,
-    applicationCategory: 'CalculatorApplication',
+    '@type': 'WebApplication',
+    name: `${percent}% of ${number} Calculator`,
+    applicationCategory: 'FinanceApplication',
     operatingSystem: 'Any',
+    browserRequirements: 'Requires JavaScript',
+    url: `https://www.percentlab.app/what-is-${percent}-percent-of-${number}`,
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'USD',
     },
-    description: `Free online calculator to determine what is ${percent}% of $${number}. Instant results with step-by-step explanations and real-world examples.`,
+    description: `Free online calculator to determine what is ${percent}% of ${number}. Instant results ($${formatNumber(calculation.result, 2)}) with step-by-step explanations and real-world examples.`,
     featureList: [
       'Instant percentage calculations',
       'Step-by-step explanations',
@@ -116,23 +120,6 @@ export default async function PSEOPage({ params }: PageProps) {
       'Free to use',
       'No registration required'
     ],
-  };
-
-  // WebApplication Schema
-  const webAppSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebApplication',
-    name: `Calculate ${percent}% of $${number}`,
-    applicationCategory: 'FinanceApplication',
-    operatingSystem: 'Any',
-    browserRequirements: 'Requires JavaScript',
-    url: `https://www.percentlab.app/what-is-${percent}-percent-of-${number}`,
-    description: `Calculate ${percent}% of $${number} with our free online percentage calculator. Get instant results ($${formatNumber(calculation.result, 2)}) with detailed explanations and practical examples.`,
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
   };
 
   // BreadcrumbList Schema
@@ -161,25 +148,9 @@ export default async function PSEOPage({ params }: PageProps) {
     ],
   };
 
-  // HowTo Schema
-  const howToSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: `How to Calculate ${percent}% of $${number}`,
-    description: `Step-by-step guide to calculate ${percent}% of $${number}`,
-    step: calculation.steps.map((step, index) => ({
-      '@type': 'HowToStep',
-      position: index + 1,
-      name: `Step ${index + 1}`,
-      text: step,
-    })),
-    totalTime: 'PT1M',
-    estimatedCost: {
-      '@type': 'MonetaryAmount',
-      currency: 'USD',
-      value: '0',
-    },
-  };
+  // NOTE (seo-schema skill): HowTo rich results were removed Sept 2023 —
+  // HowTo schema is intentionally NOT emitted to avoid bloat with zero
+  // SERP benefit. Steps remain visible in HTML for users + AI citability.
 
   // Generate FAQ items with strict 100% JSON-LD and visibility alignment
   const decimalValue = (percent / 100).toFixed(4).replace(/\.?0+$/, '');
@@ -229,10 +200,6 @@ export default async function PSEOPage({ params }: PageProps) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
       />
       <script
@@ -241,14 +208,27 @@ export default async function PSEOPage({ params }: PageProps) {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <div className="container px-4 md:px-6 py-8 md:py-12 max-w-4xl mx-auto">
+        {/* Visual breadcrumbs (matches BreadcrumbList schema, improves crawl + UX) */}
+        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
+          <Link href="/" className="hover:text-primary transition-colors">
+            Home
+          </Link>
+          <span aria-hidden="true">/</span>
+          <Link
+            href="/calculators/basic-percent/common-percentage-calculations"
+            className="hover:text-primary transition-colors"
+          >
+            Common Percentage Calculations
+          </Link>
+          <span aria-hidden="true">/</span>
+          <span className="text-foreground font-medium" aria-current="page">
+            {percent}% of {number}
+          </span>
+        </nav>
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -550,6 +530,17 @@ export default async function PSEOPage({ params }: PageProps) {
             </Link>
           </CardContent>
         </Card>
+
+        {/* E-E-A-T: authorship + freshness (seo-content skill Who/How/Why) */}
+        <div className="mt-8 text-center text-sm text-muted-foreground space-y-1">
+          <p>
+            Reviewed by <Link href="/about" className="text-primary hover:underline">PercentLab Editorial Team</Link>
+            {' '}· Last updated: <time dateTime="2026-09-07">September 7, 2026</time>
+          </p>
+          <p>
+            Calculation verified: ({percent} ÷ 100) × {number} = {calculation.result.toFixed(2)}
+          </p>
+        </div>
       </div>
     </>
   );

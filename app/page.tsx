@@ -384,7 +384,14 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
-          <div className="text-center mt-6">
+          <div className="text-center mt-6 space-y-2">
+            <div>
+              <Button asChild variant="outline" size="lg" className="min-h-[48px] font-semibold">
+                <Link href="/calculators/basic-percent/common-percentage-calculations">
+                  Browse All 50 Common Calculations <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
             <p className="text-sm text-muted-foreground px-4">
               Need a different calculation? Try our{' '}
               <Link href="/calculators/basic-percent/percent-of" className="text-primary hover:underline font-medium">

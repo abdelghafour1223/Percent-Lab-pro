@@ -13,17 +13,9 @@ const nextConfig: NextConfig = {
     optimizeCss: true,
   },
 
-  // ✅ أضفنا هاد الجزء باش نصلحو مشكلة الـ redirect
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'percentlab.app' }],
-        destination: 'https://www.percentlab.app/:path*',
-        permanent: true, // 301 بدل 308
-      },
-    ];
-  },
+  // ✅ Canonical www redirect is handled in middleware.ts (single source of truth)
+  // to avoid duplicate redirect chains (middleware + next.config).
+  // Do NOT add redirects() here for host canonicalization.
 
   async headers() {
     return [

@@ -139,27 +139,30 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* Coming Soon Articles Grid */}
+        {/* Featured Learning Paths — replaces thin "Coming Soon" skeletons */}
         <section className="mb-12 md:mb-16">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 md:mb-8 px-4">
-            Upcoming Articles
+            Featured Learning Paths
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <Card key={i} className="opacity-60">
-                <CardContent className="pt-6">
-                  <div className="flex flex-col items-center text-center space-y-3">
-                    <Clock className="h-10 w-10 text-muted-foreground" />
-                    <div className="h-4 bg-muted rounded w-3/4"></div>
-                    <div className="h-3 bg-muted rounded w-full"></div>
-                    <div className="h-3 bg-muted rounded w-full"></div>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-muted/50 rounded-full text-xs text-muted-foreground">
-                      Coming Soon
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 max-w-4xl mx-auto">
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="pt-6">
+                <h3 className="font-semibold mb-2">How do I calculate the percentage of my monthly expenses?</h3>
+                <p className="text-sm text-muted-foreground mb-4">Track budget percentages with the 50/30/20 rule and see where your money goes.</p>
+                <Button asChild variant="outline" className="w-full">
+                  <Link href="/faq/monthly-expenses-percentage">Read Full Guide <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="pt-6">
+                <h3 className="font-semibold mb-2">How do I calculate percentage increase for salary or price?</h3>
+                <p className="text-sm text-muted-foreground mb-4">Master increase math for negotiations, growth rates, and price analysis.</p>
+                <Button asChild variant="outline" className="w-full">
+                  <Link href="/faq/percentage-increase-salary-price">Read Full Guide <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </section>
 

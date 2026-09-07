@@ -38,6 +38,11 @@ export function Footer() {
                   Daily Use Calculators
                 </Link>
               </li>
+              <li>
+                <Link href="/calculators/basic-percent/common-percentage-calculations" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Browse 50 common percentage calculations">
+                  50 Common Calculations
+                </Link>
+              </li>
             </ul>
           </div>
 
