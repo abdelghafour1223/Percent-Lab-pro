@@ -18,6 +18,15 @@ export interface Calculator {
   lastUpdated: string;
   hasChart?: boolean;
   schemaType?: 'HowTo' | 'FAQPage';
+  // Complete Guide (seo-content skill: 800+ word equivalent depth below the
+  // tool — the differentiator vs thin tool-only pages). Optional per
+  // calculator; filled progressively starting with highest-volume pages.
+  guide?: {
+    intro: string[];
+    workedExamples: Array<{ title: string; steps: string[]; result: string }>;
+    comparisonTable: { caption: string; headers: [string, string, string]; rows: Array<[string, string, string]> };
+    mistakes: Array<{ title: string; text: string }>;
+  };
   webAppSchema?: {
     detailedDescription: string; // 100-150 words, SEO-optimized
     featureList: string[]; // 5-7 specific features
@@ -721,11 +730,73 @@ export const CATEGORIES: Category[] = [
           },
           {
             q: 'How do I calculate multiple discounts?',
-            a: 'Apply discounts sequentially. For 20% then 10% off $100: First discount: $100 - ($100 × 0.20) = $80. Second discount: $80 - ($80 × 0.10) = $72 final price.',
+            a: 'Apply discounts sequentially. For 20% then 10% off $100: First discount: $100 - ($100 x 0.20) = $80. Second discount: $80 - ($80 x 0.10) = $72 final price.',
           },
         ],
-        lastUpdated: '2025-11-13',
+        lastUpdated: '2026-09-07',
         hasChart: true,
+        guide: {
+          intro: [
+            'A discount calculator answers two questions every shopper asks: how much do I save, and what do I actually pay? The math is simple — discount amount = original price x discount percent / 100, then final price = original price - discount amount — but stores count on shoppers skipping the second step and comparing percentages instead of final prices.',
+            'The most expensive mistake is assuming a bigger percent always means a better deal. 30% off a $200 jacket ($140 final) saves $60, while 50% off a $100 sweater ($50 final) saves $50 — the "smaller" discount puts more dollars back in your pocket. Always compare final prices and absolute savings, never percentages alone.',
+            'US shoppers should also remember the sticker price is not the checkout price: state and local sales tax (0% to over 9% depending on where you live) applies after the discount. A $80 final price in Oregon ($0 tax) is $80 out the door, but the same item in California can cost over $87. Use our sales tax calculator after this one to see your true total.',
+          ],
+          workedExamples: [
+            {
+              title: 'Single discount: 20% off $100',
+              steps: [
+                'Convert the percent to a decimal: 20 / 100 = 0.20.',
+                'Multiply by the price: $100 x 0.20 = $20.00 savings.',
+                'Subtract: $100 - $20 = $80.00 final price.',
+              ],
+              result: 'You save $20.00 and pay $80.00.',
+            },
+            {
+              title: 'Stacked coupons: 20% then 10% off $100',
+              steps: [
+                'First discount applies to $100: $100 x 0.20 = $20, price drops to $80.',
+                'Second discount applies to the NEW price ($80, not $100): $80 x 0.10 = $8.',
+                'Subtract: $80 - $8 = $72.00 final price.',
+              ],
+              result: 'Total savings are 28%, not 30% — you pay $72.00.',
+            },
+            {
+              title: 'Which deal wins: 30% off $200 vs 50% off $100?',
+              steps: [
+                'Deal A: $200 x 0.30 = $60 savings, final price $140.',
+                'Deal B: $100 x 0.50 = $50 savings, final price $50.',
+                'Compare savings in dollars, not percents.',
+              ],
+              result: 'Deal A saves $10 more despite the smaller percent.',
+            },
+          ],
+          comparisonTable: {
+            caption: 'Common US sale discounts on a $100 item',
+            headers: ['Discount', 'You save', 'You pay'],
+            rows: [
+              ['10% off', '$10.00', '$90.00'],
+              ['15% off', '$15.00', '$85.00'],
+              ['20% off', '$20.00', '$80.00'],
+              ['25% off', '$25.00', '$75.00'],
+              ['30% off', '$30.00', '$70.00'],
+              ['50% off', '$50.00', '$50.00'],
+            ],
+          },
+          mistakes: [
+            {
+              title: 'Adding stacked discounts (20% + 10% = 30%)',
+              text: 'Stores apply coupons sequentially, so 20% then 10% is a 28% total reduction ($72 on $100), not 30%. Always multiply the remaining prices: 0.80 x 0.90 = 0.72 of original.',
+            },
+            {
+              title: 'Forgetting sales tax',
+              text: 'A discount lowers the taxable price in most US states, which is good — but tax still applies on top. Compute the discounted price first, then add your local rate.',
+            },
+            {
+              title: 'Trusting inflated "original" prices',
+              text: 'During Black Friday, some "was" prices are raised before the sale. Track the price for 30 days or check price history before assuming the discount is real.',
+            },
+          ],
+        },
         schemaType: 'HowTo',
         webAppSchema: {
           detailedDescription: 'The Discount Calculator is an essential shopping and retail tool that instantly calculates final sale prices, discount amounts, and savings percentages. Whether you\'re a shopper hunting for deals, comparing discounts during sales events, a retailer planning promotions, a business owner setting clearance prices, or anyone wanting to quickly calculate how much you\'ll save, this calculator provides instant, accurate results. Perfect for Black Friday shopping, seasonal sales, coupon calculations, and price comparison. The tool clearly shows both the discount amount you save and the final price you pay, helping you make informed purchasing decisions. Essential for budget-conscious shoppers, retailers planning markdown strategies, and anyone wanting to maximize savings during sales events or quickly evaluate if a discount represents good value.',

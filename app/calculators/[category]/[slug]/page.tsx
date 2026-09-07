@@ -252,6 +252,74 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
           </div>
         </section>
 
+        {/* Complete Guide — long-form depth below the tool (seo-content skill).
+            Rendered only when calculator.guide exists. Tool profile styling:
+            quiet hierarchy, hairline dividers, dense table with tabular
+            numbers and row hover, no decorative noise. */}
+        {calculator.guide && (
+          <section className="mb-12 max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold mb-2">Complete Guide</h2>
+            <p className="text-sm text-muted-foreground mb-6">
+              Reviewed by <Link href="/about" className="text-primary hover:underline">PercentLab Editorial Team</Link>
+              {' '}· Last updated: <time dateTime={calculator.lastUpdated}>{calculator.lastUpdated}</time>
+            </p>
+            <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
+              {calculator.guide.intro.map((para, i) => (
+                <p key={i} className="text-base">{para}</p>
+              ))}
+            </div>
+
+            <h3 className="text-xl font-semibold mb-4">Worked examples</h3>
+            <div className="space-y-4 mb-8">
+              {calculator.guide.workedExamples.map((ex, i) => (
+                <Card key={i}>
+                  <CardContent className="pt-6">
+                    <h4 className="font-semibold mb-3">{ex.title}</h4>
+                    <ol className="list-decimal list-inside space-y-2 text-sm text-muted-foreground mb-3">
+                      {ex.steps.map((step, j) => (
+                        <li key={j}>{step}</li>
+                      ))}
+                    </ol>
+                    <p className="text-sm font-medium text-foreground border-t pt-3">{ex.result}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <h3 className="text-xl font-semibold mb-4">{calculator.guide.comparisonTable.caption}</h3>
+            <div className="overflow-x-auto rounded-lg border mb-8">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b bg-muted/50">
+                    {calculator.guide.comparisonTable.headers.map((h) => (
+                      <th key={h} scope="col" className="text-left font-semibold px-4 py-3">{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="tabular-nums">
+                  {calculator.guide.comparisonTable.rows.map((row, i) => (
+                    <tr key={i} className="border-b last:border-0 hover:bg-muted/40 transition-colors">
+                      {row.map((cell, j) => (
+                        <td key={j} className={`px-4 py-3 ${j === 0 ? 'text-muted-foreground' : 'font-medium'}`}>{cell}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <h3 className="text-xl font-semibold mb-4">Mistakes to avoid</h3>
+            <div className="space-y-4">
+              {calculator.guide.mistakes.map((m, i) => (
+                <div key={i} className="border-l-2 border-primary/60 pl-4">
+                  <h4 className="font-semibold text-foreground">{m.title}</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{m.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* FAQ Section */}
         <section className="mb-12 max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-6">Frequently Asked Questions</h2>

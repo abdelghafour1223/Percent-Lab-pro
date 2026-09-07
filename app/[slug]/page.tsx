@@ -9,6 +9,7 @@ import {
   parseSlug,
   getRelatedCalculations,
   generatePSEOPages,
+  isPseoNoindexed,
   generateIntroduction,
   generatePracticalUses,
   generateQuickTips,
@@ -24,6 +25,11 @@ interface PageProps {
   }>;
 }
 
+// Closed PSEO cluster: only the 50 allowlist slugs exist.
+// Any other what-is-N-percent-of-M (ghost URLs from old sitemaps) 404s
+// instead of rendering infinite thin duplicates (crawl-budget trap).
+export const dynamicParams = false;
+
 // Generate static paths at build time
 export async function generateStaticParams() {
   const pages = generatePSEOPages();
@@ -32,19 +38,25 @@ export async function generateStaticParams() {
   }));
 }
 
+const PSEO_ALLOWLIST = new Set(generatePSEOPages().map((page) => page.slug));
+
 // Generate metadata for SEO
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const data = parseSlug(slug);
 
-  if (!data) {
+  if (!data || !PSEO_ALLOWLIST.has(slug)) {
     return {
       title: 'Page Not Found',
+      robots: { index: false, follow: false },
     };
   }
 
   const { percent, number } = data;
   const result = (percent / 100) * number;
+  // Temporary GSC-driven noindex (see PSEO_NOINDEX_SLUGS): page stays live
+  // for users with follow:true, hidden from index until authority recovers.
+  const noindexed = isPseoNoindexed(slug);
 
   return {
     title: `What is ${percent}% of ${number}?`,
@@ -52,6 +64,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `https://www.percentlab.app/${slug}`,
     },
+    robots: noindexed ? { index: false, follow: true } : { index: true, follow: true },
     keywords: [
       `${percent} percent of ${number}`,
       `${percent}% of ${number}`,
@@ -79,7 +92,10 @@ export default async function PSEOPage({ params }: PageProps) {
   const { slug } = await params;
   const data = parseSlug(slug);
 
-  if (!data) {
+  // Ghost-URL guard: anything outside the 50-allowlist 404s (410-equivalent
+  // signal over time as Google recrawls). dynamicParams=false already blocks
+  // them at routing level; this is defense in depth.
+  if (!data || !PSEO_ALLOWLIST.has(slug)) {
     notFound();
   }
 
@@ -234,10 +250,10 @@ export default async function PSEOPage({ params }: PageProps) {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             What is {percent}% of ${number}?
           </h1>
-          <div className="text-6xl md:text-7xl font-bold text-primary my-6">
+          <div className="text-6xl md:text-7xl font-bold text-primary my-6 tabular-nums">
             ${formatNumber(calculation.result, 2)}
           </div>
-          <p className="text-2xl font-semibold text-foreground mb-4">
+          <p className="text-2xl font-semibold text-foreground mb-4 tabular-nums">
             {percent}% of {number} = {calculation.result}
           </p>
           <p className="text-xl text-muted-foreground">

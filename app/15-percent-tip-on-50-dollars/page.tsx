@@ -1172,24 +1172,24 @@ export default function Page() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <Link href="/what-is-15-percent-of-40" className="flex items-center justify-between p-3 rounded-lg border hover:bg-accent transition-colors group">
-                    <div>
-                      <p className="font-medium">15% Tip on $40</p>
-                      <p className="text-sm text-muted-foreground">= $6.00 tip</p>
-                    </div>
-                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                  </Link>
-                  <Link href="/what-is-15-percent-of-60" className="flex items-center justify-between p-3 rounded-lg border hover:bg-accent transition-colors group">
-                    <div>
-                      <p className="font-medium">15% Tip on $60</p>
-                      <p className="text-sm text-muted-foreground">= $9.00 tip</p>
-                    </div>
-                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                  </Link>
                   <Link href="/what-is-15-percent-of-100" className="flex items-center justify-between p-3 rounded-lg border hover:bg-accent transition-colors group">
                     <div>
                       <p className="font-medium">15% Tip on $100</p>
                       <p className="text-sm text-muted-foreground">= $15.00 tip</p>
+                    </div>
+                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  </Link>
+                  <Link href="/what-is-15-percent-of-200" className="flex items-center justify-between p-3 rounded-lg border hover:bg-accent transition-colors group">
+                    <div>
+                      <p className="font-medium">15% Tip on $200 (group dinner)</p>
+                      <p className="text-sm text-muted-foreground">= $30.00 tip</p>
+                    </div>
+                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  </Link>
+                  <Link href="/calculators/basic-percent/common-percentage-calculations" className="flex items-center justify-between p-3 rounded-lg border hover:bg-accent transition-colors group">
+                    <div>
+                      <p className="font-medium">All common bill amounts</p>
+                      <p className="text-sm text-muted-foreground">Browse 50 calculations ($50–$1000)</p>
                     </div>
                     <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
                   </Link>
