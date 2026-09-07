@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { CATEGORIES } from '@/data/calculators';
 import { BLOG_CATEGORIES } from '@/data/blog';
 import { generatePSEOPages, isPseoNoindexed } from '@/lib/pseo';
+import { getPseoEnrichment } from '@/data/pseo-enrichment';
 import { FRACTION_PERCENT_PAGES } from '@/lib/fraction-pages';
 
 const SITE_URL = process.env.SITE_URL || 'https://www.percentlab.app';
@@ -127,11 +128,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Add PSEO pages — staggered lastmod per cluster (see pseoLastMod).
   // NOTE: temporarily-noindexed slugs (PSEO_NOINDEX_SLUGS) are EXCLUDED:
   // sitemap must never list noindex URLs (conflicting signal).
+  // Enriched slugs (data/pseo-enrichment.ts) carry today's lastmod since
+  // their content genuinely changed on 2026-09-07.
   const pseoPages = generatePSEOPages()
     .filter((page) => !isPseoNoindexed(page.slug))
     .map(page => ({
       url: `${SITE_URL}/${page.slug}`,
-      lastModified: pseoLastMod(page.number),
+      lastModified: getPseoEnrichment(page.slug) ? new Date('2026-09-07') : pseoLastMod(page.number),
     }));
 
   return [

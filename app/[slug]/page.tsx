@@ -17,6 +17,7 @@ import {
   getContextualCTA
 } from '@/lib/pseo';
 import { formatNumber } from '@/lib/utils';
+import { getPseoEnrichment } from '@/data/pseo-enrichment';
 import { ArrowRight, Lightbulb, Briefcase, TrendingUp, HelpCircle } from 'lucide-react';
 
 interface PageProps {
@@ -109,6 +110,9 @@ export default async function PSEOPage({ params }: PageProps) {
   const quickTips = generateQuickTips(percent, number);
   const realWorldExamples = generateRealWorldExamples(percent, number, calculation.result);
   const ctaData = getContextualCTA(percent);
+  // Per-slug enrichment (data/pseo-enrichment.ts): unique hook, extra FAQs
+  // with exact figures, and contextual internal links for GSC-flagged pages.
+  const enrichment = getPseoEnrichment(slug);
 
   // Single WebApplication Schema (consolidated — seo-schema skill:
   // avoid duplicate SoftwareApplication + WebApplication for same entity,
@@ -195,6 +199,14 @@ export default async function PSEOPage({ params }: PageProps) {
         question: `How much is left after subtracting ${percent}% from $${number}?`,
         answer: `After subtracting ${percent}% ($${formatNumber(calculation.result, 2)}) from $${number}, you have $${formatNumber(number - calculation.result, 2)} remaining (representing ${100 - percent}% of the original amount).`,
       });
+    }
+  }
+
+  // Merge per-slug enrichment FAQs (visible section maps the same array,
+  // so FAQPage JSON-LD stays 1:1 with visible content by construction).
+  if (enrichment) {
+    for (const item of enrichment.faqs) {
+      faqItems.push({ question: item.q, answer: item.a });
     }
   }
 
@@ -331,6 +343,23 @@ export default async function PSEOPage({ params }: PageProps) {
             </ol>
           </CardContent>
         </Card>
+
+        {/* The 5-second version: unique mental-math hook for these exact numbers */}
+        {enrichment && (
+          <Card className="mb-8 border-primary/30">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Lightbulb className="h-5 w-5 text-primary" />
+                The 5-Second Version
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-base leading-relaxed text-foreground">
+                {enrichment.hook}
+              </p>
+            </CardContent>
+          </Card>
+        )}
 
         {/* Ad Slot */}
         <div className="ad-slot my-8 min-h-[100px] flex items-center justify-center bg-muted/30 rounded-lg border border-dashed border-muted-foreground/20">
@@ -478,6 +507,30 @@ export default async function PSEOPage({ params }: PageProps) {
                 >
                   View all 50 common percentage calculations <ArrowRight className="ml-1 h-3.5 w-3.5" />
                 </Link>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Keep exploring: contextual internal links for these exact numbers */}
+        {enrichment && (
+          <Card className="mb-8">
+            <CardHeader>
+              <CardTitle>Keep Exploring</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {enrichment.links.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="flex items-center justify-between p-4 rounded-lg border hover:bg-accent transition-colors group"
+                    aria-label={link.anchor}
+                  >
+                    <p className="font-medium">{link.label}</p>
+                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  </Link>
+                ))}
               </div>
             </CardContent>
           </Card>

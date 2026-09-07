@@ -145,38 +145,15 @@ export function getRelatedCalculations(percent: number, number: number, limit: n
 }
 
 // ---------------------------------------------------------------------------
-// Temporary GSC-driven noindex allowlist (seo-content / seo-google skills).
-// These 22 in-allowlist PSEO slugs are currently "Crawled - currently not
-// indexed" in Google Search Console (Sep 2026). They stay SERVED to users
-// with follow:true (link equity preserved) but carry noindex until domain
-// authority recovers. Review: re-index in batches once indexed count > 70.
+// GSC-driven noindex allowlist (seo-content / seo-google skills). The 22
+// slugs flagged "Crawled - currently not indexed" (Sep 2026) were enriched
+// with per-slug content (data/pseo-enrichment.ts: unique hook, exact-figure
+// FAQs, contextual internal links) and RE-INDEXED on 2026-09-07 — the set is
+// intentionally empty. Re-add slugs here only if GSC flags them again.
 // The 10 out-of-allowlist ghost slugs are NOT listed here — they 404 via
 // dynamicParams=false + allowlist guard in app/[slug]/page.tsx.
 // ---------------------------------------------------------------------------
-export const PSEO_NOINDEX_SLUGS: ReadonlySet<string> = new Set([
-  'what-is-100-percent-of-100',
-  'what-is-75-percent-of-200',
-  'what-is-10-percent-of-50',
-  'what-is-50-percent-of-300',
-  'what-is-5-percent-of-100',
-  'what-is-25-percent-of-200',
-  'what-is-5-percent-of-1000',
-  'what-is-40-percent-of-100',
-  'what-is-25-percent-of-50',
-  'what-is-30-percent-of-50',
-  'what-is-30-percent-of-200',
-  'what-is-50-percent-of-100',
-  'what-is-20-percent-of-400',
-  'what-is-20-percent-of-500',
-  'what-is-20-percent-of-250',
-  'what-is-20-percent-of-300',
-  'what-is-10-percent-of-250',
-  'what-is-25-percent-of-250',
-  'what-is-70-percent-of-100',
-  'what-is-10-percent-of-300',
-  'what-is-25-percent-of-300',
-  'what-is-20-percent-of-50',
-]);
+export const PSEO_NOINDEX_SLUGS: ReadonlySet<string> = new Set([]);
 
 export function isPseoNoindexed(slug: string): boolean {
   return PSEO_NOINDEX_SLUGS.has(slug);
