@@ -1699,8 +1699,16 @@ export const CATEGORIES: Category[] = [
             q: 'Should I tip on the pre-tax or post-tax amount?',
             a: 'Either is acceptable. Most people tip on the pre-tax amount for consistency, but tipping on the post-tax amount is generous and ensures good service coverage.',
           },
+          {
+            q: 'Do I tip on the discounted price or the full price?',
+            a: 'Tip on the full pre-discount price. If an $80 meal drops to $50 after a coupon, a 20% tip is $16 (on $80), not $10 — your server did the same work either way.',
+          },
+          {
+            q: 'What if there is already a service charge on the bill?',
+            a: 'A service charge or automatic gratuity (common for parties of 6-8+) is a mandatory fee, not an optional tip. Check your receipt first so you do not double-tip — add extra only for exceptional service.',
+          },
         ],
-        lastUpdated: '2025-11-13',
+        lastUpdated: '2026-09-07',
         schemaType: 'HowTo',
         webAppSchema: {
           detailedDescription: 'The Tip Calculator is an essential everyday tool that instantly calculates appropriate tip amounts, total bills with tip, and per-person splits for dining out and service situations. Whether you\'re at a restaurant, ordering food delivery, getting a haircut, taking a taxi, using valet parking, or receiving any service where tipping is customary, this calculator ensures you tip appropriately and quickly. Perfect for diners, travelers, anyone uncomfortable with mental math, and groups splitting bills. The tool supports standard tip percentages (15%, 18%, 20%, 25%) and custom amounts, calculates the total including tip, and handles bill splitting for groups. Essential for ensuring fair compensation for service workers, avoiding awkward payment moments, and teaching proper tipping etiquette. Takes the stress out of tip calculation so you can focus on enjoying your experience.',
@@ -1715,6 +1723,73 @@ export const CATEGORIES: Category[] = [
             'Completely free with no registration and privacy-focused'
           ],
           applicationCategory: 'UtilitiesApplication'
+        },
+        guide: {
+          intro: [
+            'A tip calculator removes the most awkward math in American dining: how much to add, on what amount, split how many ways. The formula is one line — tip = bill x (percent / 100), total = bill + tip — but US etiquette adds three decisions the formula alone cannot make: pre-tax or post-tax, what percent for this service, and who pays what in a group.',
+            'The standard to memorize: 18-20% for sit-down restaurants (20% is the safest default), 15-20% for delivery with a $5 minimum, 15-20% at salons, $1-2 per drink at bars, and $2-5 per night for hotel housekeeping. Note that 15% — the old default — has drifted down to the floor for merely adequate service; 18% is now the practical minimum for acceptable full-service dining.',
+            'The rule most diners get wrong: tip on the pre-tax subtotal, and on the pre-discount price. Tax is not service, and a coupon does not reduce your server work. Compute any discount first with our discount calculator, add tax with our sales tax calculator if needed, then tip here on the service amount.',
+          ],
+          workedExamples: [
+            {
+              title: 'Standard: 20% tip on a $50 bill',
+              steps: [
+                'Convert the percent: 20 / 100 = 0.20.',
+                'Multiply by the bill: $50 x 0.20 = $10.00 tip.',
+                'Add: $50 + $10 = $60.00 total.',
+              ],
+              result: 'Tip is $10.00 and the total is $60.00.',
+            },
+            {
+              title: 'Pre-tax vs post-tax: $80 bill with 8% tax at 20%',
+              steps: [
+                'Pre-tax: $80 x 0.20 = $16.00 tip, total $86.40 + $16.00 = $102.40.',
+                'Post-tax: $86.40 x 0.20 = $17.28 tip, total $103.68.',
+                'Difference: $1.28 — post-tax is simply a slightly more generous tip.',
+              ],
+              result: 'Pre-tax is the cleaner standard; post-tax matches receipt suggestion lines.',
+            },
+            {
+              title: 'Group split: $120 bill, 20% tip, 4 people',
+              steps: [
+                'Tip: $120 x 0.20 = $24.00.',
+                'Total: $120 + $24 = $144.00.',
+                'Divide: $144 / 4 = $36.00 per person.',
+              ],
+              result: 'Each person pays $36.00 — no awkward Venmo math.',
+            },
+          ],
+          comparisonTable: {
+            caption: 'US tipping norms by service (starting points, adjust for quality)',
+            headers: ['Service', 'Typical tip', 'Note'],
+            rows: [
+              ['Sit-down restaurant', '18-20%', '20% is the safest default'],
+              ['Bar / drinks', '$1-2 per drink', 'Or 15-20% of the tab'],
+              ['Food delivery', '15-20% ($5 min)', 'More in bad weather'],
+              ['Hair salon / barber', '15-20%', 'On the pre-discount price'],
+              ['Taxi / rideshare', '10-15%', 'Round up for clean totals'],
+              ['Hotel housekeeping', '$2-5 per night', 'Leave daily, not at checkout'],
+            ],
+          },
+          mistakes: [
+            {
+              title: 'Tipping on the post-tax total without realizing',
+              text: 'Receipt suggestion lines are often computed on the after-tax total. That is fine if you choose it — just know a 20% post-tax tip on an $80/8% bill is $17.28 versus $16.00 pre-tax.',
+            },
+            {
+              title: 'Tipping on the discounted price',
+              text: 'With an $80 meal discounted to $50, tip 20% on $80 ($16), not $50 ($10). Coupons cut your bill, not your server labor.',
+            },
+            {
+              title: 'Double-tipping over an automatic gratuity',
+              text: 'Parties of 6-8+ often include a mandatory service charge. Read the receipt first — it is a fee, not a tip. Add extra only for exceptional service.',
+            },
+          ],
+          relatedLinks: [
+            { label: 'Tax part of the bill', href: '/calculators/finance/sales-tax', anchor: 'Calculate sales tax before tipping' },
+            { label: 'Tip on the full price', href: '/calculators/finance/discount', anchor: 'Calculate the pre-discount price' },
+            { label: 'Dining and shopping guides', href: '/blog/shopping', anchor: 'Read Shopping and Discounts guides' },
+          ],
         },
       },
       {
