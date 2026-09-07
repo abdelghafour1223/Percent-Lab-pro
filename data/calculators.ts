@@ -127,10 +127,18 @@ export const CATEGORIES: Category[] = [
           },
           {
             q: 'Can percentage increase be more than 100%?',
-            a: 'Yes, if the new value is more than double the original value. For example, going from 50 to 150 is a 200% increase: ((150 - 50) / 50) × 100 = 200%.',
+            a: 'Yes, if the new value is more than double the original value. For example, going from 50 to 150 is a 200% increase: ((150 - 50) / 50) x 100 = 200%.',
+          },
+          {
+            q: 'What is the fastest way to apply a percentage increase?',
+            a: 'Multiply by (1 + rate). For a 4% raise on $52,000: $52,000 x 1.04 = $54,080 in one step — no need to compute the increase and add it separately.',
+          },
+          {
+            q: 'What is the difference between percent increase and percentage points?',
+            a: 'Going from 10% to 15% is +5 percentage points, but a 50% relative increase ((15-10)/10 x 100). Negotiation headlines often mix the two — always check which one is meant.',
           },
         ],
-        lastUpdated: '2025-11-13',
+        lastUpdated: '2026-09-07',
         schemaType: 'HowTo',
         webAppSchema: {
           detailedDescription: 'The Percentage Increase Calculator is an essential financial and mathematical tool that helps you determine the rate of growth between two values with precision and clarity. Whether you\'re negotiating a salary raise, tracking business revenue growth, analyzing stock price appreciation, monitoring property value increases, or calculating price inflation, this calculator provides instant, accurate results with comprehensive explanations. Ideal for HR professionals, business analysts, investors, students, and anyone tracking growth metrics. The tool clearly displays both the percentage increase and the absolute increase amount, helping you understand both the relative and absolute changes. Get detailed step-by-step calculations that show exactly how the percentage increase is derived from your input values.',
@@ -144,6 +152,72 @@ export const CATEGORIES: Category[] = [
             'Mobile-optimized interface for calculations on the go'
           ],
           applicationCategory: 'FinanceApplication'
+        },
+        guide: {
+          intro: [
+            'A percentage increase calculator turns any before-and-after pair into a growth rate: subtract old from new, divide by old, multiply by 100. The formula ((New - Old) / Old) x 100 looks plain, but the denominator choice is where most people go wrong — always divide by the original value, never the new one.',
+            'The shortcut professionals use runs both directions from one multiplier. To apply an increase, multiply by (1 + rate): a 4% raise on $52,000 is $52,000 x 1.04 = $54,080. To reverse one, divide by the same multiplier: $54,080 / 1.04 = $52,000. One number replaces three steps.',
+            'Context matters as much as math. In the US, a 3-4% annual merit raise is typical, promotions land around 10-20%, and anything above inflation grows your real income. Use the worked examples below for salary talks, then read our full salary increase walkthrough for negotiation scripts.',
+          ],
+          workedExamples: [
+            {
+              title: 'Basic: from 100 to 125',
+              steps: [
+                'Find the change: 125 - 100 = 25.',
+                'Divide by the original: 25 / 100 = 0.25.',
+                'Multiply by 100: 0.25 x 100 = 25%.',
+              ],
+              result: 'A 25% increase — the absolute gain was 25.',
+            },
+            {
+              title: 'Salary: 4% raise on $52,000',
+              steps: [
+                'Use the shortcut multiplier: 1 + 0.04 = 1.04.',
+                'Multiply: $52,000 x 1.04 = $54,080 new salary.',
+                'Yearly gain: $2,080, about $173 per month before tax.',
+              ],
+              result: 'New salary $54,080 — one multiplication, no separate addition.',
+            },
+            {
+              title: 'Trap: 20% down then 20% up is not break-even',
+              steps: [
+                'Start at $150, drop 20%: $150 x 0.80 = $120.',
+                'Rise 20% on the new base: $120 x 1.20 = $144.',
+                'Compare: $144 vs the original $150 — still $6 short.',
+              ],
+              result: 'Percents apply to changing bases; recovering a 50% crash needs a 100% gain.',
+            },
+          ],
+          comparisonTable: {
+            caption: 'What common raises mean on a $60,000 salary',
+            headers: ['Raise', 'Yearly gain', 'New salary'],
+            rows: [
+              ['3% (typical merit)', '$1,800', '$61,800'],
+              ['4%', '$2,400', '$62,400'],
+              ['5%', '$3,000', '$63,000'],
+              ['7% (top performer)', '$4,200', '$64,200'],
+              ['10% (promotion)', '$6,000', '$66,000'],
+            ],
+          },
+          mistakes: [
+            {
+              title: 'Dividing by the new value instead of the old',
+              text: 'From 100 to 125, (125-100)/125 gives 20% — wrong. The reference point is always the original: (125-100)/100 = 25%.',
+            },
+            {
+              title: 'Adding sequential percents (6% + 4% = 10%)',
+              text: 'Two yearly raises compound: $45,000 x 1.06 x 1.04 = $49,608, a 10.24% total — not 10%. Small difference now, big money over a career.',
+            },
+            {
+              title: 'Mixing percentage points with percent',
+              text: 'A rate rising from 10% to 15% gains 5 percentage points but 50% relatively. Salary headlines exploit this confusion — ask which one a quoted figure means.',
+            },
+          ],
+          relatedLinks: [
+            { label: 'Salary increase walkthrough', href: '/faq/percentage-increase-salary-price', anchor: 'Read the full salary increase guide' },
+            { label: 'Decrease and change', href: '/calculators/basic-percent/percentage-decrease', anchor: 'Calculate percentage decrease' },
+            { label: 'Any percent of any number', href: '/calculators/basic-percent/percent-of', anchor: 'Use the Percent Of Calculator' },
+          ],
         },
       },
       {
