@@ -26,6 +26,9 @@ export interface Calculator {
     workedExamples: Array<{ title: string; steps: string[]; result: string }>;
     comparisonTable: { caption: string; headers: [string, string, string]; rows: Array<[string, string, string]> };
     mistakes: Array<{ title: string; text: string }>;
+    // Explicit hub links rendered as "Continue with" chips (seo-content skill:
+    // 3-5 relevant internal links with descriptive anchors, no orphan pages).
+    relatedLinks?: Array<{ label: string; href: string; anchor: string }>;
   };
   webAppSchema?: {
     detailedDescription: string; // 100-150 words, SEO-optimized
@@ -686,9 +689,85 @@ export const CATEGORIES: Category[] = [
             q: 'What is the sales tax rate in my state?',
             a: 'Sales tax rates vary by state and locality, ranging from 0% (no sales tax states like Oregon) to over 10% in some cities. Check your local government website for exact rates, as city and county taxes may apply on top of state tax.',
           },
+          {
+            q: 'What is 8.5% sales tax on $100?',
+            a: 'The tax is $100 x 0.085 = $8.50, so the total is $108.50. Our calculator above does this instantly for any price and rate.',
+          },
+          {
+            q: 'Which US states have no sales tax?',
+            a: 'Five states have no statewide sales tax: Alaska (local taxes can still apply), Delaware, Montana, New Hampshire, and Oregon. Everywhere else, expect a state base rate plus possible county and city additions.',
+          },
         ],
-        lastUpdated: '2025-11-13',
+        lastUpdated: '2026-09-07',
         schemaType: 'HowTo',
+        guide: {
+          intro: [
+            'A sales tax calculator answers the question every US shopper asks at the register: what will this actually cost me? The formula is short — tax = price x (rate / 100), total = price + tax — but the rate itself is the hard part, because the United States has no single national rate. Your checkout total depends on state, county, city, and sometimes special districts stacked together.',
+            'The pattern to memorize: state base rate first, local additions second, combined rate is what you pay. California has the highest state base at 7.25%, but Chicago checkout hits 10.25% and New York City 8.875% once local taxes stack on. Five states (Alaska with local exceptions, Delaware, Montana, New Hampshire, Oregon) have no statewide tax at all — which is why the same $100 item can cost $100 in Portland and over $110 in Chicago.',
+            'One more rule that saves money: in most states the discount lowers the taxable price, so always compute the sale price first with our discount calculator, then add tax here. And because rates change, treat any table — including ours — as a starting estimate and confirm with your state Department of Revenue before filing or invoicing.',
+          ],
+          workedExamples: [
+            {
+              title: 'Forward: $100 item at 8.5% tax',
+              steps: [
+                'Convert the rate to a decimal: 8.5 / 100 = 0.085.',
+                'Multiply by the price: $100 x 0.085 = $8.50 tax.',
+                'Add: $100 + $8.50 = $108.50 total.',
+              ],
+              result: 'Tax is $8.50 and the out-the-door total is $108.50.',
+            },
+            {
+              title: 'Reverse: receipt total $108.50 at 8.5% tax',
+              steps: [
+                'Do NOT subtract 8.5% from the total (that gives $99.28, which is wrong).',
+                'Divide by 1 plus the decimal rate: $108.50 / 1.085.',
+                'Result: exactly $100.00 pre-tax price.',
+              ],
+              result: 'Reverse formula: price = total / (1 + rate). Our tool does both directions.',
+            },
+            {
+              title: 'Cross-state deal check: $100 jacket, 20% off, Oregon vs Chicago',
+              steps: [
+                'Oregon (0% tax): $100 x 0.80 = $80.00, total stays $80.00.',
+                'Chicago (10.25% combined): $100 x 0.80 = $80.00, tax $80 x 0.1025 = $8.20, total $88.20.',
+                'Same jacket, same sale — different checkout by $8.20.',
+              ],
+              result: 'Location can matter more than the discount itself.',
+            },
+          ],
+          comparisonTable: {
+            caption: 'State base rates shoppers ask about most (cities add more — verify locally)',
+            headers: ['State', 'Base rate', 'Checkout note'],
+            rows: [
+              ['California', '7.25%', 'Highest state base; LA area exceeds 10%'],
+              ['Texas', '6.25%', 'Often 8.25% combined in big cities'],
+              ['New York', '4.00%', 'NYC totals 8.875% with local add-ons'],
+              ['Florida', '6.00%', 'County surtax can apply'],
+              ['Washington', '6.50%', 'Local rates vary widely by address'],
+              ['Illinois', '6.25%', 'Chicago totals 10.25%'],
+              ['Oregon', 'No statewide tax', '$100 sticker = $100 at checkout'],
+            ],
+          },
+          mistakes: [
+            {
+              title: 'Using the state base instead of the combined rate',
+              text: 'The state rate is only the starting point. In Chicago the 6.25% state base becomes 10.25% at checkout. Always use the combined state + county + city rate for your exact address.',
+            },
+            {
+              title: 'Reversing tax by subtracting the percent',
+              text: 'To remove 8.5% tax from $108.50, divide by 1.085 to get $100 — do not compute $108.50 minus 8.5%, which wrongly gives $99.28.',
+            },
+            {
+              title: 'Taxing the pre-discount price',
+              text: 'In most states tax applies to the discounted price, not the original. Compute the sale price first (discount calculator), then apply tax here — and confirm your state rules with its Department of Revenue.',
+            },
+          ],
+          relatedLinks: [
+            { label: 'Price after discount first', href: '/calculators/finance/discount', anchor: 'Calculate the sale price before tax' },
+            { label: 'Tip on the taxed total', href: '/calculators/daily/tip-calculator', anchor: 'Calculate restaurant tip' },
+            { label: 'Finance percentage guides', href: '/blog/finance', anchor: 'Read Finance and Money guides' },
+          ],
+        },
         webAppSchema: {
           detailedDescription: 'The Sales Tax Calculator is a practical everyday tool that instantly calculates sales tax amounts and total prices including tax for any purchase. Whether you\'re shopping online or in-store, budgeting for purchases, running a retail business, selling products, or simply want to know the out-the-door price before checkout, this calculator provides accurate tax calculations instantly. Essential for consumers planning purchases, retailers pricing products, small business owners managing sales, accountants reconciling transactions, and anyone dealing with sales tax calculations. The tool also works in reverse to remove sales tax from a total, helping you determine the pre-tax price. Perfect for comparing prices across different tax jurisdictions, calculating exact amounts for expense reports, and ensuring accurate pricing and budgeting.',
           featureList: [
@@ -795,6 +874,11 @@ export const CATEGORIES: Category[] = [
               title: 'Trusting inflated "original" prices',
               text: 'During Black Friday, some "was" prices are raised before the sale. Track the price for 30 days or check price history before assuming the discount is real.',
             },
+          ],
+          relatedLinks: [
+            { label: 'Find your total with tax', href: '/calculators/finance/sales-tax', anchor: 'Calculate sales tax on the discounted price' },
+            { label: 'Tip on the discounted total', href: '/calculators/daily/tip-calculator', anchor: 'Calculate restaurant tip' },
+            { label: 'Any percent of any number', href: '/calculators/basic-percent/percent-of', anchor: 'Use the Percent Of Calculator' },
           ],
         },
         schemaType: 'HowTo',

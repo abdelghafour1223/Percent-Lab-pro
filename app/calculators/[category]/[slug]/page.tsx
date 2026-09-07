@@ -309,7 +309,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
             </div>
 
             <h3 className="text-xl font-semibold mb-4">Mistakes to avoid</h3>
-            <div className="space-y-4">
+            <div className="space-y-4 mb-8">
               {calculator.guide.mistakes.map((m, i) => (
                 <div key={i} className="border-l-2 border-primary/60 pl-4">
                   <h4 className="font-semibold text-foreground">{m.title}</h4>
@@ -317,6 +317,21 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
                 </div>
               ))}
             </div>
+
+            {calculator.guide.relatedLinks && calculator.guide.relatedLinks.length > 0 && (
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Continue with</h3>
+                <div className="flex flex-wrap gap-3">
+                  {calculator.guide.relatedLinks.map((link) => (
+                    <Button key={link.href} asChild variant="outline" size="lg" className="min-h-[48px] font-semibold">
+                      <Link href={link.href} aria-label={link.anchor}>
+                        {link.label} <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            )}
           </section>
         )}
 
