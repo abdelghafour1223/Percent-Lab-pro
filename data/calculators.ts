@@ -80,8 +80,16 @@ export const CATEGORIES: Category[] = [
             q: 'Can I calculate percentages greater than 100%?',
             a: 'Yes, percentages can exceed 100%. For example, 150% of 100 is (150 ÷ 100) × 100 = 150.',
           },
+          {
+            q: 'What is the difference between % of and % more than?',
+            a: '20% of 100 is 20. 20% more than 100 is 100 + 20 = 120. One takes a slice, the other grows the whole — see our percentage increase calculator for the second.',
+          },
+          {
+            q: 'How do I do percentages in my head?',
+            a: 'Anchor on 10% (move the decimal left: 10% of 250 = 25), then build: 5% is half of 10%, 20% is double, 25% is divide by 4, 50% is divide by 2.',
+          },
         ],
-        lastUpdated: '2025-11-12',
+        lastUpdated: '2026-09-07',
         schemaType: 'HowTo',
         webAppSchema: {
           detailedDescription: 'The Percent Of Calculator is a powerful, free online tool designed to help you calculate what percentage one number represents of another with instant, accurate results. Whether you\'re calculating discounts while shopping, determining tax amounts, analyzing business metrics, or solving homework problems, this calculator provides step-by-step explanations and real-world examples to help you understand the mathematical process. Perfect for students, professionals, shoppers, and anyone needing quick percentage calculations. Our tool supports any percentage value including decimals and percentages over 100%, making it versatile for all your calculation needs. Get instant results with detailed formula breakdowns to learn while you calculate.',
@@ -95,6 +103,70 @@ export const CATEGORIES: Category[] = [
             'Privacy-focused - all calculations performed client-side with no data storage'
           ],
           applicationCategory: 'CalculatorApplication'
+        },
+        guide: {
+          intro: [
+            'A percent of calculator answers the first of three percentage questions: what is X% of Y? The formula is result = (percentage / 100) x number — 20% of 500 is 0.20 x 500 = 100. The other two questions (Y is what % of X, and Y is P% of what) use the same numbers rearranged, and confusing them is the most common error on this page.',
+            'For mental math, anchor everything on 10%: move the decimal one place left (10% of 250 = 25). From there, 5% is half of 10%, 20% is double, 25% is divide by 4, and 50% is divide by 2. Five anchors cover nearly every everyday calculation without a calculator.',
+            'This page is the hub of the percentage family: discounts take a slice off, sales tax adds one on, and percentage increase compares two values. Use the worked examples below, then follow the related calculators for your exact question.',
+          ],
+          workedExamples: [
+            {
+              title: 'Basic: 20% of 500',
+              steps: [
+                'Convert the percent to a decimal: 20 / 100 = 0.20.',
+                'Multiply: 0.20 x 500 = 100.',
+              ],
+              result: '20% of 500 is 100.',
+            },
+            {
+              title: 'Reverse: 30 is what % of 120',
+              steps: [
+                'Divide part by whole: 30 / 120 = 0.25.',
+                'Multiply by 100: 0.25 x 100 = 25%.',
+              ],
+              result: '30 is 25% of 120.',
+            },
+            {
+              title: 'Find the whole: 45 is 30% of what',
+              steps: [
+                'Divide the part by the decimal: 45 / 0.30.',
+                'Result: 150.',
+                'Check: 0.30 x 150 = 45.',
+              ],
+              result: 'The whole is 150.',
+            },
+          ],
+          comparisonTable: {
+            caption: 'Mental shortcuts that always work (shown on $200).',
+            headers: ['Shortcut', 'Math', 'On $200'],
+            rows: [
+              ['10% — move decimal', '200 → 20.0', '$20'],
+              ['5% — half of 10%', '20 / 2', '$10'],
+              ['20% — double 10%', '20 x 2', '$40'],
+              ['25% — divide by 4', '200 / 4', '$50'],
+              ['50% — divide by 2', '200 / 2', '$100'],
+            ],
+          },
+          mistakes: [
+            {
+              title: 'Confusing % of with % more than',
+              text: '20% of 100 is 20; 20% more than 100 is 120. One slices, one grows — different calculators.',
+            },
+            {
+              title: 'Forgetting to divide by 100',
+              text: '20 x 500 = 10,000 is not 20% of anything. Always convert the percent to a decimal first.',
+            },
+            {
+              title: 'Misplacing the decimal on small percents',
+              text: '0.5% of 200 is 1, not 10: 0.5 / 100 = 0.005, and 0.005 x 200 = 1.',
+            },
+          ],
+          relatedLinks: [
+            { label: 'Browse 50 common calculations', href: '/calculators/common/common-percentage-calculations', anchor: '50 worked examples' },
+            { label: 'Try What Percent', href: '/calculators/common/what-percent', anchor: 'Reverse lookups' },
+            { label: 'Calculate percentage increase', href: '/calculators/basic-percent/percentage-increase', anchor: 'Growth math' },
+          ],
         },
       },
       {
@@ -1005,8 +1077,16 @@ export const CATEGORIES: Category[] = [
             q: 'What compounding frequency is best?',
             a: 'More frequent compounding yields higher returns. From best to worst: daily, monthly, quarterly, semi-annually, annually. However, the difference between daily and monthly is usually minimal.',
           },
+          {
+            q: 'What is the Rule of 72?',
+            a: 'Divide 72 by the annual rate to estimate doubling years. At 7%: 72 / 7 = about 10.3 years. At 5%: about 14.4 years. It is a quick estimate for compound growth, not an exact figure.',
+          },
+          {
+            q: 'Does monthly compounding beat yearly by much?',
+            a: 'Slightly. $10,000 at 5% for 10 years: monthly is about $16,470 vs yearly about $16,289 — a $181 gap. Time invested and rate dominate; frequency is a distant third.',
+          },
         ],
-        lastUpdated: '2025-11-13',
+        lastUpdated: '2026-09-07',
         hasChart: true,
         schemaType: 'HowTo',
         webAppSchema: {
@@ -1022,6 +1102,70 @@ export const CATEGORIES: Category[] = [
             'Completely free with no registration and privacy-focused'
           ],
           applicationCategory: 'FinanceApplication'
+        },
+        guide: {
+          intro: [
+            'A compound interest calculator shows what happens when interest earns interest: A = P(1 + r/n)^(nt), where P is the principal, r the annual rate as a decimal, n the compounds per year, and t the years. With monthly contributions there is a second half of the formula for the deposit stream — which is why honest tools project period by period instead of pretending every deposit compounds for the full term.',
+            'Three lessons every top result agrees on: starting early beats starting big (ten extra years can more than double the outcome at the same rate), rate dominates frequency (monthly vs yearly on $10,000 at 5% for 10 years differs by only $181 — see the examples), and nominal is not real (fees, taxes, and inflation all come out of the headline number). Treat this page as an educational estimate, not financial advice.',
+            'Use the worked examples for the math, the table for intuition on $200/month at 7%, and the Rule of 72 whenever you want a doubling estimate without touching a calculator.',
+          ],
+          workedExamples: [
+            {
+              title: 'Lump sum: $10,000 at 5% compounded yearly for 10 years',
+              steps: [
+                'Write the formula: A = 10000 x (1 + 0.05/1)^(1x10).',
+                'Simplify: A = 10000 x 1.05^10 = 10000 x 1.628895.',
+                'Result: A is about $16,288.95.',
+              ],
+              result: 'Interest earned is about $6,288.95 on top of the $10,000 principal.',
+            },
+            {
+              title: 'Same inputs, monthly compounding',
+              steps: [
+                'n = 12: A = 10000 x (1 + 0.05/12)^120.',
+                'Compute: A is about 10000 x 1.64701 = $16,470.10.',
+                'Compare with yearly: $16,470.10 - $16,288.95 = $181.15.',
+              ],
+              result: 'Monthly compounding wins by $181 — real money, but tiny next to the effects of time and rate.',
+            },
+            {
+              title: 'Rule of 72: doubling time at 7%',
+              steps: [
+                'Divide: 72 / 7 is about 10.3.',
+                'Interpretation: money doubles roughly every 10.3 years at 7%.',
+                'Sanity check: 1.07^10.3 is about 2.0.',
+              ],
+              result: 'A doubling estimate with no calculator required.',
+            },
+          ],
+          comparisonTable: {
+            caption: 'What $200/month becomes at 7% compounded monthly.',
+            headers: ['After', 'Total value', 'Of which interest'],
+            rows: [
+              ['10 years', '$34,620', '$10,620'],
+              ['20 years', '$104,180', '$56,180'],
+              ['30 years', '$243,900', '$171,900'],
+            ],
+          },
+          mistakes: [
+            {
+              title: 'Comparing APY with nominal APR',
+              text: 'A 5% nominal rate compounded monthly is about 5.12% effective (APY). Compare effective rates, not headline rates — otherwise monthly looks deceptively equal to yearly.',
+            },
+            {
+              title: 'Forgetting fees, taxes, and inflation',
+              text: 'A 7% market return minus 1% fees and 3% inflation is roughly 3% real. Lower your assumption instead of trusting the nominal projection.',
+            },
+            {
+              title: 'Expecting frequency to rescue a late start',
+              text: 'Daily vs monthly barely moves the needle; ten extra years more than doubles the outcome at the same rate. Start size and start date dominate.',
+            },
+          ],
+          relatedLinks: [
+            { label: 'Project investment returns', href: '/calculators/finance/investment-return', anchor: 'See investment returns' },
+            { label: 'Calculate loan interest', href: '/calculators/finance/loan-interest', anchor: 'Loans work in reverse' },
+            { label: 'Read Finance and Money guides', href: '/blog/finance', anchor: 'Finance guides' },
+          ],
         },
       },
       {
@@ -1515,8 +1659,16 @@ export const CATEGORIES: Category[] = [
             q: 'Can I still get an A if I failed the midterm?',
             a: 'It depends on the weight distribution. Use the calculator: if you got 60% on a midterm worth 30% and want an A (90%), with a final worth 40% and other work at 90%, you\'d need: (90 - 60×0.30 - 90×0.30) / 0.40 = 90% on the final. Challenging but possible!',
           },
+          {
+            q: 'How much is each final-exam point worth?',
+            a: 'Final weight divided by 100 course points. On a 40% final, each exam point moves your course grade 0.4 points; on 10% homework, each point moves it 0.1. Spend study hours where the weight is.',
+          },
+          {
+            q: 'Should I still study if I only need 60%?',
+            a: 'Yes — keep a safety margin. Grade boundaries, harsh curves, and one bad section can erase a thin cushion. Aim at least one band above the minimum you need.',
+          },
         ],
-        lastUpdated: '2025-11-13',
+        lastUpdated: '2026-09-07',
         schemaType: 'HowTo',
         webAppSchema: {
           detailedDescription: 'The Final Grade Calculator is an indispensable academic planning tool that calculates exactly what score you need on your final exam to achieve your desired course grade. Whether you\'re a student aiming for a specific letter grade, trying to maintain a GPA requirement, planning study priorities across multiple courses, or determining if your target grade is mathematically achievable, this calculator provides clear answers instantly. Perfect for college students, high school students, graduate students, and anyone facing final exams. Simply enter your current grade before the final, the final exam\'s weight in the overall grade, and your target grade to see exactly what final exam score you need. Essential for realistic goal setting, efficient study time allocation, and understanding what\'s possible given your current standing. Helps reduce final exam stress by providing clarity on requirements.',
@@ -1531,6 +1683,72 @@ export const CATEGORIES: Category[] = [
             'Completely free with no registration and privacy-focused'
           ],
           applicationCategory: 'EducationApplication'
+        },
+        guide: {
+          intro: [
+            'A final grade calculator answers one stressful question — what do I need on the final? — with one formula: required = (target - current x (1 - weight)) / weight. Current 85, target 90, final worth 30%: (90 - 85 x 0.70) / 0.30 = 101.67%.',
+            'Read the number as a study plan, not just a number: above 100% means the target is impossible without extra credit — lower the target or ask your professor now. 90-100% is tight, 70-90% reasonable with focused study, below 70% a safe margin you protect by avoiding a collapse.',
+            'Weight is leverage: on a 40% final every exam point moves your course grade 0.4 points, while a point on 10% homework moves it 0.1. Pull the category weights straight from your syllabus and allocate study hours by weight.',
+          ],
+          workedExamples: [
+            {
+              title: 'Impossible target: 85 to 90 with a 30% final',
+              steps: [
+                'Multiply current by remaining weight: 85 x 0.70 = 59.5.',
+                'Subtract from target: 90 - 59.5 = 30.5.',
+                'Divide by final weight: 30.5 / 0.30 = 101.67%.',
+              ],
+              result: 'Over 100% — impossible without extra credit. Target 88% instead, or talk to your professor now.',
+            },
+            {
+              title: 'Classic case: 85 to 90 with a 40% final',
+              steps: [
+                '85 x 0.60 = 51.',
+                '90 - 51 = 39.',
+                '39 / 0.40 = 97.5%.',
+              ],
+              result: 'You need 97.5% — an A on the final. Hard, but possible.',
+            },
+            {
+              title: 'Holding steady: current 91, final 15%, scored 88.6',
+              steps: [
+                'Kept portion: 91 x 0.85 = 77.35.',
+                'Final portion: 88.6 x 0.15 = 13.29.',
+                'Add: 77.35 + 13.29 = 90.64.',
+              ],
+              result: 'Final course grade is about 90.6% — the A survives.',
+            },
+          ],
+          comparisonTable: {
+            caption: 'What you need on a 30% final.',
+            headers: ['Situation', 'Needed', 'Read'],
+            rows: [
+              ['Current 80 → target 85', '96.67%', 'Tight'],
+              ['Current 85 → 90', '101.67%', 'Impossible alone'],
+              ['Current 90 → 90', '90.00%', 'Hold steady'],
+              ['Current 75 → 80', '91.67%', 'Tight'],
+              ['Current 88 → 90', '94.67%', 'Reasonable push'],
+            ],
+          },
+          mistakes: [
+            {
+              title: 'Forgetting weights must total 100% including the final',
+              text: 'If homework 25 + quizzes 20 + midterm 25 = 70, the final is 30. Read every weight off the syllabus before trusting the number.',
+            },
+            {
+              title: 'Chasing an impossible target instead of reallocating',
+              text: 'Needing 101% means the plan is wrong, not your effort. Drop the target one band and dominate the courses where the math works.',
+            },
+            {
+              title: 'Polishing low-weight work while the final decides',
+              text: 'An hour on a 40% final moves your grade 4x more than an hour on 10% homework. Study by weight.',
+            },
+          ],
+          relatedLinks: [
+            { label: 'Find the grade needed next', href: '/calculators/education/grade-needed', anchor: 'Minimum on next assignment' },
+            { label: 'Calculate weighted grades', href: '/calculators/education/weighted-grade', anchor: 'Weighted averages' },
+            { label: 'Read Education and Grade guides', href: '/blog/education', anchor: 'Study guides' },
+          ],
         },
       },
       {
