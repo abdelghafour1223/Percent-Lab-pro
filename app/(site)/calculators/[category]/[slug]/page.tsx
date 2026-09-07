@@ -13,6 +13,7 @@ import { CATEGORIES, getCalculatorBySlug, getRelatedCalculators } from '@/data/c
 import { FRACTION_PERCENT_PAGES, getFractionPageData } from '@/lib/fraction-pages';
 import { formatNumber } from '@/lib/utils';
 import { CalculatorForm } from '@/components/calculator-form';
+import { isWidget } from '@/data/widgets';
 import { ArrowRight } from 'lucide-react';
 
 interface CalculatorPageProps {
@@ -217,6 +218,18 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
         {/* Calculator Form */}
         <section className="mb-12">
           <CalculatorForm calculator={calculator} categoryId={categoryId} />
+          {isWidget(categoryId, slug) && (
+            <p className="mt-4 text-center text-sm text-muted-foreground">
+              Have a blog or store?{' '}
+              <Link
+                href={`/widgets#${slug}`}
+                className="font-medium text-primary hover:underline"
+                aria-label={`Embed the ${calculator.title} on your website`}
+              >
+                Embed this calculator on your site — free
+              </Link>
+            </p>
+          )}
         </section>
 
         {/* Ad Slot */}

@@ -6,7 +6,7 @@ import {
 } from '../fraction-pages';
 import { parseSlug } from '../pseo';
 import sitemap from '@/app/sitemap';
-import FractionPercentPage, { generateMetadata } from '@/app/what-is-32-out-of-40-as-a-percent/page';
+import FractionPercentPage, { generateMetadata } from '@/app/(site)/what-is-32-out-of-40-as-a-percent/page';
 import { renderToString } from 'react-dom/server';
 
 const page = getFractionPage('what-is-32-out-of-40-as-a-percent')!;

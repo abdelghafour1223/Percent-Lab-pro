@@ -53,6 +53,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/blog`,
       lastModified: new Date('2026-09-07'),
     },
+    {
+      url: `${SITE_URL}/widgets`,
+      lastModified: new Date('2026-09-07'),
+    },
   ];
 
   // Add FAQ guide pages

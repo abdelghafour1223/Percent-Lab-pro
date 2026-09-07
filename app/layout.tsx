@@ -1,9 +1,5 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import { ThemeProvider } from '@/components/theme-provider';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
-import { Analytics } from '@/components/analytics';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -86,55 +82,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const organizationSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'PercentLab',
-    url: 'https://www.percentlab.app/',
-    logo: 'https://www.percentlab.app/logo.svg',
-    sameAs: [
-      'https://www.facebook.com/profile.php?id=61584195726259',
-      'https://x.com/percentlab',
-      'https://www.youtube.com/@Percentlab',
-      'https://www.threads.net/@percentlab_app',
-      'https://www.pinterest.com/percentlab/',
-      'https://www.instagram.com/percentlab_app/',
-      'https://www.linkedin.com/in/percentlab-app/',
-      'https://www.reddit.com/user/Percentlab/',
-      'https://www.quora.com/profile/Percentlab',
-      'https://medium.com/@percentlab-app',
-    ],
-  };
-
+  // NOTE: site chrome (Header/Footer/Analytics/Ads/Organization schema)
+  // lives in app/(site)/layout.tsx so chromeless routes (/embed/*) skip it.
+  // Root keeps only html/body + theme + global CSS.
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen flex flex-col antialiased">
-        <Script
-          id="organization-schema"
-          type="application/ld+json"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
-          }}
-        />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <Analytics />
+          {children}
         </ThemeProvider>
-        {process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID && (
-          <Script
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}`}
-            strategy="lazyOnload"
-            crossOrigin="anonymous"
-          />
-        )}
       </body>
     </html>
   );
