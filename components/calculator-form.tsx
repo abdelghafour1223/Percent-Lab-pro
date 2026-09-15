@@ -8,8 +8,24 @@ import { Button } from '@/components/ui/button';
 import { Calculator as CalculatorType } from '@/data/calculators';
 import { calculateFractionPercentage, gcd, getLetterGrade as getLetterGradeShared } from '@/lib/percentage-math';
 import { Copy, Check } from 'lucide-react';
-import { ROIChart } from '@/components/charts/roi-chart';
-import { DiscountChart } from '@/components/charts/discount-chart';
+import dynamic from 'next/dynamic';
+
+// chart.js visualizations render below the result card — load them
+// client-side only so calculators stay light on first paint.
+const ROIChart = dynamic(
+  () => import('@/components/charts/roi-chart').then((m) => m.ROIChart),
+  {
+    ssr: false,
+    loading: () => <div className="h-48 animate-pulse rounded-lg bg-muted" aria-hidden="true" />,
+  }
+);
+const DiscountChart = dynamic(
+  () => import('@/components/charts/discount-chart').then((m) => m.DiscountChart),
+  {
+    ssr: false,
+    loading: () => <div className="h-48 animate-pulse rounded-lg bg-muted" aria-hidden="true" />,
+  }
+);
 import { SocialShare } from '@/components/social-share';
 
 interface CalculatorFormProps {

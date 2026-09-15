@@ -36,7 +36,7 @@ export default function SiteLayout({
       <Script
         id="organization-schema"
         type="application/ld+json"
-        strategy="beforeInteractive"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(organizationSchema),
         }}

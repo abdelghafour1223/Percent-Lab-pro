@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { PercentageBarChart } from '@/components/percentage-bar-chart';
-import { PercentageInfographic } from '@/components/percentage-infographic';
+import {
+  LazyPercentageBarChart as PercentageBarChart,
+  LazyPercentageInfographic as PercentageInfographic,
+} from '@/components/pseo-visuals';
 import { explainPercentOf } from '@/lib/calculator';
 import {
   parseSlug,
