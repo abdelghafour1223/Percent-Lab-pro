@@ -163,8 +163,8 @@ export const CATEGORIES: Category[] = [
             },
           ],
           relatedLinks: [
-            { label: 'Browse 50 common calculations', href: '/calculators/common/common-percentage-calculations', anchor: '50 worked examples' },
-            { label: 'Try What Percent', href: '/calculators/common/what-percent', anchor: 'Reverse lookups' },
+            { label: 'Browse 50 common calculations', href: '/calculators/basic-percent/common-percentage-calculations', anchor: '50 worked examples' },
+            { label: 'Try What Percent', href: '/calculators/basic-percent/what-percent', anchor: 'Reverse lookups' },
             { label: 'Calculate percentage increase', href: '/calculators/basic-percent/percentage-increase', anchor: 'Growth math' },
           ],
         },
