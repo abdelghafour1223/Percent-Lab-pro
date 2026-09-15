@@ -1,5 +1,7 @@
 import { BLOG_POSTS, getBlogPost, getBlogPostsByCategory } from '@/data/blog-posts';
 import { BLOG_CATEGORIES } from '@/data/blog';
+import { ARTICLE_VISUALS } from '@/components/blog/article-visuals';
+import { extractInlineHrefs } from '@/components/blog/render-paragraph';
 
 const VALID_HREF_PREFIXES = [
   '/calculators/',
@@ -53,5 +55,27 @@ describe('blog posts data integrity', () => {
       expect(getBlogPost(post.category, post.slug)?.title).toBe(post.title);
     }
     expect(getBlogPost('finance', 'no-such-post')).toBeUndefined();
+  });
+
+  test('hero visuals exist with keyword captions', () => {
+    for (const post of BLOG_POSTS) {
+      expect(ARTICLE_VISUALS[post.heroVisual]).toBeDefined();
+      expect(post.heroCaption.length).toBeGreaterThanOrEqual(40);
+    }
+  });
+
+  test('inline prose links are all valid internal hrefs', () => {
+    const prose = BLOG_POSTS.flatMap((p) => [
+      ...p.intro,
+      ...p.sections.flatMap((s) => s.paragraphs),
+    ]);
+    const hrefs = prose.flatMap(extractInlineHrefs);
+    expect(hrefs.length).toBeGreaterThan(0);
+    for (const href of hrefs) {
+      expect(href).not.toContain('/calculators/common/');
+      expect(
+        VALID_HREF_PREFIXES.some((prefix) => href.startsWith(prefix))
+      ).toBe(true);
+    }
   });
 });

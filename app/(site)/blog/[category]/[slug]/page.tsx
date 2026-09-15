@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BLOG_POSTS, getBlogPost } from '@/data/blog-posts';
 import { getBlogCategoryBySlug } from '@/data/blog';
+import { ARTICLE_VISUALS } from '@/components/blog/article-visuals';
+import { renderParagraph } from '@/components/blog/render-paragraph';
 import { ArrowRight, Clock, HelpCircle } from 'lucide-react';
 
 interface PageProps {
@@ -69,6 +71,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   const categoryInfo = getBlogCategoryBySlug(post.category);
   const url = `https://www.percentlab.app/blog/${post.category}/${post.slug}`;
   const relatedPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const HeroVisual = ARTICLE_VISUALS[post.heroVisual];
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -186,11 +189,20 @@ export default async function BlogPostPage({ params }: PageProps) {
           <CardContent className="pt-6 space-y-4">
             {post.intro.map((para, i) => (
               <p key={i} className="text-base leading-relaxed text-muted-foreground">
-                {para}
+                {renderParagraph(para, `intro-${i}`)}
               </p>
             ))}
           </CardContent>
         </Card>
+
+        <figure className="mb-8">
+          <div className="rounded-2xl overflow-hidden border shadow-sm">
+            <HeroVisual />
+          </div>
+          <figcaption className="mt-3 text-sm text-muted-foreground text-center px-4">
+            {post.heroCaption}
+          </figcaption>
+        </figure>
 
         {post.sections.map((section) => (
           <section key={section.heading} className="mb-8">
@@ -198,7 +210,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div className="space-y-4">
               {section.paragraphs.map((para, i) => (
                 <p key={i} className="text-base text-muted-foreground leading-relaxed">
-                  {para}
+                  {renderParagraph(para, `${section.heading}-${i}`)}
                 </p>
               ))}
               {section.bullets && (

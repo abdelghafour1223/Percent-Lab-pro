@@ -22,6 +22,8 @@ export interface BlogPost {
   publishedAt: string; // ISO date
   updatedAt: string; // ISO date
   readingMinutes: number;
+  heroVisual: 'percent-forms' | 'compound-growth' | 'grade-weights' | 'discount-stack';
+  heroCaption: string; // keyword-rich figure caption (image SEO)
   intro: string[]; // answer-first opening (AI-citable, 40-60 words first)
   sections: BlogSection[];
   workedExamples: Array<{ title: string; steps: string[]; result: string }>;
@@ -52,10 +54,13 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     publishedAt: '2026-09-15',
     updatedAt: '2026-09-15',
-    readingMinutes: 7,
+    readingMinutes: 10,
+    heroVisual: 'percent-forms',
+    heroCaption:
+      'The three percentage forms at a glance: slice for discounts and tips, share for test scores, whole for reverse lookups — each with a verified worked example below.',
     intro: [
-      'To calculate a percentage, use Result = (Percentage ÷ 100) × Number. For example, 20% of 80 is (20 ÷ 100) × 80 = 0.20 × 80 = 16. Every percentage problem on this page reduces to this one formula rearranged three ways.',
-      'Percentages answer three questions: what is X% of Y, Y is what percent of X, and Y is P% of what number. Confusing these three is the single most common error — each section below covers one form with a worked example you can verify.',
+      'To calculate a percentage, use Result = (Percentage ÷ 100) × Number. For example, 20% of 80 is (20 ÷ 100) × 80 = 0.20 × 80 = 16. Every percentage problem on this page reduces to this one formula rearranged three ways — try it live in our [Percent Of Calculator](/calculators/basic-percent/percent-of).',
+      'Percentages answer three questions: what is X% of Y, Y is what percent of X, and Y is P% of what number. Confusing these three is the single most common error — each section below covers one form with a worked example you can verify, or jump to [50 common calculations](/calculators/basic-percent/common-percentage-calculations) for instant answers.',
       'For mental math, anchor everything on 10%: move the decimal one place left (10% of 250 = 25). From there, 5% is half of 10%, 20% is double, 25% is divide by 4, and 50% is divide by 2.',
     ],
     sections: [
@@ -83,6 +88,25 @@ export const BLOG_POSTS: BlogPost[] = [
         paragraphs: [
           'The 10% anchor handles nearly every everyday calculation. 10% of any number is one decimal shift left. Build from there: 5% is half of 10%, 20% is double 10%, 25% is divide by 4, 50% is divide by 2. For 15%, add 10% plus half again.',
           'Percentages are reversible: X% of Y equals Y% of X. So 12% of 50 is the same as 50% of 12, which is obviously 6. Flipping the numbers often turns hard mental math into trivial math.',
+        ],
+      },
+      {
+        heading: 'The 1% Building Block (For Odd Percentages)',
+        paragraphs: [
+          'For awkward rates like 7% or 13%, find 1% first (move the decimal two places left: 1% of 420 = 4.20), then multiply. 7% of 420 is 4.20 × 7 = 29.40. It beats struggling with 0.07 × 420 in your head.',
+          'The same block powers tipping: 18% on a $64 bill is 10% ($6.40) + 5% ($3.20) + three 1% blocks ($1.92) = $11.52. Practice it once on our [tip calculator](/calculators/daily/tip-calculator) and restaurant math becomes automatic.',
+        ],
+        bullets: [
+          '1% of N: move the decimal two places left',
+          '7% of N: find 1%, multiply by 7',
+          '18% tip: 10% + 5% + (3 × 1%)',
+        ],
+      },
+      {
+        heading: 'Percentage Points vs Percent Change',
+        paragraphs: [
+          'A rate rising from 10% to 15% gains 5 percentage points but 50% relatively: (15 − 10) ÷ 10 × 100 = 50%. Election polls, interest rates, and fee disclosures all exploit this confusion — always ask which one a quoted figure means.',
+          'The rule: percentage points describe absolute gaps between percents; percent change describes relative growth. When a bank says "rates up 1%," check whether it means 3% → 4% (one point, 33% relative) or something else entirely. Our [percentage increase calculator](/calculators/basic-percent/percentage-increase) shows both framings side by side.',
         ],
       },
     ],
@@ -155,6 +179,14 @@ export const BLOG_POSTS: BlogPost[] = [
         q: 'What is the difference between percent and percentage points?',
         a: 'Going from 10% to 15% is +5 percentage points but a 50% relative increase ((15−10) ÷ 10 × 100). Always clarify which one a figure means.',
       },
+      {
+        q: 'What is 1% of any number and why does it matter?',
+        a: 'Move the decimal two places left: 1% of 420 is 4.20. It is the building block for odd rates — 7% of 420 is simply 4.20 × 7 = 29.40.',
+      },
+      {
+        q: 'How do I calculate percentage increase versus percent of?',
+        a: 'Percent of takes a slice: 20% of 80 = 16. Percentage increase compares two values: ((125 − 100) ÷ 100) × 100 = 25%. Different questions, different calculators.',
+      },
     ],
     relatedLinks: [
       { label: 'Percent Of Calculator', href: '/calculators/basic-percent/percent-of', anchor: 'Calculate any X% of Y' },
@@ -178,9 +210,12 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     publishedAt: '2026-09-15',
     updatedAt: '2026-09-15',
-    readingMinutes: 8,
+    readingMinutes: 10,
+    heroVisual: 'compound-growth',
+    heroCaption:
+      'Compound versus simple growth on $10,000 at 7%: compounding reaches $76,123 in 30 years while simple interest stalls at $31,000.',
     intro: [
-      'Compound interest means earning returns on your returns. The formula is A = P(1 + r/n)^(nt): $1,000 at 5% compounded yearly for 10 years grows to $1,000 × 1.05^10 = $1,628.89 — $628.89 of it pure compounding, not deposits.',
+      'Compound interest means earning returns on your returns. The formula is A = P(1 + r/n)^(nt): $1,000 at 5% compounded yearly for 10 years grows to $1,000 × 1.05^10 = $1,628.89 — $628.89 of it pure compounding, not deposits. Run your own numbers in our [compound interest calculator](/calculators/finance/compound-interest).',
       'Time matters more than rate. Starting 10 years earlier beats a slightly higher return started late, because each year\'s growth becomes next year\'s base. That is why the first dollars you invest are the most powerful dollars of your life.',
       'The fastest estimator is the Rule of 72: divide 72 by your annual rate to get the years needed to double. At 6%, money doubles in 72 ÷ 6 = 12 years.',
     ],
@@ -204,6 +239,25 @@ export const BLOG_POSTS: BlogPost[] = [
         paragraphs: [
           'A 1% annual fee on a $100,000 portfolio growing at 7% for 20 years costs about $60,000 in lost growth versus a 0.1% fee — the fee compounds against you exactly like returns compound for you. Expense ratios deserve the same scrutiny as returns.',
           'Verify any projection by checking the three inputs: real rate after inflation, compounding frequency, and whether contributions are included. Change one input at a time to see which drives the result.',
+        ],
+      },
+      {
+        heading: 'APY vs APR: The Comparison That Matters',
+        paragraphs: [
+          'APR quotes a rate without compounding; APY bakes compounding in. A savings account at 4% compounded monthly pays an APY of about 4.07% — small on paper, meaningful across decades. For savings always compare APY; for loans compare APR plus fees.',
+          'Banks advertise whichever number looks better for them. Convert with APY = (1 + r/n)^n − 1 before deciding anything, or let our [investment return calculator](/calculators/finance/investment-return) do the comparison with your real figures.',
+        ],
+        bullets: [
+          'Savings: compare APY (includes compounding)',
+          'Loans: compare APR plus origination and annual fees',
+          'Formula: APY = (1 + r/n)^n − 1',
+        ],
+      },
+      {
+        heading: 'Real Returns: Subtracting Inflation',
+        paragraphs: [
+          'Nominal 7% growth at 3% inflation is roughly 4% real growth — the spending power you actually gain. A quick estimate is nominal minus inflation; the precise figure divides: (1.07 ÷ 1.03) − 1 = 3.88%.',
+          'This is why "high-yield" 4.5% savings at 3% inflation quietly earns 1.5% real. Plan retirements and house deposits in real terms, and measure every [ROI calculation](/calculators/finance/roi) against inflation, not zero.',
         ],
       },
     ],
@@ -275,6 +329,14 @@ export const BLOG_POSTS: BlogPost[] = [
         q: 'How much does a 1% fee cost long term?',
         a: 'Enormously. On $100,000 at 7% over 20 years, a 1% annual fee versus 0.1% costs roughly $60,000 in lost compounding. Fees compound against you.',
       },
+      {
+        q: 'Should I compare APY or APR for savings?',
+        a: 'APY — it includes compounding while APR does not. Convert with APY = (1 + r/n)^n − 1. A 4% nominal rate compounded monthly pays about 4.07% APY.',
+      },
+      {
+        q: 'What is a real return after inflation?',
+        a: 'Roughly nominal minus inflation: 7% growth at 3% inflation ≈ 4% real. Precisely: (1.07 ÷ 1.03) − 1 = 3.88%. Plan big goals in real terms.',
+      },
     ],
     relatedLinks: [
       { label: 'Compound Interest Calculator', href: '/calculators/finance/compound-interest', anchor: 'Project your own growth' },
@@ -298,9 +360,12 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     publishedAt: '2026-09-15',
     updatedAt: '2026-09-15',
-    readingMinutes: 7,
+    readingMinutes: 9,
+    heroVisual: 'grade-weights',
+    heroCaption:
+      'Where your course grade comes from: with a 40% final, 60% is locked before the exam — study time should follow the weights.',
     intro: [
-      'The exact score you need is Final Needed = (Target − Current × (1 − Weight)) ÷ Weight. With an 85% current grade, a 90% target, and a 30% final: (90 − 85 × 0.70) ÷ 0.30 = 101.67% — meaning 90% is out of reach without extra credit.',
+      'The exact score you need is Final Needed = (Target − Current × (1 − Weight)) ÷ Weight. With an 85% current grade, a 90% target, and a 30% final: (90 − 85 × 0.70) ÷ 0.30 = 101.67% — meaning 90% is out of reach without extra credit. Get your number instantly in our [grade needed calculator](/calculators/education/grade-needed).',
       'Your final can only move your grade by its weight. A 10% final barely dents an 85%, while a 40% final can rescue — or wreck — a whole semester. Knowing the weight tells you how much studying actually pays.',
       'If your answer tops 100%, lower the target one point at a time until it drops under 100. That reachable target is your real goal for finals week.',
     ],
@@ -324,6 +389,25 @@ export const BLOG_POSTS: BlogPost[] = [
         paragraphs: [
           'A result like 114% is the math telling you the target is impossible under current rules — no exam performance gets you there. Options: lower the target, earn extra credit, or check whether your syllabus drops the lowest score or curves.',
           'Near letter boundaries, tiny shifts flip GPA points: 89.5% versus 90% can be B+ versus A−. Verify your school\'s rounding and plus/minus cutoffs before assuming the letter.',
+        ],
+      },
+      {
+        heading: 'Allocate Study Hours by Weight, Not by Fear',
+        paragraphs: [
+          'An hour spent on a 40%-weighted final moves your course grade four times more than an hour on a 10%-weighted quiz section. List every class with its final weight and your distance from the next letter boundary, then rank by points-per-hour.',
+          'Concretely: a class where 3 points secures an A− beats a class where 8 perfect points still leave a B+. Run each class through our [final grade calculator](/calculators/education/final-grade) first, then build the study calendar from the numbers — not from panic.',
+        ],
+        bullets: [
+          'Rank classes by (reachable points) × (weight)',
+          'Protect near-boundary grades first (89%, 79%)',
+          'Abandon mathematically settled classes early',
+        ],
+      },
+      {
+        heading: 'From Course Grade to GPA: The Full Chain',
+        paragraphs: [
+          'The final moves the course percent; the course percent converts to grade points (A = 4.0, B+ = 3.3, B = 3.0 on the common scale); points multiply by credit hours into quality points; total quality points divided by total credits is your GPA. One link at a time — never skip straight from exam score to GPA panic.',
+          'Because credits weight the average, a 4-credit B hurts more than a 2-credit A helps. Map the whole chain in our [GPA calculator](/calculators/education/gpa-calculator) before finals week so every study hour knows its dollar value in grade points.',
         ],
       },
     ],
@@ -396,6 +480,10 @@ export const BLOG_POSTS: BlogPost[] = [
         q: 'Do finals affect cumulative GPA directly?',
         a: 'No — the final changes the course grade, the course grade feeds semester GPA, and semester GPAs feed cumulative GPA. Track the chain with a GPA calculator.',
       },
+      {
+        q: 'How should I split study time between finals?',
+        a: 'Rank classes by reachable points times weight: a 40% final near a boundary beats a 10% final anywhere. Study where weight lives, protect near-boundary grades first.',
+      },
     ],
     relatedLinks: [
       { label: 'Final Grade Calculator', href: '/calculators/education/final-grade', anchor: 'Calculate your exact final grade' },
@@ -419,9 +507,12 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     publishedAt: '2026-09-15',
     updatedAt: '2026-09-15',
-    readingMinutes: 7,
+    readingMinutes: 9,
+    heroVisual: 'discount-stack',
+    heroCaption:
+      'Stacked discounts multiply: 20% off then an extra 10% off is a 28% total reduction — $100 becomes $72, not $70.',
     intro: [
-      'Your true checkout price is (Original − Discount) × (1 + Tax Rate) + Fees. A $200 item at 30% off with 8% tax costs $200 × 0.70 × 1.08 = $151.20 — not the $140 the tag suggests and not the $160 you might fear.',
+      'Your true checkout price is (Original − Discount) × (1 + Tax Rate) + Fees. A $200 item at 30% off with 8% tax costs $200 × 0.70 × 1.08 = $151.20 — not the $140 the tag suggests and not the $160 you might fear. Verify any deal in our [discount calculator](/calculators/finance/discount).',
       'Sequential discounts multiply, they never add. "Extra 10% off" on top of 20% off is not 30% off: $100 → $80 → $72, a 28% total reduction. Retailers count on shoppers adding percentages that should be multiplied.',
       'Always compare out-the-door totals — price after discounts, plus tax, shipping, and fees. The biggest percent sign routinely loses to the smallest final number.',
     ],
@@ -450,6 +541,25 @@ export const BLOG_POSTS: BlogPost[] = [
         paragraphs: [
           'Verify the "original" price over 30+ days of history — inflated reference prices are the most common trick. Compute the unit price for groceries and the out-the-door total for electronics before deciding anything is a deal.',
           'Compare against at least two other sellers with tax and shipping included. A genuine 25% clearance beats a theatrical "70% off" that started from a price nobody ever paid.',
+        ],
+      },
+      {
+        heading: 'Unit Pricing: The Great Equalizer',
+        paragraphs: [
+          'Different sizes break percent thinking: is 500g at $4.20 or 750g at $5.85 cheaper? Divide price by quantity — $8.40/kg versus $7.80/kg — and the bigger box wins despite the bigger ticket. Shelf unit-price labels do this for you; where missing, 30 seconds of division pays.',
+          'Watch "shrinkflation" the same way: same price, smaller pack is a hidden increase. (450g − 500g) ÷ 500g = a 10% quantity cut at equal price — a 10% price hike wearing a disguise.',
+        ],
+        bullets: [
+          'Always divide: price ÷ quantity = unit price',
+          'Same price + smaller pack = hidden increase',
+          'Compare unit prices, not ticket prices',
+        ],
+      },
+      {
+        heading: 'Coupons, Cashback, and Order of Operations',
+        paragraphs: [
+          'Stack in this order for maximum effect: percent-off coupons first (they bite the biggest base), then fixed-amount coupons, then cashback or rewards on the remainder. $100 with 20% off plus a $10 coupon is $70 either way here — but with 8% tax, coupon-before-tax versus after-tax changes the total, so check your [sales tax total](/calculators/finance/sales-tax) both ways on big tickets.',
+          'Cashback is a rebate, not a discount: 5% back on $151.20 returns $7.56 later, making the effective price $143.64 — only if you were buying anyway. Never let the rebate invent the purchase.',
         ],
       },
     ],
@@ -520,6 +630,10 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         q: 'Do you pay tax on the original or sale price?',
         a: 'In most US states, sales tax applies to the discounted price — one small mercy. Add flat shipping fees after tax.',
+      },
+      {
+        q: 'What is the correct order for stacking coupons and cashback?',
+        a: 'Percent-off first, then fixed-amount coupons, then cashback on the remainder. Check tax both ways on big tickets — coupon-before-tax versus after-tax changes the out-the-door total.',
       },
     ],
     relatedLinks: [
