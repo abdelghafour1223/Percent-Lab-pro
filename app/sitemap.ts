@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { CATEGORIES } from '@/data/calculators';
 import { BLOG_CATEGORIES } from '@/data/blog';
+import { BLOG_POSTS } from '@/data/blog-posts';
 import { generatePSEOPages, isPseoNoindexed } from '@/lib/pseo';
 import { getPseoEnrichment } from '@/data/pseo-enrichment';
 import { FRACTION_PERCENT_PAGES } from '@/lib/fraction-pages';
@@ -123,6 +124,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date('2026-09-07'),
   }));
 
+  // Add long-form blog articles (one per category to start)
+  const blogPosts = BLOG_POSTS.map(post => ({
+    url: `${SITE_URL}/blog/${post.category}/${post.slug}`,
+    lastModified: new Date(post.updatedAt),
+  }));
+
   // Add inverse-percentage cluster pages (explicit allowlist — one entry per shipped page)
   const fractionPercentPages = FRACTION_PERCENT_PAGES.map(page => ({
     url: `${SITE_URL}/${page.slug}`,
@@ -148,6 +155,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...calculatorCategories,
     ...calculatorPages,
     ...blogCategories,
+    ...blogPosts,
     ...fractionPercentPages,
     ...pseoPages,
   ];

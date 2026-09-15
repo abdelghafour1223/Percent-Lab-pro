@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { BLOG_CATEGORIES, getBlogCategoryBySlug, getRelatedBlogCategories } from '@/data/blog';
+import { getBlogPostsByCategory } from '@/data/blog-posts';
 import {
   Calculator,
   DollarSign,
@@ -63,6 +64,7 @@ export default async function BlogCategoryPage({ params }: BlogCategoryPageProps
   }
 
   const relatedCategories = getRelatedBlogCategories(categorySlug, 3);
+  const posts = getBlogPostsByCategory(categorySlug);
   const IconComponent = iconMap[category.icon as keyof typeof iconMap] || Calculator;
 
   // Hub content per category (seo-content skill: 800+ word equivalent depth,
@@ -249,6 +251,36 @@ export default async function BlogCategoryPage({ params }: BlogCategoryPageProps
             ))}
           </div>
         </section>
+
+        {/* In-depth articles for this topic */}
+        {posts.length > 0 && (
+          <section className="mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6 md:mb-8">In-Depth Articles</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+              {posts.map((post) => (
+                <Card key={post.slug} className="hover:shadow-lg transition-shadow">
+                  <CardContent className="pt-6">
+                    <h3 className="font-semibold mb-2">{post.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-2">
+                      {post.metaDescription}
+                    </p>
+                    <p className="text-xs text-muted-foreground mb-4">
+                      {post.readingMinutes} min read
+                    </p>
+                    <Button asChild variant="outline" size="sm" className="w-full">
+                      <Link
+                        href={`/blog/${post.category}/${post.slug}`}
+                        aria-label={`Read ${post.title}`}
+                      >
+                        Read Article <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* FAQ — visible, 1:1 with potential schema later */}
         <section className="mb-12 md:mb-16 max-w-4xl">
