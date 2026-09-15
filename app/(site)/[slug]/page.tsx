@@ -541,7 +541,7 @@ export default async function PSEOPage({ params }: PageProps) {
         {/* Suggested Guides */}
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle>Suggested Guides (Coming Soon)</CardTitle>
+            <CardTitle>Suggested Guides</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

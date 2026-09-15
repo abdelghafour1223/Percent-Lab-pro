@@ -3,13 +3,14 @@ import { Metadata } from 'next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { BLOG_CATEGORIES } from '@/data/blog';
+import { BLOG_POSTS } from '@/data/blog-posts';
 import {
   Calculator,
   DollarSign,
   GraduationCap,
   ShoppingCart,
   ArrowRight,
-  Clock,
+  BookOpen,
 } from 'lucide-react';
 
 const iconMap = {
@@ -21,13 +22,13 @@ const iconMap = {
 
 export const metadata: Metadata = {
   title: 'PercentLab Blog — Percentage Guides, Tutorials & Insights',
-  description: 'Explore upcoming guides and tutorials to master percentage calculations, finance concepts, and practical real-world math.',
+  description: 'Master percentage calculations with in-depth guides on basics, finance, grades, and smart shopping — formulas, examples, and free calculators.',
   alternates: {
     canonical: 'https://www.percentlab.app/blog',
   },
   openGraph: {
     title: 'PercentLab Blog — Percentage Guides, Tutorials & Insights',
-    description: 'Explore upcoming guides and tutorials to master percentage calculations, finance concepts, and practical real-world math.',
+    description: 'Master percentage calculations with in-depth guides on basics, finance, grades, and smart shopping — formulas, examples, and free calculators.',
     url: 'https://www.percentlab.app/blog',
     type: 'website',
   },
@@ -96,12 +97,12 @@ export default function BlogPage() {
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 md:mb-8 px-4 leading-relaxed">
             Discover comprehensive guides, tutorials, and insights to master percentage calculations.
-            From basic concepts to advanced financial applications, we're building a complete learning hub
-            to help you understand percentages in every context.
+            From basic concepts to advanced financial applications, our learning hub
+            helps you understand percentages in every context.
           </p>
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 border border-primary/20 rounded-lg">
-            <Clock className="h-5 w-5 text-primary" />
-            <span className="font-semibold text-primary">Coming Soon – Tutorials & Articles</span>
+            <BookOpen className="h-5 w-5 text-primary" />
+            <span className="font-semibold text-primary">{BLOG_POSTS.length} In-Depth Guides Published</span>
           </div>
         </section>
 
@@ -139,7 +140,37 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* Featured Learning Paths — replaces thin "Coming Soon" skeletons */}
+        {/* Latest Articles */}
+        <section className="mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 md:mb-8 px-4">
+            Latest Articles
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 max-w-5xl mx-auto">
+            {BLOG_POSTS.map((post) => (
+              <Card key={`${post.category}/${post.slug}`} className="hover:shadow-lg transition-shadow">
+                <CardContent className="pt-6">
+                  <h3 className="font-semibold mb-2">{post.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-3 leading-relaxed line-clamp-2">
+                    {post.metaDescription}
+                  </p>
+                  <p className="text-xs text-muted-foreground mb-4">
+                    {post.readingMinutes} min read
+                  </p>
+                  <Button asChild variant="outline" className="w-full">
+                    <Link
+                      href={`/blog/${post.category}/${post.slug}`}
+                      aria-label={`Read ${post.title}`}
+                    >
+                      Read Article <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Featured Learning Paths */}
         <section className="mb-12 md:mb-16">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 md:mb-8 px-4">
             Featured Learning Paths
@@ -220,7 +251,7 @@ export default function BlogPage() {
                 Start Calculating Now
               </h3>
               <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
-                While we're building our learning hub, try our powerful calculators to solve your percentage problems instantly.
+                Pair every guide with our powerful calculators to solve your percentage problems instantly.
               </p>
               <Button asChild size="lg" className="min-h-[48px] text-base font-semibold">
                 <Link href="/#categories">
